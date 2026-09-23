@@ -30,6 +30,7 @@
 - `compose.gpu.yaml`：七个互相隔离的 CUDA 服务；
 - `FOUNDATION_MODELS_GPU.md`：版本锁定、构建、smoke、批量运行和验收命令；
 - `SERVER_MODEL_EXECUTION.md`：服务器拉取七个上游模型并运行的具体方案。
+- `TRACK2_三模型集成_级联残差与多Agent协同实验方案.md`：在 B 组从七模型中冻结前三名后，开展确定性集成、样本外残差修正、概率校准和多 Agent 协调的第二轨实验协议。
 
 ## 源数据配置
 
