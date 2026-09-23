@@ -1,5 +1,7 @@
 # 服务器运行七个时序模型的方法
 
+> 实现状态：七个 adapter、单起点输入分片、统一运行器和独立 CUDA Dockerfile 已加入仓库，但尚未在实际 GPU 上完成逐模型 smoke test。可执行命令和验收条件见 `FOUNDATION_MODELS_GPU.md`。
+
 ## 为什么不需要把七个上游仓库复制进本仓库
 
 服务器首先克隆本研究仓库，然后在构建每个模型的独立容器时，从官方仓库下载**锁定 commit** 的源码。源码存在服务器的容器镜像或构建缓存中，不进入本研究仓库的 Git 历史。模型权重同样按锁定的 checkpoint revision 下载到服务器缓存。
@@ -97,14 +99,17 @@ TimesFM、Chronos、Lag-Llama、Moirai、Granite、PatchTST、Informer 分别构
 configs/
   protocol.yaml
   upstream_revisions.yaml
-adapters/
-  timesfm_adapter.py
-  chronos_adapter.py
-  lag_llama_adapter.py
-  moirai_adapter.py
-  granite_adapter.py
-  patchtst_adapter.py
-  informer_adapter.py
+foundation_models/
+  contracts.py
+  origin_io.py
+  adapters/
+    timesfm3.py
+    chronos2.py
+    lag_llama.py
+    moirai.py
+    granite.py
+    patchtst.py
+    informer.py
 docker/
   baseline.Dockerfile
   timesfm.Dockerfile

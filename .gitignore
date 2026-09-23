@@ -5,6 +5,8 @@ __pycache__/
 .cache/
 weights/
 checkpoints/
+model-cache/
+.env.pinned
 results/
 evaluation/
 raw_data/

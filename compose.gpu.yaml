@@ -1,0 +1,71 @@
+x-foundation-run: &foundation-run
+  gpus: all
+  volumes:
+    - ${ORIGIN_SHARD_DIR:?Set ORIGIN_SHARD_DIR to one generated origin folder}:/artifacts:ro
+    - ./configs:/app/configs:ro
+    - ${MODEL_CACHE_DIR:-./model-cache}:/model-cache
+    - ${FOUNDATION_OUTPUT_ROOT:-./results/foundation}:/outputs
+
+services:
+  timesfm_3:
+    <<: *foundation-run
+    build:
+      context: .
+      dockerfile: docker/timesfm3.Dockerfile
+      args:
+        UPSTREAM_COMMIT: ${TIMESFM_COMMIT:?Run scripts/pin_upstream_revisions.py}
+    command: ["--model", "timesfm_3", "--inputs", "/artifacts/task_inputs.parquet", "--output", "/outputs/${RUN_OUTPUT_SUBDIR:-smoke}/timesfm_3", "--device", "cuda", "--history", "${HISTORY_LENGTHS:-all}"]
+
+  chronos_2:
+    <<: *foundation-run
+    build:
+      context: .
+      dockerfile: docker/chronos2.Dockerfile
+      args:
+        UPSTREAM_COMMIT: ${CHRONOS_COMMIT:?Run scripts/pin_upstream_revisions.py}
+    command: ["--model", "chronos_2", "--inputs", "/artifacts/task_inputs.parquet", "--output", "/outputs/${RUN_OUTPUT_SUBDIR:-smoke}/chronos_2", "--device", "cuda", "--history", "${HISTORY_LENGTHS:-all}"]
+
+  lag_llama:
+    <<: *foundation-run
+    build:
+      context: .
+      dockerfile: docker/lag_llama.Dockerfile
+      args:
+        UPSTREAM_COMMIT: ${LAG_LLAMA_COMMIT:?Run scripts/pin_upstream_revisions.py}
+    command: ["--model", "lag_llama", "--inputs", "/artifacts/task_inputs.parquet", "--output", "/outputs/${RUN_OUTPUT_SUBDIR:-smoke}/lag_llama", "--device", "cuda", "--batch-size", "1", "--history", "${HISTORY_LENGTHS:-all}"]
+
+  moirai:
+    <<: *foundation-run
+    build:
+      context: .
+      dockerfile: docker/moirai.Dockerfile
+      args:
+        UPSTREAM_COMMIT: ${MOIRAI_COMMIT:?Run scripts/pin_upstream_revisions.py}
+    command: ["--model", "moirai", "--inputs", "/artifacts/task_inputs.parquet", "--output", "/outputs/${RUN_OUTPUT_SUBDIR:-smoke}/moirai", "--device", "cuda", "--batch-size", "1", "--history", "${HISTORY_LENGTHS:-all}"]
+
+  granite_patchtst_fm:
+    <<: *foundation-run
+    build:
+      context: .
+      dockerfile: docker/granite.Dockerfile
+      args:
+        UPSTREAM_COMMIT: ${GRANITE_COMMIT:?Run scripts/pin_upstream_revisions.py}
+    command: ["--model", "granite_patchtst_fm", "--inputs", "/artifacts/task_inputs.parquet", "--output", "/outputs/${RUN_OUTPUT_SUBDIR:-smoke}/granite_patchtst_fm", "--device", "cuda", "--batch-size", "1", "--history", "${HISTORY_LENGTHS:-all}"]
+
+  patchtst:
+    <<: *foundation-run
+    build:
+      context: .
+      dockerfile: docker/patchtst.Dockerfile
+      args:
+        UPSTREAM_COMMIT: ${PATCHTST_COMMIT:?Run scripts/pin_upstream_revisions.py}
+    command: ["--model", "patchtst", "--inputs", "/artifacts/task_inputs.parquet", "--output", "/outputs/${RUN_OUTPUT_SUBDIR:-smoke}/patchtst", "--device", "cuda", "--batch-size", "32", "--history", "${HISTORY_LENGTHS:-all}"]
+
+  informer:
+    <<: *foundation-run
+    build:
+      context: .
+      dockerfile: docker/informer.Dockerfile
+      args:
+        UPSTREAM_COMMIT: ${INFORMER_COMMIT:?Run scripts/pin_upstream_revisions.py}
+    command: ["--model", "informer", "--inputs", "/artifacts/task_inputs.parquet", "--output", "/outputs/${RUN_OUTPUT_SUBDIR:-smoke}/informer", "--device", "cuda", "--batch-size", "32", "--history", "${HISTORY_LENGTHS:-all}"]

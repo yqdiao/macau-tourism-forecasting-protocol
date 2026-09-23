@@ -1,6 +1,6 @@
 # 澳门主样本与香港延伸：统一日度预测管道
 
-> **七个大模型状态：planned/pending。** TimesFM 3.0、Chronos-2、Lag-Llama、Moirai、Granite PatchTST-FM、PatchTST 与 Informer 尚未完成 adapter、独立 Dockerfile、checkpoint revision 锁定和 smoke test，当前仓库不能声称这些模型已经可以运行。现有 `configs/upstream_revisions.yaml` 只是版本登记模板。
+> **七个时序模型状态：implemented/pending GPU smoke。** TimesFM 3.0、Chronos-2、Lag-Llama、Moirai 2、Granite PatchTST-FM-r2、PatchTST 与 Informer 已有统一 adapter、单起点隔离输入和独立 CUDA Dockerfile；源码与 checkpoint revision 尚待在 GPU 服务器锁定并逐个完成 smoke test，因此当前不能声称七个模型已经全部验证可运行。详见 `FOUNDATION_MODELS_GPU.md`。
 
 ## 数据边界
 
@@ -25,6 +25,10 @@
 - `run_backtest.py`：只读 `task_inputs.parquet`，输出 raw/clipped 预测和时间记录；
 - `evaluate_predictions.py`：单独读取 targets，计算 28 天任务级指标及等权宏平均；
 - `compose.yaml`：预测器与评估器的分离挂载示例；
+- `prepare_origin_shards.py`：把总输入拆成模型进程只能看到的单起点制品；
+- `run_foundation_backtest.py`：七个时序模型的统一 28 天 GPU 运行器；
+- `compose.gpu.yaml`：七个互相隔离的 CUDA 服务；
+- `FOUNDATION_MODELS_GPU.md`：版本锁定、构建、smoke、批量运行和验收命令；
 - `SERVER_MODEL_EXECUTION.md`：服务器拉取七个上游模型并运行的具体方案。
 
 ## 源数据配置

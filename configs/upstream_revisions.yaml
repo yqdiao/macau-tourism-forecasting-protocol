@@ -1,50 +1,89 @@
-schema_version: 1
-policy:
-  require_full_commit_sha: true
-  require_checkpoint_revision: true
-  allow_floating_main_or_latest: false
-  commit_model_weights_to_git: false
-
-models:
-  timesfm_3:
-    repository: https://github.com/google-research/timesfm.git
-    source_revision: REQUIRED_BEFORE_RUN
-    checkpoint: REQUIRED_BEFORE_RUN
-    checkpoint_revision: REQUIRED_BEFORE_RUN
-    adapter_status: pending
-  chronos_2:
-    repository: https://github.com/amazon-science/chronos-forecasting.git
-    source_revision: REQUIRED_BEFORE_RUN
-    checkpoint: REQUIRED_BEFORE_RUN
-    checkpoint_revision: REQUIRED_BEFORE_RUN
-    adapter_status: pending
-  lag_llama:
-    repository: https://github.com/time-series-foundation-models/lag-llama.git
-    source_revision: REQUIRED_BEFORE_RUN
-    checkpoint: REQUIRED_BEFORE_RUN
-    checkpoint_revision: REQUIRED_BEFORE_RUN
-    adapter_status: pending
-  moirai:
-    repository: https://github.com/SalesforceAIResearch/uni2ts.git
-    source_revision: REQUIRED_BEFORE_RUN
-    checkpoint: REQUIRED_BEFORE_RUN
-    checkpoint_revision: REQUIRED_BEFORE_RUN
-    adapter_status: pending
-  granite_patchtst_fm:
-    repository: https://github.com/ibm-granite/granite-tsfm.git
-    source_revision: REQUIRED_BEFORE_RUN
-    checkpoint: REQUIRED_BEFORE_RUN
-    checkpoint_revision: REQUIRED_BEFORE_RUN
-    adapter_status: pending
-  patchtst:
-    repository: https://github.com/yuqinie98/PatchTST.git
-    source_revision: REQUIRED_BEFORE_RUN
-    checkpoint: null
-    checkpoint_revision: null
-    adapter_status: pending
-  informer:
-    repository: https://github.com/zhouhaoyi/Informer2020.git
-    source_revision: REQUIRED_BEFORE_RUN
-    checkpoint: null
-    checkpoint_revision: null
-    adapter_status: pending
+{
+  "schema_version": 2,
+  "policy": {
+    "require_full_commit_sha": true,
+    "require_checkpoint_revision": true,
+    "allow_floating_main_or_latest": false,
+    "commit_model_weights_to_git": false
+  },
+  "models": {
+    "timesfm_3": {
+      "repository": "https://github.com/google-research/timesfm.git",
+      "source_revision": "REQUIRED_BEFORE_RUN",
+      "checkpoint": "google/timesfm-3.0-pytorch",
+      "checkpoint_revision": "REQUIRED_BEFORE_RUN",
+      "code_license": "Apache-2.0",
+      "weights_license": "TimesFM-Non-Commercial-1.0",
+      "adapter_status": "implemented_pending_gpu_smoke",
+      "runtime": {"context_length": null, "extra": {"symmetric_averaging": false}}
+    },
+    "chronos_2": {
+      "repository": "https://github.com/amazon-science/chronos-forecasting.git",
+      "source_revision": "REQUIRED_BEFORE_RUN",
+      "checkpoint": "amazon/chronos-2",
+      "checkpoint_revision": "REQUIRED_BEFORE_RUN",
+      "code_license": "Apache-2.0",
+      "weights_license": "Apache-2.0",
+      "adapter_status": "implemented_pending_gpu_smoke",
+      "runtime": {"context_length": null, "extra": {}}
+    },
+    "lag_llama": {
+      "repository": "https://github.com/time-series-foundation-models/lag-llama.git",
+      "source_revision": "REQUIRED_BEFORE_RUN",
+      "checkpoint": "time-series-foundation-models/Lag-Llama",
+      "checkpoint_revision": "REQUIRED_BEFORE_RUN",
+      "code_license": "Apache-2.0",
+      "weights_license": "Apache-2.0",
+      "adapter_status": "implemented_pending_gpu_smoke",
+      "runtime": {"context_length": 512, "extra": {"checkpoint_file": "lag-llama.ckpt"}}
+    },
+    "moirai": {
+      "repository": "https://github.com/SalesforceAIResearch/uni2ts.git",
+      "source_revision": "REQUIRED_BEFORE_RUN",
+      "checkpoint": "Salesforce/moirai-2.0-R-small",
+      "checkpoint_revision": "REQUIRED_BEFORE_RUN",
+      "code_license": "Apache-2.0",
+      "weights_license": "CC-BY-NC-4.0",
+      "adapter_status": "implemented_pending_gpu_smoke",
+      "runtime": {"context_length": 1680, "extra": {}}
+    },
+    "granite_patchtst_fm": {
+      "repository": "https://github.com/ibm-granite/granite-tsfm.git",
+      "source_revision": "REQUIRED_BEFORE_RUN",
+      "checkpoint": "ibm-granite/granite-timeseries-patchtst-fm-r2",
+      "checkpoint_revision": "REQUIRED_BEFORE_RUN",
+      "code_license": "Apache-2.0",
+      "weights_license": "Apache-2.0-or-OpenMDW-1.0",
+      "adapter_status": "implemented_pending_gpu_smoke",
+      "runtime": {"context_length": 8192, "extra": {}}
+    },
+    "patchtst": {
+      "repository": "https://github.com/yuqinie98/PatchTST.git",
+      "source_revision": "REQUIRED_BEFORE_RUN",
+      "checkpoint": null,
+      "checkpoint_revision": null,
+      "code_license": "Apache-2.0",
+      "weights_license": null,
+      "adapter_status": "implemented_pending_gpu_smoke",
+      "runtime": {
+        "context_length": 365,
+        "extra": {"epochs": 30, "patience": 5, "learning_rate": 0.0001,
+                  "patch_len": 16, "stride": 8}
+      }
+    },
+    "informer": {
+      "repository": "https://github.com/zhouhaoyi/Informer2020.git",
+      "source_revision": "REQUIRED_BEFORE_RUN",
+      "checkpoint": null,
+      "checkpoint_revision": null,
+      "code_license": "Apache-2.0",
+      "weights_license": null,
+      "adapter_status": "implemented_pending_gpu_smoke",
+      "runtime": {
+        "context_length": 365,
+        "extra": {"epochs": 30, "patience": 5, "learning_rate": 0.0001,
+                  "label_length": 28}
+      }
+    }
+  }
+}
