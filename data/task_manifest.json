@@ -34,6 +34,21 @@
     "targets.parquet": {
       "sha256": "1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715",
       "model_access": "forbidden"
+    },
+    "splits/outer_backtest/task_inputs.parquet": {
+      "sha256": "069ac30bcda8f380fab284c7a79959ac615ed579f8a003ae744081058d92b8a5",
+      "task_count": 2871,
+      "contains_targets": false
+    },
+    "splits/pandemic_stress/task_inputs.parquet": {
+      "sha256": "b828e577345b6121c5ab976a7138841c27f36a45d3d1a511b9b0387a5edd37fb",
+      "task_count": 1053,
+      "contains_targets": false
+    },
+    "splits/recovery_tuning/task_inputs.parquet": {
+      "sha256": "78ea345abd02a128222447d2924352eea32eca6367a1d05a114bf86e8a45e77f",
+      "task_count": 972,
+      "contains_targets": false
     }
   }
 }

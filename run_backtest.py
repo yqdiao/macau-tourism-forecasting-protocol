@@ -20,6 +20,7 @@ import pandas as pd
 
 from data_pipeline import ForecastInputTask, HORIZON, read_task_inputs
 from models import MODEL_NAMES, forecast
+from baseline_config import SEARCH_PATH, validate as validate_baseline_config
 
 
 def _file_sha256(path: Path) -> str:
@@ -38,11 +39,12 @@ def _scales(history: np.ndarray, period: int = 7) -> tuple[float | None, float |
 
 
 def run_one(
-    task: ForecastInputTask, model: str, seed: int = 42
+    task: ForecastInputTask, model: str, seed: int = 42,
+    config: dict | None = None, candidate_id: str | None = None,
 ) -> tuple[list[dict], dict]:
     """Forecast one task. No observed target values are accepted or returned."""
     start = time.perf_counter()
-    result = forecast(model, task.history, HORIZON, seed)
+    result = forecast(model, task.history, HORIZON, seed, config=config)
     total = time.perf_counter() - start
     if len(result.prediction) != HORIZON or len(result.raw_prediction) != HORIZON:
         raise ValueError(f"{task.task_id}: {model} did not return 28 values")
@@ -68,6 +70,7 @@ def run_one(
                 "target_date": target_day,
                 "horizon_day": horizon_day,
                 "model": model,
+                "candidate_id": candidate_id,
                 "seed": seed,
                 "prediction_raw": float(raw),
                 "prediction": float(clipped),
@@ -82,6 +85,7 @@ def run_one(
         "split_name": task.split_name,
         "fold_id": task.fold_id,
         "model": model,
+        "candidate_id": candidate_id,
         "seed": seed,
         "fit_seconds": result.fit_seconds,
         "inference_seconds": result.inference_seconds,
@@ -118,6 +122,8 @@ def run(
     origin_date: date | None = None,
     max_tasks: int | None = None,
     seed: int = 42,
+    frozen_config: Path | None = None,
+    task_manifest: Path | None = None,
 ) -> dict:
     if not model_names or any(name not in MODEL_NAMES for name in model_names):
         raise ValueError(f"models must be selected from: {', '.join(MODEL_NAMES)}")
@@ -126,6 +132,25 @@ def run(
     inputs = Path(inputs).resolve()
     if inputs.name != "task_inputs.parquet" or not inputs.is_file():
         raise ValueError("--inputs must point to an existing task_inputs.parquet")
+    selected_configs = {}
+    frozen_sha = None
+    if frozen_config is not None:
+        frozen_config = Path(frozen_config).resolve()
+        task_manifest = Path(task_manifest).resolve() if task_manifest else inputs.parent / "task_manifest.json"
+        audit = validate_baseline_config(search_path=SEARCH_PATH,
+                                         freeze_path=frozen_config,
+                                         task_manifest_path=task_manifest)
+        if audit["freeze_status"] != "frozen_after_B_group_tuning":
+            raise ValueError("B group baseline configuration is not frozen")
+        freeze = json.loads(frozen_config.read_text(encoding="utf-8"))
+        search = json.loads(SEARCH_PATH.read_text(encoding="utf-8"))
+        for name in model_names:
+            chosen = freeze["models"][name]["candidate_id"]
+            match = [c for c in search["models"][name]["candidates"] if c["id"] == chosen]
+            if len(match) != 1:
+                raise ValueError(f"{name}: frozen candidate is not registered")
+            selected_configs[name] = (chosen, match[0]["params"])
+        frozen_sha = audit["freeze_sha256"]
     output.mkdir(parents=True, exist_ok=True)
     tasks = []
     for task in read_task_inputs(inputs):
@@ -151,7 +176,8 @@ def run(
     with timings_temporary.open("w", encoding="utf-8") as timings:
         for task_number, task in enumerate(tasks, 1):
             for name in model_names:
-                rows, timing = run_one(task, name, seed)
+                candidate_id, config = selected_configs.get(name, (None, None))
+                rows, timing = run_one(task, name, seed, config, candidate_id)
                 prediction_rows.extend(rows)
                 timings.write(json.dumps(timing, ensure_ascii=False) + "\n")
             if task_number % 10 == 0:
@@ -176,6 +202,8 @@ def run(
         "splits": list(splits),
         "origin_date": origin_date.isoformat() if origin_date else None,
         "seed": seed,
+        "baseline_config_status": "frozen_after_B_group_tuning" if frozen_sha else "smoke_defaults",
+        "frozen_config_sha256": frozen_sha,
         "forecast_tasks": len(tasks),
         "prediction_rows": len(predictions),
         "max_tasks": max_tasks,
@@ -213,6 +241,8 @@ def main() -> None:
     parser.add_argument("--origin-date", type=date.fromisoformat)
     parser.add_argument("--max-tasks", type=int)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--frozen-config", type=Path)
+    parser.add_argument("--task-manifest", type=Path)
     parser.add_argument(
         "--output",
         type=Path,
@@ -230,6 +260,8 @@ def main() -> None:
         origin_date=args.origin_date,
         max_tasks=args.max_tasks,
         seed=args.seed,
+        frozen_config=args.frozen_config,
+        task_manifest=args.task_manifest,
     )
     print(json.dumps(manifest, ensure_ascii=False, indent=2))
 

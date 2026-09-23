@@ -9,11 +9,15 @@
   "selection_rule": "lowest_mean_MASE7_then_lower_fit_time_then_candidate_id",
   "fold_ids": ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12"],
   "seeds": [11, 29, 42],
+  "multi_seed_models": ["transformer"],
+  "single_seed": 42,
+  "failure_policy": "retry an identical task at most twice; a failed candidate is ineligible; freeze only after every job succeeded or failed twice and each model has a fully covered candidate; report all failures",
+  "undefined_scale_policy": "report count and omit undefined MASE tasks from the score; retain their MAE",
   "candidate_policy": "The listed finite candidates are the complete search space. No outer targets may select candidates.",
   "models": {
     "seasonal_naive": {"max_trials": 1, "candidates": [{"id": "SN01", "params": {"period": 7}}]},
     "ets": {"max_trials": 3, "candidates": [
-      {"id": "ETS01", "params": {"transform": "log1p", "trend": null, "seasonal": "add", "seasonal_periods": 7}},
+      {"id": "ETS01", "params": {"transform": "log1p", "trend": null, "damped_trend": false, "seasonal": "add", "seasonal_periods": 7}},
       {"id": "ETS02", "params": {"transform": "log1p", "trend": "add", "damped_trend": false, "seasonal": "add", "seasonal_periods": 7}},
       {"id": "ETS03", "params": {"transform": "log1p", "trend": "add", "damped_trend": true, "seasonal": "add", "seasonal_periods": 7}}
     ]},

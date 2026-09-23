@@ -13,6 +13,8 @@
 
 `configs/protocol.yaml`（JSON 兼容 YAML 1.2）明确列出 A01–A13、B01–B12 和 O01–O33；每条输入带 `split_name` 与 `fold_id`。A 组仅澳门且只作疫情压力测试，B 组仅澳门且用于调参，外层为澳门主排名与香港延伸。`configs/baseline_search_spaces.yaml` 登记 13 个 baseline 的 33 个有限候选；`configs/frozen_baseline_configs.yaml` 当前为 `pending_B_group_tuning`，尚无经 B 组验证的参数赢家。
 
+数据准备还生成 `data/splits/recovery_tuning/task_inputs.parquet` 等分组输入。B 组预测程序只接受经 manifest 校验的 B 组专用输入，不能从外层历史读取未来日期。专用输入依然不含真实目标。
+
 预测容器不挂载 `targets.parquet`。预测完成后，独立评估器才按照 `task_id + target_date + horizon_day` 合并真实值。
 
 ## 文件
@@ -62,6 +64,28 @@ python baseline_config.py --task-manifest data/task_manifest.json
 ```
 
 任务 manifest 记录协议 SHA256、全任务列表 SHA256、B 组主历史任务列表 SHA256、各组数量和输入/目标文件 SHA256。只有 `frozen_baseline_configs.yaml` 完成 B 组调参并经校验后，才可把外层 baseline 输出称为论文正式排名；当前模型实现中的参数仍为硬编码 smoke 默认值。
+
+## B01–B12 baseline 调参与冻结
+
+`models.py` 已支持候选配置参数。先在预测环境运行；该进程仅需挂载 `data/splits/recovery_tuning/task_inputs.parquet` 和配置，不需目标文件。Windows 本机运行时建议把 BLAS 线程限制为 1，避免四个预测进程互相争用：
+
+```powershell
+$env:OPENBLAS_NUM_THREADS = '1'
+$env:OMP_NUM_THREADS = '1'
+python run_b_validation.py --workers 4
+```
+
+预测按“模型 × 候选 × seed × 任务”原子保存到 `results/b_validation`；同一 Git commit、搜索空间和输入 SHA 下重新执行会跳过已完成的路径。失败与尝试次数保存在 `results/b_validation/failures`。需要重试相同配置时加 `--retry-failures`。
+
+全部 324 条 B 组主历史任务、所有候选与规定 seed 完成后，在独立评价环境运行：
+
+```powershell
+python evaluate_b_validation.py --freeze
+```
+
+评价器才读取 `targets.parquet`，先算任务级 MASE(7)，对 seed、折次和市场等权平均。覆盖不足、代码未提交或 pilot 限制任务数时不会冻结。选择结果写入 `configs/frozen_baseline_configs.yaml`，并记录配置、协议、B 任务清单和候选汇总的 SHA256。之后正式 baseline 回测须显式传入 `--frozen-config configs/frozen_baseline_configs.yaml`。
+
+本机长时运行可调用 `scripts/run_b_local.ps1 -Workers 4`。脚本顺序执行候选预测、同配置失败重试、独立评价与有条件冻结；进度保存在 `results/b_validation/driver.log` 和 `driver_status.json`。当前电脑只有 CPU，树模型和 Transformer 的完整 B 组搜索可能需要很长时间；运行期间不要修改模型代码、搜索配置或 B 输入制品。
 
 ## 预测阶段
 

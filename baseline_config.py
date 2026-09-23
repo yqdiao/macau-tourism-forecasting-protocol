@@ -21,6 +21,19 @@ MODEL_NAMES = (
     "random_forest", "gradient_boosting", "svr", "lasso", "elasticnet",
     "parrot_random_forest_800", "lightgbm", "transformer",
 )
+ALLOWED_PARAMS = {
+    "seasonal_naive": {"period"},
+    "ets": {"transform", "trend", "damped_trend", "seasonal", "seasonal_periods"},
+    "sarima": {"transform", "order", "seasonal_order", "trend"},
+    "ridge": {"alpha"}, "linear_regression": {"fit_intercept"},
+    "random_forest": {"n_estimators", "max_depth", "min_samples_split"},
+    "gradient_boosting": {"n_estimators", "max_depth", "learning_rate"},
+    "svr": {"kernel", "C", "epsilon"}, "lasso": {"alpha"},
+    "elasticnet": {"alpha", "l1_ratio"},
+    "parrot_random_forest_800": {"n_estimators", "max_depth"},
+    "lightgbm": {"n_estimators", "learning_rate", "num_leaves", "max_depth"},
+    "transformer": {"lookback", "epochs", "learning_rate", "d_model"},
+}
 
 
 def _read(path: Path) -> tuple[dict, str]:
@@ -44,6 +57,8 @@ def validate(search_path: Path = SEARCH_PATH, freeze_path: Path = FREEZE_PATH,
         raise ValueError("Baseline search must use exactly B01-B12")
     if not search.get("seeds") or len(set(search["seeds"])) != len(search["seeds"]):
         raise ValueError("Baseline seeds must be fixed and unique")
+    if search.get("multi_seed_models") != ["transformer"] or search.get("single_seed") != 42:
+        raise ValueError("Seed allocation differs from the registered protocol")
     if set(search["models"]) != set(MODEL_NAMES) or set(frozen["models"]) != set(MODEL_NAMES):
         raise ValueError("Both baseline configs must list all 13 models")
     candidate_lookup = {}
@@ -54,6 +69,8 @@ def validate(search_path: Path = SEARCH_PATH, freeze_path: Path = FREEZE_PATH,
         ids = [candidate["id"] for candidate in candidates]
         if len(set(ids)) != len(ids) or any(not isinstance(c["params"], dict) for c in candidates):
             raise ValueError(f"{model}: duplicate id or invalid parameters")
+        if any(set(candidate["params"]) != ALLOWED_PARAMS[model] for candidate in candidates):
+            raise ValueError(f"{model}: candidate parameters do not match the model adapter")
         candidate_lookup[model] = set(ids)
     if frozen.get("selection_metric") != search["selection_metric"]:
         raise ValueError("Freeze metric differs from the registered search metric")

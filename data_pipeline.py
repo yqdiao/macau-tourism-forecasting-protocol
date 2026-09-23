@@ -421,6 +421,15 @@ def write_task_artifacts(
     _write_parquet_atomic(inputs[index_columns], index_path)
     _write_parquet_atomic(inputs, input_path)
     _write_parquet_atomic(targets, target_path)
+    split_input_artifacts = {}
+    for split_name, split_frame in inputs.groupby("split_name", sort=True):
+        split_path = folder / "splits" / str(split_name) / "task_inputs.parquet"
+        _write_parquet_atomic(split_frame.reset_index(drop=True), split_path)
+        split_input_artifacts[f"splits/{split_name}/task_inputs.parquet"] = {
+            "sha256": _file_sha256(split_path),
+            "task_count": len(split_frame),
+            "contains_targets": False,
+        }
     task_index = "\n".join(
         f"{row.split_name}\t{row.fold_id}\t{row.task_id}"
         for row in inputs[["split_name", "fold_id", "task_id"]].itertuples(index=False)
@@ -460,6 +469,7 @@ def write_task_artifacts(
                 "sha256": _file_sha256(target_path),
                 "model_access": "forbidden",
             },
+            **split_input_artifacts,
         },
     }
     temporary = folder / ".task_manifest.json.tmp"

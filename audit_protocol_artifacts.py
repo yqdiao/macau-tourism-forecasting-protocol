@@ -75,6 +75,16 @@ def audit(folder: Path, protocol_path: Path = DEFAULT_PROTOCOL) -> dict:
             b_lines.append(line)
     if dict(split_counts) != manifest["split_task_counts"]:
         raise ValueError("Split task counts differ from manifest")
+    for split_name, expected_count in split_counts.items():
+        relative = f"splits/{split_name}/task_inputs.parquet"
+        split_path = folder / relative
+        if _sha(split_path) != manifest["artifacts"][relative]["sha256"]:
+            raise ValueError(f"{split_name}: split input SHA256 mismatch")
+        split_inputs = pd.read_parquet(split_path)
+        if len(split_inputs) != expected_count or set(split_inputs["split_name"]) != {split_name}:
+            raise ValueError(f"{split_name}: split input membership mismatch")
+        if split_inputs["task_id"].tolist() != inputs.loc[inputs["split_name"] == split_name, "task_id"].tolist():
+            raise ValueError(f"{split_name}: split input differs from canonical inputs")
     if hashlib.sha256(("\n".join(index_lines) + "\n").encode()).hexdigest() != manifest["task_list_sha256"]:
         raise ValueError("Task list SHA256 mismatch")
     if hashlib.sha256(("\n".join(b_lines) + "\n").encode()).hexdigest() != manifest["B_main_task_list_sha256"]:
