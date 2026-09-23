@@ -1,0 +1,40 @@
+services:
+  predictor:
+    build:
+      context: ../..
+      dockerfile: track1/docker/baseline.Dockerfile
+    command:
+      - --inputs
+      - /artifacts/task_inputs.parquet
+      - --models
+      - seasonal_naive,ets,sarima
+      - --destinations
+      - Macau
+      - --markets
+      - CN_Chinese_mainland
+      - --origin-date
+      - "2023-12-31"
+      - --history
+      - all
+      - --output
+      - /outputs/baseline
+    volumes:
+      - ../../shared/data/task_inputs.parquet:/artifacts/task_inputs.parquet:ro
+      - ../results:/outputs
+
+  evaluator:
+    build:
+      context: ../..
+      dockerfile: track1/docker/baseline.Dockerfile
+    entrypoint: ["python", "track1/code/evaluate_predictions.py"]
+    command:
+      - --predictions
+      - /outputs/baseline/predictions.parquet
+      - --targets
+      - /protected/targets.parquet
+      - --output
+      - /evaluation/baseline
+    volumes:
+      - ../results:/outputs:ro
+      - ../../shared/data/targets.parquet:/protected/targets.parquet:ro
+      - ../evaluation:/evaluation

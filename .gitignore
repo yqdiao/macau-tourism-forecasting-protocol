@@ -9,6 +9,8 @@ model-cache/
 .env.pinned
 results/
 evaluation/
+track1/model-cache/
+track1/.env.pinned
 raw_data/
 .ipynb_checkpoints/
 *.tmp

@@ -10,5 +10,9 @@ results/
 evaluation/
 raw_data/
 data/
+shared/data/
+track1/results/
+track1/evaluation/
+track1/model-cache/
 *.ipynb
 *.md
