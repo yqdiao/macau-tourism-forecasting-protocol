@@ -56,6 +56,8 @@ def run_one(
         rows.append(
             {
                 "task_id": task.task_id,
+                "split_name": task.split_name,
+                "fold_id": task.fold_id,
                 "destination": task.destination,
                 "market": task.market,
                 "origin_date": task.origin,
@@ -77,6 +79,8 @@ def run_one(
         )
     timing = {
         "task_id": task.task_id,
+        "split_name": task.split_name,
+        "fold_id": task.fold_id,
         "model": model,
         "seed": seed,
         "fit_seconds": result.fit_seconds,
@@ -110,6 +114,7 @@ def run(
     destinations: tuple[str, ...] = (),
     markets: tuple[str, ...] = (),
     history_lengths: tuple[str, ...] = (),
+    splits: tuple[str, ...] = (),
     origin_date: date | None = None,
     max_tasks: int | None = None,
     seed: int = 42,
@@ -129,6 +134,8 @@ def run(
         if markets and task.market not in markets and f"{task.destination}:{task.market}" not in markets:
             continue
         if history_lengths and task.history_length_label not in history_lengths:
+            continue
+        if splits and task.split_name not in splits:
             continue
         if origin_date and task.origin != origin_date:
             continue
@@ -166,6 +173,7 @@ def run(
         "destinations": list(destinations),
         "markets": list(markets),
         "history_lengths": list(history_lengths),
+        "splits": list(splits),
         "origin_date": origin_date.isoformat() if origin_date else None,
         "seed": seed,
         "forecast_tasks": len(tasks),
@@ -201,6 +209,7 @@ def main() -> None:
     parser.add_argument("--destinations", default="")
     parser.add_argument("--markets", default="")
     parser.add_argument("--history", default="", help="Comma-separated 180,365,all filter")
+    parser.add_argument("--splits", default="", help="Comma-separated pandemic_stress,recovery_tuning,outer_backtest")
     parser.add_argument("--origin-date", type=date.fromisoformat)
     parser.add_argument("--max-tasks", type=int)
     parser.add_argument("--seed", type=int, default=42)
@@ -216,6 +225,7 @@ def main() -> None:
         destinations=tuple(x.strip() for x in args.destinations.split(",") if x.strip()),
         markets=tuple(x.strip() for x in args.markets.split(",") if x.strip()),
         history_lengths=tuple(x.strip() for x in args.history.split(",") if x.strip()),
+        splits=tuple(x.strip() for x in args.splits.split(",") if x.strip()),
         output=args.output,
         origin_date=args.origin_date,
         max_tasks=args.max_tasks,

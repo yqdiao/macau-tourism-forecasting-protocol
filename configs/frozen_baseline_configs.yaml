@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "pending_B_group_tuning",
+  "source_search_space_sha256": null,
+  "source_protocol_sha256": null,
+  "B_task_list_sha256": null,
+  "selection_metric": "task_MASE7_market_fold_macro",
+  "selected_after_B_only": false,
+  "frozen_at_utc": null,
+  "model_code_commit": null,
+  "models": {
+    "seasonal_naive": {"candidate_id": "SN01", "status": "fixed_without_tuning", "validation_score": null},
+    "ets": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "sarima": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "ridge": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "linear_regression": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "random_forest": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "gradient_boosting": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "svr": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "lasso": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "elasticnet": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "parrot_random_forest_800": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "lightgbm": {"candidate_id": null, "status": "pending", "validation_score": null},
+    "transformer": {"candidate_id": null, "status": "pending", "validation_score": null}
+  }
+}

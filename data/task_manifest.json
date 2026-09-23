@@ -1,9 +1,17 @@
 {
-  "schema_version": 1,
-  "task_count": 2871,
-  "target_row_count": 80388,
+  "schema_version": 2,
+  "protocol_id": "macau_daily_28d_v1",
+  "protocol_sha256": "5d1c5c9410a2492d999c08a8a0c1a05e288d604f65e28d3da2dd8ae9e8980693",
+  "task_list_sha256": "805a1bdf0c422511e9c621cf7b12ffd7a207eae965dc2a01ec46e13b673a78fb",
+  "B_main_task_list_sha256": "1074e3be580a1a2cea63aaa502ad0c2267a15ff2dc01e5c5f78e04f8fcce928d",
+  "task_count": 4896,
+  "split_task_counts": {
+    "outer_backtest": 2871,
+    "pandemic_stress": 1053,
+    "recovery_tuning": 972
+  },
+  "target_row_count": 137088,
   "horizon_days": 28,
-  "stride_days": 28,
   "history_lengths": [
     180,
     365,
@@ -14,12 +22,17 @@
     "HongKong"
   ],
   "artifacts": {
+    "task_index.parquet": {
+      "sha256": "6fd64f23fcd489673e0a72e6a4ea031d7e4ac73ac98a36975911349c2b5f1530",
+      "contains_history_values": false,
+      "contains_targets": false
+    },
     "task_inputs.parquet": {
-      "sha256": "e526c9be7e4a96a2816b6984b6435c86cf248d853ff1e14720e8ef41f4617506",
+      "sha256": "7ab6ebb51e3146b258f60454b45fefb20e84dccec9619362f6651e0ca6a0999e",
       "contains_targets": false
     },
     "targets.parquet": {
-      "sha256": "8119e405ba241f750a1344a3809f456a468f5adcf41413076d965466c905a375",
+      "sha256": "1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715",
       "model_access": "forbidden"
     }
   }

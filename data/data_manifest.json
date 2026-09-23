@@ -10,6 +10,8 @@
     365,
     "all"
   ],
+  "protocol_id": "macau_daily_28d_v1",
+  "protocol_sha256": "5d1c5c9410a2492d999c08a8a0c1a05e288d604f65e28d3da2dd8ae9e8980693",
   "quality": [
     {
       "destination": "Macau",

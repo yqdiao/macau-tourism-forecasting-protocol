@@ -1,6 +1,6 @@
 # 澳门日度旅游需求：七个时序仓库与 13 个基准模型的统一 GPU 实验方案
 
-> **2026-09-23 决策更新：** 主实验采用 TimesFM 3.0、Chronos-2、Lag-Llama、Moirai、Granite TimeSeries PatchTST-FM、PatchTST 和 Informer。主输入为单市场单变量日度历史，输出为未来 28 天；每个预测起点使用此前全部可得历史并采用 expanding window，180/365 天降为敏感性分析。执行清单见 [00_主实验决策与实施TODO.md](./00_主实验决策与实施TODO.md)。
+> **2026-09-23 决策更新：** 主实验采用 TimesFM 3.0、Chronos-2、Lag-Llama、Moirai、Granite TimeSeries PatchTST-FM、PatchTST 和 Informer。主输入为单市场单变量日度历史，输出为未来 28 天；每个预测起点使用此前全部可得历史并采用 expanding window，180/365 天降为敏感性分析。执行清单见 [统一实验方案](./澳门日度旅游需求_统一实验方案与执行清单.md)。
 
 ## 1. 本文档采用的口径
 
@@ -438,8 +438,8 @@ Git 仓库不提交：
 
 ### A. 冻结研究设计
 
-- [ ] 将现有回测协议写入 `configs/protocol.yaml`，固定 29 条序列、28 天 horizon、33 个共同起点、3 个历史长度。
-- [ ] 导出不可变 `task_index.parquet`，为每个任务生成稳定 `task_id`。
+- [x] 将现有回测协议写入 `configs/protocol.yaml`，固定 29 条序列、28 天 horizon、33 个共同起点、3 个历史长度。
+- [x] 导出带 SHA256 的 `task_index.parquet`，为每个任务生成稳定 `task_id`。
 - [ ] 决定论文采用“原始七仓库审计”还是“七个可比较模型”；推荐后者以 Moirai、Granite 替换 Amazon Forecast、DeepLOB。
 - [ ] 决定 TimesFM 3.0 非商业许可是否符合研究和后续发布用途；同时保留 2.5 复现配置。
 - [ ] 预先固定高需求阈值定义、概率指标、统计检验和缺失任务处理规则。

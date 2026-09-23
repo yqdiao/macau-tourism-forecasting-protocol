@@ -126,7 +126,7 @@ scripts/
 # 1. 在数据准备环境生成隔离制品
 python prepare_tasks.py --macau-dir /protected/raw/macau \
   --hong-kong-workbook /protected/raw/hong_kong.xlsx \
-  --output data --stride-days 28 --history 180,365,all
+  --output data --protocol configs/protocol.yaml
 
 # 2. 运行某个预测镜像；该容器看不到 targets
 docker compose run --rm predictor

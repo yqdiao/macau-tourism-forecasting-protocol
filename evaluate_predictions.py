@@ -47,6 +47,8 @@ def _safe_ratio(numerator: float, denominator: float | None) -> float | None:
 def _task_metrics(scored: pd.DataFrame) -> pd.DataFrame:
     keys = [
         "task_id",
+        "split_name",
+        "fold_id",
         "destination",
         "market",
         "origin_date",
@@ -102,7 +104,7 @@ def _aggregate(task_metrics: pd.DataFrame) -> pd.DataFrame:
     ]
     rows: list[dict] = []
     for market_mode in ("individual", "ALL"):
-        group_columns = ["destination", "model", "seed", "history_length"]
+        group_columns = ["split_name", "destination", "model", "seed", "history_length"]
         source = task_metrics.copy()
         if market_mode == "individual":
             group_columns.insert(1, "market")
@@ -133,6 +135,9 @@ def evaluate(predictions_path: Path, targets_path: Path, output: Path) -> dict:
         raise ValueError("targets input must be named targets.parquet")
     predictions = pd.read_parquet(predictions_path, engine="pyarrow")
     targets = pd.read_parquet(targets_path, engine="pyarrow")
+    for frame, label in ((predictions, "predictions"), (targets, "targets")):
+        if not {"split_name", "fold_id"}.issubset(frame.columns):
+            raise ValueError(f"{label} must identify its protocol split and fold")
     prediction_key = ["task_id", "model", "seed", "target_date", "horizon_day"]
     target_key = ["task_id", "target_date", "horizon_day"]
     if predictions.duplicated(prediction_key).any():
@@ -143,6 +148,12 @@ def evaluate(predictions_path: Path, targets_path: Path, output: Path) -> dict:
     if unknown:
         raise ValueError(f"Predictions contain {len(unknown)} unknown task_id values")
     target_subset = targets[targets["task_id"].isin(predictions["task_id"].unique())]
+    task_tags = predictions[["task_id", "split_name", "fold_id"]].drop_duplicates()
+    target_tags = target_subset[["task_id", "split_name", "fold_id"]].drop_duplicates()
+    if len(task_tags) != predictions["task_id"].nunique() or len(target_tags) != target_subset["task_id"].nunique():
+        raise ValueError("A task has inconsistent split or fold labels")
+    if set(map(tuple, task_tags.itertuples(index=False, name=None))) != set(map(tuple, target_tags.itertuples(index=False, name=None))):
+        raise ValueError("Prediction and target split/fold labels disagree")
     scored = predictions.merge(
         target_subset[["task_id", "target_date", "horizon_day", "actual"]],
         on=["task_id", "target_date", "horizon_day"],
@@ -170,7 +181,7 @@ def evaluate(predictions_path: Path, targets_path: Path, output: Path) -> dict:
         "task_model_paths": len(tasks),
         "predictions_sha256": _file_sha256(predictions_path),
         "targets_sha256": _file_sha256(targets_path),
-        "aggregation": "28-day task metrics followed by equal-weight macro mean",
+        "aggregation": "28-day task metrics followed by split-specific equal-weight macro mean",
         "outputs": {
             scored_path.name: _file_sha256(scored_path),
             tasks_path.name: _file_sha256(tasks_path),

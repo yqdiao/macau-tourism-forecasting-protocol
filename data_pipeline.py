@@ -27,6 +27,7 @@ if LOCAL_DEPS.exists() and str(LOCAL_DEPS) not in sys.path:
 import numpy as np
 import pandas as pd
 from openpyxl import load_workbook
+from protocol_config import Protocol, load_protocol
 
 HERE = Path(__file__).resolve().parent
 RAW_DATA_ROOT = HERE / "raw_data"
@@ -67,6 +68,8 @@ class ForecastInputTask:
     history_start: date
     history: np.ndarray
     target_dates: tuple[date, ...]
+    split_name: str = "outer_backtest"
+    fold_id: str = ""
 
     @property
     def key(self) -> str:
@@ -280,6 +283,26 @@ def iter_input_tasks(
                 yield make_input_task(item, origin, length)
 
 
+def iter_protocol_tasks(
+    series: dict[str, DailySeries], protocol: Protocol,
+    destinations: tuple[str, ...] = ("Macau", "HongKong"),
+) -> Iterator[ForecastInputTask]:
+    """Use only the explicitly listed folds; A/B never include Hong Kong."""
+    for item in series.values():
+        if item.destination not in destinations:
+            continue
+        for fold in protocol.folds:
+            if item.destination not in fold.destinations:
+                continue
+            for length in protocol.history_lengths:
+                base = make_input_task(item, fold.origin, length, protocol.horizon_days)
+                yield ForecastInputTask(
+                    base.task_id, base.destination, base.market, base.origin,
+                    base.history_length_label, base.history_start, base.history,
+                    base.target_dates, fold.split_name, fold.fold_id,
+                )
+
+
 def make_task(*args, **kwargs) -> ForecastInputTask:
     """Compatibility alias. Returned tasks never contain observed targets."""
     return make_input_task(*args, **kwargs)
@@ -321,28 +344,26 @@ def write_task_artifacts(
     series: dict[str, DailySeries],
     folder: Path,
     *,
-    stride_days: int = 28,
-    history_lengths: tuple[int | None, ...] = HISTORY_LENGTHS,
+    protocol: Protocol | None = None,
     destinations: tuple[str, ...] = ("Macau", "HongKong"),
 ) -> dict:
     """Write model inputs and hidden targets as separate Parquet artifacts."""
     folder = Path(folder)
+    protocol = protocol or load_protocol()
     input_rows: list[dict] = []
     target_rows: list[dict] = []
-    for task in iter_input_tasks(
-        series,
-        stride_days=stride_days,
-        history_lengths=history_lengths,
-        destinations=destinations,
-    ):
+    for task in iter_protocol_tasks(series, protocol, destinations):
         input_rows.append(
             {
                 "task_id": task.task_id,
+                "split_name": task.split_name,
+                "fold_id": task.fold_id,
                 "destination": task.destination,
                 "market": task.market,
                 "origin_date": task.origin,
                 "history_length": task.history_length_label,
                 "history_start": task.history_start,
+                "history_end": task.origin,
                 "training_history_days": len(task.history),
                 "requested_context_days": (
                     None if task.history_length_label == "all" else int(task.history_length_label)
@@ -363,6 +384,8 @@ def write_task_artifacts(
             target_rows.append(
                 {
                     "task_id": task.task_id,
+                    "split_name": task.split_name,
+                    "fold_id": task.fold_id,
                     "destination": task.destination,
                     "market": task.market,
                     "origin_date": task.origin,
@@ -379,21 +402,56 @@ def write_task_artifacts(
     if inputs["task_id"].duplicated().any():
         raise ValueError("Duplicate task_id in model inputs")
     target_counts = targets.groupby("task_id").size()
-    if not target_counts.eq(HORIZON).all():
+    if not target_counts.eq(protocol.horizon_days).all():
         raise ValueError("Every task must have exactly 28 hidden targets")
+    if not (pd.to_datetime(inputs["history_end"]) == pd.to_datetime(inputs["origin_date"])).all():
+        raise ValueError("History extends beyond a task origin")
+    if not (pd.to_datetime(inputs["target_start_date"]) == pd.to_datetime(inputs["origin_date"]) + pd.Timedelta(days=1)).all():
+        raise ValueError("Target start does not immediately follow its origin")
+    if not (pd.to_datetime(inputs["target_end_date"]) == pd.to_datetime(inputs["origin_date"]) + pd.Timedelta(days=protocol.horizon_days)).all():
+        raise ValueError("Target end does not match the horizon")
     input_path = folder / "task_inputs.parquet"
     target_path = folder / "targets.parquet"
+    index_path = folder / "task_index.parquet"
+    index_columns = [
+        "task_id", "split_name", "fold_id", "destination", "market", "origin_date",
+        "history_length", "history_start", "history_end", "training_history_days",
+        "target_start_date", "target_end_date", "horizon_days", "history_sha256",
+    ]
+    _write_parquet_atomic(inputs[index_columns], index_path)
     _write_parquet_atomic(inputs, input_path)
     _write_parquet_atomic(targets, target_path)
+    task_index = "\n".join(
+        f"{row.split_name}\t{row.fold_id}\t{row.task_id}"
+        for row in inputs[["split_name", "fold_id", "task_id"]].itertuples(index=False)
+    ) + "\n"
+    b_main = inputs.loc[
+        (inputs["split_name"] == "recovery_tuning") & (inputs["history_length"] == "all"),
+        ["split_name", "fold_id", "task_id"],
+    ]
+    b_task_index = "\n".join(
+        f"{row.split_name}\t{row.fold_id}\t{row.task_id}"
+        for row in b_main.itertuples(index=False)
+    ) + "\n"
+    split_counts = {str(key): int(value) for key, value in inputs.groupby("split_name").size().items()}
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
+        "protocol_id": protocol.protocol_id,
+        "protocol_sha256": protocol.sha256,
+        "task_list_sha256": hashlib.sha256(task_index.encode("utf-8")).hexdigest(),
+        "B_main_task_list_sha256": hashlib.sha256(b_task_index.encode("utf-8")).hexdigest(),
         "task_count": len(inputs),
+        "split_task_counts": split_counts,
         "target_row_count": len(targets),
-        "horizon_days": HORIZON,
-        "stride_days": stride_days,
-        "history_lengths": [value if value is not None else "all" for value in history_lengths],
+        "horizon_days": protocol.horizon_days,
+        "history_lengths": [value if value is not None else "all" for value in protocol.history_lengths],
         "destinations": list(destinations),
         "artifacts": {
+            "task_index.parquet": {
+                "sha256": _file_sha256(index_path),
+                "contains_history_values": False,
+                "contains_targets": False,
+            },
             "task_inputs.parquet": {
                 "sha256": _file_sha256(input_path),
                 "contains_targets": False,
@@ -419,6 +477,8 @@ def read_task_inputs(path: Path) -> Iterator[ForecastInputTask]:
         "market",
         "origin_date",
         "history_length",
+        "split_name",
+        "fold_id",
         "history_start",
         "horizon_days",
         "history_sha256",
@@ -444,6 +504,8 @@ def read_task_inputs(path: Path) -> Iterator[ForecastInputTask]:
             pd.Timestamp(row.history_start).date(),
             history,
             tuple(origin + timedelta(days=h) for h in range(1, horizon + 1)),
+            str(row.split_name),
+            str(row.fold_id),
         )
 
 
@@ -484,7 +546,9 @@ def write_data_snapshot(
     folder: Path,
     macau_dir: Path = MACAU_DIR,
     hong_kong_workbook: Path = HONG_KONG_WORKBOOK,
+    protocol: Protocol | None = None,
 ) -> dict:
+    protocol = protocol or load_protocol()
     series = load_all(macau_dir, hong_kong_workbook)
     folder.mkdir(parents=True, exist_ok=True)
     export_normalized_jsonl(series, folder / "normalized_daily.jsonl")
@@ -492,10 +556,12 @@ def write_data_snapshot(
         "series_count": len(series),
         "macau_series": 27,
         "hong_kong_series": 2,
-        "horizon_days": HORIZON,
+        "horizon_days": protocol.horizon_days,
         "test_start": TEST_START.isoformat(),
         "test_end": TEST_END.isoformat(),
         "history_lengths": [180, 365, "all"],
+        "protocol_id": protocol.protocol_id,
+        "protocol_sha256": protocol.sha256,
         "quality": quality_summary(series),
         "source_sha256": source_manifest(macau_dir, hong_kong_workbook),
         "source_paths_included": False,

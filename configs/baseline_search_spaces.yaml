@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "registered_before_tuning",
+  "tuning_split": "recovery_tuning",
+  "pressure_split": "pandemic_stress",
+  "outer_split": "outer_backtest",
+  "history_setting": "all",
+  "selection_metric": "task_MASE7_market_fold_macro",
+  "selection_rule": "lowest_mean_MASE7_then_lower_fit_time_then_candidate_id",
+  "fold_ids": ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12"],
+  "seeds": [11, 29, 42],
+  "candidate_policy": "The listed finite candidates are the complete search space. No outer targets may select candidates.",
+  "models": {
+    "seasonal_naive": {"max_trials": 1, "candidates": [{"id": "SN01", "params": {"period": 7}}]},
+    "ets": {"max_trials": 3, "candidates": [
+      {"id": "ETS01", "params": {"transform": "log1p", "trend": null, "seasonal": "add", "seasonal_periods": 7}},
+      {"id": "ETS02", "params": {"transform": "log1p", "trend": "add", "damped_trend": false, "seasonal": "add", "seasonal_periods": 7}},
+      {"id": "ETS03", "params": {"transform": "log1p", "trend": "add", "damped_trend": true, "seasonal": "add", "seasonal_periods": 7}}
+    ]},
+    "sarima": {"max_trials": 3, "candidates": [
+      {"id": "SAR01", "params": {"transform": "log1p", "order": [1, 0, 0], "seasonal_order": [1, 0, 0, 7], "trend": "c"}},
+      {"id": "SAR02", "params": {"transform": "log1p", "order": [1, 1, 0], "seasonal_order": [1, 0, 0, 7], "trend": "n"}},
+      {"id": "SAR03", "params": {"transform": "log1p", "order": [0, 1, 1], "seasonal_order": [0, 1, 1, 7], "trend": "n"}}
+    ]},
+    "ridge": {"max_trials": 3, "candidates": [
+      {"id": "RID01", "params": {"alpha": 1.0}},
+      {"id": "RID02", "params": {"alpha": 10.0}},
+      {"id": "RID03", "params": {"alpha": 100.0}}
+    ]},
+    "linear_regression": {"max_trials": 1, "candidates": [{"id": "LIN01", "params": {"fit_intercept": true}}]},
+    "random_forest": {"max_trials": 3, "candidates": [
+      {"id": "RF01", "params": {"n_estimators": 100, "max_depth": 6, "min_samples_split": 5}},
+      {"id": "RF02", "params": {"n_estimators": 100, "max_depth": 10, "min_samples_split": 5}},
+      {"id": "RF03", "params": {"n_estimators": 300, "max_depth": 10, "min_samples_split": 5}}
+    ]},
+    "gradient_boosting": {"max_trials": 3, "candidates": [
+      {"id": "GB01", "params": {"n_estimators": 100, "max_depth": 3, "learning_rate": 0.05}},
+      {"id": "GB02", "params": {"n_estimators": 100, "max_depth": 6, "learning_rate": 0.05}},
+      {"id": "GB03", "params": {"n_estimators": 300, "max_depth": 3, "learning_rate": 0.05}}
+    ]},
+    "svr": {"max_trials": 3, "candidates": [
+      {"id": "SVR01", "params": {"kernel": "rbf", "C": 0.1, "epsilon": 0.01}},
+      {"id": "SVR02", "params": {"kernel": "rbf", "C": 1.0, "epsilon": 0.01}},
+      {"id": "SVR03", "params": {"kernel": "rbf", "C": 10.0, "epsilon": 0.01}}
+    ]},
+    "lasso": {"max_trials": 3, "candidates": [
+      {"id": "LAS01", "params": {"alpha": 0.0001}},
+      {"id": "LAS02", "params": {"alpha": 0.001}},
+      {"id": "LAS03", "params": {"alpha": 0.01}}
+    ]},
+    "elasticnet": {"max_trials": 3, "candidates": [
+      {"id": "EN01", "params": {"alpha": 0.001, "l1_ratio": 0.3}},
+      {"id": "EN02", "params": {"alpha": 0.001, "l1_ratio": 0.7}},
+      {"id": "EN03", "params": {"alpha": 0.01, "l1_ratio": 0.3}}
+    ]},
+    "parrot_random_forest_800": {"max_trials": 1, "candidates": [
+      {"id": "PRF01", "params": {"n_estimators": 800, "max_depth": null}}
+    ]},
+    "lightgbm": {"max_trials": 3, "candidates": [
+      {"id": "LGB01", "params": {"n_estimators": 100, "learning_rate": 0.05, "num_leaves": 31, "max_depth": 8}},
+      {"id": "LGB02", "params": {"n_estimators": 300, "learning_rate": 0.05, "num_leaves": 31, "max_depth": 8}},
+      {"id": "LGB03", "params": {"n_estimators": 100, "learning_rate": 0.05, "num_leaves": 63, "max_depth": 10}}
+    ]},
+    "transformer": {"max_trials": 3, "candidates": [
+      {"id": "TR01", "params": {"lookback": 56, "epochs": 8, "learning_rate": 0.001, "d_model": 32}},
+      {"id": "TR02", "params": {"lookback": 84, "epochs": 8, "learning_rate": 0.001, "d_model": 32}},
+      {"id": "TR03", "params": {"lookback": 56, "epochs": 16, "learning_rate": 0.0005, "d_model": 32}}
+    ]}
+  }
+}

@@ -37,9 +37,10 @@ except ImportError:
     def display(value): print(value.to_string() if hasattr(value, 'to_string') else value)
 from data_pipeline import (
     MACAU_DIR, HONG_KONG_WORKBOOK, TEST_START, TEST_END,
-    load_all, quality_summary, rolling_origins, make_input_task,
+    load_all, quality_summary, make_input_task,
     write_data_snapshot, write_task_artifacts,
 )
+from protocol_config import load_protocol
 PROJECT = Path.cwd()
 assert (PROJECT / 'data_pipeline.py').exists(), '请将工作目录设为 paper_pipeline 文件夹'
 print('Macau:', MACAU_DIR)
@@ -69,23 +70,23 @@ print('series:', manifest['series_count'])
 print('normalized observations:', sum(item['days'] for item in manifest['quality']))
 print('source files hashed:', len(manifest['source_sha256']))
 print('isolated tasks:', task_manifest['task_count'])
+print('split task counts:', task_manifest['split_task_counts'])
 """),
-    md("""## 3. 事先固定滚动起点
+    md("""## 3. 事先固定三组预测起点
 
-完整样本每日滚动（stride=1）；共同计算样本从 2023-12-31 起每隔 28 天滚动（stride=28）。每条未来 28 天路径都完整落在 2024-01-01—2026-07-31。"""),
-    code("""for key in ['Macau:CN_Chinese_mainland', 'HongKong:Mainland visitors', 'HongKong:Other visitors']:
-    item = series[key]
-    full = rolling_origins(item, stride_days=1)
-    common = rolling_origins(item, stride_days=28)
-    print(key, '| full:', len(full), full[0], 'to', full[-1],
-          '| common:', len(common), common[0], 'to', common[-1])
+`configs/protocol.yaml` 显式登记 A01–A13（疫情压力）、B01–B12（调参）和 O01–O33（外层排名）；A/B 仅澳门，香港只参加外层。"""),
+    code("""protocol = load_protocol()
+for split in ('pandemic_stress', 'recovery_tuning', 'outer_backtest'):
+    folds = [fold for fold in protocol.folds if fold.split_name == split]
+    print(split, len(folds), folds[0].fold_id, folds[0].origin,
+          'to', folds[-1].fold_id, folds[-1].origin, '| destinations:', folds[0].destinations)
 """),
     md("""## 4. 检查模型输入的信息边界
 
-`task.history` 截止 2026-07-03，任务对象没有 `actual` 属性。真实目标只存在于单独的 `targets.parquet`。"""),
+`task.history` 截止外层 O33 的 2026-06-14，任务对象没有 `actual` 属性。真实目标只存在于单独的 `targets.parquet`。"""),
     code("""from datetime import date
 item = series['Macau:CN_Chinese_mainland']
-task = make_input_task(item, date(2026, 7, 3), history_length=180)
+task = make_input_task(item, date(2026, 6, 14), history_length=180)
 print(task.key, '| history:', task.history_start, 'to', task.origin, len(task.history),
       '| forecast dates:', task.target_dates[0], 'to', task.target_dates[-1])
 assert len(task.history) == 180 and len(task.target_dates) == 28
@@ -135,7 +136,7 @@ display(families)
 
 可修改市场和起点。使用该起点的前 180 天历史，输出未来 28 天路径；不将未来实际值传入模型。默认演示 Seasonal Naïve、ETS、SARIMA，运行较快。把模型名添加到 `demo_models` 即可运行 LightGBM、Random Forest 或 Transformer。"""),
     code("""series = load_all()
-task = make_input_task(series['Macau:CN_Chinese_mainland'], date(2026, 7, 3), history_length=180)
+task = make_input_task(series['Macau:CN_Chinese_mainland'], date(2026, 6, 14), history_length=180)
 demo_models = ['seasonal_naive', 'ets', 'sarima']
 forecast_rows, time_rows = [], []
 for name in demo_models:
@@ -156,14 +157,18 @@ display(key_horizons[['model','horizon_day','target_date','prediction_raw','pred
 """),
     md("""## 完整滚动实验（默认关闭）
 
-要比较论文所有共同样本起点，先估算算力与费用；这里的开关默认为 `False`。若运行，澳门和香港分别输出，不合并训练。28 个步长的树模型和每起点重训的 Transformer 会耗时较长。"""),
+正式外层实验要先在 B 组完成调参并冻结配置；当前配置仍为 `pending_B_group_tuning`。以下开关默认关闭，且在参数未冻结时会拒绝批量运行。"""),
     code("""RUN_PAPER_BACKTEST = False
 if RUN_PAPER_BACKTEST:
+    from baseline_config import validate
+    audit = validate(task_manifest_path=PROJECT / 'data' / 'task_manifest.json')
+    if audit['freeze_status'] != 'frozen_after_B_group_tuning':
+        raise RuntimeError('请先完成 B 组调参并冻结 baseline 配置')
     selected = ('seasonal_naive','ets','sarima','random_forest','lightgbm','transformer')
     for destination in ('Macau','HongKong'):
         result = run(inputs=PROJECT / 'data' / 'task_inputs.parquet',
                      model_names=selected, destinations=(destination,),
-                     history_lengths=('180','365','all'),
+                     history_lengths=('all',), splits=('outer_backtest',),
                      output=PROJECT / 'results' / destination.lower())
         print(destination, result['forecast_tasks'], result['prediction_rows'])
 """),

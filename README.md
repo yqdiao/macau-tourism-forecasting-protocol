@@ -8,7 +8,10 @@
 
 - `data/task_inputs.parquet`：模型可读，含 task_id、日期、历史数组和历史校验值，不含真实目标；
 - `data/targets.parquet`：仅评估器可读，含未来 28 天真实值；
+- `data/task_index.parquet`：可审阅的完整任务索引，仅含日期、折次和历史哈希；
 - `data/task_manifest.json`：记录两个制品的 SHA256、任务数和协议参数。
+
+`configs/protocol.yaml`（JSON 兼容 YAML 1.2）明确列出 A01–A13、B01–B12 和 O01–O33；每条输入带 `split_name` 与 `fold_id`。A 组仅澳门且只作疫情压力测试，B 组仅澳门且用于调参，外层为澳门主排名与香港延伸。`configs/baseline_search_spaces.yaml` 登记 13 个 baseline 的 33 个有限候选；`configs/frozen_baseline_configs.yaml` 当前为 `pending_B_group_tuning`，尚无经 B 组验证的参数赢家。
 
 预测容器不挂载 `targets.parquet`。预测完成后，独立评估器才按照 `task_id + target_date + horizon_day` 合并真实值。
 
@@ -46,11 +49,19 @@ python prepare_tasks.py `
   --macau-dir "<澳门CSV文件夹>" `
   --hong-kong-workbook "<香港工作簿.xlsx>" `
   --output data `
-  --stride-days 28 `
-  --history 180,365,all
+  --protocol configs/protocol.yaml
 ```
 
-共同样本从 2023-12-31 起每隔 28 天滚动，共 33 个起点；最后一个规则起点为 2026-06-14，最后目标日为 2026-07-12。`all` 表示使用起点以前全部可得历史。
+协议产生三组任务：A 组 `27×13=351`、B 组 `27×12=324`、外层 `29×33=957` 条主历史 `all` 路径。加上 180/365 天敏感性任务，共 4,896 条 28 天路径。外层首个起点为 2023-12-31，最后一个规则起点为 2026-06-14，最后目标日为 2026-07-12。`all` 表示使用起点以前全部可得历史。
+
+生成后运行：
+
+```powershell
+python audit_protocol_artifacts.py --data data --protocol configs/protocol.yaml
+python baseline_config.py --task-manifest data/task_manifest.json
+```
+
+任务 manifest 记录协议 SHA256、全任务列表 SHA256、B 组主历史任务列表 SHA256、各组数量和输入/目标文件 SHA256。只有 `frozen_baseline_configs.yaml` 完成 B 组调参并经校验后，才可把外层 baseline 输出称为论文正式排名；当前模型实现中的参数仍为硬编码 smoke 默认值。
 
 ## 预测阶段
 
@@ -63,6 +74,7 @@ python run_backtest.py `
   --markets CN_Chinese_mainland `
   --origin-date 2023-12-31 `
   --history all `
+  --splits outer_backtest `
   --models seasonal_naive,ets,sarima `
   --output results\smoke_isolated
 ```

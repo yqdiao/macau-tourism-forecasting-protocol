@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "protocol_id": "macau_daily_28d_v1",
+  "horizon_days": 28,
+  "seasonal_period_days": 7,
+  "main_history": "all",
+  "sensitivity_histories": [180, 365],
+  "primary_metric": "task_MASE7_market_fold_macro",
+  "splits": {
+    "pandemic_stress": {
+      "destinations": ["Macau"],
+      "use_for_tuning": false,
+      "folds": [
+        {"id": "A01", "origin": "2020-01-21"},
+        {"id": "A02", "origin": "2020-04-21"},
+        {"id": "A03", "origin": "2020-07-21"},
+        {"id": "A04", "origin": "2020-10-20"},
+        {"id": "A05", "origin": "2021-01-19"},
+        {"id": "A06", "origin": "2021-04-20"},
+        {"id": "A07", "origin": "2021-07-20"},
+        {"id": "A08", "origin": "2021-10-19"},
+        {"id": "A09", "origin": "2022-01-18"},
+        {"id": "A10", "origin": "2022-04-19"},
+        {"id": "A11", "origin": "2022-07-19"},
+        {"id": "A12", "origin": "2022-10-18"},
+        {"id": "A13", "origin": "2022-12-10"}
+      ]
+    },
+    "recovery_tuning": {
+      "destinations": ["Macau"],
+      "use_for_tuning": true,
+      "folds": [
+        {"id": "B01", "origin": "2023-01-07"},
+        {"id": "B02", "origin": "2023-02-04"},
+        {"id": "B03", "origin": "2023-03-04"},
+        {"id": "B04", "origin": "2023-04-01"},
+        {"id": "B05", "origin": "2023-04-29"},
+        {"id": "B06", "origin": "2023-05-27"},
+        {"id": "B07", "origin": "2023-06-24"},
+        {"id": "B08", "origin": "2023-07-22"},
+        {"id": "B09", "origin": "2023-08-19"},
+        {"id": "B10", "origin": "2023-09-16"},
+        {"id": "B11", "origin": "2023-10-14"},
+        {"id": "B12", "origin": "2023-11-11"}
+      ]
+    },
+    "outer_backtest": {
+      "destinations": ["Macau", "HongKong"],
+      "use_for_tuning": false,
+      "folds": [
+        {"id": "O01", "origin": "2023-12-31"},
+        {"id": "O02", "origin": "2024-01-28"},
+        {"id": "O03", "origin": "2024-02-25"},
+        {"id": "O04", "origin": "2024-03-24"},
+        {"id": "O05", "origin": "2024-04-21"},
+        {"id": "O06", "origin": "2024-05-19"},
+        {"id": "O07", "origin": "2024-06-16"},
+        {"id": "O08", "origin": "2024-07-14"},
+        {"id": "O09", "origin": "2024-08-11"},
+        {"id": "O10", "origin": "2024-09-08"},
+        {"id": "O11", "origin": "2024-10-06"},
+        {"id": "O12", "origin": "2024-11-03"},
+        {"id": "O13", "origin": "2024-12-01"},
+        {"id": "O14", "origin": "2024-12-29"},
+        {"id": "O15", "origin": "2025-01-26"},
+        {"id": "O16", "origin": "2025-02-23"},
+        {"id": "O17", "origin": "2025-03-23"},
+        {"id": "O18", "origin": "2025-04-20"},
+        {"id": "O19", "origin": "2025-05-18"},
+        {"id": "O20", "origin": "2025-06-15"},
+        {"id": "O21", "origin": "2025-07-13"},
+        {"id": "O22", "origin": "2025-08-10"},
+        {"id": "O23", "origin": "2025-09-07"},
+        {"id": "O24", "origin": "2025-10-05"},
+        {"id": "O25", "origin": "2025-11-02"},
+        {"id": "O26", "origin": "2025-11-30"},
+        {"id": "O27", "origin": "2025-12-28"},
+        {"id": "O28", "origin": "2026-01-25"},
+        {"id": "O29", "origin": "2026-02-22"},
+        {"id": "O30", "origin": "2026-03-22"},
+        {"id": "O31", "origin": "2026-04-19"},
+        {"id": "O32", "origin": "2026-05-17"},
+        {"id": "O33", "origin": "2026-06-14"}
+      ]
+    }
+  }
+}
