@@ -1,0 +1,50 @@
+schema_version: 1
+policy:
+  require_full_commit_sha: true
+  require_checkpoint_revision: true
+  allow_floating_main_or_latest: false
+  commit_model_weights_to_git: false
+
+models:
+  timesfm_3:
+    repository: https://github.com/google-research/timesfm.git
+    source_revision: REQUIRED_BEFORE_RUN
+    checkpoint: REQUIRED_BEFORE_RUN
+    checkpoint_revision: REQUIRED_BEFORE_RUN
+    adapter_status: pending
+  chronos_2:
+    repository: https://github.com/amazon-science/chronos-forecasting.git
+    source_revision: REQUIRED_BEFORE_RUN
+    checkpoint: REQUIRED_BEFORE_RUN
+    checkpoint_revision: REQUIRED_BEFORE_RUN
+    adapter_status: pending
+  lag_llama:
+    repository: https://github.com/time-series-foundation-models/lag-llama.git
+    source_revision: REQUIRED_BEFORE_RUN
+    checkpoint: REQUIRED_BEFORE_RUN
+    checkpoint_revision: REQUIRED_BEFORE_RUN
+    adapter_status: pending
+  moirai:
+    repository: https://github.com/SalesforceAIResearch/uni2ts.git
+    source_revision: REQUIRED_BEFORE_RUN
+    checkpoint: REQUIRED_BEFORE_RUN
+    checkpoint_revision: REQUIRED_BEFORE_RUN
+    adapter_status: pending
+  granite_patchtst_fm:
+    repository: https://github.com/ibm-granite/granite-tsfm.git
+    source_revision: REQUIRED_BEFORE_RUN
+    checkpoint: REQUIRED_BEFORE_RUN
+    checkpoint_revision: REQUIRED_BEFORE_RUN
+    adapter_status: pending
+  patchtst:
+    repository: https://github.com/yuqinie98/PatchTST.git
+    source_revision: REQUIRED_BEFORE_RUN
+    checkpoint: null
+    checkpoint_revision: null
+    adapter_status: pending
+  informer:
+    repository: https://github.com/zhouhaoyi/Informer2020.git
+    source_revision: REQUIRED_BEFORE_RUN
+    checkpoint: null
+    checkpoint_revision: null
+    adapter_status: pending

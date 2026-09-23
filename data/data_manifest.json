@@ -1,0 +1,307 @@
+{
+  "series_count": 29,
+  "macau_series": 27,
+  "hong_kong_series": 2,
+  "horizon_days": 28,
+  "test_start": "2024-01-01",
+  "test_end": "2026-07-31",
+  "history_lengths": [
+    180,
+    365,
+    "all"
+  ],
+  "quality": [
+    {
+      "destination": "Macau",
+      "market": "AU_Australia",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 759,
+      "source_id": "macau/AU_Australia.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "BR_Brazil",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 923,
+      "source_id": "macau/BR_Brazil.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "CA_Canada",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 692,
+      "source_id": "macau/CA_Canada.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "CH_Switzerland",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 1048,
+      "source_id": "macau/CH_Switzerland.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "CN_Chinese_mainland",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 0,
+      "source_id": "macau/CN_Chinese_mainland.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "DE_Germany",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 900,
+      "source_id": "macau/DE_Germany.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "ES_Spain",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 976,
+      "source_id": "macau/ES_Spain.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "FR_France",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 873,
+      "source_id": "macau/FR_France.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "GB_United_Kingdom",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 860,
+      "source_id": "macau/GB_United_Kingdom.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "HK_Hong_Kong_SAR",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 0,
+      "source_id": "macau/HK_Hong_Kong_SAR.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "ID_Indonesia",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 961,
+      "source_id": "macau/ID_Indonesia.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "IN_India",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 968,
+      "source_id": "macau/IN_India.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "IT_Italy",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 958,
+      "source_id": "macau/IT_Italy.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "JP_Japan",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 796,
+      "source_id": "macau/JP_Japan.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "KR_Republic_of_Korea",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 825,
+      "source_id": "macau/KR_Republic_of_Korea.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "MY_Malaysia",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 805,
+      "source_id": "macau/MY_Malaysia.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "NL_Netherlands",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 960,
+      "source_id": "macau/NL_Netherlands.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "NZ_New_Zealand",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 930,
+      "source_id": "macau/NZ_New_Zealand.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "PH_Philippines",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 896,
+      "source_id": "macau/PH_Philippines.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "PT_Portugal",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 908,
+      "source_id": "macau/PT_Portugal.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "RU_Russian_Federation",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 896,
+      "source_id": "macau/RU_Russian_Federation.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "SG_Singapore",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 844,
+      "source_id": "macau/SG_Singapore.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "TH_Thailand",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 940,
+      "source_id": "macau/TH_Thailand.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "TW_Taiwan_region",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 11,
+      "source_id": "macau/TW_Taiwan_region.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "US_United_States_of_America",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 680,
+      "source_id": "macau/US_United_States_of_America.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "VN_Viet_Nam",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 1070,
+      "source_id": "macau/VN_Viet_Nam.csv"
+    },
+    {
+      "destination": "Macau",
+      "market": "ZA_South_Africa",
+      "first_date": "2017-01-01",
+      "last_date": "2026-07-31",
+      "days": 3499,
+      "zero_days": 965,
+      "source_id": "macau/ZA_South_Africa.csv"
+    },
+    {
+      "destination": "HongKong",
+      "market": "Mainland visitors",
+      "first_date": "2021-01-01",
+      "last_date": "2026-07-31",
+      "days": 2038,
+      "zero_days": 0,
+      "source_id": "hong_kong/Hong_Kong_daily_tourism_visualization.xlsx"
+    },
+    {
+      "destination": "HongKong",
+      "market": "Other visitors",
+      "first_date": "2021-01-01",
+      "last_date": "2026-07-31",
+      "days": 2038,
+      "zero_days": 0,
+      "source_id": "hong_kong/Hong_Kong_daily_tourism_visualization.xlsx"
+    }
+  ],
+  "source_sha256": {
+    "macau/AU_Australia.csv": "6dee048591eb65687b379717e9d336dbffae9a80d4eaab3253816f42918e0c1c",
+    "macau/BR_Brazil.csv": "1834d9660da19962e24a5207f996831389e4fca04a3961464988a79d09f90d95",
+    "macau/CA_Canada.csv": "8bed96f5feeb6ba6c37954a12a9de45faad7419fc7fb2d8362e87d96f7d556a4",
+    "macau/CH_Switzerland.csv": "df5b4c52a806c263ce79d4f9a476943da8df41599fcce56f13a85ef072d18cd4",
+    "macau/CN_Chinese_mainland.csv": "82454aa077ee881ba5d0e9613f99490fae28eaaf50c4feb256d01767c2c9d73e",
+    "macau/DE_Germany.csv": "299ebc8d98c29d29064198075f367026a3d05d1782350a9bd17885246c9249f8",
+    "macau/ES_Spain.csv": "53dd39b8038a02c43c69efaab635295cc89310f4a0cbab58504714d09593e16a",
+    "macau/FR_France.csv": "40e19cbd785581bb33a7a9606dfb1ab35661986751bdb22620297de5059f1d26",
+    "macau/GB_United_Kingdom.csv": "77d5d01af25279f8318cd022a2937c41558334db1a6fb1e620d78d9116d32e2a",
+    "macau/HK_Hong_Kong_SAR.csv": "e999058cd6b70ef85bb418b3478aaeffdeac4c7ddd6e0dac7a0f7cbd1609a8b0",
+    "macau/ID_Indonesia.csv": "5c5853a32539db0d7edaa0638113c79a0825c623b172e13c36604101d3841d67",
+    "macau/IN_India.csv": "b362eede6cdc3a3a7c9b4dd373b809ef6ead18e85e7dbef0ee391b4aa03569e3",
+    "macau/IT_Italy.csv": "83ae353aa75f0ed04eed6c2bf56379dd14c8283c00658550d79adbb6581dcad0",
+    "macau/JP_Japan.csv": "bf4ac215540de120305d5dc1dcc5c06f3ed8ba0a5dfb47ae924d4ee77e6e369c",
+    "macau/KR_Republic_of_Korea.csv": "727e862cbb138b8e53cf5e28808d27325d4ae288f6c8645560332c4261eec0a2",
+    "macau/MY_Malaysia.csv": "5475ecc9e86453e0825c7d6f4d877c0b43e221cfe07326b9f6a0dd15aade2680",
+    "macau/NL_Netherlands.csv": "199d3eadb108c56e12ae8216b0b775ad955af1c4d8970386edd87d074936ba16",
+    "macau/NZ_New_Zealand.csv": "ec0962e1ca3c985ac16e1833570a768109a69e1b4ae1e149b5915fa77f3fd01d",
+    "macau/PH_Philippines.csv": "0439b09472bc3dd865431de313210c7e233a56995215e02f7a75a4ef2880eb38",
+    "macau/PT_Portugal.csv": "8a7479453887bcade343a1910293df34228e571d2b4e828f030f37f9e416c30c",
+    "macau/RU_Russian_Federation.csv": "e20ac8cb370b64476d5e163c8da3a3aef3c9320a610860ccce7991bea54e7c41",
+    "macau/SG_Singapore.csv": "807167acb84be2b7ba2a4c43f5aa035fb6826b7427c5aab1a68c3698f409f89c",
+    "macau/TH_Thailand.csv": "85d3e4d31314e23583c10827a3e572edc8c12edc9e173de879706557b0ad0812",
+    "macau/TW_Taiwan_region.csv": "c0ec6b5711e3694157125506bc4399e4cc8b646d14e24997b21fccfeec694704",
+    "macau/US_United_States_of_America.csv": "e39f4f43d6653edb321822e3dca631cbaf3e0783f716db5b8d29ae0569f3404e",
+    "macau/VN_Viet_Nam.csv": "64b165e8ad73128292a82e65ff0db9eb0be601bf70ef4c5977361dbd1dfc190a",
+    "macau/ZA_South_Africa.csv": "c4a26d0334a606c77a2361666d0a23ffd7edbf5a52e4e07f49e5201a12f2198b",
+    "hong_kong/Hong_Kong_daily_tourism_visualization.xlsx": "c57b2cb120ac51351ec91237f6055a587000a48da044746706d5de321f5e780a"
+  },
+  "source_paths_included": false
+}

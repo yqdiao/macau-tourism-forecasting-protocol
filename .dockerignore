@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.git/
+.venv/
+.external/
+.cache/
+weights/
+checkpoints/
+results/
+evaluation/
+raw_data/
+data/
+*.ipynb
+*.md

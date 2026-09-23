@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_count": 2871,
+  "target_row_count": 80388,
+  "horizon_days": 28,
+  "stride_days": 28,
+  "history_lengths": [
+    180,
+    365,
+    "all"
+  ],
+  "destinations": [
+    "Macau",
+    "HongKong"
+  ],
+  "artifacts": {
+    "task_inputs.parquet": {
+      "sha256": "e526c9be7e4a96a2816b6984b6435c86cf248d853ff1e14720e8ef41f4617506",
+      "contains_targets": false
+    },
+    "targets.parquet": {
+      "sha256": "8119e405ba241f750a1344a3809f456a468f5adcf41413076d965466c905a375",
+      "model_access": "forbidden"
+    }
+  }
+}
