@@ -173,10 +173,10 @@ def run(*, inputs: Path, task_manifest_path: Path, output: Path, search_path: Pa
         _atomic_json(manifest, manifest_path)
     totals = {"completed": 0, "skipped": 0, "failed": 0, "failed_existing": 0}
     start = time.perf_counter()
-    with ProcessPoolExecutor(max_workers=workers) as pool:
-        for model in models:
-            candidates = search["models"][model]["candidates"]
-            seeds = search["seeds"] if model in search["multi_seed_models"] else [search["single_seed"]]
+    for model in models:
+        candidates = search["models"][model]["candidates"]
+        seeds = search["seeds"] if model in search["multi_seed_models"] else [search["single_seed"]]
+        with ProcessPoolExecutor(max_workers=workers) as pool:
             for candidate in candidates:
                 jobs = ((str(output), model, candidate["id"], candidate["params"], seed,
                          task, retry_failures) for seed in seeds for task in tasks)

@@ -238,7 +238,7 @@ def transformer(history, horizon=28, seed=42, epochs=8, lookback=56,
     t0 = time.perf_counter()
     torch.manual_seed(seed)
     torch.use_deterministic_algorithms(True)
-    torch.set_num_threads(2)
+    torch.set_num_threads(1)
     logs = np.log1p(y)
     mean, scale = float(logs.mean()), float(logs.std()) or 1.0
     standardized = (logs - mean) / scale
