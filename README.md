@@ -8,6 +8,8 @@
 
 七个时序模型的 adapter 和 CUDA 容器已经实现，当前状态为 `implemented/pending GPU smoke`。源码 commit 与 checkpoint revision 仍需在 GPU 服务器锁定后逐个验收。
 
+13 个 baseline 的 B01–B12 验证已于 2026-09-26 完成：12,636 条候选预测路径全部完成，失败数为 0，参数状态为 `frozen_after_B_group_tuning`。冻结配置见 [`track1/configs/frozen_baseline_configs.yaml`](track1/configs/frozen_baseline_configs.yaml)，审计记录见 [`track1/audit/b_validation/`](track1/audit/b_validation/)。后续外层回测必须使用该冻结配置，不得用 O01–O33 的结果重新选择参数。
+
 ## 仓库结构
 
 ```text
