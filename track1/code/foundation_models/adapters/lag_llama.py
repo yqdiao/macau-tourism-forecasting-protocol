@@ -9,6 +9,36 @@ import pandas as pd
 from foundation_models.checkpoints import resolve_snapshot
 from foundation_models.contracts import AdapterOutput, FoundationAdapter, require_cuda
 
+_DISTR_NAMES = {
+    "StudentTOutput": "studentT",
+    "NegativeBinomialOutput": "neg_bin",
+    "ImplicitQuantileNetworkOutput": "iqn",
+}
+
+
+def _estimator_kwargs(model_kwargs: dict) -> tuple[dict, list[int] | None]:
+    """Translate a published checkpoint into the current estimator API.
+
+    The pinned source accepts ``distr_output`` as a name and treats
+    ``lags_seq`` as frequency labels, which it then expands. The released
+    checkpoint stores a distribution object and the trained integer lags.
+    Passing those integers through the expander would rebuild a different
+    lag set and the checkpoint weights would not match the module.
+    """
+    requested = dict(model_kwargs)
+    lag_override = None
+    lags = requested.get("lags_seq")
+    if isinstance(lags, list) and lags and all(isinstance(item, int) for item in lags):
+        lag_override = [int(item) for item in lags]
+        requested.pop("lags_seq")
+    distr = requested.get("distr_output")
+    if distr is not None and not isinstance(distr, str):
+        name = _DISTR_NAMES.get(type(distr).__name__)
+        if name is None:
+            raise ValueError(f"unsupported Lag-Llama distr_output {type(distr).__name__}")
+        requested["distr_output"] = name
+    return requested, lag_override
+
 
 class LagLlamaAdapter(FoundationAdapter):
     model_name = "lag_llama"
@@ -44,7 +74,7 @@ class LagLlamaAdapter(FoundationAdapter):
         for item in items:
             history = self.effective_history(item)
             context_length = len(history)
-            requested = dict(self.model_kwargs)
+            requested, lag_override = _estimator_kwargs(self.model_kwargs)
             requested.update({
                 "ckpt_path": str(self.checkpoint_path),
                 "prediction_length": horizon,
@@ -56,6 +86,8 @@ class LagLlamaAdapter(FoundationAdapter):
             kwargs = {key: value for key, value in requested.items()
                       if key in signature.parameters}
             estimator = self.estimator_class(**kwargs)
+            if lag_override is not None:
+                estimator.lags_seq = lag_override
             module = estimator.create_lightning_module()
             transform = estimator.create_transformation()
             predictor = estimator.create_predictor(transform, module)

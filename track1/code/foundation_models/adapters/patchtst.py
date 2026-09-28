@@ -1,14 +1,51 @@
 from __future__ import annotations
 
-import json
+import importlib.util
 import sys
 from pathlib import Path
-from types import SimpleNamespace
+from types import ModuleType, SimpleNamespace
 
 import numpy as np
 
 from foundation_models.contracts import AdapterOutput, FoundationAdapter, require_cuda
 from foundation_models.adapters._trainable import fit_with_tail_validation, seed_everything, supervised_windows
+
+
+def _load_patchtst_model(upstream: Path):
+    """Load upstream PatchTST without colliding with track1/code/models.py.
+
+    The runner puts its own directory on sys.path, and that directory contains
+    the baseline module ``models.py``. A plain ``import models.PatchTST`` then
+    binds ``models`` to that file. Loading through a private package name keeps
+    the upstream checkout unchanged.
+    """
+    model_path = upstream / "models" / "PatchTST.py"
+    if not model_path.is_file():
+        raise FileNotFoundError(f"pinned PatchTST source not found: {model_path}")
+    root_name = "patchtst_supervised_upstream"
+    if root_name not in sys.modules:
+        root = ModuleType(root_name)
+        root.__path__ = [str(upstream)]
+        sys.modules[root_name] = root
+    models_name = f"{root_name}.models"
+    if models_name not in sys.modules:
+        package = ModuleType(models_name)
+        package.__path__ = [str(upstream / "models")]
+        package.__package__ = models_name
+        sys.modules[models_name] = package
+    module_name = f"{models_name}.PatchTST"
+    spec = importlib.util.spec_from_file_location(module_name, model_path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"could not load {model_path}")
+    module = importlib.util.module_from_spec(spec)
+    module.__package__ = models_name
+    sys.modules[module_name] = module
+    upstream_str = str(upstream)
+    if upstream_str in sys.path:
+        sys.path.remove(upstream_str)
+    sys.path.insert(0, upstream_str)
+    spec.loader.exec_module(module)
+    return module.Model
 
 
 class PatchTSTAdapter(FoundationAdapter):
@@ -20,12 +57,10 @@ class PatchTSTAdapter(FoundationAdapter):
         upstream = Path(self.settings.extra.get("upstream_path", "/opt/upstream/PatchTST_supervised"))
         if not upstream.is_dir():
             raise FileNotFoundError(f"pinned PatchTST source not found: {upstream}")
-        sys.path.insert(0, str(upstream))
         try:
-            from models.PatchTST import Model
-        except ImportError as exc:  # pragma: no cover
+            self.model_class = _load_patchtst_model(upstream)
+        except (ImportError, FileNotFoundError, AttributeError) as exc:
             raise RuntimeError("could not import PatchTST from the pinned upstream source") from exc
-        self.model_class = Model
 
     def _config(self, context: int, horizon: int) -> SimpleNamespace:
         value = self.settings.extra
