@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "models": [
+    "seasonal_naive",
+    "ets",
+    "sarima",
+    "ridge",
+    "linear_regression",
+    "random_forest",
+    "gradient_boosting",
+    "svr",
+    "lasso",
+    "elasticnet",
+    "parrot_random_forest_800",
+    "lightgbm",
+    "transformer"
+  ],
+  "destinations": [],
+  "markets": [],
+  "history_lengths": [
+    "all"
+  ],
+  "splits": [
+    "outer_backtest"
+  ],
+  "origin_date": null,
+  "seed": 42,
+  "baseline_config_status": "frozen_after_B_group_tuning",
+  "frozen_config_sha256": "f3db59140eda9d6161431b1cb9d44bc09cd853b70beb854d3d519eb01ec247e1",
+  "forecast_tasks": 957,
+  "prediction_rows": 348348,
+  "max_tasks": null,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "7ab6ebb51e3146b258f60454b45fefb20e84dccec9619362f6651e0ca6a0999e"
+  },
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "f0d7503eb99566b513bde74b5754a9d360d3a93f3095175ebbd276972f01d471",
+    "timings.jsonl": "a787c911705d90d0df8418e83cd8ba8cab3648e87001d9f602645cdcb2e16aef"
+  }
+}

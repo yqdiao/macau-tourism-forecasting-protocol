@@ -1,26 +1,92 @@
 {
   "schema_version": 1,
-  "status": "pending_B_group_tuning",
-  "source_search_space_sha256": null,
-  "source_protocol_sha256": null,
-  "B_task_list_sha256": null,
+  "status": "frozen_after_B_group_tuning",
+  "source_search_space_sha256": "693adf7a60c8eed26944b6b63a600e30e640c786f6afe9af9f9f037e8d1c0a04",
+  "source_protocol_sha256": "5d1c5c9410a2492d999c08a8a0c1a05e288d604f65e28d3da2dd8ae9e8980693",
+  "B_task_list_sha256": "1074e3be580a1a2cea63aaa502ad0c2267a15ff2dc01e5c5f78e04f8fcce928d",
   "selection_metric": "task_MASE7_market_fold_macro",
-  "selected_after_B_only": false,
-  "frozen_at_utc": null,
-  "model_code_commit": null,
+  "selected_after_B_only": true,
+  "frozen_at_utc": "2026-09-26T02:14:02.044424+00:00",
+  "model_code_commit": "dfd5359f85f51ad4c3963e9e552a181a9f209177",
+  "validation_summary_sha256": "fa15917e86654ffa792b763432e5e5fb2d8eeb949fe4f02d261e13ae41773b68",
   "models": {
-    "seasonal_naive": {"candidate_id": "SN01", "status": "fixed_without_tuning", "validation_score": null},
-    "ets": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "sarima": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "ridge": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "linear_regression": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "random_forest": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "gradient_boosting": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "svr": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "lasso": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "elasticnet": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "parrot_random_forest_800": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "lightgbm": {"candidate_id": null, "status": "pending", "validation_score": null},
-    "transformer": {"candidate_id": null, "status": "pending", "validation_score": null}
+    "seasonal_naive": {
+      "candidate_id": "SN01",
+      "status": "fixed_without_tuning",
+      "validation_score": null,
+      "mean_fit_seconds": 0.0
+    },
+    "ets": {
+      "candidate_id": "ETS03",
+      "status": "selected_on_B",
+      "validation_score": 1.0462299345095547,
+      "mean_fit_seconds": 0.365251905834561
+    },
+    "sarima": {
+      "candidate_id": "SAR03",
+      "status": "selected_on_B",
+      "validation_score": 1.2006632833253617,
+      "mean_fit_seconds": 0.6205420070694311
+    },
+    "ridge": {
+      "candidate_id": "RID02",
+      "status": "selected_on_B",
+      "validation_score": 1.0930484000242546,
+      "mean_fit_seconds": 0.04628612622719281
+    },
+    "linear_regression": {
+      "candidate_id": "LIN01",
+      "status": "selected_on_B",
+      "validation_score": 1.315377317776486,
+      "mean_fit_seconds": 0.08676018532010565
+    },
+    "random_forest": {
+      "candidate_id": "RF03",
+      "status": "selected_on_B",
+      "validation_score": 1.258881680275036,
+      "mean_fit_seconds": 49.96449652934421
+    },
+    "gradient_boosting": {
+      "candidate_id": "GB01",
+      "status": "selected_on_B",
+      "validation_score": 1.2629051896689443,
+      "mean_fit_seconds": 17.839950497040846
+    },
+    "svr": {
+      "candidate_id": "SVR02",
+      "status": "selected_on_B",
+      "validation_score": 1.1540724000511249,
+      "mean_fit_seconds": 3.5717572470013783
+    },
+    "lasso": {
+      "candidate_id": "LAS03",
+      "status": "selected_on_B",
+      "validation_score": 1.1063671457095892,
+      "mean_fit_seconds": 0.5070851800872018
+    },
+    "elasticnet": {
+      "candidate_id": "EN03",
+      "status": "selected_on_B",
+      "validation_score": 1.101505076900675,
+      "mean_fit_seconds": 0.6795682315714657
+    },
+    "parrot_random_forest_800": {
+      "candidate_id": "PRF01",
+      "status": "selected_on_B",
+      "validation_score": 1.25934801650551,
+      "mean_fit_seconds": 180.43979236325694
+    },
+    "lightgbm": {
+      "candidate_id": "LGB01",
+      "status": "selected_on_B",
+      "validation_score": 1.2540143335964204,
+      "mean_fit_seconds": 7.74512780219407
+    },
+    "transformer": {
+      "candidate_id": "TR03",
+      "status": "selected_on_B",
+      "validation_score": 1.2884238622766584,
+      "mean_fit_seconds": 5.840237607710555
+    }
   }
 }

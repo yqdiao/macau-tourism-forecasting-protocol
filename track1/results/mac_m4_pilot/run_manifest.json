@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "kind": "B_candidate_predictions",
+  "input_sha256": "78ea345abd02a128222447d2924352eea32eca6367a1d05a114bf86e8a45e77f",
+  "search_sha256": "693adf7a60c8eed26944b6b63a600e30e640c786f6afe9af9f9f037e8d1c0a04",
+  "protocol_sha256": "5d1c5c9410a2492d999c08a8a0c1a05e288d604f65e28d3da2dd8ae9e8980693",
+  "code_commit": "b404117ffd2d29003c6e2f12277d9293898975ca",
+  "code_dirty": false,
+  "target_artifact_accessed": false,
+  "expected_B_main_tasks": 324,
+  "task_limit": 3,
+  "recorded_at_utc": "2026-09-25T04:25:47.919363+00:00"
+}

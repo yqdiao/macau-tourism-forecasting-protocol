@@ -1,0 +1,17 @@
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: MacBook Pro
+      Model Identifier: Mac16,1
+      Model Number: MW2U3ZP/A
+      Chip: Apple M4
+      Total Number of Cores: 10 (4 Performance and 6 Efficiency)
+      Memory: 16 GB
+      System Firmware Version: 18000.161.10
+      OS Loader Version: 18000.161.10
+      Serial Number (system): [redacted before publication]
+      Hardware UUID: [redacted before publication]
+      Provisioning UDID: [redacted before publication]
+      Activation Lock Status: Enabled
+

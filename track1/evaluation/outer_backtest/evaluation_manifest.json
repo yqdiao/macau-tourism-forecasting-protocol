@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "prediction_rows": 348348,
+  "task_model_paths": 12441,
+  "predictions_sha256": "f0d7503eb99566b513bde74b5754a9d360d3a93f3095175ebbd276972f01d471",
+  "targets_sha256": "1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715",
+  "aggregation": "28-day task metrics followed by split-specific equal-weight macro mean",
+  "outputs": {
+    "scored_predictions.parquet": "1e19d961c557c50653ddb4740b516829c2de6862497f79a3b2f7305f2f322dd4",
+    "task_metrics.parquet": "31e8f6959e0a98859b178d017e4ff8e6abb5448048734377f1226ca4c3f5627c",
+    "aggregate_metrics.parquet": "545b38f90a6929818fd74aa54341bae993d0926b0396873a1786a5cfa0a85190"
+  }
+}

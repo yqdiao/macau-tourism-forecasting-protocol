@@ -7,8 +7,13 @@ weights/
 checkpoints/
 model-cache/
 .env.pinned
-results/
-evaluation/
+results/**
+evaluation/**
+# 已发表的 Apple Silicon Mac 运行结果。其他机器的 results/、evaluation/ 仍忽略。
+!track1/results/
+!track1/results/**
+!track1/evaluation/
+!track1/evaluation/**
 track1/model-cache/
 track1/.env.pinned
 raw_data/

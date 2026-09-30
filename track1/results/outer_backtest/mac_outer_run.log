@@ -1,0 +1,141 @@
+started_at=2026-09-26T03:03:56Z
+workers=1
+seed=42
+Completed 10 input tasks
+Completed 20 input tasks
+Completed 30 input tasks
+Completed 40 input tasks
+Completed 50 input tasks
+Completed 60 input tasks
+Completed 70 input tasks
+Completed 80 input tasks
+Completed 90 input tasks
+Completed 100 input tasks
+Completed 110 input tasks
+Completed 120 input tasks
+Completed 130 input tasks
+Completed 140 input tasks
+Completed 150 input tasks
+Completed 160 input tasks
+Completed 170 input tasks
+Completed 180 input tasks
+Completed 190 input tasks
+Completed 200 input tasks
+Completed 210 input tasks
+Completed 220 input tasks
+Completed 230 input tasks
+Completed 240 input tasks
+Completed 250 input tasks
+Completed 260 input tasks
+Completed 270 input tasks
+Completed 280 input tasks
+Completed 290 input tasks
+Completed 300 input tasks
+Completed 310 input tasks
+Completed 320 input tasks
+Completed 330 input tasks
+Completed 340 input tasks
+Completed 350 input tasks
+Completed 360 input tasks
+Completed 370 input tasks
+Completed 380 input tasks
+Completed 390 input tasks
+Completed 400 input tasks
+Completed 410 input tasks
+Completed 420 input tasks
+Completed 430 input tasks
+Completed 440 input tasks
+Completed 450 input tasks
+Completed 460 input tasks
+Completed 470 input tasks
+Completed 480 input tasks
+Completed 490 input tasks
+Completed 500 input tasks
+Completed 510 input tasks
+Completed 520 input tasks
+Completed 530 input tasks
+Completed 540 input tasks
+Completed 550 input tasks
+Completed 560 input tasks
+Completed 570 input tasks
+Completed 580 input tasks
+Completed 590 input tasks
+Completed 600 input tasks
+Completed 610 input tasks
+Completed 620 input tasks
+Completed 630 input tasks
+Completed 640 input tasks
+Completed 650 input tasks
+Completed 660 input tasks
+Completed 670 input tasks
+Completed 680 input tasks
+Completed 690 input tasks
+Completed 700 input tasks
+Completed 710 input tasks
+Completed 720 input tasks
+Completed 730 input tasks
+Completed 740 input tasks
+Completed 750 input tasks
+Completed 760 input tasks
+Completed 770 input tasks
+Completed 780 input tasks
+Completed 790 input tasks
+Completed 800 input tasks
+Completed 810 input tasks
+Completed 820 input tasks
+Completed 830 input tasks
+Completed 840 input tasks
+Completed 850 input tasks
+Completed 860 input tasks
+Completed 870 input tasks
+Completed 880 input tasks
+Completed 890 input tasks
+Completed 900 input tasks
+Completed 910 input tasks
+Completed 920 input tasks
+Completed 930 input tasks
+Completed 940 input tasks
+Completed 950 input tasks
+{
+  "schema_version": 1,
+  "models": [
+    "seasonal_naive",
+    "ets",
+    "sarima",
+    "ridge",
+    "linear_regression",
+    "random_forest",
+    "gradient_boosting",
+    "svr",
+    "lasso",
+    "elasticnet",
+    "parrot_random_forest_800",
+    "lightgbm",
+    "transformer"
+  ],
+  "destinations": [],
+  "markets": [],
+  "history_lengths": [
+    "all"
+  ],
+  "splits": [
+    "outer_backtest"
+  ],
+  "origin_date": null,
+  "seed": 42,
+  "baseline_config_status": "frozen_after_B_group_tuning",
+  "frozen_config_sha256": "f3db59140eda9d6161431b1cb9d44bc09cd853b70beb854d3d519eb01ec247e1",
+  "forecast_tasks": 957,
+  "prediction_rows": 348348,
+  "max_tasks": null,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "7ab6ebb51e3146b258f60454b45fefb20e84dccec9619362f6651e0ca6a0999e"
+  },
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "f0d7503eb99566b513bde74b5754a9d360d3a93f3095175ebbd276972f01d471",
+    "timings.jsonl": "a787c911705d90d0df8418e83cd8ba8cab3648e87001d9f602645cdcb2e16aef"
+  }
+}
+OUTER_EXIT=0
