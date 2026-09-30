@@ -6,7 +6,9 @@ from pathlib import Path
 import numpy as np
 
 from foundation_models.contracts import AdapterOutput, FoundationAdapter, require_cuda
-from foundation_models.adapters._trainable import fit_with_tail_validation, seed_everything, supervised_windows
+from foundation_models.adapters._trainable import (
+    encode_context, fit_with_tail_validation, seed_everything, supervised_windows,
+)
 
 
 class InformerAdapter(FoundationAdapter):
@@ -57,8 +59,10 @@ class InformerAdapter(FoundationAdapter):
             seed_everything(self.settings.seed)
             context = int(self.settings.context_length or self.settings.extra.get("context_length", 365))
             label = int(self.settings.extra.get("label_length", min(28, context // 2)))
+            normalization = str(self.settings.extra.get("normalization", "global"))
             x, y, mean, scale = supervised_windows(
-                item.history, context, horizon, int(self.settings.extra.get("max_windows", 4096)))
+                item.history, context, horizon, int(self.settings.extra.get("max_windows", 4096)),
+                normalization)
             model = self._model(context, label, horizon)
 
             def forward(module, batch_x, batch_y, training):
@@ -69,26 +73,29 @@ class InformerAdapter(FoundationAdapter):
                 epochs=int(self.settings.extra.get("epochs", 30)),
                 batch_size=self.settings.batch_size,
                 learning_rate=float(self.settings.extra.get("learning_rate", 1e-4)),
-                patience=int(self.settings.extra.get("patience", 5)), forward=forward)
+                patience=int(self.settings.extra.get("patience", 5)), forward=forward,
+                seed=self.settings.seed)
             model.eval()
-            transformed = (np.log1p(item.history[-context:]).astype(np.float32) - mean) / scale
+            transformed, center = encode_context(item.history, context, mean, scale, normalization)
             batch_x = torch.from_numpy(transformed[None, :, None]).to(self.settings.device)
             with torch.no_grad():
                 normalized = self._forward(model, batch_x, torch.empty(0), False, label, horizon)
-            raw = np.expm1(normalized.detach().cpu().numpy().reshape(-1) * scale + mean)
+            raw = np.expm1(normalized.detach().cpu().numpy().reshape(-1) * scale + center)
             checkpoint_dir = self.settings.checkpoint_dir / self.model_name
             checkpoint_dir.mkdir(parents=True, exist_ok=True)
             checkpoint_path = checkpoint_dir / f"{item.task_id}.pt"
             torch.save({"state_dict": model.state_dict(),
                         "config": {"context_length": context, "label_length": label,
                                    "prediction_length": horizon},
-                        "normalization": {"log1p_mean": mean, "log1p_scale": scale},
+                        "normalization": {"mode": normalization, "log1p_mean": mean,
+                                          "log1p_scale": scale, "context_center": center},
                         "training": training}, checkpoint_path)
             results.append(AdapterOutput(
                 raw_prediction=raw,
                 effective_context_days=context,
                 point_source="deterministic_point",
                 detail={**training, "zero_shot": False, "covariates": False,
+                        "normalization": normalization,
                         "constant_time_marks": True, "checkpoint_path": str(checkpoint_path)},
             ).validate(horizon))
         return results

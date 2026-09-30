@@ -94,7 +94,8 @@ class PatchTSTAdapter(FoundationAdapter):
                 epochs=int(self.settings.extra.get("epochs", 30)),
                 batch_size=self.settings.batch_size,
                 learning_rate=float(self.settings.extra.get("learning_rate", 1e-4)),
-                patience=int(self.settings.extra.get("patience", 5)), forward=forward)
+                patience=int(self.settings.extra.get("patience", 5)), forward=forward,
+                seed=self.settings.seed)
             model.eval()
             transformed = (np.log1p(item.history[-context:]).astype(np.float32) - mean) / scale
             with torch.no_grad():

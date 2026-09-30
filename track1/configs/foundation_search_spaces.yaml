@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "registered_before_tuning",
+  "registered_at_utc": "2026-09-30T07:50:00+00:00",
+  "registered_at_commit": "the commit that adds this file; see git log",
+  "registration_context": "Drafted 2026-09-30 after all seven models finished O01-O33 with the smoke default runtime. No outer or B targets had been read for any of the seven models, and no outer evaluation of any model (baseline or foundation) had been run. The only inspection of those forecasts compared forecast level with each task's own observed history.",
+  "tuning_split": "recovery_tuning",
+  "pressure_split": "pandemic_stress",
+  "outer_split": "outer_backtest",
+  "history_setting": "all",
+  "selection_metric": "task_MASE7_market_fold_macro",
+  "selection_rule": "lowest_mean_MASE7_then_lower_fit_time_then_candidate_id",
+  "fold_ids": ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12"],
+  "seeds": [11, 29, 42],
+  "seed_aggregation": "a candidate's score is the mean over seeds of its market-fold macro MASE7; per-seed scores and the between-seed standard deviation are reported",
+  "failure_policy": "retry an identical task at most twice; a failed candidate is ineligible; freeze only after every job succeeded or failed twice and each model has a fully covered candidate; report all failures",
+  "undefined_scale_policy": "report count and omit undefined MASE tasks from the score; retain their MAE",
+  "candidate_policy": "The listed finite candidates are the complete search space. No outer targets may select candidates. Hong Kong series are not in B01-B12 and cannot influence selection.",
+  "fixed_for_all_candidates": {
+    "transform": "log1p",
+    "loss": "MSE on the normalized log1p scale",
+    "optimizer": "AdamW",
+    "epochs": 30,
+    "early_stopping": "tail validation on the last 10% of training windows (at least 1, at most 20%), restore best state; patience is a candidate parameter",
+    "max_windows": 4096,
+    "batch_size": {"patchtst": 32, "informer": 16},
+    "horizon": 28,
+    "covariates": false,
+    "time_marks": "constant zeros (univariate-only experiment)",
+    "shuffle_seed": "the training DataLoader shuffle uses the run seed; before this registration it was fixed at 0"
+  },
+  "outer_policy": "After freezing, run the frozen candidate on O01-O33 with all three seeds under a new output root. The existing foundation_outer_default outputs (seed 42, candidate 01 settings) are archived and are not substituted for the frozen run, even if candidate 01 is selected.",
+  "zero_shot_models": {
+    "policy": "Pretrained zero-shot models run with their accepted smoke default runtime and are not tuned. These settings are registered as final before any outer evaluation. context_length is the model's supported maximum or the adapter default; batch size affects throughput only.",
+    "models": {
+      "timesfm_3": {"id": "TFM01", "params": {"context_length": null, "symmetric_averaging": false}},
+      "chronos_2": {"id": "CH01", "params": {"context_length": null}},
+      "lag_llama": {"id": "LAG01", "params": {"context_length": 512, "checkpoint_file": "lag-llama.ckpt"}},
+      "moirai": {"id": "MOI01", "params": {"context_length": 1680}},
+      "granite_patchtst_fm": {"id": "GRA01", "params": {"context_length": 8192}}
+    },
+    "seed": 42
+  },
+  "models": {
+    "patchtst": {
+      "max_trials": 8,
+      "notes": "PatchTST applies RevIN inside the upstream model. PT01 is the default runtime used for the existing B and outer runs. PT05-PT08 repeat PT01-PT04 with patience 10.",
+      "candidates": [
+        {"id": "PT01", "params": {"context_length": 365, "patch_len": 16, "stride": 8, "d_model": 128, "e_layers": 3, "n_heads": 4, "d_ff": 256, "dropout": 0.2, "learning_rate": 0.0001, "patience": 5}},
+        {"id": "PT02", "params": {"context_length": 180, "patch_len": 16, "stride": 8, "d_model": 128, "e_layers": 3, "n_heads": 4, "d_ff": 256, "dropout": 0.2, "learning_rate": 0.0001, "patience": 5}},
+        {"id": "PT03", "params": {"context_length": 365, "patch_len": 16, "stride": 8, "d_model": 128, "e_layers": 3, "n_heads": 4, "d_ff": 256, "dropout": 0.2, "learning_rate": 0.0005, "patience": 5}},
+        {"id": "PT04", "params": {"context_length": 365, "patch_len": 16, "stride": 8, "d_model": 64, "e_layers": 2, "n_heads": 4, "d_ff": 128, "dropout": 0.2, "learning_rate": 0.0001, "patience": 5}},
+        {"id": "PT05", "params": {"context_length": 365, "patch_len": 16, "stride": 8, "d_model": 128, "e_layers": 3, "n_heads": 4, "d_ff": 256, "dropout": 0.2, "learning_rate": 0.0001, "patience": 10}},
+        {"id": "PT06", "params": {"context_length": 180, "patch_len": 16, "stride": 8, "d_model": 128, "e_layers": 3, "n_heads": 4, "d_ff": 256, "dropout": 0.2, "learning_rate": 0.0001, "patience": 10}},
+        {"id": "PT07", "params": {"context_length": 365, "patch_len": 16, "stride": 8, "d_model": 128, "e_layers": 3, "n_heads": 4, "d_ff": 256, "dropout": 0.2, "learning_rate": 0.0005, "patience": 10}},
+        {"id": "PT08", "params": {"context_length": 365, "patch_len": 16, "stride": 8, "d_model": 64, "e_layers": 2, "n_heads": 4, "d_ff": 128, "dropout": 0.2, "learning_rate": 0.0001, "patience": 10}}
+      ]
+    },
+    "informer": {
+      "max_trials": 8,
+      "notes": "INF01 is the default runtime used for the existing B and outer runs; it standardizes with one mean and std over the whole log1p history, as upstream Informer2020 does with its train-set StandardScaler. INF02-INF04 and INF06-INF08 use instance normalization in the spirit of RevIN (Kim et al. 2022): on the log1p scale each encoder window and its targets are centered by that window's own mean, and the forecast adds the final context window's mean back. The scale stays the task's global log1p std, because flat pandemic windows have a near-zero window std. The upstream Informer module is unchanged. INF05-INF08 repeat INF01-INF04 with patience 10.",
+      "candidates": [
+        {"id": "INF01", "params": {"normalization": "global", "context_length": 365, "label_length": 28, "d_model": 128, "n_heads": 4, "e_layers": 2, "d_layers": 1, "d_ff": 256, "dropout": 0.1, "factor": 5, "learning_rate": 0.0001, "patience": 5}},
+        {"id": "INF02", "params": {"normalization": "instance", "context_length": 365, "label_length": 28, "d_model": 128, "n_heads": 4, "e_layers": 2, "d_layers": 1, "d_ff": 256, "dropout": 0.1, "factor": 5, "learning_rate": 0.0001, "patience": 5}},
+        {"id": "INF03", "params": {"normalization": "instance", "context_length": 180, "label_length": 28, "d_model": 128, "n_heads": 4, "e_layers": 2, "d_layers": 1, "d_ff": 256, "dropout": 0.1, "factor": 5, "learning_rate": 0.0001, "patience": 5}},
+        {"id": "INF04", "params": {"normalization": "instance", "context_length": 365, "label_length": 28, "d_model": 128, "n_heads": 4, "e_layers": 2, "d_layers": 1, "d_ff": 256, "dropout": 0.1, "factor": 5, "learning_rate": 0.0005, "patience": 5}},
+        {"id": "INF05", "params": {"normalization": "global", "context_length": 365, "label_length": 28, "d_model": 128, "n_heads": 4, "e_layers": 2, "d_layers": 1, "d_ff": 256, "dropout": 0.1, "factor": 5, "learning_rate": 0.0001, "patience": 10}},
+        {"id": "INF06", "params": {"normalization": "instance", "context_length": 365, "label_length": 28, "d_model": 128, "n_heads": 4, "e_layers": 2, "d_layers": 1, "d_ff": 256, "dropout": 0.1, "factor": 5, "learning_rate": 0.0001, "patience": 10}},
+        {"id": "INF07", "params": {"normalization": "instance", "context_length": 180, "label_length": 28, "d_model": 128, "n_heads": 4, "e_layers": 2, "d_layers": 1, "d_ff": 256, "dropout": 0.1, "factor": 5, "learning_rate": 0.0001, "patience": 10}},
+        {"id": "INF08", "params": {"normalization": "instance", "context_length": 365, "label_length": 28, "d_model": 128, "n_heads": 4, "e_layers": 2, "d_layers": 1, "d_ff": 256, "dropout": 0.1, "factor": 5, "learning_rate": 0.0005, "patience": 10}}
+      ]
+    }
+  },
+  "compute_budget_estimate": {
+    "basis": "measured default-runtime wall time on 2 x RTX A6000 with the same parallelism as launch_outer7.sh",
+    "b_search_origin_runs_per_model": 288,
+    "patience_10_time_factor": "about 1.6x patience 5, from the observed median of 7-8 epochs rising to about 12-13",
+    "patchtst_b_wall_hours": 10,
+    "informer_b_wall_hours": 45,
+    "outer_rerun_wall_hours": {"patchtst": "3 (patience 5) to 5 (patience 10)", "informer": "13 (patience 5) to 21 (patience 10)"}
+  }
+}

@@ -41,6 +41,17 @@ def _registry_entry(path: Path, model: str) -> dict:
     return entry
 
 
+def _candidate_params(search_space: Path, model: str, candidate_id: str) -> dict:
+    value = json.loads(search_space.read_text(encoding="utf-8"))
+    if value.get("status") != "registered_before_tuning":
+        raise ValueError(f"{search_space} is not registered before tuning")
+    candidates = value["models"].get(model, {}).get("candidates", [])
+    for candidate in candidates:
+        if candidate["id"] == candidate_id:
+            return dict(candidate["params"])
+    raise ValueError(f"{candidate_id} is not a registered {model} candidate")
+
+
 def _atomic_parquet(frame: pd.DataFrame, path: Path) -> None:
     temporary = path.with_name(f".{path.name}.tmp")
     frame.to_parquet(temporary, index=False, engine="pyarrow")
@@ -49,9 +60,13 @@ def _atomic_parquet(frame: pd.DataFrame, path: Path) -> None:
 
 def run(*, model_name: str, inputs: Path, output: Path, registry: Path,
         context_length: int | None, batch_size: int, num_samples: int,
-        device: str, seed: int, history_lengths: tuple[str, ...]) -> dict:
+        device: str, seed: int, history_lengths: tuple[str, ...],
+        search_space: Path | None = None, candidate_id: str | None = None) -> dict:
     validate_single_origin_input(inputs)
     entry = _registry_entry(registry, model_name)
+    if (search_space is None) != (candidate_id is None):
+        raise ValueError("--search-space and --candidate-id must be given together")
+    candidate = _candidate_params(search_space, model_name, candidate_id) if candidate_id else {}
     tasks = [task for task in read_task_inputs(inputs)
              if not history_lengths or task.history_length_label in history_lengths]
     if not tasks:
@@ -60,7 +75,12 @@ def run(*, model_name: str, inputs: Path, output: Path, registry: Path,
         raise ValueError("all model tasks must have a 28-day horizon")
 
     output.mkdir(parents=True, exist_ok=True)
-    runtime = entry.get("runtime", {})
+    runtime = dict(entry.get("runtime", {}))
+    if candidate:
+        if context_length is not None:
+            raise ValueError("--context-length cannot override a registered candidate")
+        runtime["context_length"] = candidate.pop("context_length", runtime.get("context_length"))
+        runtime["extra"] = {**runtime.get("extra", {}), **candidate}
     settings = AdapterSettings(
         checkpoint=entry.get("checkpoint"),
         checkpoint_revision=entry.get("checkpoint_revision"),
@@ -115,7 +135,7 @@ def run(*, model_name: str, inputs: Path, output: Path, registry: Path,
                     "training_history_days": len(task.history),
                     "effective_context_days": result.effective_context_days,
                     "target_date": target_date, "horizon_day": index,
-                    "model": model_name, "candidate_id": None, "seed": seed,
+                    "model": model_name, "candidate_id": candidate_id, "seed": seed,
                     "prediction_raw": float(raw_value), "prediction": float(prediction),
                     "was_clipped": bool(raw_value < 0), "mase7_scale": mase_scale,
                     "rmsse7_scale": rmsse_scale, "high_demand_threshold": threshold,
@@ -161,6 +181,9 @@ def run(*, model_name: str, inputs: Path, output: Path, registry: Path,
         "load_seconds": load_seconds, "peak_gpu_memory_mb": peak_gpu_mb,
         "peak_process_rss_mb": peak_rss_mb,
         "input_artifact": {"name": inputs.name, "sha256": file_sha256(inputs)},
+        "candidate_id": candidate_id,
+        "search_space_sha256": file_sha256(search_space) if search_space else None,
+        "runtime": runtime,
         "registry_sha256": file_sha256(registry), "target_artifact_accessed": False,
         "outputs": {"predictions.parquet": file_sha256(prediction_path),
                     "timings.jsonl": file_sha256(timing_path)},
@@ -181,12 +204,15 @@ def main() -> None:
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--history", default="all", help="Comma-separated all,180,365")
+    parser.add_argument("--search-space", type=Path, help="Registered candidate search space")
+    parser.add_argument("--candidate-id")
     args = parser.parse_args()
     print(json.dumps(run(model_name=args.model, inputs=args.inputs, output=args.output,
                          registry=args.registry, context_length=args.context_length,
                          batch_size=args.batch_size, num_samples=args.num_samples,
                          device=args.device, seed=args.seed,
-                         history_lengths=tuple(x.strip() for x in args.history.split(",") if x.strip())),
+                         history_lengths=tuple(x.strip() for x in args.history.split(",") if x.strip()),
+                         search_space=args.search_space, candidate_id=args.candidate_id),
                          ensure_ascii=False, indent=2))
 
 
