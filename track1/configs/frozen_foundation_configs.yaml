@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "frozen_after_B_group_tuning",
+  "source_search_space_sha256": "ff537f361c96a6c3ae0a2715a3d4b51568c8fd5a50c002265711903d1c92aa11",
+  "registration_commit": "45dbe97f9ce42ccd08f84e4159a0814c6ae2e3c5",
+  "selection_metric": "task_MASE7_market_fold_macro",
+  "selection_rule": "lowest_mean_MASE7_then_lower_fit_time_then_candidate_id",
+  "seeds": [
+    11,
+    29,
+    42
+  ],
+  "selected_after_B_only": true,
+  "frozen_at_utc": "2026-10-01T02:37:39.392515+00:00",
+  "validation_summary_sha256": "f9dfaab757981391778052a42905a10237a5bb7f0fdbca1dec4c42d3cd1bf7cb",
+  "models": {
+    "patchtst": {
+      "candidate_id": "PT06",
+      "status": "selected_on_B",
+      "params": {
+        "context_length": 180,
+        "patch_len": 16,
+        "stride": 8,
+        "d_model": 128,
+        "e_layers": 3,
+        "n_heads": 4,
+        "d_ff": 256,
+        "dropout": 0.2,
+        "learning_rate": 0.0001,
+        "patience": 10
+      },
+      "validation_score": 1.364253578169061,
+      "seed_sd_MASE7": 0.020468910206022144,
+      "mean_fit_seconds": 16.265306350261493
+    },
+    "informer": {
+      "candidate_id": "INF07",
+      "status": "selected_on_B",
+      "params": {
+        "normalization": "instance",
+        "context_length": 180,
+        "label_length": 28,
+        "d_model": 128,
+        "n_heads": 4,
+        "e_layers": 2,
+        "d_layers": 1,
+        "d_ff": 256,
+        "dropout": 0.1,
+        "factor": 5,
+        "learning_rate": 0.0001,
+        "patience": 10
+      },
+      "validation_score": 2.0312257705745758,
+      "seed_sd_MASE7": 0.08415618300944576,
+      "mean_fit_seconds": 121.89397285524909
+    },
+    "timesfm_3": {
+      "candidate_id": "TFM01",
+      "status": "registered_default_without_tuning",
+      "params": {
+        "context_length": null,
+        "symmetric_averaging": false
+      },
+      "validation_score": null
+    },
+    "chronos_2": {
+      "candidate_id": "CH01",
+      "status": "registered_default_without_tuning",
+      "params": {
+        "context_length": null
+      },
+      "validation_score": null
+    },
+    "lag_llama": {
+      "candidate_id": "LAG01",
+      "status": "registered_default_without_tuning",
+      "params": {
+        "context_length": 512,
+        "checkpoint_file": "lag-llama.ckpt"
+      },
+      "validation_score": null
+    },
+    "moirai": {
+      "candidate_id": "MOI01",
+      "status": "registered_default_without_tuning",
+      "params": {
+        "context_length": 1680
+      },
+      "validation_score": null
+    },
+    "granite_patchtst_fm": {
+      "candidate_id": "GRA01",
+      "status": "registered_default_without_tuning",
+      "params": {
+        "context_length": 8192
+      },
+      "validation_score": null
+    }
+  }
+}
