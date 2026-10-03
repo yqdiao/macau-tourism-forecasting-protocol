@@ -1,0 +1,122 @@
+{
+  "split": "outer_backtest O01-O33",
+  "history": "all",
+  "models": 20,
+  "tasks_per_model": 957,
+  "sources": {
+    "seasonal_naive": {
+      "family": "baseline",
+      "candidate_id": "SN01",
+      "files": 957
+    },
+    "ets": {
+      "family": "baseline",
+      "candidate_id": "ETS03",
+      "files": 957
+    },
+    "sarima": {
+      "family": "baseline",
+      "candidate_id": "SAR03",
+      "files": 957
+    },
+    "ridge": {
+      "family": "baseline",
+      "candidate_id": "RID02",
+      "files": 957
+    },
+    "linear_regression": {
+      "family": "baseline",
+      "candidate_id": "LIN01",
+      "files": 957
+    },
+    "random_forest": {
+      "family": "baseline",
+      "candidate_id": "RF03",
+      "files": 957
+    },
+    "gradient_boosting": {
+      "family": "baseline",
+      "candidate_id": "GB01",
+      "files": 957
+    },
+    "svr": {
+      "family": "baseline",
+      "candidate_id": "SVR02",
+      "files": 957
+    },
+    "lasso": {
+      "family": "baseline",
+      "candidate_id": "LAS03",
+      "files": 957
+    },
+    "elasticnet": {
+      "family": "baseline",
+      "candidate_id": "EN03",
+      "files": 957
+    },
+    "parrot_random_forest_800": {
+      "family": "baseline",
+      "candidate_id": "PRF01",
+      "files": 957
+    },
+    "lightgbm": {
+      "family": "baseline",
+      "candidate_id": "LGB01",
+      "files": 957
+    },
+    "transformer": {
+      "family": "baseline",
+      "candidate_id": "TR03",
+      "files": 957
+    },
+    "timesfm_3": {
+      "family": "zero_shot",
+      "candidate_id": "TFM01",
+      "folds": 33
+    },
+    "chronos_2": {
+      "family": "zero_shot",
+      "candidate_id": "CH01",
+      "folds": 33
+    },
+    "moirai": {
+      "family": "zero_shot",
+      "candidate_id": "MOI01",
+      "folds": 33
+    },
+    "granite_patchtst_fm": {
+      "family": "zero_shot",
+      "candidate_id": "GRA01",
+      "folds": 33
+    },
+    "lag_llama": {
+      "family": "zero_shot",
+      "candidate_id": "LAG01",
+      "folds": 33
+    },
+    "patchtst": {
+      "family": "trained",
+      "candidate_id": "PT06",
+      "seeds": [
+        11,
+        29,
+        42
+      ]
+    },
+    "informer": {
+      "family": "trained",
+      "candidate_id": "INF07",
+      "seeds": [
+        11,
+        29,
+        42
+      ]
+    }
+  },
+  "protected_targets_sha256": "1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715",
+  "frozen_baseline_config_sha256": "486adb3afb86f3ce6fd6872b3da1f511d18c773f6147d944dc109feb6cc6127b",
+  "frozen_foundation_config_sha256": "8d1f01705076a3030adccba0714bf55ac2c676a8b58287c079c499cd88187379",
+  "aggregation": "task MASE7 (seed mean) -> fold mean within market -> equal-weight market mean",
+  "primary": "Macau 27 markets; Hong Kong 2 series reported separately",
+  "created_at_utc": "2026-10-03T09:06:25.163566+00:00"
+}

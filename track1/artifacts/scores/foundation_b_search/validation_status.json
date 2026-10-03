@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "every_model_has_eligible_candidate": true,
+  "candidate_count": 16,
+  "completed_paths": 15552,
+  "expected_paths": 15552,
+  "incomplete_candidates": [],
+  "search_space_sha256": "ff537f361c96a6c3ae0a2715a3d4b51568c8fd5a50c002265711903d1c92aa11",
+  "registration_commit": "45dbe97f9ce42ccd08f84e4159a0814c6ae2e3c5",
+  "run_code_unchanged_since_registration": true,
+  "targets_read": "recovery_tuning, history=all only",
+  "task_metrics_sha256": "e6f48137ce916d19f1c410e3011875438783cf17c319c1b6f7dd015b823a9b2f",
+  "candidate_summary_sha256": "f9dfaab757981391778052a42905a10237a5bb7f0fdbca1dec4c42d3cd1bf7cb",
+  "protected_targets_sha256": "1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715",
+  "created_at_utc": "2026-10-01T02:37:39.388607+00:00",
+  "frozen_config_sha256": "8d1f01705076a3030adccba0714bf55ac2c676a8b58287c079c499cd88187379"
+}

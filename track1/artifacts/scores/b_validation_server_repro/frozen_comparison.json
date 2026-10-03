@@ -1,0 +1,106 @@
+[
+  {
+    "model": "seasonal_naive",
+    "candidate_id": "SN01",
+    "frozen_MASE7": null,
+    "repro_MASE7": 1.2062655127830866,
+    "delta": null,
+    "eligible": true
+  },
+  {
+    "model": "ets",
+    "candidate_id": "ETS03",
+    "frozen_MASE7": 1.04726582435023,
+    "repro_MASE7": 1.0462298402265044,
+    "delta": -0.0010359841237255196,
+    "eligible": true
+  },
+  {
+    "model": "sarima",
+    "candidate_id": "SAR03",
+    "frozen_MASE7": 1.200663828638026,
+    "repro_MASE7": 1.2006631276726196,
+    "delta": -7.009654063860893e-07,
+    "eligible": true
+  },
+  {
+    "model": "ridge",
+    "candidate_id": "RID02",
+    "frozen_MASE7": 1.0930381854019606,
+    "repro_MASE7": 1.0930387130558934,
+    "delta": 5.27653932769212e-07,
+    "eligible": true
+  },
+  {
+    "model": "linear_regression",
+    "candidate_id": "LIN01",
+    "frozen_MASE7": 1.3118601695207373,
+    "repro_MASE7": 1.3146074674590007,
+    "delta": 0.002747297938263449,
+    "eligible": true
+  },
+  {
+    "model": "random_forest",
+    "candidate_id": "RF03",
+    "frozen_MASE7": 1.2586082789292041,
+    "repro_MASE7": 1.2587195541399123,
+    "delta": 0.0001112752107081949,
+    "eligible": true
+  },
+  {
+    "model": "gradient_boosting",
+    "candidate_id": "GB01",
+    "frozen_MASE7": 1.2629051896689443,
+    "repro_MASE7": 1.2627838943385212,
+    "delta": -0.00012129533042304352,
+    "eligible": true
+  },
+  {
+    "model": "svr",
+    "candidate_id": "SVR02",
+    "frozen_MASE7": 1.1540773586336275,
+    "repro_MASE7": 1.1540772670599504,
+    "delta": -9.157367708567676e-08,
+    "eligible": true
+  },
+  {
+    "model": "lasso",
+    "candidate_id": "LAS03",
+    "frozen_MASE7": 1.10636772235116,
+    "repro_MASE7": 1.106367118616931,
+    "delta": -6.037342290543535e-07,
+    "eligible": true
+  },
+  {
+    "model": "elasticnet",
+    "candidate_id": "EN03",
+    "frozen_MASE7": 1.1015050599198517,
+    "repro_MASE7": 1.1015049567868627,
+    "delta": -1.0313298903774637e-07,
+    "eligible": true
+  },
+  {
+    "model": "parrot_random_forest_800",
+    "candidate_id": "PRF01",
+    "frozen_MASE7": 1.2591451736873356,
+    "repro_MASE7": 1.258707058507243,
+    "delta": -0.00043811518009251316,
+    "eligible": true
+  },
+  {
+    "model": "lightgbm",
+    "candidate_id": "LGB01",
+    "frozen_MASE7": 1.2540143335964204,
+    "repro_MASE7": 1.2540143335964204,
+    "delta": 0.0,
+    "eligible": true
+  },
+  {
+    "model": "transformer",
+    "candidate_id": "TR03",
+    "frozen_MASE7": 1.2884473226503994,
+    "repro_MASE7": 1.2884430259098403,
+    "delta": -4.296740559128764e-06,
+    "eligible": true
+  }
+]

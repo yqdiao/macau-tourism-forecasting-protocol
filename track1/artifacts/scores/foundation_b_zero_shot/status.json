@@ -1,0 +1,9 @@
+{
+  "targets_read": "recovery_tuning, history=all only",
+  "protected_targets_sha256": "1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715",
+  "frozen_foundation_config_sha256": "8d1f01705076a3030adccba0714bf55ac2c676a8b58287c079c499cd88187379",
+  "aggregation": "task MASE7 -> mean over folds within market -> equal-weight market mean",
+  "complete": true,
+  "track2_top3_frozen": false,
+  "created_at_utc": "2026-10-03T09:03:48.547508+00:00"
+}

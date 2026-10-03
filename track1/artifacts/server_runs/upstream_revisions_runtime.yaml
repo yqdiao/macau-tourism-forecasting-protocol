@@ -1,0 +1,161 @@
+{
+  "schema_version": 2,
+  "policy": {
+    "require_full_commit_sha": true,
+    "require_checkpoint_revision": true,
+    "allow_floating_main_or_latest": false,
+    "commit_model_weights_to_git": false
+  },
+  "models": {
+    "timesfm_3": {
+      "repository": "https://github.com/google-research/timesfm.git",
+      "source_revision": "e31dadd84cb26bd5153fde6687502b8312e918fb",
+      "checkpoint": "google/timesfm-3.0-pytorch",
+      "checkpoint_revision": "43046b85ec22d584a13f8098c2ed39c889e129c2",
+      "code_license": "Apache-2.0",
+      "weights_license": "TimesFM-Non-Commercial-1.0",
+      "adapter_status": "validated_gpu_smoke",
+      "runtime": {
+        "context_length": null,
+        "extra": {
+          "symmetric_averaging": false
+        }
+      },
+      "acceptance_runtime": {
+        "cuda": "12.8",
+        "torch": "2.7.1+cu128",
+        "smoke": "recovery_tuning/B01_2023-01-07 history=all",
+        "note": "CUDA 12.8 smoke on B01 history=all. Upstream code license allows this torch build."
+      }
+    },
+    "chronos_2": {
+      "repository": "https://github.com/amazon-science/chronos-forecasting.git",
+      "source_revision": "10afa9ebe016e514f9d7dc1aa873f66af57e116b",
+      "checkpoint": "amazon/chronos-2",
+      "checkpoint_revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+      "code_license": "Apache-2.0",
+      "weights_license": "Apache-2.0",
+      "adapter_status": "validated_gpu_smoke",
+      "runtime": {
+        "context_length": null,
+        "extra": {}
+      },
+      "acceptance_runtime": {
+        "cuda": "12.8",
+        "torch": "2.7.1+cu128",
+        "smoke": "recovery_tuning/B01_2023-01-07 history=all",
+        "note": "CUDA 12.8 smoke on B01 history=all. Satisfies the upstream torch>=2.2,<3 range."
+      }
+    },
+    "lag_llama": {
+      "repository": "https://github.com/time-series-foundation-models/lag-llama.git",
+      "source_revision": "df7531a83a19b3c6a0222d703ca9bf59ef7a6ab9",
+      "checkpoint": "time-series-foundation-models/Lag-Llama",
+      "checkpoint_revision": "72dcfc29da106acfe38250a60f4ae29d1e56a3d9",
+      "code_license": "Apache-2.0",
+      "weights_license": "Apache-2.0",
+      "adapter_status": "validated_gpu_smoke",
+      "runtime": {
+        "context_length": 512,
+        "extra": {
+          "checkpoint_file": "lag-llama.ckpt"
+        }
+      },
+      "acceptance_runtime": {
+        "cuda": "12.1",
+        "torch": "2.1.2+cu121",
+        "smoke": "recovery_tuning/B01_2023-01-07 history=all",
+        "note": "Matches the CUDA 12.1 image. The published checkpoint stores a distribution object and integer lags; the adapter maps those onto the current estimator API and keeps the trained lag indices. All 73 checkpoint tensors matched after load. Context is 512 days while the longest trained lag is 1092, so older lags are padded. On this shard, 20 of 27 markets have a near-zero mean point forecast. This smoke is not a ranking."
+      }
+    },
+    "moirai": {
+      "repository": "https://github.com/SalesforceAIResearch/uni2ts.git",
+      "source_revision": "cfd46d4510ed8896f263116f32928eede05b0a75",
+      "checkpoint": "Salesforce/moirai-2.0-R-small",
+      "checkpoint_revision": "30f43ff08c8494f4943ae1521e9d4e94a0fbb389",
+      "code_license": "Apache-2.0",
+      "weights_license": "CC-BY-NC-4.0",
+      "adapter_status": "validated_gpu_smoke",
+      "runtime": {
+        "context_length": 1680,
+        "extra": {}
+      },
+      "acceptance_runtime": {
+        "cuda": "12.8",
+        "torch": "2.7.1+cu128",
+        "smoke": "recovery_tuning/B01_2023-01-07 history=all",
+        "note": "Upstream metadata asks for torch<2.5. CUDA 12.8 wheels start at torch 2.7, so the verified stack stays on 2.7.1+cu128. Do not downgrade this environment."
+      }
+    },
+    "granite_patchtst_fm": {
+      "repository": "https://github.com/ibm-granite/granite-tsfm.git",
+      "source_revision": "fe7a35697723e2a2f5246ae979474bfc554e26c0",
+      "checkpoint": "ibm-granite/granite-timeseries-patchtst-fm-r2",
+      "checkpoint_revision": "b125275f9204d37cbb81fe47b9cf5e08a521e829",
+      "code_license": "Apache-2.0",
+      "weights_license": "Apache-2.0-or-OpenMDW-1.0",
+      "adapter_status": "validated_gpu_smoke",
+      "runtime": {
+        "context_length": 8192,
+        "extra": {}
+      },
+      "acceptance_runtime": {
+        "cuda": "12.8",
+        "torch": "2.11.0+cu128",
+        "smoke": "recovery_tuning/B01_2023-01-07 history=all",
+        "note": "Satisfies upstream torch>=2.10,<2.12 and CUDA 12.8. B01 history=all was re-run on this build. An earlier 2.7.1+cu128 smoke also passed; point forecasts differ by at most 1.9e-6 and are not the accepted stack."
+      }
+    },
+    "patchtst": {
+      "repository": "https://github.com/yuqinie98/PatchTST.git",
+      "source_revision": "204c21efe0b39603ad6e2ca640ef5896646ab1a9",
+      "checkpoint": null,
+      "checkpoint_revision": null,
+      "code_license": "Apache-2.0",
+      "weights_license": null,
+      "adapter_status": "validated_gpu_smoke",
+      "runtime": {
+        "context_length": 365,
+        "extra": {
+          "epochs": 30,
+          "patience": 5,
+          "learning_rate": 0.0001,
+          "patch_len": 16,
+          "stride": 8,
+          "upstream_path": "/root/DYQ/foundation-src/patchtst/PatchTST_supervised"
+        }
+      },
+      "acceptance_runtime": {
+        "cuda": "12.8",
+        "torch": "2.7.1+cu128",
+        "smoke": "recovery_tuning/B01_2023-01-07 history=all",
+        "note": "CUDA 12.8 smoke on B01 history=all. No pretrained checkpoint. Import uses a private module name so track1/code/models.py does not shadow the upstream package."
+      }
+    },
+    "informer": {
+      "repository": "https://github.com/zhouhaoyi/Informer2020.git",
+      "source_revision": "29f2a739226a509202a092b464163da81fa74960",
+      "checkpoint": null,
+      "checkpoint_revision": null,
+      "code_license": "Apache-2.0",
+      "weights_license": null,
+      "adapter_status": "validated_gpu_smoke",
+      "runtime": {
+        "context_length": 365,
+        "extra": {
+          "epochs": 30,
+          "patience": 5,
+          "learning_rate": 0.0001,
+          "label_length": 28,
+          "upstream_path": "/root/DYQ/foundation-src/informer"
+        }
+      },
+      "acceptance_runtime": {
+        "cuda": "12.1",
+        "torch": "2.1.2+cu121",
+        "smoke": "recovery_tuning/B01_2023-01-07 history=all",
+        "note": "Matches the CUDA 12.1 image. No pretrained checkpoint; each origin trains for up to 30 epochs. Upstream models/ already has __init__.py, so the import does not hit track1/code/models.py when the pinned checkout is first on sys.path. On this shard, 22 of 27 markets have a mean point forecast below 1. This smoke is not a ranking."
+      }
+    }
+  }
+}

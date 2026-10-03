@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "candidate_count": 33,
+  "all_jobs_resolved": true,
+  "every_model_has_eligible_candidate": true,
+  "completed_paths": 12636,
+  "expected_paths": 12636,
+  "terminal_failure_paths": 0,
+  "unresolved_paths": 0,
+  "incomplete_candidates": [],
+  "run_code_commit": "e2614f4b3518a5e76333cd09afadef4fb405d248",
+  "run_code_dirty": false,
+  "task_metrics_sha256": "f6b8f9fda529227a1d3e600afa39d34a7e185177761f7ad8934f60e0593e5753",
+  "candidate_summary_sha256": "e6dfdcca99c8a6abf008af9feeb113d24a0f447c14581f068b872797796da63f",
+  "protected_targets_sha256": "1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715",
+  "created_at_utc": "2026-09-28T15:37:02.149465+00:00"
+}

@@ -1,0 +1,8 @@
+B_rank,model,completed_paths,expected_paths,candidate_id,status,mean_MASE7,median_task_MASE7,undefined_scale_paths,eligible,seed_sd_MASE7
+1,granite_patchtst_fm,324,324,GRA01,registered_default_without_tuning,0.9274904736807095,0.7861045913416649,0.0,True,
+2,chronos_2,324,324,CH01,registered_default_without_tuning,0.9818279776843402,0.8332786367695222,0.0,True,
+3,timesfm_3,324,324,TFM01,registered_default_without_tuning,0.9891630076845611,0.820558783604652,0.0,True,
+4,moirai,324,324,MOI01,registered_default_without_tuning,1.0538348676165992,0.8677667883580424,0.0,True,
+5,patchtst,972,972,PT06,selected_on_B,1.364253578169061,,,True,0.020468910206022144
+6,lag_llama,324,324,LAG01,registered_default_without_tuning,1.911691018411648,1.5035127600494598,0.0,True,
+7,informer,972,972,INF07,selected_on_B,2.0312257705745758,,,True,0.08415618300944576

@@ -1,0 +1,156 @@
+[2026-09-30T08:17:13Z] waiting for 4 B-search runners to finish
+[2026-09-30T08:17:14Z] runners_done=0/4 jobs_done=48/576
+[2026-09-30T08:27:14Z] runners_done=0/4 jobs_done=60/576
+[2026-09-30T08:37:14Z] runners_done=0/4 jobs_done=74/576
+[2026-09-30T08:47:14Z] runners_done=0/4 jobs_done=88/576
+[2026-09-30T08:57:14Z] runners_done=0/4 jobs_done=103/576
+[2026-09-30T09:07:14Z] runners_done=0/4 jobs_done=121/576
+[2026-09-30T09:17:14Z] runners_done=0/4 jobs_done=144/576
+[2026-09-30T09:27:14Z] runners_done=0/4 jobs_done=159/576
+[2026-09-30T09:37:14Z] runners_done=0/4 jobs_done=175/576
+[2026-09-30T09:47:14Z] runners_done=0/4 jobs_done=188/576
+[2026-09-30T09:57:14Z] runners_done=0/4 jobs_done=203/576
+[2026-09-30T10:07:14Z] runners_done=0/4 jobs_done=218/576
+[2026-09-30T10:17:14Z] runners_done=0/4 jobs_done=240/576
+[2026-09-30T10:27:14Z] runners_done=0/4 jobs_done=260/576
+[2026-09-30T10:37:14Z] runners_done=0/4 jobs_done=275/576
+[2026-09-30T10:47:14Z] runners_done=0/4 jobs_done=288/576
+[2026-09-30T10:57:14Z] runners_done=0/4 jobs_done=302/576
+[2026-09-30T11:07:15Z] runners_done=0/4 jobs_done=316/576
+[2026-09-30T11:17:15Z] runners_done=2/4 jobs_done=324/576
+[2026-09-30T11:27:15Z] runners_done=2/4 jobs_done=329/576
+[2026-09-30T11:37:15Z] runners_done=2/4 jobs_done=331/576
+[2026-09-30T11:47:15Z] runners_done=2/4 jobs_done=335/576
+[2026-09-30T11:57:15Z] runners_done=2/4 jobs_done=336/576
+[2026-09-30T12:07:15Z] runners_done=2/4 jobs_done=337/576
+[2026-09-30T12:17:15Z] runners_done=2/4 jobs_done=339/576
+[2026-09-30T12:27:15Z] runners_done=2/4 jobs_done=342/576
+[2026-09-30T12:37:15Z] runners_done=2/4 jobs_done=342/576
+[2026-09-30T12:47:15Z] runners_done=2/4 jobs_done=344/576
+[2026-09-30T12:57:15Z] runners_done=2/4 jobs_done=346/576
+[2026-09-30T13:07:15Z] runners_done=2/4 jobs_done=351/576
+[2026-09-30T13:17:15Z] runners_done=2/4 jobs_done=354/576
+[2026-09-30T13:27:16Z] runners_done=2/4 jobs_done=354/576
+[2026-09-30T13:37:16Z] runners_done=2/4 jobs_done=356/576
+[2026-09-30T13:47:16Z] runners_done=2/4 jobs_done=357/576
+[2026-09-30T13:57:16Z] runners_done=2/4 jobs_done=362/576
+[2026-09-30T14:07:16Z] runners_done=2/4 jobs_done=365/576
+[2026-09-30T14:17:16Z] runners_done=2/4 jobs_done=365/576
+[2026-09-30T14:27:16Z] runners_done=2/4 jobs_done=366/576
+[2026-09-30T14:37:16Z] runners_done=2/4 jobs_done=369/576
+[2026-09-30T14:47:16Z] runners_done=2/4 jobs_done=373/576
+[2026-09-30T14:57:16Z] runners_done=2/4 jobs_done=374/576
+[2026-09-30T15:07:16Z] runners_done=2/4 jobs_done=376/576
+[2026-09-30T15:17:16Z] runners_done=2/4 jobs_done=379/576
+[2026-09-30T15:27:16Z] runners_done=2/4 jobs_done=383/576
+[2026-09-30T15:37:17Z] runners_done=2/4 jobs_done=388/576
+[2026-09-30T15:47:17Z] runners_done=2/4 jobs_done=390/576
+[2026-09-30T15:57:17Z] runners_done=2/4 jobs_done=393/576
+[2026-09-30T16:07:17Z] runners_done=2/4 jobs_done=400/576
+[2026-09-30T16:17:17Z] runners_done=2/4 jobs_done=401/576
+[2026-09-30T16:27:17Z] runners_done=2/4 jobs_done=406/576
+[2026-09-30T16:37:17Z] runners_done=2/4 jobs_done=412/576
+[2026-09-30T16:47:17Z] runners_done=2/4 jobs_done=415/576
+[2026-09-30T16:57:17Z] runners_done=2/4 jobs_done=417/576
+[2026-09-30T17:07:17Z] runners_done=2/4 jobs_done=425/576
+[2026-09-30T17:17:17Z] runners_done=2/4 jobs_done=427/576
+[2026-09-30T17:27:17Z] runners_done=2/4 jobs_done=428/576
+[2026-09-30T17:37:17Z] runners_done=2/4 jobs_done=431/576
+[2026-09-30T17:47:18Z] runners_done=2/4 jobs_done=433/576
+[2026-09-30T17:57:18Z] runners_done=2/4 jobs_done=435/576
+[2026-09-30T18:07:18Z] runners_done=2/4 jobs_done=436/576
+[2026-09-30T18:17:18Z] runners_done=2/4 jobs_done=438/576
+[2026-09-30T18:27:18Z] runners_done=2/4 jobs_done=440/576
+[2026-09-30T18:37:18Z] runners_done=2/4 jobs_done=443/576
+[2026-09-30T18:47:18Z] runners_done=2/4 jobs_done=446/576
+[2026-09-30T18:57:18Z] runners_done=2/4 jobs_done=448/576
+[2026-09-30T19:07:18Z] runners_done=2/4 jobs_done=449/576
+[2026-09-30T19:17:18Z] runners_done=2/4 jobs_done=453/576
+[2026-09-30T19:27:18Z] runners_done=2/4 jobs_done=457/576
+[2026-09-30T19:37:18Z] runners_done=2/4 jobs_done=458/576
+[2026-09-30T19:47:18Z] runners_done=2/4 jobs_done=461/576
+[2026-09-30T19:57:19Z] runners_done=2/4 jobs_done=463/576
+[2026-09-30T20:07:19Z] runners_done=2/4 jobs_done=465/576
+[2026-09-30T20:17:19Z] runners_done=2/4 jobs_done=467/576
+[2026-09-30T20:27:19Z] runners_done=2/4 jobs_done=472/576
+[2026-09-30T20:37:19Z] runners_done=2/4 jobs_done=473/576
+[2026-09-30T20:47:19Z] runners_done=2/4 jobs_done=477/576
+[2026-09-30T20:57:19Z] runners_done=2/4 jobs_done=480/576
+[2026-09-30T21:07:19Z] runners_done=2/4 jobs_done=481/576
+[2026-09-30T21:17:19Z] runners_done=2/4 jobs_done=485/576
+[2026-09-30T21:27:19Z] runners_done=2/4 jobs_done=489/576
+[2026-09-30T21:37:19Z] runners_done=2/4 jobs_done=492/576
+[2026-09-30T21:47:19Z] runners_done=2/4 jobs_done=497/576
+[2026-09-30T21:57:19Z] runners_done=2/4 jobs_done=502/576
+[2026-09-30T22:07:20Z] runners_done=2/4 jobs_done=505/576
+[2026-09-30T22:17:20Z] runners_done=2/4 jobs_done=510/576
+[2026-09-30T22:27:20Z] runners_done=2/4 jobs_done=515/576
+[2026-09-30T22:37:20Z] runners_done=2/4 jobs_done=517/576
+[2026-09-30T22:47:20Z] runners_done=2/4 jobs_done=522/576
+[2026-09-30T22:57:20Z] runners_done=2/4 jobs_done=524/576
+[2026-09-30T23:07:20Z] runners_done=2/4 jobs_done=526/576
+[2026-09-30T23:17:20Z] runners_done=2/4 jobs_done=531/576
+[2026-09-30T23:27:20Z] runners_done=2/4 jobs_done=532/576
+[2026-09-30T23:37:20Z] runners_done=2/4 jobs_done=532/576
+[2026-09-30T23:47:20Z] runners_done=2/4 jobs_done=534/576
+[2026-09-30T23:57:20Z] runners_done=2/4 jobs_done=536/576
+[2026-10-01T00:07:20Z] runners_done=2/4 jobs_done=539/576
+[2026-10-01T00:17:20Z] runners_done=2/4 jobs_done=543/576
+[2026-10-01T00:27:20Z] runners_done=2/4 jobs_done=545/576
+[2026-10-01T00:37:21Z] runners_done=2/4 jobs_done=546/576
+[2026-10-01T00:47:21Z] runners_done=2/4 jobs_done=550/576
+[2026-10-01T00:57:21Z] runners_done=2/4 jobs_done=553/576
+[2026-10-01T01:07:21Z] runners_done=2/4 jobs_done=555/576
+[2026-10-01T01:17:21Z] runners_done=2/4 jobs_done=558/576
+[2026-10-01T01:27:21Z] runners_done=2/4 jobs_done=559/576
+[2026-10-01T01:37:21Z] runners_done=2/4 jobs_done=560/576
+[2026-10-01T01:47:21Z] runners_done=2/4 jobs_done=565/576
+[2026-10-01T01:57:21Z] runners_done=2/4 jobs_done=567/576
+[2026-10-01T02:07:21Z] runners_done=2/4 jobs_done=570/576
+[2026-10-01T02:17:21Z] runners_done=3/4 jobs_done=573/576
+[2026-10-01T02:27:21Z] runners_done=3/4 jobs_done=574/576
+{"stage": "foundation_b_search", "event": "runner_done", "model": "patchtst", "gpu": "1", "jobs": 144, "failures": 0, "at_utc": "2026-09-30T11:08:15.162703+00:00"}
+{"stage": "foundation_b_search", "event": "runner_done", "model": "patchtst", "gpu": "0", "jobs": 144, "failures": 0, "at_utc": "2026-09-30T11:08:57.170190+00:00"}
+{"stage": "foundation_b_search", "event": "runner_done", "model": "informer", "gpu": "0", "jobs": 144, "failures": 0, "at_utc": "2026-10-01T02:15:20.536826+00:00"}
+{"stage": "foundation_b_search", "event": "runner_done", "model": "informer", "gpu": "1", "jobs": 144, "failures": 0, "at_utc": "2026-10-01T02:32:05.063669+00:00"}
+[2026-10-01T02:37:21Z] scoring B candidates and freezing
+{
+  "complete": true,
+  "every_model_has_eligible_candidate": true,
+  "candidate_count": 16,
+  "completed_paths": 15552,
+  "expected_paths": 15552,
+  "incomplete_candidates": [],
+  "search_space_sha256": "ff537f361c96a6c3ae0a2715a3d4b51568c8fd5a50c002265711903d1c92aa11",
+  "registration_commit": "45dbe97f9ce42ccd08f84e4159a0814c6ae2e3c5",
+  "run_code_unchanged_since_registration": true,
+  "targets_read": "recovery_tuning, history=all only",
+  "task_metrics_sha256": "e6f48137ce916d19f1c410e3011875438783cf17c319c1b6f7dd015b823a9b2f",
+  "candidate_summary_sha256": "f9dfaab757981391778052a42905a10237a5bb7f0fdbca1dec4c42d3cd1bf7cb",
+  "protected_targets_sha256": "1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715",
+  "created_at_utc": "2026-10-01T02:37:39.388607+00:00",
+  "frozen_config_sha256": "8d1f01705076a3030adccba0714bf55ac2c676a8b58287c079c499cd88187379"
+}
+   model candidate_id  eligible  mean_MASE7  seed_sd_MASE7  mean_fit_seconds
+informer        INF07      True    2.031226       0.084156        121.893973
+informer        INF03      True    2.036591       0.074581         90.943016
+informer        INF08      True    2.314303       0.062723        104.868484
+informer        INF04      True    2.323956       0.062685         70.932361
+informer        INF06      True    2.521379       0.105253        105.491304
+informer        INF02      True    2.531765       0.133755         81.836268
+informer        INF05      True    2.697265       0.085615        136.033731
+informer        INF01      True    2.736680       0.095973        102.943002
+patchtst         PT06      True    1.364254       0.020469         16.265306
+patchtst         PT02      True    1.366593       0.010964         10.075465
+patchtst         PT04      True    1.714315       0.023923          9.162538
+patchtst         PT08      True    1.717851       0.030350         13.743427
+patchtst         PT05      True    1.907355       0.078336         15.755698
+patchtst         PT01      True    1.916652       0.078925          9.568655
+patchtst         PT07      True    2.293126       0.241633         14.893515
+patchtst         PT03      True    2.302705       0.251753          8.559533
+[freeze commit] 6fea81e153d4ab0083d85ebcf1c7ed5bc1f8065c 按登记规则在 B 组冻结 PatchTST 与 Informer 参数，零样本模型登记为默认配置。
+[2026-10-01T02:37:40Z] outer rerun launched in tmux session macau-outer-frozen
+0: informer-g0 (1 panes) [80x24] [layout d964,80x24,0,0,44] @44
+1: patchtst-g0 (1 panes) [80x24] [layout d965,80x24,0,0,45] @45
+2: informer-g1- (1 panes) [80x24] [layout d966,80x24,0,0,46] @46
+3: patchtst-g1* (1 panes) [80x24] [layout d967,80x24,0,0,47] @47 (active)

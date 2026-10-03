@@ -1,0 +1,502 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-03T09:12:15.832115+00:00",
+  "description": {
+    "predictions/": "Sealed forecasts per run group and model, packed from track1/results with paths kept relative to track1/results. Model checkpoints (*.pt, ~102 GB), *.log and *.pid are excluded and remain on the GPU server.",
+    "predictions/outer_baselines": "13 frozen baselines, O01-O33, history=all, 957 tasks each",
+    "predictions/b_baselines_server_repro": "13 baselines B01-B12 candidate search reproduced on the server",
+    "predictions/foundation_b_default": "7 foundation models B01-B12 with registered default runtime",
+    "predictions/foundation_b_search": "PatchTST/Informer B01-B12 candidate search, 8 candidates x 3 seeds",
+    "predictions/foundation_outer_default": "7 foundation models O01-O33 with default runtime; zero-shot rows feed the main table, PatchTST/Informer rows are superseded by foundation_outer_frozen",
+    "predictions/foundation_outer_frozen": "PatchTST PT06 and Informer INF07 frozen on B, O01-O33, seeds 11/29/42",
+    "predictions/foundation_smoke": "GPU smoke runs",
+    "scores/": "Independent scoring outputs copied from track1/evaluation",
+    "scores/outer_main_table": "20-model O01-O33 main table and task metrics",
+    "scores/foundation_b_zero_shot": "Zero-shot B scores and 7-model B ranking (Track 2 top three not frozen)",
+    "server_runs/": "Launchers, scoring scripts, runtime registry and node journals used on the GPU server (/root/DYQ/run-logs)"
+  },
+  "files": [
+    {
+      "path": "predictions/b_baselines_server_repro/_run_manifest.tar.gz",
+      "bytes": 1234,
+      "sha256": "208393dade99739daead30123bce3ba6d494b18adeb6fe900f729e4ca5b0f24f",
+      "archived_files": 2,
+      "archived_predictions": 0
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/elasticnet.tar.gz",
+      "bytes": 895455,
+      "sha256": "1fa9dfab417009aead98164f8444cddffe282d427aabc6947393148161b4d910",
+      "archived_files": 972,
+      "archived_predictions": 972
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/ets.tar.gz",
+      "bytes": 775529,
+      "sha256": "d997f6e0bd37460da1a1acfcbe96c2b71e8ecc7a349c00f8222edd7f0bad5c12",
+      "archived_files": 972,
+      "archived_predictions": 972
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/gradient_boosting.tar.gz",
+      "bytes": 894277,
+      "sha256": "440f4e48cd0208f651a300df0e692d0af059ba1a6a55c2ca8e5cef22cedf1e3f",
+      "archived_files": 972,
+      "archived_predictions": 972
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/lasso.tar.gz",
+      "bytes": 893198,
+      "sha256": "5f59cfc29992dabea36d20c228288ba9a2f4e7e310882559d9d60d5739d3a46c",
+      "archived_files": 972,
+      "archived_predictions": 972
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/lightgbm.tar.gz",
+      "bytes": 895969,
+      "sha256": "09e2123bfbc7bdec63ec9f045e115c8dc0e0a722f1e34791428006fc47ec01c3",
+      "archived_files": 972,
+      "archived_predictions": 972
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/linear_regression.tar.gz",
+      "bytes": 299571,
+      "sha256": "2b38681a5f774b6ae2e57a56212e1a07b192dd44ad29aa9e54606f38861fcfac",
+      "archived_files": 324,
+      "archived_predictions": 324
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/parrot_random_forest_800.tar.gz",
+      "bytes": 305639,
+      "sha256": "49cca660d880322397dec08b0745fc077ef1d762e3956538dc7c803d0f42b1da",
+      "archived_files": 324,
+      "archived_predictions": 324
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/random_forest.tar.gz",
+      "bytes": 892793,
+      "sha256": "5722f47535e63108f16aa9770800e4a1018141649997e919c5a77f46d95462af",
+      "archived_files": 972,
+      "archived_predictions": 972
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/ridge.tar.gz",
+      "bytes": 891608,
+      "sha256": "e9b4267a2d6b6762ab38665049d4f0c797d2e720a9fed7f2bc5d5f2658d0a90d",
+      "archived_files": 972,
+      "archived_predictions": 972
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/sarima.tar.gz",
+      "bytes": 858547,
+      "sha256": "c8dcb312b79401d860f423301b2d1601e12ab465997db31dde613bfb2c8ec2a6",
+      "archived_files": 972,
+      "archived_predictions": 972
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/seasonal_naive.tar.gz",
+      "bytes": 212087,
+      "sha256": "6d39603bd5e54ebc0fe0fd0a439de594a9f9ea47f9ac62bec8e66e05783bc369",
+      "archived_files": 324,
+      "archived_predictions": 324
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/svr.tar.gz",
+      "bytes": 894938,
+      "sha256": "758a4794f6d18074e075b0367bb765114f8e2165f34f31f9b7b627e99f3a1d4f",
+      "archived_files": 972,
+      "archived_predictions": 972
+    },
+    {
+      "path": "predictions/b_baselines_server_repro/transformer.tar.gz",
+      "bytes": 3313838,
+      "sha256": "f9bcbcf45bbac62f0581f987c88c172fb47d6688e911f411ebf082772b2ef74f",
+      "archived_files": 2916,
+      "archived_predictions": 2916
+    },
+    {
+      "path": "predictions/foundation_b_default/chronos_2.tar.gz",
+      "bytes": 225349,
+      "sha256": "015a60cb77066c1e1fdb504df59a1b8c8e56d25c009d1296f4d124f4f0d137a2",
+      "archived_files": 36,
+      "archived_predictions": 12
+    },
+    {
+      "path": "predictions/foundation_b_default/granite_patchtst_fm.tar.gz",
+      "bytes": 221950,
+      "sha256": "66855e62b3b23f0f5c634b59d55907b4bc0f1341925fbbcdbd1fd63ea14f8940",
+      "archived_files": 36,
+      "archived_predictions": 12
+    },
+    {
+      "path": "predictions/foundation_b_default/informer.tar.gz",
+      "bytes": 148872,
+      "sha256": "1cd5de7a9aabd8a2ed4fc606162f9eabe7e5224114a755fac59ccafeb586b6cc",
+      "archived_files": 36,
+      "archived_predictions": 12
+    },
+    {
+      "path": "predictions/foundation_b_default/lag_llama.tar.gz",
+      "bytes": 283369,
+      "sha256": "cbcbb3c7b25693eda235c37eb06630a2ad51273e08d822c3f060f723b6140ce5",
+      "archived_files": 36,
+      "archived_predictions": 12
+    },
+    {
+      "path": "predictions/foundation_b_default/moirai.tar.gz",
+      "bytes": 221880,
+      "sha256": "1cc4f12c2f5e16a51318a36902ebd1bc91cfeab429f55c8165ed1d27557b5b2c",
+      "archived_files": 36,
+      "archived_predictions": 12
+    },
+    {
+      "path": "predictions/foundation_b_default/patchtst.tar.gz",
+      "bytes": 146533,
+      "sha256": "344c313cec863f175245184f94ad2e3e6a46cac0835d1f04fcc71c3240bec373",
+      "archived_files": 36,
+      "archived_predictions": 12
+    },
+    {
+      "path": "predictions/foundation_b_default/timesfm_3.tar.gz",
+      "bytes": 491027,
+      "sha256": "6dbf10b3b2c00eaf3095f9cf66ad106774f18bde35355808f080f812ebf1e20d",
+      "archived_files": 36,
+      "archived_predictions": 12
+    },
+    {
+      "path": "predictions/foundation_b_search/informer.tar.gz",
+      "bytes": 3689473,
+      "sha256": "41e9cbe451d2c27a1c2d090565954846d8584f4719e5c427fb340c4f0d4944e0",
+      "archived_files": 864,
+      "archived_predictions": 288
+    },
+    {
+      "path": "predictions/foundation_b_search/patchtst.tar.gz",
+      "bytes": 3571275,
+      "sha256": "dde0a4021b07068ef69c8755f4aa8922cb39f348a983ced031245a990807ef55",
+      "archived_files": 864,
+      "archived_predictions": 288
+    },
+    {
+      "path": "predictions/foundation_outer_default/chronos_2.tar.gz",
+      "bytes": 667013,
+      "sha256": "7f9fc98decb04c32d338c94ca9138956f0c58ae96e2000e097a37feff0600dbe",
+      "archived_files": 99,
+      "archived_predictions": 33
+    },
+    {
+      "path": "predictions/foundation_outer_default/granite_patchtst_fm.tar.gz",
+      "bytes": 680239,
+      "sha256": "877bc9ea3bd3bdb6ae56f612c9b5e2d0a9fe5d61d12736633a344f647faab6a7",
+      "archived_files": 99,
+      "archived_predictions": 33
+    },
+    {
+      "path": "predictions/foundation_outer_default/informer.tar.gz",
+      "bytes": 417907,
+      "sha256": "1acb51c791cc709e70db9bedda4fce0d1a0ba6f5e96b9fc7e36e8d6e8587ef5d",
+      "archived_files": 99,
+      "archived_predictions": 33
+    },
+    {
+      "path": "predictions/foundation_outer_default/lag_llama.tar.gz",
+      "bytes": 774251,
+      "sha256": "9496b1df3e30e8e2ccab9d5e30a02f78204901f1aa7f99235b7de04ef04abdc3",
+      "archived_files": 99,
+      "archived_predictions": 33
+    },
+    {
+      "path": "predictions/foundation_outer_default/moirai.tar.gz",
+      "bytes": 673526,
+      "sha256": "9f0b7ff6041782508e0d13f2c0bc6ebf5512cce1071c561e9167edd85a603b73",
+      "archived_files": 99,
+      "archived_predictions": 33
+    },
+    {
+      "path": "predictions/foundation_outer_default/patchtst.tar.gz",
+      "bytes": 423030,
+      "sha256": "14779f4d7c10f13316d4a99d421518e6c9b1a0ac2523c70393717410cebd009f",
+      "archived_files": 99,
+      "archived_predictions": 33
+    },
+    {
+      "path": "predictions/foundation_outer_default/timesfm_3.tar.gz",
+      "bytes": 1448008,
+      "sha256": "f0cb4f8de0cd4c850140d6115e91f4411ac4b75e25ebe84909a314f77fd7a56c",
+      "archived_files": 99,
+      "archived_predictions": 33
+    },
+    {
+      "path": "predictions/foundation_outer_frozen/informer.tar.gz",
+      "bytes": 1270410,
+      "sha256": "309f0afbd7172abba35e3b37a20cbea0254f38af2af5a1eac5bc1af85b7d51f9",
+      "archived_files": 297,
+      "archived_predictions": 99
+    },
+    {
+      "path": "predictions/foundation_outer_frozen/patchtst.tar.gz",
+      "bytes": 1287211,
+      "sha256": "2d858e0416c2d5a7cf6c51a8aaba54910b30d6efa45236354f6202ee7b7a5c5d",
+      "archived_files": 297,
+      "archived_predictions": 99
+    },
+    {
+      "path": "predictions/foundation_smoke/foundation_smoke.tar.gz",
+      "bytes": 163902,
+      "sha256": "3b0a4dd0d0c9d09ce2462fa41fac4dfb35bb59c55a5340b2ea0102b732c4d432",
+      "archived_files": 24,
+      "archived_predictions": 8
+    },
+    {
+      "path": "predictions/outer_baselines/elasticnet.tar.gz",
+      "bytes": 765299,
+      "sha256": "3f5f46f015ffbf1aded3fd1ba0ec57e7d843b34dbb0ef1aab5cd4173b751085f",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/ets.tar.gz",
+      "bytes": 610863,
+      "sha256": "fe6d024e5001926a1badf9067899c27f4c261da02dcd8d6274a12083d8708678",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/gradient_boosting.tar.gz",
+      "bytes": 765002,
+      "sha256": "40ad432f3e12c3ea2b0282ab33bdb105dfdda89286c087a0cbf482867d0fe576",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/lasso.tar.gz",
+      "bytes": 762847,
+      "sha256": "788a816dd2a3dd15fef080b92b49ade42d4fee497c7dfd9c394e62931e3804d5",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/lightgbm.tar.gz",
+      "bytes": 764442,
+      "sha256": "f1c71b00f5a63500a44cac7c9dd73623d053ccda386f70f13293e2dc7e27f4c5",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/linear_regression.tar.gz",
+      "bytes": 762253,
+      "sha256": "91a848c0b17a9b55e8f97c1cd4975f18168fe359e95bfd9035aaffc62fe0a0d9",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/parrot_random_forest_800.tar.gz",
+      "bytes": 767612,
+      "sha256": "dbd77cd132a0e6da92b6a340a30af2f966e28b1ad6a94d7f717825a207f1c71f",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/random_forest.tar.gz",
+      "bytes": 766385,
+      "sha256": "1e869dc34db5e133c216e73469e43b6d7d44ce917022614ace4cbddc47b6342a",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/ridge.tar.gz",
+      "bytes": 762168,
+      "sha256": "a6a7c86c7948c5b5e9043d94b4d69561a6265784b6473bca1b13f10634d6dce3",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/sarima.tar.gz",
+      "bytes": 732787,
+      "sha256": "ecfa437c35cee05a408eb0929ba08cca47d50efd04f86b66196b482ae177f959",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/seasonal_naive.tar.gz",
+      "bytes": 522305,
+      "sha256": "011797f8d50c0d3e43fcf28a63a2303d75d9b637043e7fad51b8361a90038a0e",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/svr.tar.gz",
+      "bytes": 763573,
+      "sha256": "6076f9c8107e25db23b14465432734d5e8bf1a3a78c114f55bdecc51754a1eca",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "predictions/outer_baselines/transformer.tar.gz",
+      "bytes": 1049518,
+      "sha256": "e4db4c5eec675d36ad4bf4a8297a6aefc627731ded92554b4ddcfab1329944dd",
+      "archived_files": 957,
+      "archived_predictions": 957
+    },
+    {
+      "path": "scores/b_validation_server_repro/candidate_summary.parquet",
+      "bytes": 8193,
+      "sha256": "e6dfdcca99c8a6abf008af9feeb113d24a0f447c14581f068b872797796da63f"
+    },
+    {
+      "path": "scores/b_validation_server_repro/frozen_comparison.json",
+      "bytes": 2570,
+      "sha256": "c4fd67c5133dc7f5c61f9584eea65bebf8aee70649dd41bc656ed5880bc93f45"
+    },
+    {
+      "path": "scores/b_validation_server_repro/task_metrics.parquet",
+      "bytes": 1412630,
+      "sha256": "f6b8f9fda529227a1d3e600afa39d34a7e185177761f7ad8934f60e0593e5753"
+    },
+    {
+      "path": "scores/b_validation_server_repro/validation_status.json",
+      "bytes": 701,
+      "sha256": "52c1fe4beb14402a2a7ef4bc58182edb65efccd6dd603f6153059f02d5c61217"
+    },
+    {
+      "path": "scores/foundation_b_search/candidate_summary.csv",
+      "bytes": 2516,
+      "sha256": "532b2d4698652e95ad1d0d8ebccadc4aa23c6d6529e0fe5f1283f18ab5ac2b83"
+    },
+    {
+      "path": "scores/foundation_b_search/candidate_summary.parquet",
+      "bytes": 9178,
+      "sha256": "f9dfaab757981391778052a42905a10237a5bb7f0fdbca1dec4c42d3cd1bf7cb"
+    },
+    {
+      "path": "scores/foundation_b_search/task_metrics.parquet",
+      "bytes": 308296,
+      "sha256": "e6f48137ce916d19f1c410e3011875438783cf17c319c1b6f7dd015b823a9b2f"
+    },
+    {
+      "path": "scores/foundation_b_search/validation_status.json",
+      "bytes": 885,
+      "sha256": "8c68518323d6221033c3e8eda471efbaae7769360afa4dcb9cc347ef5bbe9957"
+    },
+    {
+      "path": "scores/foundation_b_zero_shot/seven_model_B_ranking.csv",
+      "bytes": 851,
+      "sha256": "79c065771b02a4a6b3de22b210f319ebe79becc1e1f796dbc3d3975f1e12437e"
+    },
+    {
+      "path": "scores/foundation_b_zero_shot/seven_model_B_ranking.parquet",
+      "bytes": 7335,
+      "sha256": "8b1e07fceaabe991723f98790a7bf3835f2ee09b9b6901285e7a3d389e802e04"
+    },
+    {
+      "path": "scores/foundation_b_zero_shot/status.json",
+      "bytes": 460,
+      "sha256": "d2c177b2743064017adba1d5c339e34fa1b9c7d3b385ccfc8fcb9f92a3a6789c"
+    },
+    {
+      "path": "scores/foundation_b_zero_shot/task_metrics.parquet",
+      "bytes": 44213,
+      "sha256": "806e678b6b94c23b59522fc4131b14ba631e1c4608036083fa9a8fd893613602"
+    },
+    {
+      "path": "scores/foundation_b_zero_shot/zero_shot_summary.parquet",
+      "bytes": 6098,
+      "sha256": "63455e529f14b61919bdaed9ddcea4aad4832ecb5aac0c3b982c0df4b07b2aca"
+    },
+    {
+      "path": "scores/outer_main_table/main_table.csv",
+      "bytes": 7118,
+      "sha256": "f85884ab080c197bc3c9ecf3159f82b74e1b01faf91038ce0ff6a45cf6db8128"
+    },
+    {
+      "path": "scores/outer_main_table/main_table.parquet",
+      "bytes": 18339,
+      "sha256": "49b81f8668baa1fa3b69e1f3ca90f796edb787b4a69b957516cc2001f3ab9b08"
+    },
+    {
+      "path": "scores/outer_main_table/status.json",
+      "bytes": 2831,
+      "sha256": "9a1e25e87347049d9c460b96988ca97fe51b6b91f5eeddc9b14d36ca34ff5f8b"
+    },
+    {
+      "path": "scores/outer_main_table/task_metrics.parquet",
+      "bytes": 2132338,
+      "sha256": "49daf25c3570acd5bc8d947bae0c8f476536077818821c1ac18a1dde5e11af6d"
+    },
+    {
+      "path": "scores/outer_main_table/task_metrics_by_seed.parquet",
+      "bytes": 2505347,
+      "sha256": "49ff66648da70d1b464e3745b9919ffeb43bc126f2a5a89dfb658654b287cea3"
+    },
+    {
+      "path": "server_runs/auto_after_b_search.log",
+      "bytes": 9852,
+      "sha256": "2b3c9cc812c4612f64eecb0f383974024bfb1c3b79a305f19a57443fe7b0afd3"
+    },
+    {
+      "path": "server_runs/auto_after_b_search.sh",
+      "bytes": 2954,
+      "sha256": "a8d27bb071ab01844c9caf29ca53f2e2a8484feb8e9e5f67d1bf4d84d253bfc5"
+    },
+    {
+      "path": "server_runs/b_search_nodes.jsonl",
+      "bytes": 259440,
+      "sha256": "70f7364d17daa8558831f715ee5f207d09c7a8e5072518902be7e825cd7209e7"
+    },
+    {
+      "path": "server_runs/launch.sh",
+      "bytes": 4515,
+      "sha256": "158eb091e6e6113e8bc7c3ba77b581b9d3e7910e22146ac09aa69a23ca84fb2c"
+    },
+    {
+      "path": "server_runs/launch_b_search.sh",
+      "bytes": 1230,
+      "sha256": "4f44107a314014aac314a79ef39435183e2f4b25e5671b5cf3f0ed03b1f3c7f3"
+    },
+    {
+      "path": "server_runs/launch_outer7.sh",
+      "bytes": 2533,
+      "sha256": "74e7bdbdac00f6b0d825442f289e1791591103b4bc7081e9368f12955ab712c6"
+    },
+    {
+      "path": "server_runs/nodes.jsonl",
+      "bytes": 365603,
+      "sha256": "829437313dc878f43e5abe8ab1c086df3f9dc7a15bf4b3f0f8bc400fb398a4b7"
+    },
+    {
+      "path": "server_runs/outer_frozen_nodes.jsonl",
+      "bytes": 92097,
+      "sha256": "ffed80f371dfebe1de9d9fdd36d9a5c9613ec8e64037cc64049fbc48a04d0170"
+    },
+    {
+      "path": "server_runs/run_foundation_b.py",
+      "bytes": 4726,
+      "sha256": "f29d164debb50f57d8116c99d0fcde6f67fef20fe2cce7a72573f7ce0366ac8c"
+    },
+    {
+      "path": "server_runs/run_foundation_outer.py",
+      "bytes": 7622,
+      "sha256": "e14c05e8780ae180265a8f8e006797850393b446e5f124ea7f8a391610c9040a"
+    },
+    {
+      "path": "server_runs/run_outer_frozen.py",
+      "bytes": 9628,
+      "sha256": "bb61171e04cb0f1680f3846623024f4d2e6744210fde0af7c494c22dd106d6c2"
+    },
+    {
+      "path": "server_runs/score_outer_main_table.py",
+      "bytes": 13267,
+      "sha256": "13f9b3be40d75737f0d7329fff23ac5cd64bbe5e2e8b0dc285594913790c7c66"
+    },
+    {
+      "path": "server_runs/score_zero_shot_b.py",
+      "bytes": 7766,
+      "sha256": "59399c94e58b33aa557fefb4cb19bbb4c19042ff08c8dce0b032cf59d9cfc202"
+    },
+    {
+      "path": "server_runs/upstream_revisions_runtime.yaml",
+      "bytes": 6778,
+      "sha256": "756073b1465524abfc58b5bcd536f8b58e6b22687e328cc9d17a3d8a753c49ec"
+    }
+  ]
+}
