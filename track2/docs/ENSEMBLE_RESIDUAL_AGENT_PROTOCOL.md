@@ -97,6 +97,12 @@ outer_targets_seen: false
 
 `PENDING` values are archival schema placeholders. They are not current selected members or a completed configuration. Set `outer_targets_seen` from the actual development history, not by copying the example.
 
+### 3.6 Recorded freeze (2026-10-05)
+
+The B-group top three are frozen in `track2/configs/selected_track2_models.yaml`: M1 Granite TimeSeries PatchTST-FM (GRA01, B MASE(7) 0.927, 324/324), M2 Chronos-2 (CH01, 0.982), M3 TimesFM 3.0 (TFM01, 0.989). Moirai is rank 4 at 1.054 and was not selected. No tie tolerance was registered before scoring. Membership does not depend on one: rank 3 and rank 4 differ by 0.065. Only the M2/M3 order (difference 0.007) could, and the MASE(7) order is kept.
+
+The B ranking file was written at 2026-10-03T09:03:48Z, about 2.5 minutes before the O01–O33 targets were first read for the Track 1 main table. This freeze file was written afterwards, with `outer_targets_seen: true`. The outer top three are the same set. Track 2 results on O01–O33 are exploratory. The confirmatory window is the prospective period O34–O36, which is not used to choose members, weights, residual models, or fallback thresholds. Dates after that window are deployment forecasts and are not scored before their actuals exist.
+
 ### 3.4 Why three members?
 
 The proposed rationale is local B evidence rather than model size/reputation; bounded compute for combination/residual/calibration/coordination comparisons; enough members to compare one-, two-, and three-model systems and survive one failure; and fewer meta-parameters with only 12 B origins. B-only ablations of Top-1/2/3/4/7 could assess marginal membership gains if actually run and declared.
@@ -253,6 +259,41 @@ A residual-module failure disables that module without discarding a valid ensemb
 | T2-A2 | General-purpose LLM coordinator | Same as T2-A0 | Task interpretation, fault explanation, and tool coordination |
 
 On identical valid inputs with no failures, numerical predictions should be identical. Evaluate any coordination value through task success, fault detection/recovery, measured active labor, call counts, latency, and costs. A history-feature router that changes member choice is a separately declared dynamic-routing experiment. Later Qwen weight judgment likewise requires its own comparison definition.
+
+### 6.5 Two controls
+
+| ID | System | Composition | Question |
+|---|---|---|---|
+| T2-C1 | Baseline ensemble | Equal weight of the top three Track 1 baselines by B MASE(7): ETS (ETS03), Ridge (RID02), ElasticNet (EN03), using frozen Track 1 parameters. CPU only. B MASE(7) 1.047, 1.093, 1.102. | Does a Track 2 gain come from ensembling itself, or from the foundation models? |
+| T2-C2 | Single model plus deterministic fallback | M1 alone. If the section 6.6 quality checks fail, fall back to Seasonal Naive. No agent. | Does a reliability gain come from the fallback rule, or from multi-agent coordination? |
+
+T2-C2 and T2-A1 share the same quality checks. The only difference is whether more than one model and a coordinator are present.
+
+### 6.6 Lightweight fault injection (secondary)
+
+In normal runs, T2-A0, T2-A1, and T2-A2 share the same numerical forecast; the agent layer does not change accuracy. The completed Track 1 runs (744 origin runs, 576 B-search tasks, 198 outer reruns, and 13×957 baseline tasks) recorded no hard failures. Fault injection measures whether the system can still deliver an acceptable forecast when something goes wrong. It is an evaluation, not an accuracy improvement, and is reported as a secondary experiment. It runs only on Macau O01–O33 and is exploratory. The prospective window is not fault-injected.
+
+Replay archived failures first, then add constructed faults:
+
+| ID | Type | Source | Injection |
+|---|---|---|---|
+| R1 | Level collapse (silent) | Informer default INF01: about 58% of B01–B09 forecasts fell below 10% of the recent 28-day level | Replace that member's forecast with the archived INF01 output |
+| R2 | Near-zero forecast (silent) | Lag-Llama smoke: 20 of 27 markets had a near-zero mean point forecast | Replace with the archived smoke output |
+| R3 | Import clash (error) | `track1/code/models.py` shadowed the upstream `models` package before commit `e5f49d4` | Restore the conflicting import path at container start |
+| R4 | Checkpoint argument mismatch (error) | Same pre-`e5f49d4` checkpoint loading failure | Load weights with the pre-fix arguments |
+| S1 | Timeout | Constructed | Member inference exceeds the frozen timeout |
+| S2 | Non-finite value | Constructed | Write NaN or inf on 1–3 horizons |
+| S3 | Missing day | Constructed | Emit 27 values |
+| S4 | Wrong origin | Constructed | History ends after the forecast origin |
+| S5 | Out of memory | Constructed | Member raises CUDA OOM |
+
+Quality checks are frozen before any injection, using clean B output only: exactly 28 consecutive finite dates, origin aligned with the history end, and versions matching the frozen config; the ratio of the 28-day forecast mean to the previous 28-day actual mean must lie between the 0.5% and 99.5% percentiles of that ratio on the three members' clean B output (skip tasks whose previous 28-day mean is below 5 visitors); timeout is 3× that member's p95 single-origin wall time from the Track 1 timing test.
+
+Compare T2-A0′ (M1 script, no checks), T2-C2, T2-A1, and T2-A2 on the same fault schedule at 1%, 5%, and 10% task-level fault rates. Draw fault types uniformly, with R1–R4 together half of the draws. Seed 20261005. Save the schedule SHA256 before the run. Tasks without a fault reuse sealed forecasts.
+
+Auxiliary ensemble metrics, not used for selection: win rate versus M1, mean MASE(7) of the worst 10% of tasks and the maximum task MASE(7), standard deviation of the 33 origin-level macro MASE(7) values, fraction of the gap from M1 to the per-task best member that the ensemble captures, and the member error-correlation matrix.
+
+Cost uses the Track 1 volume-breakeven price basis (`track1/configs/volume_breakeven_plan.yaml`): RunPod Secure Cloud A6000, priced from the isolated timing test, summing the three members plus coordination. T2-A2 also records LLM call counts, input and output tokens, and API cost on the same price date. Report the incremental cost per 1,000 tasks against the outer MASE(7) change along Seasonal Naive → ETS → T2-C1 → M1 → T2-C2 → T2-E2/E3/E4 → T2-05 → T2-A1 → T2-A2.
 
 ## 7. Outer evaluation
 

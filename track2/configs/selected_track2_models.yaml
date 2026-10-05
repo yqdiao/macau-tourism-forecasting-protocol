@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "selection_source": "B01-B12",
+  "primary_metric": "task_MASE7_market_fold_macro",
+  "aggregation": "task MASE7 -> mean over folds within market -> equal-weight market mean (27 Macau markets)",
+  "candidates": ["timesfm_3", "chronos_2", "lag_llama", "moirai", "granite_patchtst_fm", "patchtst", "informer"],
+  "selected_models": [
+    {"rank": 1, "label": "M1", "model_id": "granite_patchtst_fm", "candidate_id": "GRA01", "B_MASE7": 0.9274904736807095,
+     "B_paths": "324/324", "source_revision": "fe7a35697723e2a2f5246ae979474bfc554e26c0",
+     "checkpoint": "ibm-granite/granite-timeseries-patchtst-fm-r2",
+     "checkpoint_revision": "b125275f9204d37cbb81fe47b9cf5e08a521e829", "runtime": {"context_length": 8192}},
+    {"rank": 2, "label": "M2", "model_id": "chronos_2", "candidate_id": "CH01", "B_MASE7": 0.9818279776843402,
+     "B_paths": "324/324", "source_revision": "10afa9ebe016e514f9d7dc1aa873f66af57e116b",
+     "checkpoint": "amazon/chronos-2",
+     "checkpoint_revision": "29ec3766d36d6f73f0696f85560a422f50e8498c", "runtime": {"context_length": null}},
+    {"rank": 3, "label": "M3", "model_id": "timesfm_3", "candidate_id": "TFM01", "B_MASE7": 0.9891630076845611,
+     "B_paths": "324/324", "source_revision": "e31dadd84cb26bd5153fde6687502b8312e918fb",
+     "checkpoint": "google/timesfm-3.0-pytorch",
+     "checkpoint_revision": "43046b85ec22d584a13f8098c2ed39c889e129c2",
+     "runtime": {"context_length": null, "symmetric_averaging": false}}
+  ],
+  "not_selected": [
+    {"rank": 4, "model_id": "moirai", "B_MASE7": 1.0538348676165992},
+    {"rank": 5, "model_id": "patchtst", "candidate_id": "PT06", "B_MASE7": 1.364253578169061},
+    {"rank": 6, "model_id": "lag_llama", "B_MASE7": 1.911691018411648},
+    {"rank": 7, "model_id": "informer", "candidate_id": "INF07", "B_MASE7": 2.0312257705745758}
+  ],
+  "entry_checks": "all seven passed: 100% B coverage, frozen Track 1 configuration, 28 finite values per task, target_artifact_accessed=false",
+  "tie_tolerance": {
+    "registered": false,
+    "note": "No tie tolerance was registered before B scoring. Membership does not depend on it: rank 3 (0.989) and rank 4 (1.054) differ by 0.065. Only the order of M2 and M3 (difference 0.007) could depend on a tolerance; the MASE7 order is kept."
+  },
+  "selection_table": {
+    "path": "track1/artifacts/scores/foundation_b_zero_shot/seven_model_B_ranking.csv",
+    "sha256": "79c065771b02a4a6b3de22b210f319ebe79becc1e1f796dbc3d3975f1e12437e",
+    "created_at_utc": "2026-10-03T09:03:48Z"
+  },
+  "frozen_foundation_config_sha256": "8d1f01705076a3030adccba0714bf55ac2c676a8b58287c079c499cd88187379",
+  "track1_code_commit": "98ceac2ef0e686cef6d6a911df52999dcb0148eb",
+  "frozen_at_utc": "2026-10-05T06:40:00Z",
+  "outer_targets_seen": true,
+  "disclosure": "The B ranking was produced at 2026-10-03T09:03:48Z, before the outer O01-O33 targets were first read for the Track 1 main table at 2026-10-03T09:06:25Z, but this freeze file was written afterwards. The outer top three (granite_patchtst_fm, timesfm_3, chronos_2) are the same set, so the selection rule and the outer ranking do not conflict. Track 2 results on O01-O33 are therefore reported as exploratory; the confirmatory test is the prospective period in the Track 2 plan."
+}
