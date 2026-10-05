@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "status": "registered_before_analysis",
+  "registered_at_utc": "2026-10-05T06:10:00+00:00",
+  "analysis_type": "secondary, exploratory",
+  "registration_context": "Drafted 2026-10-05. Outer O01-O33 aggregate results (main table, bootstrap, DM, Friedman) had already been computed. No volume-stratified accuracy or cost result had been computed. This plan fixes the volume definition, comparisons, cost model and breakeven method before any such computation.",
+  "question": "Above what demand volume does a forecasting model with higher compute cost pay for itself through lower absolute forecast error, under batch inference on shared hardware?",
+  "tasks": {
+    "split": "outer_backtest O01-O33",
+    "history": "all",
+    "series": "27 Macau source markets (891 tasks)",
+    "hong_kong": "the 2 Hong Kong destination series are reported separately as a high-volume check and are not used to fit the breakeven curve",
+    "framing": "Each market-origin task is treated as a demand series of a given size. Markets are not scenic spots; the scenic-spot reading is an extrapolation and is listed as a limitation."
+  },
+  "volume": {
+    "primary": {
+      "id": "V28",
+      "definition": "sum of the 28 observed daily visitor counts ending at the origin date (known at forecast time)"
+    },
+    "sensitivity": {
+      "id": "V365",
+      "definition": "28 x mean daily visitors over the 365 days ending at the origin date"
+    },
+    "never_uses": "any value after the origin date"
+  },
+  "comparisons": {
+    "selection_basis": "B01-B12 rankings only, never outer results",
+    "primary_pair": {
+      "foundation": "granite_patchtst_fm",
+      "baseline": "ets",
+      "reason": "best B-group MASE7 in each family (0.927 and 1.047)"
+    },
+    "cheap_reference": "seasonal_naive",
+    "secondary": "every other foundation model against ets and seasonal_naive"
+  },
+  "accuracy_per_task": {
+    "delta_MAE": "MAE_baseline - MAE_foundation, visitors per day, 28-day path; for multi-seed models the seed-mean prediction error",
+    "relative": "MASE7_foundation / MASE7_baseline"
+  },
+  "cost_per_task": {
+    "scenario": "batch: all 29 tasks of one origin run together on one device; model load time is divided over the batch",
+    "gpu_models": "exclusive A6000 instance-seconds per task = wall seconds of one origin run (including model load) / 29, x GPU instance price per second",
+    "cpu_models": "allocated vCPU-seconds per task = task wall seconds x the model's registered thread count (2 for random_forest, parrot_random_forest_800, lightgbm and transformer; 1 for the others, BLAS threads fixed at 1), x vCPU price per second; consumed CPU seconds are also recorded",
+    "training": "PatchTST and Informer per-origin training is part of the task cost; B-group tuning cost is reported separately and not amortized into the breakeven",
+    "researcher_hours": "excluded from monetary cost; reported separately",
+    "source": "isolated timing benchmark (see benchmark), not the contended production run logs"
+  },
+  "benchmark": {
+    "hardware": "the study server: 2 x RTX A6000 48 GB, 96 CPU threads; one model at a time, other GPU work stopped",
+    "origins": [
+      "O01",
+      "O17",
+      "O33"
+    ],
+    "warmup": "one extra origin (O02) run first and discarded",
+    "repeats": 3,
+    "gpu_models": "one model at a time on GPU 0, all 29 tasks of an origin in one process with the registered batch size; PatchTST and Informer use their frozen candidate with seed 42",
+    "cpu_models": "one baseline at a time; the 29 tasks of an origin run as 29 concurrent processes with the model's registered thread count, after the GPU benchmark has finished",
+    "records": "wall seconds, GPU-seconds, CPU core-seconds, peak GPU memory, peak RSS, GPU power samples from nvidia-smi",
+    "warmup_origin": "O02"
+  },
+  "breakeven": {
+    "benefit_per_task": "28 x delta_MAE x c_err, where c_err is the monetary loss per visitor of absolute daily forecast error",
+    "c_err": "free parameter; reported on a log grid from 0.001 to 100 USD per visitor-error, no single value assumed",
+    "curve": "log-log regression of delta_MAE on volume, fitted on tasks with delta_MAE > 0 and separately reporting the share with delta_MAE <= 0; plus a nonparametric version using volume quintiles",
+    "uncertainty": "2000 bootstrap replicates resampling markets (cluster bootstrap), seed 20261005",
+    "outputs": [
+      "V*(c_err): the volume above which expected benefit exceeds extra cost",
+      "c_err*(V): the minimum loss per visitor-error that justifies the foundation model at volume V",
+      "dominance flag when the foundation model is both cheaper per task and more accurate, in which case no breakeven exists"
+    ]
+  },
+  "pricing": {
+    "currency": "USD",
+    "price_date": "2026-10-05",
+    "primary": {
+      "provider": "RunPod Secure Cloud, on demand, billed per second",
+      "gpu": {
+        "instance": "1x RTX A6000 48 GB (bundled 9 vCPU, 50 GB RAM)",
+        "usd_per_hour": 0.53,
+        "source": "https://www.runpod.io/gpu-instance/pricing"
+      },
+      "cpu": {
+        "instance": "CPU pod, compute optimized",
+        "usd_per_vcpu_hour": 0.04,
+        "status": "quoted, not verified: RunPod does not publish CPU pod prices on its public price page",
+        "source": "RunPod catalog API example quoted by flexprice.io",
+        "alternative": {
+          "usd_per_vcpu_hour": 0.0589,
+          "definition": "A6000 Secure Cloud instance price 0.53 divided by its 9 bundled vCPUs, i.e. running CPU models on a rented GPU instance; verifiable on the public price page and an upper bound for CPU cost"
+        }
+      },
+      "reason": "rents the same GPU as the study server, so isolated A6000 timings apply without conversion; GPU and CPU priced on one platform and one date"
+    },
+    "unavailable": "AutoDL, the preferred domestic platform, does not list RTX A6000 (checked by the researcher 2026-10-05; listed RTX A4000, RTX PRO 6000, RTX 6000D) and is not used",
+    "sensitivity": [
+      {
+        "provider": "RunPod Community Cloud",
+        "gpu": "RTX A6000",
+        "usd_per_hour": 0.33,
+        "timing": "A6000 benchmark"
+      },
+      {
+        "provider": "Lambda",
+        "gpu": "1x A6000 (14 vCPU)",
+        "usd_per_hour": 1.09,
+        "timing": "A6000 benchmark",
+        "source": "https://lambda.ai/instances"
+      }
+    ],
+    "gpu_cpu_price_ratio": "breakeven is also reported as a function of the GPU-hour to CPU-core-hour price ratio so readers can apply any provider"
+  },
+  "limitations": [
+    "27 markets confound volume with market type (near vs long-haul, recovery path)",
+    "very small markets (single-digit daily visitors) sit near a count-noise floor",
+    "c_err is application specific and not estimated here",
+    "post hoc relative to the outer aggregate results"
+  ]
+}
