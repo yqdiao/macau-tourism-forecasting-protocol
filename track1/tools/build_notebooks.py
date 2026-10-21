@@ -1,4 +1,4 @@
-"""Create the two reproducible paper notebooks using notebook JSON v4."""
+"""Create Track 1 data and baseline demonstration notebooks using JSON v4."""
 from __future__ import annotations
 
 import json
@@ -26,10 +26,10 @@ def save(name: str, cells: list[dict]) -> None:
     (NOTEBOOK_DIR / name).write_text(json.dumps(notebook, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
-save("01_数据管道.ipynb", [
-    md("""# 澳门与香港日度访客量：数据管道
+save("01_data_pipeline.ipynb", [
+    md("""# Daily visitor arrivals in Macau and Hong Kong: data pipeline
 
-论文任务：27 条澳门客源地序列 + 2 条香港访客类别序列；每个起点只使用已知历史，预测未来 28 天。源数据只读，零值保留。请从本 notebook 所在文件夹运行。"""),
+The task includes 27 Macau source-market series and two Hong Kong visitor-category series. At each origin, only the available history is used to forecast the next 28 days. Source data are read-only, and zero observations are retained. Set the working directory to the repository root before running this notebook. This notebook demonstrates data preparation and boundary checks; it does not reproduce every experiment reported from the server."""),
     code("""from pathlib import Path
 import sys
 import pandas as pd
@@ -40,7 +40,7 @@ except ImportError:
     def display(value): print(value.to_string() if hasattr(value, 'to_string') else value)
 PROJECT = Path.cwd()
 CODE = PROJECT / 'track1' / 'code'
-assert CODE.is_dir(), '请将工作目录设为仓库根目录'
+assert CODE.is_dir(), 'Set the working directory to the repository root.'
 sys.path.insert(0, str(CODE))
 from data_pipeline import (
     MACAU_DIR, HONG_KONG_WORKBOOK, TEST_START, TEST_END,
@@ -52,9 +52,9 @@ print('Macau:', MACAU_DIR)
 print('Hong Kong workbook:', HONG_KONG_WORKBOOK)
 print('Target-date test period:', TEST_START, 'to', TEST_END)
 """),
-    md("""## 1. 读取与核对
+    md("""## 1. Load and validate the data
 
-澳门只读 `data,Tourism` CSV。香港只读工作簿的 `每日数据`：内地访客和其他访客分别为两条目标序列；工作簿中的访客总量仅用于对账。"""),
+Macau data are read from the `data,Tourism` CSV sources. Hong Kong data are read from the workbook's daily-data worksheet: mainland visitors and other visitors are separate target series. The workbook's total visitor count is used only for reconciliation. The loader retains the original source worksheet and column identifiers."""),
     code("""series = load_all()
 qa = pd.DataFrame(quality_summary(series))
 display(qa.groupby('destination').agg(series=('market','count'),
@@ -66,9 +66,9 @@ display(qa.head(4))
 assert len(series) == 29
 assert (qa['days'] > 0).all()
 """),
-    md("""## 2. 生成标准化快照、模型输入与隔离目标
+    md("""## 2. Generate normalized snapshots, model inputs and isolated targets
 
-`task_inputs.parquet` 不含真实目标；`targets.parquet` 只允许独立评估器读取。manifest 仅保留逻辑来源标识和 SHA256，不保存本机绝对路径。"""),
+`task_inputs.parquet` contains no target observations; `targets.parquet` is reserved for the independent evaluator. The manifest retains logical source identifiers and SHA256 hashes rather than machine-specific absolute paths."""),
     code("""manifest = write_data_snapshot(PROJECT / 'shared' / 'data')
 task_manifest = write_task_artifacts(series, PROJECT / 'shared' / 'data')
 print('series:', manifest['series_count'])
@@ -77,18 +77,18 @@ print('source files hashed:', len(manifest['source_sha256']))
 print('isolated tasks:', task_manifest['task_count'])
 print('split task counts:', task_manifest['split_task_counts'])
 """),
-    md("""## 3. 事先固定三组预测起点
+    md("""## 3. Inspect the three configured sets of forecast origins
 
-`shared/configs/protocol.yaml` 显式登记 A01–A13（疫情压力）、B01–B12（调参）和 O01–O33（外层排名）；A/B 仅澳门，香港只参加外层。"""),
+`shared/configs/protocol.yaml` explicitly lists A01–A13 (pandemic stress), B01–B12 (tuning) and O01–O33 (outer evaluation). Sets A and B include Macau only; Hong Kong participates in outer evaluation only. Listing these origins does not by itself establish when a configuration was frozen."""),
     code("""protocol = load_protocol()
 for split in ('pandemic_stress', 'recovery_tuning', 'outer_backtest'):
     folds = [fold for fold in protocol.folds if fold.split_name == split]
     print(split, len(folds), folds[0].fold_id, folds[0].origin,
           'to', folds[-1].fold_id, folds[-1].origin, '| destinations:', folds[0].destinations)
 """),
-    md("""## 4. 检查模型输入的信息边界
+    md("""## 4. Check the model input boundary
 
-`task.history` 截止外层 O33 的 2026-06-14，任务对象没有 `actual` 属性。真实目标只存在于单独的 `targets.parquet`。"""),
+In this O33 example, `task.history` ends on 2026-06-14, and the task object has no `actual` attribute. Target observations are stored separately in `targets.parquet`."""),
     code("""from datetime import date
 item = series['Macau:CN_Chinese_mainland']
 task = make_input_task(item, date(2026, 6, 14), history_length=180)
@@ -100,14 +100,14 @@ assert task.target_dates[0] > task.origin
 assert task.target_dates[-1] <= TEST_END
 assert np.array_equal(task.history, item.values.loc[str(task.history_start):str(task.origin)].to_numpy())
 """),
-    md("""下一步运行 `02_统一模型与回测.ipynb`。本 notebook 只做数据结构与时间边界检查，不训练模型。"""),
+    md("""Next, run `02_models_and_backtesting.ipynb`. This notebook checks data structure and temporal boundaries; it does not train models."""),
 ])
 
 
-save("02_统一模型与回测.ipynb", [
-    md("""# 统一 28 天模型与滚动回测
+save("02_models_and_backtesting.ipynb", [
+    md("""# Baseline models and rolling 28-day backtesting
 
-所有模型只接收 `ForecastInputTask.history`，任务对象不含真实目标。预测输出同时保留 raw 和非负裁剪值；评价由 `track1/code/evaluate_predictions.py` 在预测完成后进行。"""),
+Models receive `ForecastInputTask.history`; task objects do not contain target observations. Forecast outputs retain both raw and nonnegative-clipped values. Evaluation is performed by `track1/code/evaluate_predictions.py` after forecasts have been generated. Set the working directory to the repository root. This notebook demonstrates the baseline implementation included in this repository, not every later server experiment."""),
     code("""from pathlib import Path
 from datetime import date
 import sys
@@ -118,31 +118,31 @@ except ImportError:
     def display(value): print(value.to_string() if hasattr(value, 'to_string') else value)
 PROJECT = Path.cwd()
 CODE = PROJECT / 'track1' / 'code'
-assert CODE.is_dir(), '请将工作目录设为仓库根目录'
+assert CODE.is_dir(), 'Set the working directory to the repository root.'
 sys.path.insert(0, str(CODE))
 from data_pipeline import load_all, make_input_task
 from models import MODEL_NAMES, forecast
 from run_backtest import run_one, run
 print('Available models:', ', '.join(MODEL_NAMES))
 """),
-    md("""## 模型来源与性质
+    md("""## Model provenance and scope
 
-Seasonal Naïve 是必备基线；ETS 为本次新增；SARIMA 受 P1 的 `Fighting BI Team` 方法启发。LightGBM 迁移自 `6104_CJB`；传统回归迁移自 `Machine Not Learning` / `Parrot Nothing`；Transformer 是为数值序列另写的本地小模型，不是预训练基础模型。"""),
+Seasonal Naive is the required baseline; ETS is an additional statistical baseline. SARIMA is inspired by the P1 `Fighting BI Team` approach. LightGBM is adapted from `6104_CJB`, and conventional regression models are adapted from `Machine Not Learning` / `Parrot Nothing`. The Transformer is a small, locally trained model written for numerical series; it is not a pretrained foundation model."""),
     code("""families = pd.DataFrame([
-    ('seasonal_naive','统计基线','最后一周重复'),
-    ('ets','新增统计基线','7天加性季节'),
-    ('sarima','Fighting BI Team 方法迁移','周季节统计模型'),
-    ('lightgbm','6104_CJB 迁移','每步长一模型'),
-    ('random_forest','Machine Not Learning 迁移','每步长一模型'),
-    ('parrot_random_forest_800','Parrot Nothing 迁移','800树，每步长一模型'),
-    ('ridge / linear_regression / gradient_boosting / svr / lasso / elasticnet','传统回归对照','每步长一模型'),
-    ('transformer','数值序列新改写','56天输入，28天输出'),
-], columns=['模型','来源','输入与输出方式'])
+    ('seasonal_naive','Statistical baseline','Repeat the last week'),
+    ('ets','Additional statistical baseline','Additive 7-day seasonality'),
+    ('sarima','Adapted from Fighting BI Team','Weekly seasonal statistical model'),
+    ('lightgbm','Adapted from 6104_CJB','One model per horizon'),
+    ('random_forest','Adapted from Machine Not Learning','One model per horizon'),
+    ('parrot_random_forest_800','Adapted from Parrot Nothing','800 trees; one model per horizon'),
+    ('ridge / linear_regression / gradient_boosting / svr / lasso / elasticnet','Conventional regression comparison','One model per horizon'),
+    ('transformer','Written for numerical series','56-day input; 28-day output'),
+], columns=['Model','Provenance','Input/output design'])
 display(families)
 """),
-    md("""## 单任务演示
+    md("""## Single-task demonstration
 
-可修改市场和起点。使用该起点的前 180 天历史，输出未来 28 天路径；不将未来实际值传入模型。默认演示 Seasonal Naïve、ETS、SARIMA，运行较快。把模型名添加到 `demo_models` 即可运行 LightGBM、Random Forest 或 Transformer。"""),
+The market and origin can be changed. This example uses the 180 days available at the origin to forecast the next 28 days; future observations are not passed to the model. The default demonstration uses Seasonal Naive, ETS and SARIMA. Add model names to `demo_models` to run LightGBM, Random Forest or the local Transformer, with their dependencies installed."""),
     code("""series = load_all()
 task = make_input_task(series['Macau:CN_Chinese_mainland'], date(2026, 6, 14), history_length=180)
 demo_models = ['seasonal_naive', 'ets', 'sarima']
@@ -157,21 +157,21 @@ display(pd.DataFrame(time_rows)[['model','fit_seconds','inference_seconds','tota
 assert predictions.groupby('model').size().eq(28).all()
 assert 'actual' not in predictions.columns
 """),
-    md("""## 对齐论文的四个提前期
+    md("""## Inspect the four forecast horizons used in the paper
 
-本阶段只查看预测。MASE、RMSSE、绝对误差和高需求日指标由独立评估器在合并 targets 后计算。"""),
+At this stage, inspect predictions only. MASE, RMSSE, absolute errors and high-demand-day metrics are calculated by the independent evaluator after joining the isolated targets."""),
     code("""key_horizons = predictions[predictions['horizon_day'].isin([1,7,14,28])]
 display(key_horizons[['model','horizon_day','target_date','prediction_raw','prediction','was_clipped']])
 """),
-    md("""## 完整滚动实验（默认关闭）
+    md("""## Baseline rolling backtest (disabled by default)
 
-正式外层实验要先在 B 组完成调参并冻结配置；当前配置仍为 `pending_B_group_tuning`。以下开关默认关闭，且在参数未冻结时会拒绝批量运行。"""),
+Outer evaluation requires completion of B-group tuning and a frozen baseline configuration. When enabled, the cell below calls `baseline_config.validate(...)` to check the supplied configuration and task manifest, then requires the returned freeze status to be `frozen_after_B_group_tuning`. The notebook does not assume the current freeze status. The switch is disabled by default, and batch execution is rejected if validation fails or the required status is absent. This run covers only the selected baseline models below."""),
     code("""RUN_PAPER_BACKTEST = False
 if RUN_PAPER_BACKTEST:
     from baseline_config import validate
     audit = validate(task_manifest_path=PROJECT / 'shared' / 'data' / 'task_manifest.json')
     if audit['freeze_status'] != 'frozen_after_B_group_tuning':
-        raise RuntimeError('请先完成 B 组调参并冻结 baseline 配置')
+        raise RuntimeError('Complete B-group tuning and freeze the baseline configuration before running outer evaluation.')
     selected = ('seasonal_naive','ets','sarima','random_forest','lightgbm','transformer')
     for destination in ('Macau','HongKong'):
         result = run(inputs=PROJECT / 'shared' / 'data' / 'task_inputs.parquet',
@@ -180,7 +180,7 @@ if RUN_PAPER_BACKTEST:
                      output=PROJECT / 'track1' / 'results' / destination.lower())
         print(destination, result['forecast_tasks'], result['prediction_rows'])
 """),
-    md("""**当前边界：**该文件夹尚未接入 TimesFM、Chronos、Moirai 或多智能体 API；也未生成节假日/演唱会标签或云实例费用。现有的小型 Transformer 应归为本地训练模型。"""),
+    md("""**Scope:** This notebook does not invoke TimesFM, Chronos, Moirai or multi-agent services, and it does not generate holiday/concert labels or cloud-instance billing records. The small Transformer used here is a locally trained model. Reproducing later server experiments requires their corresponding implementations, configurations, checkpoints and archived inputs/outputs; this notebook alone is not a reproduction entry point for all manuscript results."""),
 ])
 
-print("Created 01_数据管道.ipynb and 02_统一模型与回测.ipynb")
+print("Created 01_data_pipeline.ipynb and 02_models_and_backtesting.ipynb")

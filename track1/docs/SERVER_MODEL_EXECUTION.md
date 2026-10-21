@@ -1,36 +1,27 @@
-# 服务器运行七个时序模型的方法
+# Server execution architecture for seven time-series models
 
-> 实现状态：七个 adapter、单起点输入分片、统一运行器和独立 CUDA Dockerfile 已加入仓库，但尚未在实际 GPU 上完成逐模型 smoke test。可执行命令和验收条件见 `track1/docs/FOUNDATION_MODELS_GPU.md`。
+**Historical engineering guide.** Seven adapters, origin isolation, a common runner, and separate CUDA Dockerfiles were added in the September snapshot; actual GPU acceptance was still pending in that snapshot. For current release evidence, see [paper/](../../paper/README.md). Runnable entry points and acceptance checks are in the [GPU guide](FOUNDATION_MODELS_GPU.md).
 
-## 为什么不需要把七个上游仓库复制进本仓库
+## Why upstream repositories are not copied into this repository
 
-服务器首先克隆本研究仓库，然后在构建每个模型的独立容器时，从官方仓库下载**锁定 commit** 的源码。源码存在服务器的容器镜像或构建缓存中，不进入本研究仓库的 Git 历史。模型权重同样按锁定的 checkpoint revision 下载到服务器缓存。
+Clone the research repository first. Each model container then downloads official source at a pinned commit. Source remains in the server's image/build cache rather than duplicating seven upstream histories here. Model weights are likewise downloaded at an exact checkpoint revision.
 
-本研究仓库负责保存：
+The research repository should retain the common tasks, adapters, evaluator, output schemas, source URLs/commits, checkpoint revisions, Dockerfiles, dependency locks, commands, applicable licenses/notices, manifests, and result summaries. This is the intended archival contract, not a claim that every field is already present.
 
-- 统一任务、adapter、评估器和输出 schema；
-- 每个上游仓库 URL 与 commit SHA；
-- checkpoint 名称与 revision；
-- Dockerfile、依赖锁和运行命令；
-- 许可证与 NOTICE 副本；
-- 实验 manifest 和结果摘要。
+## 1. Clone and authenticate
 
-## 服务器工作流
-
-### 1. 克隆私有研究仓库
-
-在服务器配置 GitHub deploy key、SSH key 或短期 token，然后运行：
+Use an existing deploy key, SSH key, or short-lived authorized credential:
 
 ```bash
 git clone git@github.com:yqdiao/macau-tourism-forecasting-protocol.git
 cd macau-tourism-forecasting-protocol
 ```
 
-认证信息只保存在服务器的 SSH agent、GitHub CLI 或 secrets manager 中，不写入仓库、Dockerfile 或 notebook。
+Credentials stay in an SSH agent, CLI credential store, or secrets manager, never in source, Dockerfiles, notebooks, or logs.
 
-### 2. 构建各模型的独立环境
+## 2. Build separate environments
 
-每个模型使用独立 Dockerfile。构建文件采用以下两种方式之一取得官方源码：
+Illustrative pinned-source patterns:
 
 ```dockerfile
 ARG UPSTREAM_COMMIT
@@ -38,18 +29,16 @@ RUN git clone https://github.com/OWNER/REPOSITORY.git /opt/model \
     && git -C /opt/model checkout --detach ${UPSTREAM_COMMIT}
 ```
 
-如果官方仓库是可安装 Python 包，也可以锁定 commit：
-
 ```dockerfile
 ARG UPSTREAM_COMMIT
 RUN pip install "PACKAGE_NAME @ git+https://github.com/OWNER/REPOSITORY.git@${UPSTREAM_COMMIT}"
 ```
 
-TimesFM、Chronos、Lag-Llama、Moirai、Granite、PatchTST、Informer 分别构建镜像，避免 CUDA、PyTorch、GluonTS、JAX 和其他依赖互相冲突。不得使用 `main` 或 `latest` 作为论文运行版本。
+Build TimesFM, Chronos, Lag-Llama, Moirai, Granite, PatchTST, and Informer separately to avoid CUDA, PyTorch, GluonTS, JAX, and other dependency conflicts. A floating `main` or `latest` is not an immutable paper version.
 
-### 3. 下载锁定的模型权重
+## 3. Cache exact weights
 
-镜像启动时或预下载步骤使用 checkpoint revision 获取权重。服务器挂载共享只读缓存，例如：
+Download at startup or in a separate setup stage using the registered revision. Example host cache locations:
 
 ```text
 /srv/tourism-model-cache/huggingface
@@ -57,21 +46,21 @@ TimesFM、Chronos、Lag-Llama、Moirai、Granite、PatchTST、Informer 分别构
 /srv/tourism-model-cache/timesfm
 ```
 
-运行 manifest 记录 checkpoint、revision、文件 SHA256、首次下载时间和缓存后加载时间。权重不提交 Git。
+Record checkpoint ID/revision, file SHA256, first-download time, and cached loading time. Do not commit weights.
 
-### 4. 严格分开预测和评价
+## 4. Separate prediction from scoring
 
-预测容器仅挂载：
+Predictor mounts:
 
 ```text
-/artifacts/task_inputs.parquet   read-only
+/artifacts/task_inputs.parquet   read-only, one origin shard
 /outputs                         read-write
-/model-cache                     read-only 或专用缓存卷
+/model-cache                     read-only or a dedicated cache volume
 ```
 
-预测容器不挂载 `targets.parquet`、原始数据目录或评价结果目录。它生成 `predictions.parquet` 和运行记录后退出。
+No target, raw-data, later-origin, or evaluation-results directory is mounted. The predictor writes forecasts and run records, then exits.
 
-评价容器随后挂载：
+Evaluator mounts:
 
 ```text
 /outputs/predictions.parquet     read-only
@@ -79,57 +68,44 @@ TimesFM、Chronos、Lag-Llama、Moirai、Granite、PatchTST、Informer 分别构
 /evaluation                      read-write
 ```
 
-评价容器按照 `task_id + target_date + horizon_day` 合并真实值。`track1/compose/baseline.yaml` 已给出 baseline 的挂载示例；七个大模型复用同一边界。
+Join by `task_id + target_date + horizon_day`. `track1/compose/baseline.yaml` demonstrates the baseline boundary; the seven-model workflow uses the same separation.
 
-### 5. 七个 adapter 的统一责任
+## 5. Common adapter responsibilities
 
-每个 adapter 只做以下转换：
+1. Read one market's history through its origin.
+2. Convert to the upstream tensor, dataframe, or tokenizer representation.
+3. Generate 28 future days.
+4. Use q0.5 when supplied, otherwise a sample median or the official native point forecast.
+5. Save `prediction_raw`, nonnegative `prediction`, and `was_clipped`.
+6. Record `training_history_days`, `requested_context_days`, and `effective_context_days`.
+7. Do not access other markets, weather, holidays, or future targets in the historical univariate comparison.
 
-1. 从 `task_inputs.parquet` 读取一个市场截至起点的历史数组；
-2. 转换为模型原生张量、数据框或 tokenizer 输入；
-3. 生成未来 28 天；
-4. 分位数模型取 `q=0.5`，采样模型取样本中位数；
-5. 保存 `prediction_raw`、非负 `prediction` 与 `was_clipped`；
-6. 记录 `training_history_days`、`requested_context_days` 与 `effective_context_days`；
-7. 不读取其他市场、天气、节假日或 targets。
-
-## 推荐的仓库结构
+## Layout and execution
 
 ```text
-shared/
-  configs/protocol.yaml
-  data/
-    task_inputs.parquet
-    targets.parquet
-    task_manifest.json
-track1/
-  configs/upstream_revisions.yaml
-  code/
-    foundation_models/
-      contracts.py
-      origin_io.py
-      adapters/
-  docker/
-  compose/
-  scripts/
-  results/                 # 运行时生成，不提交 Git
+shared/configs/protocol.yaml
+shared/data/task_inputs.parquet
+shared/data/targets.parquet
+shared/data/task_manifest.json
+track1/configs/upstream_revisions.yaml
+track1/code/foundation_models/{contracts.py,origin_io.py,adapters/}
+track1/{docker,compose,scripts}/
+track1/results/                  # Generated, not committed
 ```
 
-`upstream_revisions.yaml` 应记录 URL、完整 commit SHA、代码许可、checkpoint、checkpoint revision 和权重许可。第一次正式运行前把全部占位符替换为实际版本并冻结。
-
-## GPU 服务器上的执行顺序
+The upstream registry should record URL, full commit, code license, checkpoint, exact checkpoint revision, and weight license. Replace run-blocking placeholders with approved versions before formal execution.
 
 ```bash
-# 1. 在数据准备环境生成隔离制品
+# Prepare artifacts in the protected preparation environment.
 python track1/code/prepare_tasks.py --macau-dir /protected/raw/macau \
   --hong-kong-workbook /protected/raw/hong_kong.xlsx \
   --output shared/data --protocol shared/configs/protocol.yaml
 
-# 2. 运行某个预测镜像；该容器看不到 targets
+# Predictor service cannot see targets.
 docker compose -f track1/compose/baseline.yaml run --rm predictor
 
-# 3. 确认 predictions.parquet 完整并记录 SHA256 后再评价
+# Seal and verify the prediction artifact before independent scoring.
 docker compose -f track1/compose/baseline.yaml run --rm evaluator
 ```
 
-七个大模型的 predictor 服务只需替换镜像和 adapter，输入与输出契约保持一致。这样服务器每次连接本研究仓库后都能重建相同环境，同时避免在研究仓库中复制七份不断变化的第三方源码。
+Model-specific services change the image and adapter while preserving the input/output contract. Actual reproducibility still requires the corresponding final versions, inputs, and configurations.

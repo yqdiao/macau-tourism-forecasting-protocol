@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this repository, cite the exact Git commit and the repository URL. The associated manuscript is a working paper."
+type: software
+title: "Macau Tourism Forecasting Protocol and Audited Evidence"
+authors:
+  - name: "Macau Tourism Forecasting Protocol contributors"
+version: "2026.10.21"
+date-released: "2026-10-21"
+url: "https://github.com/yqdiao/macau-tourism-forecasting-protocol"
+repository-code: "https://github.com/yqdiao/macau-tourism-forecasting-protocol"
+abstract: >-
+  Protocol, baseline implementation, historical model adapters, and audited
+  evidence for evaluating tourism forecast accuracy, downstream computing
+  resources, demand regimes, forecast combinations, language-model judgment,
+  and delivery reliability. See the reproducibility status for the distinction
+  between executable components, archived configurations, and released results.
+keywords:
+  - tourism demand forecasting
+  - time series foundation models
+  - forecast combination
+  - resource accounting
+  - reproducibility
+

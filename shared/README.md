@@ -1,12 +1,16 @@
-# Shared：两个 Track 的共用部分
+# Shared task artifacts
 
-`shared/` 只保存 Track 1 与 Track 2 必须共同使用的制品：
+`shared/` contains the artifacts that the historical Track 1 and Track 2 protocols share:
 
-- `configs/protocol.yaml`：统一的 28 天预测协议和全部滚动起点；
-- `data/task_inputs.parquet`：模型可读历史；
-- `data/targets.parquet`：仅评估器可读真实目标；
-- `data/task_index.parquet` 与 `data/task_manifest.json`：任务索引、数量和 SHA256；
-- `data/splits/`：A、B、外层输入分片；
-- `requirements.txt`：CPU 数据管道和 baseline 的共用依赖。
+- `configs/protocol.yaml`: the 28-day forecasting protocol and fixed origins;
+- `data/task_inputs.parquet`: model-readable histories without future targets;
+- `data/targets.parquet`: realized targets for the independent evaluator;
+- `data/task_index.parquet` and `data/task_manifest.json`: task indices, counts, and SHA256 values;
+- `data/splits/`: inputs separated into stress, selection, and outer-evaluation phases;
+- `requirements.txt`: dependencies for the CPU pipeline and baseline implementation.
 
-模型运行环境不得挂载 `data/targets.parquet`。Track 2 应复用这些任务 ID 和时间边界，不另外生成一套不一致的日期划分。
+Predictor environments must not mount `data/targets.parquet`. GPU predictors should use one origin shard at a time, rather than the complete data directory. Downstream experiments reuse task IDs and temporal boundaries; a new experiment must document any intentional difference.
+
+The current paper uses 891 Macau outer-evaluation tasks, while the historical implementation also supports two separate Hong Kong series and additional history settings. Dataset availability and scored-window coverage are different. See the [current release boundaries](../docs/reproducibility_status.md).
+
+This update retains existing data bytes. It does not change data licensing or authorize new redistribution.

@@ -120,16 +120,16 @@ def load_hong_kong(workbook: Path = HONG_KONG_WORKBOOK) -> dict[str, DailySeries
     workbook = Path(workbook)
     book = load_workbook(workbook, read_only=True, data_only=True)
     try:
-        sheet = book["每日数据"]
+        sheet = book["\u6bcf\u65e5\u6570\u636e"]
         rows = sheet.iter_rows(min_row=4, max_col=6, values_only=True)
         header = next(rows)
         expected_header = (
-            "日期",
-            "香港居民入境人次",
-            "内地访客",
-            "其他访客",
-            "访客入境总量（Tourism demand）",
-            "全部入境旅客人次",
+            "\u65e5\u671f",
+            "\u9999\u6e2f\u5c45\u6c11\u5165\u5883\u4eba\u6b21",
+            "\u5185\u5730\u8bbf\u5ba2",
+            "\u5176\u4ed6\u8bbf\u5ba2",
+            "\u8bbf\u5ba2\u5165\u5883\u603b\u91cf（Tourism demand）",
+            "\u5168\u90e8\u5165\u5883\u65c5\u5ba2\u4eba\u6b21",
         )
         if tuple(header) != expected_header:
             raise ValueError(f"Hong Kong sheet headers changed: {header}")

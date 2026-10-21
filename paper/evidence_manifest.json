@@ -1,0 +1,187 @@
+{
+  "release_date": "2026-10-21",
+  "scope": "audited_derived_scores_and_figures; not_complete_raw_forecast_archive",
+  "artifacts": [
+    {
+      "path": "data/main_model_market_metrics.csv",
+      "sha256": "a672935589e8807832bc6299b1b933afca2eca323ed9983d2717bed32bddaff0",
+      "rows": 405,
+      "source_label": "per_market_all15_metrics.csv",
+      "source_sha256": "492bb55c48374592c26436207595a45f0be126f246817fcbf00090a29a30fa43",
+      "transformation": "Removed Chinese display names; added explicit scope and selection identity. Numeric scores are unchanged. NL01 retains upstream mean-of-seed-errors aggregation."
+    },
+    {
+      "path": "data/r3_task_metrics.csv",
+      "sha256": "379627baa2646112ae024643f8d8808bcd4acac9f9801a6184392d6a543e5133",
+      "rows": 20142,
+      "source_label": "independent_task_metrics.csv",
+      "source_sha256": "d746c14d628e5032e675712c4ddfcaad8faf10889521682e64ef044a203fe6c9",
+      "transformation": "Unchanged audited task scores; repeated seeds are already averaged at score level. R3 configurations are exploratory after earlier outer results were observed."
+    },
+    {
+      "path": "data/r3_summary.csv",
+      "sha256": "3eff42a43bbc1e291871cb2fa5493767adf11f091966ebbf0e0364f2035e69a7",
+      "rows": 42,
+      "source_label": "independent_summary.csv",
+      "source_sha256": "7cc094c64c8482365139797133cc7bb1c2d2f4a5640455b4b0457c9daf008c23",
+      "transformation": "Unchanged independently reconstructed summaries; duplicate forecasts remain identified in evidence notes."
+    },
+    {
+      "path": "data/r3_partial_runtime.csv",
+      "sha256": "42f3a692fcf45c7f4288ac59aeb726789c7eb53c54ad5b89aa2bcd2846761515",
+      "rows": 30,
+      "source_label": "partial_runtime_summary.csv",
+      "source_sha256": "fb6b7ed06d14afc91cd747588a0a683c1a486c9d61194e77ae17bf8dc08dd824",
+      "transformation": "Unchanged partial CPU runtime records; zero inference entries are not evidence of zero resource use."
+    },
+    {
+      "path": "data/llm_task_metrics.csv",
+      "sha256": "30cf0f7c5a2fe2dc6161be6a0c6fdb49e12ee039834e8273a2e8aeb1a223285e",
+      "rows": 15507,
+      "source_label": "task_metrics_repeat_errors_averaged.csv",
+      "source_sha256": "6194743521b9412bf1851f77c2ce3f2fd75f9d223dd9f24c3e76c1d9e65f3144",
+      "transformation": "Renamed native scale fields to evaluation scale and explicitly labelled the evaluation history. M2 uses all-history MASE; all LLM prompts use the recent 180-day history. Task scores already average replicate errors."
+    },
+    {
+      "path": "data/llm_summary.csv",
+      "sha256": "63daa127279c921e1d31d842351b521cfb8b5a7080cf45a1ce9152afbbe57ce3",
+      "rows": 30,
+      "source_label": "metric_summary.csv",
+      "source_sha256": "e043f80c4a4dd42e008779dda3903b4a74244cc4874f2c5f4f796e3f5190aa5b",
+      "transformation": "Renamed native scale fields to evaluation scale. Full and matched-890 sensitivity rows are both retained. RMSE is the mean of task RMSE unless a column explicitly says pooled/root."
+    },
+    {
+      "path": "data/llm_paired_differences.csv",
+      "sha256": "d4203e6a5b85c2cb1f9ca062744da3cff4cd25753cfebc81b28496dd986576b5",
+      "rows": 46,
+      "source_label": "paired_differences.csv",
+      "source_sha256": "943e6f88e0c762b8aad476da8b16cb149fdd521d3bd4bc402188e0ee51f9a473",
+      "transformation": "Renamed MASE field; preserved circular-origin-block bootstrap intervals and all numerical differences. These are stored audit intervals, not recomputed by the release validation script."
+    },
+    {
+      "path": "data/llm_delivery_coverage.csv",
+      "sha256": "3ca6c7592207c205576634116e77d38a8a2220890d1152c368bd2322308b5774",
+      "rows": 36,
+      "source_label": "delivery_coverage.csv",
+      "source_sha256": "7d679cab1868432de19037ad9cfde5b1719c366c4d4f0eb96e728f599493fb18",
+      "transformation": "Unchanged aggregate coverage by strategy and replicate; no prompt or response content is included."
+    },
+    {
+      "path": "data/llm_call_resources.csv",
+      "sha256": "8fc6dbf4cf93ae4a7dc30d9114f5d937e3765516ea11524bd7bf9f2235a07460",
+      "rows": 12,
+      "source_label": "m14_conditional_call_cost.csv",
+      "source_sha256": "b0998a299638fa53ab273592734eaadf36ba8917b61ebdf2ba7e58a106d748bd",
+      "transformation": "Removed absolute currency scenarios and retained request-duration coefficients. Repeated runs are divided by delivered forecasts, not unique tasks, for per-1000 workload."
+    },
+    {
+      "path": "data/accuracy_resource_plot_data.csv",
+      "sha256": "e49ed16f906b7351a90efb452ebf25a872fc3e65ea8b622b966b8e89491aa2f8",
+      "rows": 17,
+      "source_label": "td_accuracy_cost_joint_plotdata.csv",
+      "source_sha256": "b07214dcfea302fc0a65b8f7656c4dd8555e759172d660e1016fb2a121f545dc",
+      "transformation": "Unchanged plot data: relative registered charge within the same GPU-price group and incremental LLM request hours. The historical relative charges originate from rounded registration entries."
+    },
+    {
+      "path": "data/market_totals_27.csv",
+      "sha256": "0416399ce0be9f5acfdb6c44236b393fd2cf872328aff3a762622604fa8020fd",
+      "rows": 27,
+      "source_label": "market_totals_27.csv",
+      "source_sha256": "4319fb152b6318a864161aacde6937ddf280b5b73f13dc662e632d1bdb780c79",
+      "transformation": "Removed Chinese display names. The full 2017-01-01 to 2026-07-31 observed period selects a retrospective display subset only; it does not select models."
+    },
+    {
+      "path": "data/top10_model_market_metrics.csv",
+      "sha256": "73f4cfdf081226cb77f7f7d81a2a77db54bbca52bf1e45b3b7fd105eaeb0b19c",
+      "rows": 150,
+      "source_label": "top10_model_market_metrics.csv",
+      "source_sha256": "2db8699b96e044d4f757f1cdf5245f0b5a8f97f1262e8a5e8b929d71f0ba3cc0",
+      "transformation": "Removed Chinese display names; retained English names, raw precision, model ranks and descriptive display selection."
+    },
+    {
+      "path": "figures/td_accuracy_cost_joint.pdf",
+      "sha256": "0c174afe0fab81f2acf08dc40b1897e283152b10807312e2f7cc0c3b234771e5",
+      "source_label": "td_accuracy_cost_joint.pdf",
+      "source_sha256": "0c174afe0fab81f2acf08dc40b1897e283152b10807312e2f7cc0c3b234771e5",
+      "transformation": "Unchanged English figure export used by the manuscript; no full third-party paper or manuscript is included."
+    },
+    {
+      "path": "figures/td_model_workflow_8b.pdf",
+      "sha256": "481b8b2f898372034ad4abe64a99fa4a76d6e4f8e700417d992b88abbca848e7",
+      "source_label": "td_model_workflow_8b.pdf",
+      "source_sha256": "481b8b2f898372034ad4abe64a99fa4a76d6e4f8e700417d992b88abbca848e7",
+      "transformation": "Unchanged English figure export used by the manuscript; no full third-party paper or manuscript is included."
+    },
+    {
+      "path": "figures/td_m14_scope_coverage.pdf",
+      "sha256": "3ec9566c360be6ee4bdd6b264bbe569ba8a7a53c52cec56edb5f3c1a77d15efa",
+      "source_label": "td_m14_scope_coverage.pdf",
+      "source_sha256": "3ec9566c360be6ee4bdd6b264bbe569ba8a7a53c52cec56edb5f3c1a77d15efa",
+      "transformation": "Unchanged English figure export used by the manuscript; no full third-party paper or manuscript is included."
+    },
+    {
+      "path": "figures/td_m14_history_increment.pdf",
+      "sha256": "5ea9ff35c73af1fc85bfc795410f704ee54a522d4deea63b0f73fd8f94bb1f64",
+      "source_label": "td_m14_history_increment.pdf",
+      "source_sha256": "5ea9ff35c73af1fc85bfc795410f704ee54a522d4deea63b0f73fd8f94bb1f64",
+      "transformation": "Unchanged English figure export used by the manuscript; no full third-party paper or manuscript is included."
+    },
+    {
+      "path": "figures/td_group_original_track2.pdf",
+      "sha256": "c9a4ec7841a9abee892c905c564f669b7b148c2c3aa9d1dc42530e4d6755b38d",
+      "source_label": "td_group_original_track2.pdf",
+      "source_sha256": "c9a4ec7841a9abee892c905c564f669b7b148c2c3aa9d1dc42530e4d6755b38d",
+      "transformation": "Unchanged English figure export used by the manuscript; no full third-party paper or manuscript is included."
+    },
+    {
+      "path": "data/main_accuracy_summary.csv",
+      "sha256": "672270975f3ac741fb0c65782ce09eb6676ce96c3ed6e9a37d727e2daacae1d2",
+      "rows": 15,
+      "source_label": "all_track1_export_metrics.csv",
+      "source_sha256": "4579533bdb677444a615b7fa54e1a9f0e0d862c439b09dd8b0befd37007d8ae5",
+      "transformation": "Selected the 15 configurations represented by the manuscript main market table. Original aggregation conventions are retained; exploratory LL01 is labelled in the market-level table."
+    },
+    {
+      "path": "configs/qwen8b_manifest.json",
+      "sha256": "ce1ffaea60b7379781de109dc902d4c5c990624fc0641f761eed45413ad6aad8",
+      "source_label": "qwen8b_configuration_note",
+      "source_sha256": "e4bcdfe494da12c0f6db954275f5c9ff8cc3ef5e4e45e5e0800157b683b50043",
+      "transformation": "English structured transcription. Omitted host-specific identifiers and inconsistent strategy table; retained reported hardware, configuration and hash fields."
+    },
+    {
+      "path": "configs/r3/frozen_R3.json",
+      "sha256": "e50ce89722b6eed156a4b8d24d2d529215620bc3fbb92ee47929ef3cc6c43c5e",
+      "source_label": "frozen_R3.json",
+      "source_sha256": "e50ce89722b6eed156a4b8d24d2d529215620bc3fbb92ee47929ef3cc6c43c5e",
+      "transformation": "Byte-preserving copy; English source values"
+    },
+    {
+      "path": "configs/r3/protocol_P0.json",
+      "sha256": "b9b010aa583e745c0b120f4d55fc8b176bc78df047e09b184ebc07a7b62b6f5e",
+      "source_label": "protocol_P0.json",
+      "source_sha256": "b9b010aa583e745c0b120f4d55fc8b176bc78df047e09b184ebc07a7b62b6f5e",
+      "transformation": "Byte-preserving copy; English source values"
+    },
+    {
+      "path": "configs/r3/selection_V2_B.json",
+      "sha256": "b8b4ec6b7559133d25ce85877b95583b3f459a02eb2acde4a878c93f68db961d",
+      "source_label": "selection_V2_B.json",
+      "source_sha256": "b8b4ec6b7559133d25ce85877b95583b3f459a02eb2acde4a878c93f68db961d",
+      "transformation": "Byte-preserving copy; English source values"
+    },
+    {
+      "path": "configs/r3/selection_V3_B.json",
+      "sha256": "4deb8ae9115a609703a80bb9eebd6354ed8dddd942efd545811b79065ec3bb72",
+      "source_label": "selection_V3_B.json",
+      "source_sha256": "4deb8ae9115a609703a80bb9eebd6354ed8dddd942efd545811b79065ec3bb72",
+      "transformation": "Byte-preserving copy; English source values"
+    },
+    {
+      "path": "configs/r3/sampling_policy.json",
+      "sha256": "cda340dc3fe75a8591578d387fff4451c1b1cb6311f592e1343605c70af765fb",
+      "source_label": "sampling_policy.json",
+      "source_sha256": "cda340dc3fe75a8591578d387fff4451c1b1cb6311f592e1343605c70af765fb",
+      "transformation": "Byte-preserving copy; English source values"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "run_id": "r3_20261018",
+  "at_utc": "2026-10-19T22:32:38.928316+00:00",
+  "code_hash": "c2bda610dcdc739a08c45b499d969d738142056d900e1bdc8d3cc50ac55a151e",
+  "tree_best": "R3V2_T3",
+  "linear_best": "R3V2_N2",
+  "local_best": "R3V3_L_INF",
+  "global_best": "R3V3_G_INF",
+  "mix_best": "R3V3_MIX_0",
+  "outer_models": [
+    "R3V1_NP",
+    "R3V1_NR",
+    "R3V1_G",
+    "R3V1_L",
+    "R3V2_T3",
+    "R3V2_N2",
+    "R3V3_L_INF",
+    "R3V3_G_INF"
+  ],
+  "exploratory": true
+}

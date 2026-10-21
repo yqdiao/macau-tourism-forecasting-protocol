@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "status": "registered_before_tuning",
+  "drafted_at_utc": "2026-10-06T05:10:00+00:00",
+  "registered_at_utc": "2026-10-06T05:32:00+00:00",
+  "confirmed_decisions": {
+    "tolerance": 0.05,
+    "hong_kong_destination": "not run; the new models forecast the 27 Macau source markets only",
+    "holidays": "statutory public holidays only; mainland make-up rest days, the 2020 extended Spring Festival, school holidays and concert dates are excluded"
+  },
+  "analysis_type": "secondary, added after outer results",
+  "registration_context": "Drafted after the O01-O33 main table, the per-task cost benchmark and the volume breakeven had been computed. Those results showed zero-shot foundation models more accurate than every registered lightweight baseline at a similar per-task cost. The A01-A13 and 180/365-day runs of the existing models had been launched but not scored. This plan is to be committed before any of those sensitivity scores are read and before any code for the new models exists.",
+  "question": "Does the accuracy gap between zero-shot foundation models and lightweight models persist when the lightweight models get the two things the registered baselines lack: learning across the 27 markets and a calendar known in advance?",
+  "hypotheses": {
+    "H1": "A global lightweight model with a holiday calendar reaches Macau MASE7 within 0.05 of Chronos-2 on the same tasks.",
+    "H2": "Pooling across markets, not the calendar, explains most of the gain over the per-market baselines.",
+    "direction_only": "Both are tested on exploratory O01-O33 and on the prospective confirmatory period; neither is claimed significant from the confirmatory period alone."
+  },
+  "families": {
+    "global_lightgbm": {
+      "id_prefix": "GL",
+      "pooling": "one model per forecast origin trained on all 27 Macau markets; the Hong Kong destination series are not run",
+      "strategy": "direct multi-horizon: horizon h=1..28 is a feature, one model covers all horizons",
+      "target": "log1p(visitors at t+h) - log1p(mean visitors over the 28 days ending at anchor t)",
+      "inverse": "expm1(prediction + log1p(mean visitors over the 28 days ending at the origin)), clipped at 0",
+      "training_rows": "every anchor day t with t+28 <= origin, every h in 1..28; if more than 1,500,000 rows, keep anchors on a uniform stride, always including the last 365 anchors",
+      "features": {
+        "level": "log1p of each of the last 28 days minus the 28-day anchor level",
+        "window_stats": "mean and std of log1p over 7, 14, 28, 56 and 365 days ending at t, minus the anchor level",
+        "same_weekday": "log1p at t+h-7k for the 4 most recent k with t+h-7k <= t, minus the anchor level",
+        "ratio": "log1p mean of last 28 days minus log1p mean of last 365 days",
+        "series": "market id as a categorical feature",
+        "horizon": "h",
+        "calendar_target_day": "day of week, month, Macau public holiday flag, mainland China public holiday flag, source-market public holiday flag, signed days to the nearest mainland China holiday capped at +-7, length of the mainland holiday block containing the day",
+        "excluded": "any observed value after the anchor; concert dates; any covariate not known at the anchor"
+      },
+      "fixed": {
+        "objective": "l2",
+        "min_child_samples": 50,
+        "subsample": 0.8,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.8,
+        "threads": 4,
+        "seed": 42,
+        "early_stopping": "none; tree count is a candidate parameter"
+      },
+      "candidates": [
+        {"id": "GL01", "params": {"num_leaves": 31, "learning_rate": 0.05, "n_estimators": 500, "anchor_window": "all"}},
+        {"id": "GL02", "params": {"num_leaves": 31, "learning_rate": 0.05, "n_estimators": 500, "anchor_window": 730}},
+        {"id": "GL03", "params": {"num_leaves": 63, "learning_rate": 0.03, "n_estimators": 1000, "anchor_window": "all"}}
+      ]
+    },
+    "global_linear": {
+      "id_prefix": "NL",
+      "reference": "Zeng, Chen, Zhang and Xu, AAAI 2023, Are Transformers Effective for Time Series Forecasting? (NLinear and DLinear)",
+      "pooling": "one shared linear map per forecast origin over all 27 Macau markets (channel independent, individual=false); the Hong Kong destination series are not run",
+      "scale": "log1p; NLinear subtracts the last input value and adds it back; DLinear splits trend by a moving average of kernel 25",
+      "fixed": {
+        "loss": "MSE",
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "batch_size": 256,
+        "max_epochs": 50,
+        "early_stopping": "patience 5 on the last 10% of windows in time (same tail rule as PatchTST/Informer)",
+        "device": "cpu",
+        "threads": 2,
+        "seeds": [11, 29, 42]
+      },
+      "candidates": [
+        {"id": "NL01", "params": {"model": "nlinear", "lookback": 56}},
+        {"id": "NL02", "params": {"model": "nlinear", "lookback": 180}},
+        {"id": "NL03", "params": {"model": "dlinear", "lookback": 180}}
+      ]
+    }
+  },
+  "calendar": {
+    "source": "python-holidays 0.106",
+    "builder": "track1/code/build_holiday_calendar.py",
+    "coverage": "2016-12-01 to 2026-12-31",
+    "countries": "MO for the Macau destination flag; CN for the mainland flag; each of the 27 Macau source markets mapped to the ISO code in its market id, including HK_Hong_Kong_SAR as a source market. The two Hong Kong destination series are not in this file.",
+    "mainland_filter": "drop CN rows whose name contains \u8c03\u4f11, \u8865\u5047, \u4f11\u606f\u65e5 or \u5ef6\u957f",
+    "output": "shared/data/holiday_calendar.parquet",
+    "sha256": "9060f62e542a884cf6f56d2feda8e527bb0b37eaebdedfbb5441a4357cf6cadc",
+    "rows": 3841,
+    "freeze": "file and SHA256 fixed at registration; rebuild only by a new plan",
+    "limitation": "statutory holidays only; known 28 days ahead. Mainland dates are 11 per year through 2024 (10 in 2020, when Mid-Autumn falls on National Day) and 13 in 2025-2026 after the statutory calendar added Lunar New Year's Eve and a second Labour Day"
+  },
+  "selection": {
+    "split": "B01-B12, 27 Macau markets, 324 tasks",
+    "metric": "task MASE7, seed mean, fold mean within market, equal-weight market mean (same as all Track 1 models)",
+    "rule": "lowest mean MASE7, then lower mean fit time, then candidate id",
+    "frozen_per_family": true,
+    "light_champion": "the family winner with the lower B MASE7; this one model carries the primary comparison",
+    "not_used_for_selection": "O01-O33, A01-A13, Hong Kong, any sensitivity result"
+  },
+  "ablations": {
+    "purpose": "explain the gap; never used for selection",
+    "runs": [
+      {"id": "GL-noCal", "change": "frozen GL candidate without any calendar feature"},
+      {"id": "GL-local", "change": "frozen GL candidate trained on one market at a time (no pooling), calendar kept"}
+    ],
+    "evaluated_on": "B01-B12 and O01-O33"
+  },
+  "evaluation": {
+    "history": "all (each candidate applies its own anchor_window or lookback)",
+    "exploratory": "O01-O33, 891 Macau tasks; the Hong Kong destination is not run; targets were seen before this plan",
+    "stress": "A01-A13, 351 Macau tasks, reported separately, not combined with B or O",
+    "confirmatory": "the prospective origins already registered for Track 2 (O34 2026-07-12, O35 2026-08-09, O36 2026-09-06 if data cover 2026-10-04), Macau 27 markets only; new data imported only after this plan and the Track 2 configs are frozen and committed; the light champion, Chronos-2, Granite, TimesFM 3.0, ETS and seasonal naive are all run on these origins",
+    "metrics": "the Track 1 set: MASE7, RMSSE7, WAPE, bias, high-demand MASE7, MASE7 at h=1/7/14/28, win rate vs seasonal naive"
+  },
+  "comparisons": {
+    "primary": "light champion vs chronos_2",
+    "secondary": [
+      "light champion vs granite_patchtst_fm",
+      "light champion vs ets (gain over the registered per-market baseline)",
+      "light champion vs svr (best registered baseline on outer, reported only)"
+    ]
+  },
+  "decision_rules": {
+    "match": "H1 holds on O01-O33 if the upper bound of the 95% paired block-bootstrap interval of (light champion - chronos_2) Macau MASE7 is <= 0.05; bootstrap as in outer_accuracy_extra (2000 replicates, Macau-market strata, origin blocks of 3, seed 20261003)",
+    "confirmatory": "report the same difference on the prospective origins with its sign; agreement in direction is the only confirmatory claim",
+    "H2": "share of the (ets - GL champion) MASE7 gap on O01-O33 removed by GL-local vs by GL-noCal",
+    "tolerance_fixed_before_run": 0.05
+  },
+  "cost": {
+    "batch": "same isolated benchmark design as volume_breakeven_plan.yaml: origins O01, O17, O33, warmup O02 discarded, 3 repeats, one model at a time; a global model trains once per origin for all 27 markets, so allocated vCPU-seconds per task = origin wall seconds x registered threads / 27",
+    "pricing": "same as volume_breakeven_plan.yaml: RunPod, price date 2026-10-05, CPU 0.04 USD per vCPU-hour (quoted, unverified) and the 0.0589 bundled upper bound",
+    "frontier": "cost per 1000 tasks vs Macau MASE7 for all 20 registered models plus the light champion; a model is on the frontier if no other model is both cheaper and lower in MASE7",
+    "incremental": "extra USD per 1000 tasks per visitor-day of MAE removed, moving from the light champion to chronos_2 and to granite_patchtst_fm; benefit at c_err on the 0.001-100 USD log grid",
+    "secondary_scenarios": [
+      {"id": "cpu_zero_shot", "what": "chronos_2, granite_patchtst_fm and timesfm_3 run with CUDA hidden on the same origins and repeats, 8 threads per process, one origin of 29 tasks per process; per-task cost = wall x 8 / 29 x vCPU price"},
+      {"id": "cold_start_single_site", "what": "one fresh process forecasting one market at one origin: interpreter start, imports, weight load from local disk and one forecast, for the light champion, ets and the three zero-shot models; billed per second and, as a sensitivity, with a one-hour minimum"},
+      {"id": "deployment_footprint", "what": "environment size on disk, weight size, number of pinned packages, GPU required yes or no"}
+    ],
+    "researcher_hours": "logged for the new models (implementation, debugging, tuning) and reported in hours, not converted to money"
+  },
+  "budget": {
+    "candidates": "the 6 listed and the 2 ablations; no additions after registration",
+    "cpu_core_hours_cap": 300,
+    "on_cap": "stop, report the candidates that finished, mark the rest as not run"
+  },
+  "stopping_rule": "Once the registered candidates and ablations have run, no further lightweight model is added to answer H1, whatever the result. Any later idea is a new plan with its own registration date.",
+  "leakage_rules": [
+    "model inputs come only from task_inputs.parquet and the frozen calendar; targets.parquet is read only by the scorer",
+    "pooled training at an origin uses only values dated on or before that origin for every market",
+    "no candidate, feature or hyperparameter is chosen after reading O01-O33, A01-A13 or sensitivity scores for the new models"
+  ],
+  "implementation": {
+    "code": ["track1/code/light_models.py", "track1/code/build_holiday_calendar.py", "track1/scripts/run_light_models.py"],
+    "outputs": ["track1/results/light_models/", "track1/evaluation/light_models/"],
+    "environment": "/root/miniforge3 with lightgbm, scikit-learn, torch and holidays 0.106"
+  },
+  "limitations": [
+    "added after the outer results; O01-O33 evidence for the new models is exploratory",
+    "the confirmatory period has 2-3 origins (54-81 Macau tasks) and limited power",
+    "B01-B12 is a recovery period; candidates selected there may favour fast-rising demand",
+    "statutory calendars miss adjusted working days, school holidays and events"
+  ]
+}

@@ -1,22 +1,22 @@
-# Baseline B 组验证与冻结审计
+# Baseline B-group validation and freezing audit
 
-## 完成状态
+## Historical completion record
 
-- 完成时间：2026-09-26 11:38（Asia/Shanghai）
-- 验证折：B01–B12
-- 候选配置总数：33
-- 已完成预测路径：12,636 / 12,636
-- 终止失败路径：0
-- 未解决路径：0
-- 选择指标：28 天任务级 MASE(7)，再对市场、折次和 seed 宏平均
-- 参数状态：`frozen_after_B_group_tuning`
-- 运行模型代码 commit：`256ff6652c68bc418ac4c4d43c5d66610ebc991b`
+- Completion: 2026-09-26 11:38 (Asia/Shanghai)
+- Validation folds: B01–B12
+- Candidate configurations: 33
+- Completed prediction paths: 12,636 / 12,636
+- Terminal failed paths: 0
+- Unresolved paths: 0
+- Selection metric: 28-day task MASE(7), macro-averaged over markets, folds, and seeds
+- Configuration status: `frozen_after_B_group_tuning`
+- Model-code commit: `256ff6652c68bc418ac4c4d43c5d66610ebc991b`
 
-## 冻结结果
+## Frozen selections
 
-| 模型 | 入选候选 | B 组 MASE(7) | 平均拟合秒数 |
+| Model | Selected candidate | B-group MASE(7) | Mean fit seconds |
 |---|---:|---:|---:|
-| Seasonal Naive | SN01 | 固定基准 | 0.0000 |
+| Seasonal Naive | SN01 | Fixed benchmark | 0.0000 |
 | ETS | ETS03 | 1.047266 | 0.5076 |
 | SARIMA | SAR03 | 1.200664 | 1.5655 |
 | Ridge | RID02 | 1.093038 | 0.2325 |
@@ -30,28 +30,28 @@
 | LightGBM | LGB01 | 1.254014 | 37.1744 |
 | Transformer baseline | TR03 | 1.288447 | 56.1705 |
 
-Seasonal Naive 是预先固定的基准，不参与候选优选，因此没有 B 组验证分数。
+Seasonal Naive was fixed in advance and did not compete in candidate selection; no B-group candidate-selection score is reported for it here.
 
-## 已提交的审计制品
+## Committed audit artifacts
 
-- `validation_status.json`：完整性、任务覆盖、源文件哈希和冻结状态。
-- `driver_status.json`：本机驱动程序最终状态与退出码。
-- `candidate_summary.parquet`：33 个候选配置的汇总结果。
-- `frozen_baseline_configs.generated.bin`：评价器完成冻结时写出的原始 CRLF 字节，用于复核完成时 SHA256。
-- `../../configs/frozen_baseline_configs.yaml`：13 个 baseline 的最终冻结选择。
+- `validation_status.json`: completeness, task coverage, source hashes, and freezing status.
+- `driver_status.json`: final local driver status and exit code.
+- `candidate_summary.parquet`: summary of all 33 candidates.
+- `frozen_baseline_configs.generated.bin`: original CRLF bytes written at freezing, retained for byte-level hash verification.
+- `../../configs/frozen_baseline_configs.yaml`: final selections for the 13 baselines.
 
-为避免提交大体积中间结果，本目录不包含 12,636 个预测分片、运行日志和逐任务指标文件。`validation_status.json` 保存了候选汇总、逐任务指标、受保护目标文件和冻结配置在完成时的 SHA256，可用于核验本地归档。
+This directory does not contain all 12,636 forecast shards, runtime logs, or task-level metric files. `validation_status.json` records completion-time hashes for the candidate summary, task-level metrics, protected targets, and frozen configuration so that separately retained archives can be checked.
 
-## 完成时关键 SHA256
+## Completion-time SHA256 values
 
-| 制品 | SHA256 |
+| Artifact | SHA256 |
 |---|---|
-| B 组任务清单 | `1074e3be580a1a2cea63aaa502ad0c2267a15ff2dc01e5c5f78e04f8fcce928d` |
-| 候选汇总 | `e51cab19c98f26257bd6db0bdd37ba02a01cedaa35e7a18fd6e244c0e8204cdf` |
-| 逐任务指标 | `e7eb223db9f4e2e95df3dc2b2c4a0f1da08b4a1a8513599411f9812b1d7898a9` |
-| 受保护目标 | `1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715` |
-| 冻结配置原始归档 `frozen_baseline_configs.generated.bin` | `1771fcb4d4605a139db8e79c0a6533679afa002bce0aa48289de7eaa65889595` |
+| B-group task list | `1074e3be580a1a2cea63aaa502ad0c2267a15ff2dc01e5c5f78e04f8fcce928d` |
+| Candidate summary | `e51cab19c98f26257bd6db0bdd37ba02a01cedaa35e7a18fd6e244c0e8204cdf` |
+| Task-level metrics | `e7eb223db9f4e2e95df3dc2b2c4a0f1da08b4a1a8513599411f9812b1d7898a9` |
+| Protected targets | `1ec5dee35f3846c8a51fbe4d5faab9ac536a853944c84d43bbb56dffdc092715` |
+| Original frozen bytes, `frozen_baseline_configs.generated.bin` | `1771fcb4d4605a139db8e79c0a6533679afa002bce0aa48289de7eaa65889595` |
 
-Git 工作配置按仓库规则规范化为 LF，语义内容与原始归档相同。完成时字节级 SHA256 应对照 `.bin` 归档；外层运行使用 `track1/configs/frozen_baseline_configs.yaml`。
+The working YAML is normalized to LF under repository rules and is semantically equivalent to the original archive. Verify the completion-time byte hash against the `.bin` file; outer backtests use `track1/configs/frozen_baseline_configs.yaml`.
 
-外层回测只能读取冻结配置和模型输入。`targets.parquet` 仍只允许独立评价器读取。
+Outer predictors read the frozen configuration and historical inputs. Only the independent evaluator reads `targets.parquet`.

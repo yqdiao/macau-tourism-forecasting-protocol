@@ -1,0 +1,35 @@
+{
+  "scope": "recorded R3 configuration and selection metadata; model implementation with the recorded code hash is not supplied",
+  "files": [
+    {
+      "path": "frozen_R3.json",
+      "original_sha256": "e50ce89722b6eed156a4b8d24d2d529215620bc3fbb92ee47929ef3cc6c43c5e",
+      "released_sha256": "e50ce89722b6eed156a4b8d24d2d529215620bc3fbb92ee47929ef3cc6c43c5e",
+      "transformation": "Byte-preserving copy; English source values"
+    },
+    {
+      "path": "protocol_P0.json",
+      "original_sha256": "b9b010aa583e745c0b120f4d55fc8b176bc78df047e09b184ebc07a7b62b6f5e",
+      "released_sha256": "b9b010aa583e745c0b120f4d55fc8b176bc78df047e09b184ebc07a7b62b6f5e",
+      "transformation": "Byte-preserving copy; English source values"
+    },
+    {
+      "path": "selection_V2_B.json",
+      "original_sha256": "b8b4ec6b7559133d25ce85877b95583b3f459a02eb2acde4a878c93f68db961d",
+      "released_sha256": "b8b4ec6b7559133d25ce85877b95583b3f459a02eb2acde4a878c93f68db961d",
+      "transformation": "Byte-preserving copy; English source values"
+    },
+    {
+      "path": "selection_V3_B.json",
+      "original_sha256": "4deb8ae9115a609703a80bb9eebd6354ed8dddd942efd545811b79065ec3bb72",
+      "released_sha256": "4deb8ae9115a609703a80bb9eebd6354ed8dddd942efd545811b79065ec3bb72",
+      "transformation": "Byte-preserving copy; English source values"
+    },
+    {
+      "path": "sampling_policy.json",
+      "original_sha256": "cda340dc3fe75a8591578d387fff4451c1b1cb6311f592e1343605c70af765fb",
+      "released_sha256": "cda340dc3fe75a8591578d387fff4451c1b1cb6311f592e1343605c70af765fb",
+      "transformation": "Byte-preserving copy; English source values"
+    }
+  ]
+}

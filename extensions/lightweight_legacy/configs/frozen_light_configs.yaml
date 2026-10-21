@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "frozen_after_B_group_tuning",
+  "plan_sha256": "198e236f192a51021a6355644b78faa127ca641a88618b699e10b61a8376c6c2",
+  "code_sha256": "999320d2df0ac76c00e72179b22ef766c3d8ca90b7084d36410749d54b47f533",
+  "calendar_sha256": "9060f62e542a884cf6f56d2feda8e527bb0b37eaebdedfbb5441a4357cf6cadc",
+  "selection_rule": "lowest mean MASE7, then lower mean fit time, then candidate id",
+  "families": {
+    "global_lightgbm": {
+      "candidate_id": "GL03",
+      "params": {
+        "num_leaves": 63,
+        "learning_rate": 0.03,
+        "n_estimators": 1000,
+        "anchor_window": "all"
+      },
+      "validation_score": 1.1154482482415304,
+      "seed_sd_MASE7": null,
+      "mean_fit_seconds": 2.9565423106153808
+    },
+    "global_linear": {
+      "candidate_id": "NL01",
+      "params": {
+        "model": "nlinear",
+        "lookback": 56
+      },
+      "validation_score": 1.0726598964449852,
+      "seed_sd_MASE7": 0.0013097401197102363,
+      "mean_fit_seconds": 0.29151317033794066
+    }
+  },
+  "light_champion": {
+    "family": "global_linear",
+    "candidate_id": "NL01",
+    "params": {
+      "model": "nlinear",
+      "lookback": 56
+    },
+    "validation_score": 1.0726598964449852,
+    "seed_sd_MASE7": 0.0013097401197102363,
+    "mean_fit_seconds": 0.29151317033794066
+  },
+  "frozen_at_utc": "2026-10-07T08:04:19.523297+00:00"
+}

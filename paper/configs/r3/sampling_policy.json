@@ -1,0 +1,6 @@
+{
+  "policy": "all_legal_anchors_shared_global_local",
+  "reason": "B01 local design matrix used 1598940 rows at about 1 GiB RSS, under the 16 GiB budget. Global and local models share this unsampled anchor list.",
+  "resolved_before_new_B_ranking": true,
+  "max_rows_cap_not_applied": 1500000
+}

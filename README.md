@@ -1,132 +1,166 @@
-# 澳门与香港日度旅游需求预测研究仓库
+# Macau tourism forecasting: accuracy, resource use, and adoption
 
-本仓库包含两个相互关联、分别评价的计算实验：
+Research companion repository for **Are large models more cost-effective for tourism demand forecasting? Evidence from different demand periods in Macau**.
 
-- **Track 1：**13 个 baseline 与 7 个时序模型的统一滚动回测；
-- **Track 2：**从 Track 1 的七模型中根据 B01–B12 选择前三名，研究集成、样本外残差修正和多 Agent 协同；
-- **Shared：**两个 Track 共用的时间划分、隔离数据制品和基础依赖。
+The manuscript evaluates forecasting tools and additional system components through three questions:
 
-七个时序模型的 adapter 和 CUDA 容器已经实现，当前状态为 `implemented/pending GPU smoke`。源码 commit 与 checkpoint revision 仍需在 GPU 服务器锁定后逐个验收。
+1. Which forecasting configurations offer useful combinations of predictive accuracy and recorded computational resources?
+2. How do these comparisons change with demand periods, source markets, forecast horizons, and available history?
+3. Do forecast combination, language-model judgment, and fallback mechanisms deliver improvements that justify their additional resources?
 
-13 个 baseline 的 B01–B12 验证已于 2026-09-26 完成：12,636 条候选预测路径全部完成，失败数为 0，参数状态为 `frozen_after_B_group_tuning`。冻结配置见 [`track1/configs/frozen_baseline_configs.yaml`](track1/configs/frozen_baseline_configs.yaml)，审计记录见 [`track1/audit/b_validation/`](track1/audit/b_validation/)。后续外层回测必须使用该冻结配置，不得用 O01–O33 的结果重新选择参数。
+The principal reference studies are [Wu et al. (2025), *How well can ChatGPT forecast tourism demand?*](https://doi.org/10.1016/j.tourman.2024.105119) and [Wu et al. (2027), *Multi-agent collaboration strategies for tourism demand forecasting*](https://doi.org/10.1016/j.tourman.2026.105479). Their forecasting and collaboration designs motivate the comparison; this repository does not claim to reproduce every design in either paper.
 
-## 仓库结构
+## Start here
+
+- [Paper companion materials and evidence](paper/README.md)
+- [Six-section manuscript structure](docs/manuscript_structure.md)
+- [Release scope and reproducibility status](docs/reproducibility_status.md)
+- [Track 1 implementation](track1/README.md)
+- [Shared data and task boundaries](shared/README.md)
+- [Track 2 protocol and relationship to later evidence](track2/README.md)
+
+## Current release and historical implementation
+
+This release updates the research narrative and documentation in English, and adds the audited paper companion materials. The existing `track1/` implementation and frozen baseline audit are retained. The `track1/` and `track2/` directory names are engineering identifiers; the paper is organized by research questions rather than by the order in which experiments were run.
+
+**Code availability and evidence availability are separate.** The historical repository contains the Track 1 data pipeline, 13 baseline implementations, seven time-series adapters, container definitions, and baseline selection audit. The presence of a later result in `paper/` does not imply that its complete server execution code, checkpoints, raw predictions, or resource logs are included. Consult the companion inventory before attempting a full rerun.
+
+The September protocol documents are retained as **archival design records**. Their pending checklists, proposed 20-model scope, and proposed operational extensions are not a completion statement for the current paper. They are not retrospective evidence that every later experiment was specified before its outcomes were inspected.
+
+## Evaluation unit and information boundaries
+
+A task is one destination/source-market series at one forecast origin with a 28-day forecast path. The main Macau evaluation comprises **27 markets, 33 origins, and 891 tasks**. The pandemic stress set contains 351 Macau tasks; the selection set contains 324 Macau tasks. The two Hong Kong series form a separate extension and are not pooled into the Macau primary score.
+
+The 33 main windows score 2024-01-01 through 2026-07-12. The source observations extend through 2026-07-31, but the final 19 days are outside those main windows. The stress set consists of selected windows, not every day of the pandemic.
+
+Predictors may read only history available by each origin:
+
+- `shared/data/task_inputs.parquet`: historical inputs without future targets;
+- `shared/data/splits/*/task_inputs.parquet`: inputs separated by evaluation phase;
+- `shared/data/origin_shards/`: generated, physically isolated origin-level inputs for GPU containers.
+
+The independent evaluator reads `shared/data/targets.parquet` after forecasts are sealed. Model containers must not mount the whole shared data directory. The common task calendar is in `shared/configs/protocol.yaml`.
+
+Frozen target-task weights do not establish the absence of overlap with upstream pretraining data. Model revisions and retrospective evaluation boundaries remain part of the interpretation.
+
+## Models and system roles
+
+| Component | Role in the paper | Interpretation |
+|---|---|---|
+| Pretrained time-series models | Produce numerical forecast paths from historical observations | Frozen-weight inference is evaluated within each recorded information setting |
+| Statistical, machine-learning, and lightweight configurations | Fit or train on available target history | Original frozen selections and later exploratory revisions are distinguished |
+| Local Qwen3-4B-thinking | Generate numerical forecasts directly | Output quality, extreme predictions, and shared-sample sensitivity are retained |
+| Local Qwen3-8B | Assign weights to existing candidate forecasts | Programmatic aggregation produces the final numerical forecasts |
+| Deterministic and LLM coordination | Validate, route, and invoke frozen fallback rules | Reliability evidence is conditional on the documented fault construction |
+
+Time-series models can be forecasting tools inside an agent workflow. Tool inclusion alone does not make each model a language-based agent. Independent role branches also do not imply concurrent GPU execution.
+
+## Accuracy and resource interpretation
+
+The current manuscript reports task-level **MASE(7), MAE, and mean task RMSE**, with task coverage and paired uncertainty where available. When the historical MASE scale is zero, its MASE is undefined; the task remains in applicable unscaled metrics. Native scales and common-history scales must be identified explicitly.
+
+Monetary costs are represented by a resource-price vector and a cost function, `C_j(p)`. Prices vary across providers, regions, devices, billing arrangements, and dates. Recorded call time, device occupancy, and complete service cost are different quantities. Missing labor, maintenance, or deployment costs are not zero, and predictive error reductions are not measured operating profits.
+
+## Repository layout
 
 ```text
 .
-├─ shared/                       # 两个 Track 共用
-│  ├─ configs/protocol.yaml      # A01–A13、B01–B12、O01–O33
-│  ├─ data/                      # 隔离后的输入、目标和 manifest
-│  ├─ requirements.txt
-│  └─ README.md
-├─ track1/                       # 单模型和七模型比较
-│  ├─ code/                      # 数据管道、baseline、七模型 adapter、评价器
-│  ├─ configs/                   # baseline 搜索/冻结配置、上游版本登记
-│  ├─ compose/                   # baseline 与 GPU Compose
-│  ├─ docker/                    # 独立镜像定义和依赖
-│  ├─ docs/                      # Track 1 协议、审计和 GPU 手册
-│  ├─ notebooks/                 # 两个研究 notebook
-│  ├─ scripts/                   # 长时运行、版本锁定和批量执行脚本
-│  ├─ tests/
-│  └─ README.md
-├─ track2/                       # 三模型集成和多 Agent 实验
-│  ├─ docs/
-│  └─ README.md
-├─ .dockerignore
-└─ .gitignore
+├── docs/                   # Current English narrative and release boundaries
+├── paper/                  # Audited companion materials; see its own inventory
+├── shared/
+│   ├── configs/            # Common A/B/O task calendar
+│   ├── data/               # Existing versioned input/target artifacts
+│   └── requirements.txt
+├── track1/
+│   ├── audit/              # Historical baseline selection evidence
+│   ├── code/               # Pipeline, baselines, adapters, and evaluators
+│   ├── configs/            # Search spaces, frozen choices, upstream registry
+│   ├── compose/            # CPU and GPU service definitions
+│   ├── docker/             # Separate model environments
+│   ├── docs/               # English archival protocols and execution guides
+│   ├── notebooks/          # English data and backtesting notebooks
+│   ├── scripts/
+│   └── tests/
+└── track2/
+    └── docs/               # Archival ensemble and coordination protocol
 ```
 
-运行时生成的 `track1/results/`、`track1/evaluation/`、模型缓存、权重和密钥不会提交到 Git。
+Generated results, model weights, caches, and credentials are excluded from Git. The repository does not introduce a new license grant for existing data or third-party models.
 
-## 共用数据边界
+## Historical baseline selection audit
 
-一次任务为“一个目的地/市场 × 一个预测起点 × 一条未来 28 天路径”。预测器只读取：
+On 2026-09-26, baseline B01–B12 validation completed **12,636 of 12,636 candidate forecast paths**, with zero terminal failures, across 33 candidate configurations. The final state was `frozen_after_B_group_tuning`.
 
-- `shared/data/task_inputs.parquet`：历史输入，不含真实目标；
-- `shared/data/splits/*/task_inputs.parquet`：按实验阶段隔离的输入；
-- `shared/data/origin_shards/`：GPU 模型一次只能看到一个预测起点的分片。
+- [Frozen configurations](track1/configs/frozen_baseline_configs.yaml)
+- [Audit records](track1/audit/b_validation/README.md)
 
-独立评估器才可以读取：
+These are historical selection records, not the number of tasks in the current manuscript. Outer-test results must not be used to replace the original frozen choice. Later lightweight revisions are reported under their exploratory identity.
 
-- `shared/data/targets.parquet`：未来 28 天真实值。
+## Quick start: existing CPU implementation
 
-Track 1 和 Track 2 共用 `shared/configs/protocol.yaml`，从而保证预测起点、horizon、季节周期和任务 ID 完全一致。
+Run commands from the repository root:
 
-## Track 1 快速入口
-
-协议和执行清单：
-
-- [`track1/docs/澳门日度旅游需求_统一实验方案与执行清单.md`](track1/docs/澳门日度旅游需求_统一实验方案与执行清单.md)
-- [`track1/docs/FOUNDATION_MODELS_GPU.md`](track1/docs/FOUNDATION_MODELS_GPU.md)
-
-数据与协议审计：
-
-```powershell
+```bash
+python -m pip install -r shared/requirements.txt
 python track1/code/audit_protocol_artifacts.py
 python track1/code/baseline_config.py --task-manifest shared/data/task_manifest.json
 ```
 
-Baseline smoke：
+Example baseline smoke run:
 
-```powershell
-python track1/code/run_backtest.py `
-  --inputs shared/data/task_inputs.parquet `
-  --destinations Macau `
-  --markets CN_Chinese_mainland `
-  --origin-date 2023-12-31 `
-  --history all `
-  --splits outer_backtest `
-  --models seasonal_naive,ets,sarima `
+```bash
+python track1/code/run_backtest.py \
+  --inputs shared/data/task_inputs.parquet \
+  --destinations Macau \
+  --markets CN_Chinese_mainland \
+  --origin-date 2023-12-31 \
+  --history all \
+  --splits outer_backtest \
+  --models seasonal_naive,ets,sarima \
   --output track1/results/smoke_isolated
 ```
 
-独立评价：
+Evaluate in the separate scoring environment:
 
-```powershell
-python track1/code/evaluate_predictions.py `
-  --predictions track1/results/smoke_isolated/predictions.parquet `
-  --targets shared/data/targets.parquet `
+```bash
+python track1/code/evaluate_predictions.py \
+  --predictions track1/results/smoke_isolated/predictions.parquet \
+  --targets shared/data/targets.parquet \
   --output track1/evaluation/smoke_isolated
 ```
 
-本机 B 组长时运行：
+Docker entry points:
+
+```bash
+docker compose -f track1/compose/baseline.yaml run --rm predictor
+docker compose -f track1/compose/baseline.yaml run --rm evaluator
+```
+
+For the historical Windows B-group driver:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File track1/scripts/run_b_local.ps1 -Workers 4
 ```
 
-Docker smoke：
+These examples exercise the existing implementation. They do not rerun every later server experiment in the paper.
 
-```powershell
-docker compose -f track1/compose/baseline.yaml run --rm predictor
-docker compose -f track1/compose/baseline.yaml run --rm evaluator
-```
+## GPU implementation and version control
 
-GPU 七模型：
+Consult the [GPU guide](track1/docs/FOUNDATION_MODELS_GPU.md) and [sequential execution checklist](track1/docs/GPU_SEQUENTIAL_RUN_CHECKLIST.md). Each model uses its own container environment. Inspect the registered revisions and configuration before running; old smoke defaults are not automatically the final paper configuration.
 
-```powershell
+For a new run, version resolution is an explicit setup step:
+
+```bash
 python track1/scripts/pin_upstream_revisions.py
-docker compose --env-file track1/.env.pinned -f track1/compose/foundation-gpu.yaml build chronos_2
+git diff -- track1/configs/upstream_revisions.yaml
+docker compose --env-file track1/.env.pinned \
+  -f track1/compose/foundation-gpu.yaml build chronos_2
 ```
 
-完整 GPU 执行步骤见 [`track1/docs/FOUNDATION_MODELS_GPU.md`](track1/docs/FOUNDATION_MODELS_GPU.md)。
+Do not run the pinning script during a frozen replication if it would replace the revisions under study. Restore the recorded run-specific versions instead.
 
-## Track 2 快速入口
+## Data, credentials, and third-party rights
 
-Track 2 当前为预注册方案；具体三个模型必须在七模型完成 B01–B12 后才冻结：
+Existing tracked artifacts are preserved by this documentation update. Their presence is not a new assertion of unrestricted redistribution rights. Respect the original Macau and Hong Kong data terms and each model's code and weight license. Store credentials outside the repository. Do not commit API keys, access tokens, model weights, container layers, or private local paths.
 
-- [`track2/docs/TRACK2_三模型集成_级联残差与多Agent协同实验方案.md`](track2/docs/TRACK2_三模型集成_级联残差与多Agent协同实验方案.md)
-
-正式选择只能使用 B 组任务级 MASE(7) 宏平均及预注册并列规则。O01–O33 不参与前三名、权重、残差模型或回退阈值的选择。
-
-## 安装依赖
-
-```powershell
-python -m pip install -r shared/requirements.txt
-```
-
-七个时序模型使用各自的 CUDA 镜像，不建议把所有上游依赖安装进同一个 Python 环境。
-
-## 数据和许可证
-
-仓库仅应保存已确认允许向协作者分发的数据制品。若原始数据没有明确再分发许可，应仅保留下载说明、SHA256 和小型样例。TimesFM 3.0、Moirai 2 等模型权重还需遵守各自模型卡和许可证。
+For academic use, cite the manuscript when publication details are available and record the exact repository commit used. Repository updates do not assign a publication DOI or establish journal acceptance.

@@ -1,0 +1,87 @@
+{
+  "scope": "original lightweight implementation and configuration snapshots; not R3 revision source",
+  "portable_edits": "Path resolution and CLI defaults only; training logic and frozen numeric choices unchanged",
+  "files": [
+    {
+      "path": "code/evaluate_light_models.py",
+      "original_sha256": "d1cae2e3713a4f4c86cbef259e0d7d5ca3abb8aab4ea0916c61ae35fb336bc94",
+      "released_sha256": "f5528a552ceaeb593007332c2bf9f75480a997b910053bcc61045fa40b24078e",
+      "changes": [
+        "Resolve repository root from the released extensions layout",
+        "Resolve PLAN from the local snapshot configuration directory",
+        "Resolve FREEZE from the local snapshot configuration directory",
+        "Hash the adjacent archived model implementation"
+      ]
+    },
+    {
+      "path": "code/light_models.py",
+      "original_sha256": "999320d2df0ac76c00e72179b22ef766c3d8ca90b7084d36410749d54b47f533",
+      "released_sha256": "999320d2df0ac76c00e72179b22ef766c3d8ca90b7084d36410749d54b47f533",
+      "changes": [
+        "Byte-preserving source copy"
+      ]
+    },
+    {
+      "path": "code/run_light_models.py",
+      "original_sha256": "d1f6b32eb0e5c581c6b61de835e88646a754025d16ed365d780ba7d5bef85703",
+      "released_sha256": "996e3ff8f0c982f09460603cd58f84783cfaebb85f7d12fd0d90756bad2be788",
+      "changes": [
+        "Resolve repository root from the released extensions layout",
+        "Resolve PLAN from the local snapshot configuration directory",
+        "Resolve FREEZE from the local snapshot configuration directory",
+        "Hash the adjacent archived model implementation",
+        "Replace host-specific defaults with repository-relative shard and journal paths; prefer adjacent model module"
+      ]
+    },
+    {
+      "path": "code/score_light_extra.py",
+      "original_sha256": "ed4672ed98349487dbb36afca3f8de2a9b64c8ed5e378b164908fb8488bdd55e",
+      "released_sha256": "f1ca6f5a7cc33fd27c8e12f71f46d0e7deb978edad1de07dd2bdec1bcc0de705",
+      "changes": [
+        "Resolve repository root from the released extensions layout"
+      ]
+    },
+    {
+      "path": "code/score_light_round2.py",
+      "original_sha256": "4cdc3d585c9a222d06ef3ee07cf60615afa7f5d907a014c4cf6efb8e6f212b17",
+      "released_sha256": "828bb561aa438ae34189b05fee5974fcb37a9ee547440f751fbd4440ead7712d",
+      "changes": [
+        "Resolve repository root from the released extensions layout"
+      ]
+    },
+    {
+      "path": "code/score_light_slices.py",
+      "original_sha256": "2224fa58aa509669d24fcb22b1ec78759a7498b75dd4723a85c93923d34baf02",
+      "released_sha256": "3c73da41989e4f2bd3070c1dff89a3b58e79aed031456966ec94c313c6864e58",
+      "changes": [
+        "Resolve repository root from the released extensions layout"
+      ]
+    },
+    {
+      "path": "configs/frozen_light_configs.yaml",
+      "original_sha256": "ef7d0c4ca6371c8737cde8648ce99fd4340061a1048cc3756a6efb99cc864a32",
+      "released_sha256": "ef7d0c4ca6371c8737cde8648ce99fd4340061a1048cc3756a6efb99cc864a32",
+      "changes": [
+        "Byte-preserving source copy; JSON-compatible content retains the original .yaml suffix"
+      ]
+    },
+    {
+      "path": "configs/light_model_plan.yaml",
+      "original_sha256": "198e236f192a51021a6355644b78faa127ca641a88618b699e10b61a8376c6c2",
+      "released_sha256": "1d42aa6874296e21bb13f29a53eadcf9560c7c434a1edfb899d59fafc939a74c",
+      "changes": [
+        "Chinese calendar-name filter literals encoded with Unicode escapes; JSON values unchanged",
+        "Original .yaml suffix retained for JSON-compatible text",
+        "Historical frozen plan hash identifies the original bytes; released byte hash differs only by this representation change"
+      ]
+    },
+    {
+      "path": "configs/light_model_round2.yaml",
+      "original_sha256": "a7c72668d11c06a39622d15a215bcea58d78447418eee5228430c992ce3eec7c",
+      "released_sha256": "a7c72668d11c06a39622d15a215bcea58d78447418eee5228430c992ce3eec7c",
+      "changes": [
+        "Byte-preserving source copy; JSON-compatible content retains the original .yaml suffix"
+      ]
+    }
+  ]
+}

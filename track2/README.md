@@ -1,15 +1,13 @@
-# Track 2：前三名模型集成与多 Agent 协同
+# Track 2: forecast combination and coordination protocol
 
-Track 2 使用 Track 1 七模型在 B01–B12 上的冻结结果选择前三名，然后比较：
+This directory preserves the September design for combining three models selected from the Track 1 B01–B12 results, with optional residual correction, probability calibration, and workflow coordination.
 
-1. 最佳单模型、Top-2 和 Top-3 等权集成；
-2. 验证误差权重和受约束权重；
-3. 可关闭的样本外残差修正；
-4. 概率预测校准；
-5. 确定性协调器和 LLM 多 Agent 协调器。
+- [Archival ensemble, residual, and agent protocol](docs/ENSEMBLE_RESIDUAL_AGENT_PROTOCOL.md)
+- [Current paper evidence](../paper/README.md)
+- [Current reproducibility boundaries](../docs/reproducibility_status.md)
 
-当前正式协议位于：
+The archival protocol proposes a frozen deterministic numerical pipeline, with an LLM coordinator permitted to invoke tools and explain recorded outcomes. It is distinct from the later Qwen3-8B experiment in which language judgments assign candidate weights, and from Qwen3-4B-thinking directly generating forecasts. Those designs and their evidence must not be conflated.
 
-- [`docs/TRACK2_三模型集成_级联残差与多Agent协同实验方案.md`](docs/TRACK2_三模型集成_级联残差与多Agent协同实验方案.md)
+The current `track2/` directory does not itself contain the full later server execution implementation. A protocol or exported result is not a substitute for source code, final configurations, model revisions, and complete logs. Consult the `paper/` inventory for the materials actually released.
 
-Track 2 的代码、配置和结果目录将在七模型 B 组排名冻结后按协议建立。O01–O33 不得参与前三名和元参数选择。
+O01–O33 must not be used to retrospectively change the original selected members, weights, residual rules, or fallback thresholds. Any development after inspecting previous outer results retains its exploratory identity.

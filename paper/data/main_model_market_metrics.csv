@@ -1,0 +1,406 @@
+model,market,mase,mae,rmse,n_tasks,valid_mase_n,market_preperiod_rank,history,split,horizon_days,selection_identity,replicate_aggregation
+Chronos-2,CN_Chinese_mainland,1.1951078956082057,11039.557697510823,16406.185479275682,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,CN_Chinese_mainland,2.0791692152535286,19128.62772984778,24307.15386343483,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,CN_Chinese_mainland,1.4539065657211785,13388.698316024582,17964.780959453696,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,CN_Chinese_mainland,1.1612518654374466,10696.253094561687,15737.669967942884,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,CN_Chinese_mainland,2.0035800697000523,18551.82133821042,24281.763126719554,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,CN_Chinese_mainland,1.3657285281480798,12397.843467570512,16601.629175978564,33,33,1,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,CN_Chinese_mainland,1.904856287163999,17650.82997455019,23132.995130968266,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,CN_Chinese_mainland,1.4154392369709001,13053.13760653409,18315.48698020408,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,CN_Chinese_mainland,1.8749835952678942,17366.97470658181,22647.38273093717,33,33,1,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,CN_Chinese_mainland,2.0926439029987804,19393.92860659855,25277.636171731192,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,CN_Chinese_mainland,2.2923914511068952,21042.270415496427,26282.148005866147,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,CN_Chinese_mainland,1.595178287258009,14769.83825439573,20367.382539848295,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,CN_Chinese_mainland,2.061594254937866,19145.35173160173,25355.626692013127,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,CN_Chinese_mainland,1.925249201031292,17816.64073068858,23459.454044869082,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,CN_Chinese_mainland,1.1961302031708363,11035.721886837122,15700.136414891856,33,33,1,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,HK_Hong_Kong_SAR,1.0485961700831383,2506.2180397727275,3977.9732665340794,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,HK_Hong_Kong_SAR,1.7848106487328625,4277.312018136696,5618.210217037948,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,HK_Hong_Kong_SAR,1.2205543721915666,2908.946711993985,4107.517004284104,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,HK_Hong_Kong_SAR,1.0744452318514393,2563.6069092853763,4060.4913458598057,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,HK_Hong_Kong_SAR,1.229002512254488,2937.8904648374278,4354.22203610076,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,HK_Hong_Kong_SAR,1.1189839221338997,2681.306256641772,3848.7243518636965,33,33,2,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,HK_Hong_Kong_SAR,1.863577699813174,4449.821005288657,5723.643391017635,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,HK_Hong_Kong_SAR,1.2255667222962192,2925.8051134249868,4297.009976281439,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,HK_Hong_Kong_SAR,1.6648309490364017,3978.1969164996194,5340.346621695761,33,33,2,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,HK_Hong_Kong_SAR,1.9903188963912593,4767.3223532271295,6281.944924717658,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,HK_Hong_Kong_SAR,1.9807332503635977,4747.006279957856,6076.8250092455,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,HK_Hong_Kong_SAR,1.2024709621261835,2874.352792215406,4373.558211176161,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,HK_Hong_Kong_SAR,1.8734962360304317,4470.587662337663,6256.928695229234,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,HK_Hong_Kong_SAR,1.9269975404518187,4598.829471472538,5973.206654821406,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,HK_Hong_Kong_SAR,1.0421411990090246,2486.019920183983,3808.182453129059,33,33,2,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,TW_Taiwan_region,1.0487961213135482,301.6868387858073,400.73298456847846,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,TW_Taiwan_region,1.4257809100842405,410.9566043720957,521.719580436064,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,TW_Taiwan_region,1.3013390444980966,374.7085032885703,470.92108122991414,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,TW_Taiwan_region,0.9874818829959332,284.2346513756426,381.5173973473442,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,TW_Taiwan_region,1.6128314720558241,463.1163633883997,584.4511317667906,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,TW_Taiwan_region,1.2180163907628558,351.0668371266859,443.32787825029817,33,33,3,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,TW_Taiwan_region,1.473677320494124,423.1836464621804,533.7462890018776,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,TW_Taiwan_region,1.1636035621741998,334.6211545209348,444.4822160686085,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,TW_Taiwan_region,1.3647406406330693,393.34968501376756,500.8387438818988,33,33,3,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,TW_Taiwan_region,1.5338517837362593,442.76084063086347,551.7298086197216,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,TW_Taiwan_region,1.58231425076747,456.1882749151346,568.7741394479655,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,TW_Taiwan_region,1.2427070484415577,358.0060293629065,468.23079001879927,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,TW_Taiwan_region,1.5838801632302295,456.2608225108225,583.5746916494843,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,TW_Taiwan_region,1.5506608642815418,446.584274622269,555.6437045012212,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,TW_Taiwan_region,1.0475295907974664,301.55883379519247,401.6022835700387,33,33,3,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,KR_Republic_of_Korea,1.158161282409478,269.9668199943774,348.85019277434674,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,KR_Republic_of_Korea,1.4902518570490266,348.3449923908452,436.41586328018496,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,KR_Republic_of_Korea,1.2996251603011653,303.60414910501913,386.563025499053,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,KR_Republic_of_Korea,1.049109676684248,244.85158746892756,320.5142922239247,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,KR_Republic_of_Korea,1.5876148634068183,369.91150610624123,472.922112751303,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,KR_Republic_of_Korea,1.218509572942475,283.5313796543048,363.7975029187306,33,33,4,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,KR_Republic_of_Korea,2.0404895283941307,479.91230479979413,576.4266618615978,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,KR_Republic_of_Korea,1.3132149698774778,305.89383073286575,388.75944298994347,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,KR_Republic_of_Korea,1.4673773109307722,342.75783377671274,429.1294797323957,33,33,4,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,KR_Republic_of_Korea,1.6325892394151047,381.5707552803396,473.5522698328104,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,KR_Republic_of_Korea,1.6077297072818169,375.50931753296805,467.33126007905463,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,KR_Republic_of_Korea,1.5428393308435033,361.952761042963,435.3930723486006,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,KR_Republic_of_Korea,1.622495221749543,378.95779220779224,473.8316896476722,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,KR_Republic_of_Korea,1.754320977206674,410.60615461935726,491.6834999797962,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,KR_Republic_of_Korea,1.125993019786808,262.8445243009757,338.35495418494276,33,33,4,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,PH_Philippines,1.3838738746199581,257.52349364705935,397.99156571568335,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,PH_Philippines,1.9712449688991551,367.885603794316,514.4534893743947,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,PH_Philippines,1.8931598038040736,342.78958487997994,464.99777916345425,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,PH_Philippines,1.361390889484072,253.5822901870265,399.05741814537475,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,PH_Philippines,1.718291157244277,321.00209424746004,484.47727570494715,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,PH_Philippines,1.4421425715630192,271.08539040596196,372.76093745063565,33,33,5,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,PH_Philippines,2.103339897715497,394.3155126530371,530.1992655604608,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,PH_Philippines,1.4792607903746573,275.54820073115366,432.15275061373416,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,PH_Philippines,2.0581075034336127,383.02737923920523,522.503308114389,33,33,5,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,PH_Philippines,2.1388091812620407,398.6174941842573,548.0914684912252,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,PH_Philippines,2.1906173303889345,408.59065778146083,552.0532120991842,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,PH_Philippines,1.697145093733855,316.9542674726559,480.45766991143535,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,PH_Philippines,2.468073614368999,460.82792207792204,640.5631050150696,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,PH_Philippines,2.1090167439042724,394.479448260683,560.1090119835396,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,PH_Philippines,1.3527728032094872,252.4681099895791,389.104770607835,33,33,5,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,JP_Japan,0.6737739289922356,118.16594801733504,175.49011115204615,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,JP_Japan,1.3081186705099803,229.13806872480512,298.98574135011717,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,JP_Japan,0.8253204153656872,144.55001652300456,209.3112422819122,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,JP_Japan,0.6722599706030342,117.8588775700821,176.95316987997208,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,JP_Japan,0.9582165485862781,168.00306508507555,234.74808408521167,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,JP_Japan,0.7099580624357745,124.42097515191962,180.9446285426355,33,33,6,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,JP_Japan,0.9756877360286471,171.26480996763553,247.42386254407396,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,JP_Japan,0.8162007236388867,143.12243071056545,215.33651723161327,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,JP_Japan,1.0611689959571926,186.19740155724034,257.0455401832548,33,33,6,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,JP_Japan,0.9857921042757372,173.06381875852747,247.6025817788719,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,JP_Japan,1.5772202474587325,276.0441837351741,349.52568283998716,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,JP_Japan,0.9459318329615846,166.00725594248738,233.42322410306218,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,JP_Japan,1.3589311764121035,238.10714285714286,330.27630062849573,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,JP_Japan,1.0549675650262285,184.88761740019828,252.48397231628834,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,JP_Japan,0.6134714765507266,107.65796170915876,158.80729294649447,33,33,6,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,MY_Malaysia,1.3141633603482872,140.5696738106864,182.76725103507778,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,MY_Malaysia,1.965873243194038,211.1422084318509,253.3023256476987,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,MY_Malaysia,1.5695684222110504,165.6449661014135,207.82165517649403,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,MY_Malaysia,1.1599601547774556,123.80166005056141,166.28203430565975,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,MY_Malaysia,1.5906744338098306,170.59569111788394,212.38108380036186,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,MY_Malaysia,1.303541014330476,138.5672850449172,183.1259010188228,33,33,7,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,MY_Malaysia,1.8263979138258901,196.69386915727094,233.20682816331473,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,MY_Malaysia,1.8094095252452613,193.03027442833044,238.7041556415058,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,MY_Malaysia,1.883597560169499,201.9721976728619,244.42490231206997,33,33,7,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,MY_Malaysia,2.004712314864063,214.78080112927057,259.9097125361716,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,MY_Malaysia,2.1002346120532103,225.222528384281,267.7263188683263,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,MY_Malaysia,1.495021272449447,160.1958791334105,202.86290310888086,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,MY_Malaysia,2.1466730254905855,229.245670995671,277.1985036787498,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,MY_Malaysia,1.7473078791440215,187.43723003172772,229.22715753831463,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,MY_Malaysia,1.233382442944766,131.91793440121077,172.05798333439498,33,33,7,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,US_United_States_of_America,1.1831426036029358,54.21711630222601,69.2208693080681,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,US_United_States_of_America,2.012241837236109,92.81422963117637,107.44141480348665,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,US_United_States_of_America,1.6134944452093811,74.23995794376623,89.25957107982661,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,US_United_States_of_America,1.0848163579344778,49.85151652546672,65.34159501180076,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,US_United_States_of_America,1.9211042886532592,88.5674715945057,106.10348089410144,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,US_United_States_of_America,1.497488273967882,68.92321392672142,83.733046614745,33,33,8,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,US_United_States_of_America,1.7420121991952675,80.26452794425931,97.34028706783165,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,US_United_States_of_America,1.9094243166923806,88.02939665162718,102.13019586830087,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,US_United_States_of_America,2.0598431353023767,94.9763944846543,110.58823871957658,33,33,8,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,US_United_States_of_America,2.041935197659061,94.27722560904088,108.87695060005885,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,US_United_States_of_America,2.0969016349086407,96.66237886805345,111.56083165274649,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,US_United_States_of_America,1.792246958180936,82.40938919803632,96.9722806552342,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,US_United_States_of_America,2.1425655937989143,98.63744588744589,116.66038053199316,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,US_United_States_of_America,1.8022791944008418,83.22174062357321,98.58602282655066,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,US_United_States_of_America,1.1197647447683934,51.30130315343023,66.39594883548017,33,33,8,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,ID_Indonesia,1.2230635072313643,139.716757307837,208.96741035448215,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,ID_Indonesia,1.8494153276361336,211.25935046846996,283.8727987855114,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,ID_Indonesia,1.562312240852305,176.53546235522126,239.373317240854,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,ID_Indonesia,1.1869944670369443,135.87238040940585,202.72522472511716,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,ID_Indonesia,1.4801255503636674,169.02684940944357,245.0153363601543,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,ID_Indonesia,1.3839723491990588,158.06827795488016,216.40149375295059,33,33,9,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,ID_Indonesia,2.1227269041902637,243.69104380421822,327.96343796878244,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,ID_Indonesia,1.3919075066983515,158.70933364273665,230.22197932358992,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,ID_Indonesia,1.9969443993600369,227.68094824288215,301.099373972,33,33,9,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,ID_Indonesia,1.852262519459043,211.55788211564305,281.5516405767896,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,ID_Indonesia,2.0561531695708553,234.5428305762335,310.5189118490628,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,ID_Indonesia,1.5601559766936561,178.86628899582982,253.11606026895822,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,ID_Indonesia,2.214407203366485,252.4372294372294,335.2164255973703,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,ID_Indonesia,2.0849041871155283,238.58185121610566,315.84465235319925,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,ID_Indonesia,1.2164348645433138,139.29794726020847,206.5489730703978,33,33,9,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,TH_Thailand,1.4947645491142065,147.08979141763797,189.48117554768848,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,TH_Thailand,2.3800703132565593,233.14020332775,277.05787500650223,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,TH_Thailand,1.6148034666292126,157.9277722027169,203.5099032561288,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,TH_Thailand,1.452262641379829,143.08267102922713,187.31894682608768,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,TH_Thailand,1.794002717337714,177.09409243199048,226.99968551972174,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,TH_Thailand,1.6773027454632494,166.11810952203396,209.4720850448438,33,33,10,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,TH_Thailand,2.139247396051432,210.8456718147575,262.52371994654555,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,TH_Thailand,1.8209713539018557,178.94933561845258,229.25837229685555,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,TH_Thailand,2.251988128999379,222.21978058027906,265.9711388011555,33,33,10,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,TH_Thailand,2.1793237049382848,214.80893325224181,258.9591630781075,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,TH_Thailand,2.5992795593075266,254.0780944210053,298.5584213275239,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,TH_Thailand,1.8324145689224456,180.81759784539275,229.29855725683285,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,TH_Thailand,2.5758159245465717,253.66017316017314,308.48166911825336,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,TH_Thailand,2.0991231477090437,206.9618311134768,259.00072211140514,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,TH_Thailand,1.4390307606022437,142.0461875948555,185.08729326923793,33,33,10,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,IN_India,1.157256996344938,91.94726400664358,133.48547678718677,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,IN_India,1.6158146264758875,128.86107972012124,170.0215804082228,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,IN_India,1.3428788415811401,106.37879611089939,149.8221446235207,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,IN_India,1.0637194463020243,84.9528076287472,126.53191534335178,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,IN_India,1.4513939698530647,115.32231368644966,154.99749385780873,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,IN_India,1.2564141784897278,100.3645679519179,139.04538573316367,33,33,11,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,IN_India,1.3932678804672387,111.15005473347453,152.79883855119573,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,IN_India,1.2969600731349247,103.18962999649378,145.95603273159335,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,IN_India,1.5893086140030892,126.50413035595965,167.06716106580484,33,33,11,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,IN_India,1.529941446028646,121.93772821146608,163.76127403184336,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,IN_India,1.778612691316367,141.69122651587432,182.923328412544,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,IN_India,1.3852647391205717,110.38188655745074,149.9553710815571,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,IN_India,1.8583135074074928,147.90367965367966,194.03838186360917,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,IN_India,1.4709607659085733,117.13007184643766,157.34228030443586,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,IN_India,1.1321826752997177,90.24771484771333,130.82039904621558,33,33,11,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,SG_Singapore,1.0928822763764103,60.73023102500222,76.75637411671066,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,SG_Singapore,2.18636607427609,122.12262470412573,140.6703884436225,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,SG_Singapore,1.642838558148165,89.86202977860128,106.64948349210601,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,SG_Singapore,1.0261590382198882,57.02587731266435,72.69664420661306,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,SG_Singapore,1.8110183037673586,100.86839072080713,118.57231629488109,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,SG_Singapore,1.3429553008612574,74.06421909363318,90.73149669826728,33,33,12,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,SG_Singapore,1.9412793120324874,108.46693967843984,126.40106910664514,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,SG_Singapore,1.9218729834121786,107.09279647430816,123.63725244790679,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,SG_Singapore,2.2275987231924836,124.29478687799832,143.15114198886005,33,33,12,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,SG_Singapore,2.152714434652775,120.1942882576107,138.32774619150143,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,SG_Singapore,2.339751152806693,130.58632757069392,150.14461012361227,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,SG_Singapore,1.9719672489759574,110.11657316444519,127.34766051646801,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,SG_Singapore,2.4972343727430517,138.72619047619045,160.7118871354089,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,SG_Singapore,1.994247242827153,111.62185196649462,129.87546514336051,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,SG_Singapore,1.164603032173286,64.83167416295964,80.04509272527808,33,33,12,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,AU_Australia,1.135188598397191,34.584287288385035,44.59943959304758,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,AU_Australia,2.0075592063354195,61.458487551837166,72.73260453665858,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,AU_Australia,1.41243517342167,42.936219846752415,53.9879419826137,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,AU_Australia,1.0482406567515268,31.95047582485975,41.72930769516774,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,AU_Australia,1.5956498041177556,48.75568904228465,60.109249077071155,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,AU_Australia,1.2039053746503567,36.662021189818894,46.79599374144891,33,33,13,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,AU_Australia,2.1864017614573203,66.7373954062854,77.007632577252,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,AU_Australia,1.5844544207407647,48.332706137653034,58.80244417747974,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,AU_Australia,1.9498714384066516,59.73486205814433,70.81674225724808,33,33,13,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,AU_Australia,1.9615478494373546,60.0433655811317,70.79409765577566,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,AU_Australia,2.099884744969477,64.24397931789846,75.79191846211508,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,AU_Australia,1.552200231582504,47.382597689534464,57.78775720295713,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,AU_Australia,2.114499345332976,64.68939393939394,79.12411431975072,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,AU_Australia,1.7354496156887183,53.06823865882246,64.20594993034211,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,AU_Australia,1.0371730641763282,31.630977275567652,41.15973570264731,33,33,13,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,CA_Canada,1.1961365882439496,24.86888656781349,31.088049577055617,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,CA_Canada,1.8037491272953086,37.68409869410651,44.553407546098356,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,CA_Canada,1.4237190906411732,29.75697045131921,36.4585398343879,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,CA_Canada,1.0541457421582026,22.04054428695084,28.169803352501354,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,CA_Canada,1.6439775181932827,34.35051739282593,41.90406347861874,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,CA_Canada,1.3407020228459203,28.02465768187478,34.61535060607544,33,33,14,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,CA_Canada,1.8430486369597914,38.686824311425674,45.86911158627609,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,CA_Canada,1.6702224357387756,34.94539112239689,41.82717526953272,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,CA_Canada,1.8303362374667504,38.30459666967238,45.24502882366795,33,33,14,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,CA_Canada,1.7888536212298134,37.405534444366914,44.469303587751654,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,CA_Canada,1.8727210987804466,39.096080092931814,46.17987567950842,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,CA_Canada,1.5147678433512397,31.617564384867027,39.00235768180316,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,CA_Canada,1.9849674551587637,41.47835497835498,50.14831537086477,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,CA_Canada,1.6568573387499301,34.63681178072314,41.368300842304166,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,CA_Canada,1.1164290899294038,23.28890375244669,29.60586301703339,33,33,14,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,GB_United_Kingdom,0.9835614142691038,22.106435036762452,28.810006320172434,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,GB_United_Kingdom,1.3635687155347203,30.653386793388908,37.467353193621804,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,GB_United_Kingdom,0.9921848641580631,22.29745633621193,29.242026233494297,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,GB_United_Kingdom,0.9037091600800962,20.319583686399252,27.023086584465954,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,GB_United_Kingdom,1.455262201699692,32.60307833816208,39.99504529158812,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,GB_United_Kingdom,1.0799675888101943,24.298320253253998,31.127142767568067,33,33,15,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,GB_United_Kingdom,1.2554903813589844,28.22514076563187,35.58555481314291,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,GB_United_Kingdom,1.1011799464678504,24.71905109273407,31.66343273384019,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,GB_United_Kingdom,1.3344041050964017,29.992624344996628,36.62964096417245,33,33,15,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,GB_United_Kingdom,1.346774783822684,30.273120915805034,37.364401196442934,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,GB_United_Kingdom,1.4451935167826677,32.49302836972559,39.33572042490549,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,GB_United_Kingdom,1.2552530146423337,28.209707200791012,34.73614347803436,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,GB_United_Kingdom,1.5203504532622134,34.154761904761905,42.27201636888469,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,GB_United_Kingdom,1.2993566454019598,29.217836404775642,36.17836898230695,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,GB_United_Kingdom,0.9478878866624895,21.295317992503506,27.873509071565707,33,33,15,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,FR_France,0.9555295002873437,15.595333991112646,20.146505265928848,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,FR_France,1.305325726038431,21.30031342798762,26.332591131029314,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,FR_France,1.1016260939741307,17.968870246038943,22.964899329062575,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,FR_France,0.9290860168660885,15.174885898441463,19.849399162643145,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,FR_France,1.3346037558694794,21.781722106326978,27.465210110141953,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,FR_France,1.0675037658096798,17.415332608243013,22.415972748901382,33,33,16,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,FR_France,1.2639708886032603,20.65688962647409,26.327987330918333,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,FR_France,1.1188786737092122,18.2452234003967,23.472739632815774,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,FR_France,1.3027925090970478,21.257278204294018,26.315759312508884,33,33,16,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,FR_France,1.3070727460724898,21.304434735680022,26.59555495598892,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,FR_France,1.360913154395295,22.202788147005787,27.149351216804497,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,FR_France,1.3012722131913386,21.21276992798055,26.11586568214178,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,FR_France,1.5488884106923786,25.295454545454547,31.203530363182367,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,FR_France,1.2897835374629125,21.041630744934082,26.149730498370552,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,FR_France,0.9458127906068723,15.438353769706957,20.003934857276022,33,33,16,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,RU_Russian_Federation,1.6502644964504736,24.659220513843355,31.64389392818206,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,RU_Russian_Federation,2.0058312557998557,30.082041246882014,37.632247799359604,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,RU_Russian_Federation,1.9005013626338902,28.22141312585531,36.041484063120095,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,RU_Russian_Federation,1.6496574863154136,24.63489885041208,31.849435349519638,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,RU_Russian_Federation,2.464641650521907,37.485147337977516,47.32780699321802,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,RU_Russian_Federation,1.9238351767343078,28.65862254002548,36.15453173669069,33,33,17,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,RU_Russian_Federation,2.657362851110906,39.89658555323943,49.22753504870645,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,RU_Russian_Federation,1.9661662354825715,29.434932002773532,37.55007623562781,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,RU_Russian_Federation,2.0457368005395185,30.703677275738077,38.57557146322951,33,33,17,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,RU_Russian_Federation,2.0208356011913313,30.375598667214085,38.28380296723402,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,RU_Russian_Federation,2.114899858559539,31.672984279070665,38.64257766819002,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,RU_Russian_Federation,2.3692657692890657,36.00433319999469,44.675701447114655,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,RU_Russian_Federation,2.2852249802581275,34.265151515151516,43.54252458264811,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,RU_Russian_Federation,2.3571022287009127,35.795945522589086,44.73886226838894,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,RU_Russian_Federation,1.6865018622528323,25.2389714170844,32.6163951187865,33,33,17,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,DE_Germany,1.061318139121093,15.045097264376553,19.711057321458448,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,DE_Germany,1.2746247043075876,18.05847694086992,22.79058004307093,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,DE_Germany,1.0728960871872137,15.228287918827608,20.18710816034936,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,DE_Germany,0.9947399733719188,14.135470852707371,18.940361727553814,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,DE_Germany,1.2882092693171556,18.25005526722595,23.342749297318218,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,DE_Germany,1.0768051425866336,15.26709731742191,20.077558926147532,33,33,18,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,DE_Germany,1.4140456667704793,20.097314019223827,25.84218773604321,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,DE_Germany,1.1598265140656832,16.430456642464645,21.600291612522064,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,DE_Germany,1.301484921880737,18.453669342184664,23.005557193028896,33,33,18,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,DE_Germany,1.2681918700862682,17.98139674165254,22.701972575621543,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,DE_Germany,1.3209308051961974,18.702675499026114,23.282026352298974,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,DE_Germany,1.2232235484292089,17.335238469385544,22.084354300474754,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,DE_Germany,1.4887078164543857,21.111471861471863,26.805208821595578,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,DE_Germany,1.2826237918235581,18.172827825917828,22.9884944710807,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,DE_Germany,1.0041296875456458,14.255797681354341,18.92108849360482,33,33,18,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,PT_Portugal,1.2174165848674217,12.178111519132342,18.08301047869854,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,PT_Portugal,1.4071088052826966,14.103150693735376,19.531123826062576,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,PT_Portugal,1.2335912312054393,12.374805492691332,18.24970920286816,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,PT_Portugal,1.125971865351529,11.258991742030883,17.1657940572478,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,PT_Portugal,1.36849049135364,13.675196015060873,19.485563732955487,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,PT_Portugal,1.2072957526068153,12.144119809102794,18.101621069998306,33,33,19,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,PT_Portugal,1.366367109723456,13.670738796135048,19.43263084322321,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,PT_Portugal,1.2573986335655707,12.58354632885425,18.482616384231186,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,PT_Portugal,1.4770009455842597,14.795271216126281,20.078444058239555,33,33,19,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,PT_Portugal,1.4011581726229676,14.052722415231747,19.59398874466703,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,PT_Portugal,1.4581294163863106,14.609113414022158,19.92925576246965,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,PT_Portugal,1.3085347626063515,13.065182281423768,18.78770275382364,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,PT_Portugal,1.7108626507326377,17.142857142857142,23.544921043518485,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,PT_Portugal,1.371172637796877,13.712037452371606,19.42213433120229,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,PT_Portugal,1.1320592299570313,11.318660866130482,17.235146966949767,33,33,19,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,IT_Italy,1.1359782261857758,10.195958071456843,13.611098498525195,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,IT_Italy,1.3473010649344437,12.084215835657869,15.512368890001927,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,IT_Italy,1.260150942931093,11.256370764323528,14.77440764608604,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,IT_Italy,1.107575235800538,9.94460364440819,13.37183437943924,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,IT_Italy,1.4077628255459316,12.611518541476876,16.436868014319753,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,IT_Italy,1.2295238292473363,11.048707709778903,14.482268623661557,33,33,20,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,IT_Italy,1.404103996428729,12.622804771254073,16.727167510457495,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,IT_Italy,1.2576851951535528,11.271358902836258,14.987053859607427,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,IT_Italy,1.3726355731922202,12.317769079594685,15.842905661477888,33,33,20,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,IT_Italy,1.388432690160233,12.454366231089972,16.02807538036843,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,IT_Italy,1.3749968183837504,12.328059921060836,15.646007509538974,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,IT_Italy,1.3477332490688525,12.082723411557433,15.679189894247678,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,IT_Italy,1.6713711875250747,15.011904761904763,19.050860011989855,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,IT_Italy,1.3328694791177684,11.956922147181128,15.751603749242783,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,IT_Italy,1.0855118070651761,9.742313418037448,13.046670041871089,33,33,20,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,NZ_New_Zealand,1.1638925537498837,8.699959905632648,11.08288893966407,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,NZ_New_Zealand,1.6482129637623848,12.38296052398217,14.991363849482056,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,NZ_New_Zealand,1.4064475989105951,10.453244733217602,12.876610971362707,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,NZ_New_Zealand,1.1009120839266457,8.238598158865264,10.489904335769282,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,NZ_New_Zealand,1.5721702147286563,11.792033313325875,14.545528960295744,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,NZ_New_Zealand,1.3190162865161783,9.84167094077173,12.238045684201099,33,33,21,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,NZ_New_Zealand,1.81470705686696,13.587795598166329,16.190872598981432,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,NZ_New_Zealand,1.3498935685413553,10.092871715496113,12.703484065512255,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,NZ_New_Zealand,1.674101832275996,12.574183476595055,15.138770733419332,33,33,21,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,NZ_New_Zealand,1.5285209833531705,11.484470947881913,14.107262520077578,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,NZ_New_Zealand,1.7255390301318687,12.953900563104176,15.614117241934506,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,NZ_New_Zealand,1.468952120525421,11.03480830332986,13.64818489557695,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,NZ_New_Zealand,1.855491379463286,13.927489177489177,17.07637445382951,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,NZ_New_Zealand,1.6244357122843645,12.178580227352324,14.897925820991066,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,NZ_New_Zealand,1.1207443205736332,8.377533358412903,10.673526286230171,33,33,21,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,BR_Brazil,1.4065211321411462,10.872372196866321,14.537908399712173,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,BR_Brazil,1.7351942692455746,13.40772130615764,17.100512993853187,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,BR_Brazil,1.524095209415341,11.753495455176902,15.629444505494323,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,BR_Brazil,1.3280329290387054,10.273113636743455,13.818390467079222,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,BR_Brazil,1.689138832378489,13.087468086533505,17.349447356822072,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,BR_Brazil,1.5712203384952712,12.129736604879618,15.950945001264989,33,33,22,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,BR_Brazil,1.719501066665699,13.343596993586717,17.63273924274961,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,BR_Brazil,1.5109362901671695,11.6841384920723,15.583608533526247,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,BR_Brazil,1.7618397495149625,13.603909258544414,17.304789335808728,33,33,22,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,BR_Brazil,1.701876995390264,13.148611134095082,16.75355119288367,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,BR_Brazil,1.799148334704998,13.887880112085309,17.561942856906313,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,BR_Brazil,1.6674207078240317,12.956613465716272,17.138553327920846,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,BR_Brazil,2.0618891884096353,15.912337662337663,20.663715797286134,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,BR_Brazil,1.6703336123164743,12.947960651282107,17.003326956336135,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,BR_Brazil,1.3407199232540894,10.369132902715112,13.934339080885334,33,33,22,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,NL_Netherlands,1.1890601800093181,8.189263217892998,10.589244146970438,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,NL_Netherlands,1.5602827467875366,10.772577600345695,13.306601290023258,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,NL_Netherlands,1.2899463597578122,8.88021070886752,11.429091938819607,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,NL_Netherlands,1.1432734946285958,7.890532316067518,10.388891480910246,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,NL_Netherlands,1.3974143974637092,9.634053773042567,12.180849211606878,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,NL_Netherlands,1.3527553714606886,9.307653237419752,11.752400433602618,33,33,23,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,NL_Netherlands,1.4404436098127849,9.967918159641746,12.62162141261322,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,NL_Netherlands,1.3694608633791108,9.44861651705457,11.864304711884992,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,NL_Netherlands,1.5808978938039446,10.920385880848764,13.454686829316433,33,33,23,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,NL_Netherlands,1.5514145432581454,10.715663038811385,13.354899511962278,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,NL_Netherlands,1.6054868660437385,11.077978234661877,13.584188358811248,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,NL_Netherlands,1.3833717370206087,9.525989131210457,12.106952692495595,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,NL_Netherlands,1.9730265638318345,13.595238095238095,16.820036015820133,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,NL_Netherlands,1.3962795422289735,9.64786182131086,12.270143024330975,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,NL_Netherlands,1.1679259565183624,8.050089218915799,10.479204552022571,33,33,23,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,ES_Spain,1.107282275250772,7.399238888835494,9.467046003440002,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,ES_Spain,1.259461191221904,8.426817672062137,10.622099211992328,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,ES_Spain,1.123459257007192,7.4981288275540265,9.674436573148698,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,ES_Spain,1.059538892805635,7.073787470400592,9.164516583114747,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,ES_Spain,1.2569283340174862,8.394780630502565,10.709175844182772,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,ES_Spain,1.1812697505725311,7.889476797339684,10.177684246725082,33,33,24,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,ES_Spain,1.253797723944104,8.37261507727883,10.601929544548462,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,ES_Spain,1.1624090945485968,7.772454753066555,9.898774716155852,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,ES_Spain,1.2982924947276688,8.69028038415629,10.886138818983596,33,33,24,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,ES_Spain,1.2228118877568885,8.181721934005065,10.401663776897772,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,ES_Spain,1.2932011575908553,8.652845941096137,10.837935028384011,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,ES_Spain,1.187933990313762,7.9344129668193455,10.138004772493579,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,ES_Spain,1.6513635900764168,11.035714285714286,13.763432368589152,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,ES_Spain,1.195309227257121,7.995133909828219,10.21420378830799,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,ES_Spain,1.0537793725449223,7.0362217116665535,9.07927021908477,33,33,24,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,CH_Switzerland,1.024981300627541,4.809264793540493,6.249259488305262,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,CH_Switzerland,1.1502633853683324,5.408235063583706,6.926991985703748,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,CH_Switzerland,1.0824301195639907,5.065613801356679,6.581768426211159,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,CH_Switzerland,0.981954077721778,4.608290097414157,6.039110054453931,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,CH_Switzerland,1.1689067067744752,5.483000315513686,6.994884554996997,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,CH_Switzerland,1.0256160394732876,4.815245499471046,6.340848246147816,33,33,25,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,CH_Switzerland,1.1681350173685743,5.487470528006037,7.120419029676396,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,CH_Switzerland,1.0865692999380852,5.104183460210825,6.652204987418361,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,CH_Switzerland,1.1837209897228387,5.566977637175187,7.062005736342402,33,33,25,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,CH_Switzerland,1.1374486951597733,5.337881149560201,6.916472045019742,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,CH_Switzerland,1.1785347176576457,5.54083107659543,6.997124000500879,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,CH_Switzerland,1.1557206745669584,5.423569649623415,6.858316328719631,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,CH_Switzerland,1.4840146235293632,6.98051948051948,8.868101223954692,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,CH_Switzerland,1.1412658583983584,5.35697387358843,6.8319671613864905,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,CH_Switzerland,0.9980161183550863,4.684570839910796,6.113408544686358,33,33,25,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,VN_Viet_Nam,0.8364353961938987,5.080579034693829,10.090767592505646,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,VN_Viet_Nam,0.859375370006104,5.219001802720142,10.1598186429985,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,VN_Viet_Nam,0.8487088589615639,5.152939398777905,10.067757820961981,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,VN_Viet_Nam,0.8255311702002575,5.015928477435917,10.12412554740186,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,VN_Viet_Nam,0.8731383461684652,5.301834324712534,10.3629228596322,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,VN_Viet_Nam,0.8499770236771126,5.164738891375982,10.04938823980931,33,33,26,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,VN_Viet_Nam,0.8478310672019044,5.152809597906613,10.331128809305342,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,VN_Viet_Nam,0.8395203491594978,5.099795764658874,10.226080721684772,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,VN_Viet_Nam,0.8923855343074086,5.41831882300108,10.226721692063105,33,33,26,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,VN_Viet_Nam,0.8543921002283383,5.189849728715942,10.124560778767968,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,VN_Viet_Nam,0.8697184120631786,5.281161057196799,10.167862708960422,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,VN_Viet_Nam,0.8618466595039581,5.234041401685261,10.244555606503436,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,VN_Viet_Nam,1.2411016267784547,7.551948051948052,12.679690203123823,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,VN_Viet_Nam,0.8403728004046442,5.105606933176776,10.070870389657165,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,VN_Viet_Nam,0.8278512884485544,5.029590387365003,10.115390228664653,33,33,26,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Chronos-2,ZA_South_Africa,1.0774793681369275,5.331121535012216,7.361745591800205,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+ETS,ZA_South_Africa,1.4645789217459269,7.251580149676655,9.561561737499082,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+GL03,ZA_South_Africa,1.113728976586791,5.523339198457775,7.5016338747963065,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Granite,ZA_South_Africa,1.016568255759954,5.048663924782823,7.118859786415453,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LGB01,ZA_South_Africa,1.2236448907097242,6.0607512040202005,8.257413431163714,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+LL01,ZA_South_Africa,1.0598985380398678,5.256452576937316,7.241105829267551,33,33,27,all,outer_backtest,28,post_outer_exploratory,single_delivered_forecast
+Lag-Llama,ZA_South_Africa,1.235715121809009,6.137915615524564,8.491840562046844,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Moirai 2.0,ZA_South_Africa,1.1354273237046222,5.624379634857178,7.815681197929559,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+NL01,ZA_South_Africa,1.4328084742221254,7.092548006021218,9.364133190388705,33,33,27,all,outer_backtest,28,original_selected_configuration,mean_of_seed_errors
+Ridge,ZA_South_Africa,1.2352539184355738,6.132059523310617,8.374040154714036,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SARIMA,ZA_South_Africa,1.5456809448736737,7.644282965252508,9.98569683748692,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+SVR,ZA_South_Africa,1.1888341452494335,5.8966848671628025,8.019157201275712,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Seasonal naive,ZA_South_Africa,1.8360638008713916,9.103896103896105,11.601852514778466,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+Small Transformer,ZA_South_Africa,1.2483902523478778,6.197865978979961,8.446152264713826,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast
+TimesFM 3.0,ZA_South_Africa,1.0177370696428232,5.051287613389812,7.005883962285452,33,33,27,all,outer_backtest,28,original_selected_configuration,single_delivered_forecast

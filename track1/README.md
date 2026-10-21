@@ -1,15 +1,28 @@
-# Track 1：单模型统一回测
+# Track 1: common single-model backtesting implementation
 
-Track 1 比较 13 个 baseline 与 7 个时序模型，使用相同的单变量日度输入、28 天 horizon 和滚动起点。
+The historical design registers 13 baselines and seven time-series models under daily univariate inputs, a 28-day horizon, and common rolling origins. This planned implementation scope is not a claim that all 20 configurations appear in the final paper with complete, comparable evidence. See the [paper companion](../paper/README.md) for the actual release inventory.
 
-目录说明：
+## Directories
 
-- `code/`：可执行 Python 代码和七模型 adapter；
-- `configs/`：baseline 搜索与冻结配置、七模型上游 revision；
-- `compose/`、`docker/`：CPU baseline 和 CUDA 模型环境；
-- `docs/`：研究协议、审计和服务器手册；
-- `notebooks/`：数据管道与统一回测 notebook；
-- `scripts/`：B 组长时运行及 GPU 批量脚本；
-- `tests/`：接口、28 天输出和目标隔离测试。
+- `code/`: Python pipeline, baseline implementation, seven adapters, and evaluators;
+- `configs/`: baseline search spaces, frozen selections, and upstream revision registry;
+- `compose/` and `docker/`: CPU and separate CUDA environments;
+- `docs/`: English archival protocols, audits, and server guides;
+- `notebooks/01_data_pipeline.ipynb`: data preparation notebook;
+- `notebooks/02_models_and_backtesting.ipynb`: model and backtesting notebook;
+- `scripts/`: baseline selection driver and GPU batch launchers;
+- `tests/`: interface, 28-day output, and target-isolation tests;
+- `audit/b_validation/`: the completed September baseline selection audit.
 
-所有命令从仓库根目录运行。共用输入位于 `shared/data/`，运行结果写入未跟踪的 `track1/results/` 和 `track1/evaluation/`。
+All commands assume the repository root. Shared inputs are in `shared/data/`; generated results normally go to ignored `track1/results/` and `track1/evaluation/` directories.
+
+## Documentation
+
+- [Unified historical protocol](docs/UNIFIED_EXPERIMENT_PROTOCOL.md)
+- [Seven-model historical design](docs/SEVEN_MODEL_GPU_PROTOCOL.md)
+- [GPU execution guide](docs/FOUNDATION_MODELS_GPU.md)
+- [Sequential GPU checklist](docs/GPU_SEQUENTIAL_RUN_CHECKLIST.md)
+- [Server architecture](docs/SERVER_MODEL_EXECUTION.md)
+- [Historical compliance audit](docs/BASELINE_COMPLIANCE_AUDIT.md)
+
+A document's archival status is explicit at its top. Do not infer present execution status from an old pending checkbox or infer final checkpoint versions from a smoke configuration.

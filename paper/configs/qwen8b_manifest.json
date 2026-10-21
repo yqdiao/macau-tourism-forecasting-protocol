@@ -1,0 +1,100 @@
+{
+  "scope": "Transcribed from the supplied 8B configuration note; original runtime registry and backend manifest are not included in this release",
+  "source_description": "User-supplied Qwen3-8B configuration note accompanying the M1-M4 outputs",
+  "source_sha256": "e4bcdfe494da12c0f6db954275f5c9ff8cc3ef5e4e45e5e0800157b683b50043",
+  "model": {
+    "name": "Qwen3-8B Q4_K_M",
+    "repository": "Qwen/Qwen3-8B-GGUF",
+    "file": "Qwen3-8B-Q4_K_M.gguf",
+    "revision": "7c41481f57cb95916b40956ab2f0b139b296d974",
+    "sha256": "d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785",
+    "bytes": 5027783488,
+    "architecture": "qwen3",
+    "layers": 36,
+    "quantization": "Q4_K_M",
+    "gguf_general_file_type": 15,
+    "reported_training_context_tokens": 40960
+  },
+  "protocol_hash": "07d7b4cc31c92e499b68a35ca3c42115c2e8d4c7d6546576c93f9eb6fda9b3db",
+  "protocol_hash_fields": {
+    "model_sha256": "d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785",
+    "context": 8192,
+    "thinking": false,
+    "stage_timeout_seconds": 240
+  },
+  "sampling": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "max_tokens": 768,
+    "enable_thinking": false
+  },
+  "sampling_config_sha256": "5ebcaaaa3e5fad0c15552754d999389967493bab943c1d6971b52d120c0dd21f",
+  "prompt_hashes": {
+    "system_prompt_sha256": "000eb349d3c2da4bf46f8ee6ba6da44ceb94f3f9135f9b13f84d2cd84e19e6e3",
+    "roles_json_sha256": "0d5ba4d6f64e65d25746bd4fd3a92e90e1b52e6f83c0485379ef3008dd437571",
+    "gguf_chat_template_sha256": "ec8f439daaf5791f1da8686759109efa3f5ff5698cd407018a9f96a739c28fae"
+  },
+  "backend": {
+    "name": "llama.cpp",
+    "reported_version": "0.7.0-dev",
+    "build": 11684,
+    "commit": "88aaf325a7026ac1127d0897394b0a3d6413dc2a",
+    "cuda_build_label": "12.8",
+    "context_tokens": 8192,
+    "slots": 1,
+    "gpu_layers": 99,
+    "batch": 256,
+    "ubatch": 256,
+    "flash_attention": true,
+    "jinja": true,
+    "reasoning": "off",
+    "observed_threads": 48,
+    "threads_explicitly_set": false,
+    "server_default_min_p": 0.05,
+    "server_default_repeat_penalty": 1.0
+  },
+  "hardware": {
+    "gpu": "NVIDIA RTX A6000",
+    "reported_total_memory_mib": 49140,
+    "compute_capability": "8.6",
+    "gpu_index_for_8b": 0,
+    "cpu": "2 x Intel Xeon Gold 6248R @ 3.00 GHz",
+    "logical_cores": 96,
+    "ram_gib": 754,
+    "os": "Ubuntu 24.04.2 LTS",
+    "kernel": "6.17.0-19-generic",
+    "driver": "580.126.09",
+    "nvidia_smi_cuda_label": "13.0",
+    "python_version": "3.12.12"
+  },
+  "resource_acceptance": {
+    "recorded_utc": "2026-10-16T09:21:49.303281+00:00",
+    "reported_llama_server_peak_process_bytes": 6257901568,
+    "declared_two_card_incremental_budget_bytes": 10000000000,
+    "reported_chain_stop_threshold_bytes": 16000000000,
+    "note": "The reported stop threshold is above the declared incremental budget. The process peak is an R0 observation, not a proof of simultaneous total two-card usage during every experiment."
+  },
+  "B_selection_reported": {
+    "S_star": "P3-R",
+    "pilot_mase_tie_threshold": 0.01,
+    "tie_order": [
+      "P3-R",
+      "C3-R"
+    ],
+    "B0_member_for_O": "granite",
+    "B3_tau_for_O": 1.0,
+    "uses_outer_scores": false
+  },
+  "failure_policy_id": "seasonal_naive7_on_stage_failure",
+  "interpretation": {
+    "output_role": "candidate-weight decisions, applied by deterministic numerical aggregation",
+    "physical_execution": "single service slot; independent-role branches do not imply simultaneous execution",
+    "M5_label": "The manuscript M5 is the separate 4B-thinking direct-forecast output, not an 8B execution inferred from this note",
+    "strategy_table": "The supplied note has conflicting S3-I/S3-R role/aggregation summaries. Exact strategy semantics must follow audited stage and delivery records; that inconsistent table is not reproduced here."
+  },
+  "privacy_transformations": [
+    "Omitted host name, GPU UUIDs, and host-specific interpreter path",
+    "No model weights, prompts, credentials, or private sharing links are included"
+  ]
+}
