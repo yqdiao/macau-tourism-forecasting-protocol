@@ -13,3 +13,9 @@
 .gitattributes text eol=lf
 .dockerignore text eol=lf
 .gitignore text eol=lf
+
+# Preserve the bytes covered by evidence and historical-source checksums.
+paper/data/*.csv -text
+paper/configs/** -text
+paper/evidence_manifest.json -text
+extensions/lightweight_legacy/** -text
