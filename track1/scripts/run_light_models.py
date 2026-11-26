@@ -25,7 +25,8 @@ FREEZE = REPO / "track1/configs/frozen_light_configs.yaml"
 CALENDAR = REPO / "shared/data/holiday_calendar.parquet"
 CODE = REPO / "track1/code/light_models.py"
 MACAU_MARKETS = 27
-FAMILY_MODEL = {"global_lightgbm": "global_lightgbm", "global_linear": "global_linear"}
+FAMILY_MODEL = {"global_lightgbm": "global_lightgbm", "global_linear": "global_linear",
+                 "local_lightgbm": "local_lightgbm"}
 ABLATIONS = {"GL-noCal": "global_lightgbm_nocal", "GL-local": "global_lightgbm_local"}
 
 
@@ -63,8 +64,10 @@ def _complete(manifest: Path, job: dict, plan_sha: str, code_sha: str) -> bool:
     if not manifest.is_file():
         return False
     body = json.loads(manifest.read_text(encoding="utf-8"))
+    recorded_history = body.get("history_length", "all")
     return (body.get("model") == job["model"] and body.get("candidate_id") == job["candidate"]
-            and body.get("seed") == job["seed"] and body.get("plan_sha256") == plan_sha
+            and body.get("seed") == job["seed"] and recorded_history == job["history"]
+            and body.get("plan_sha256") == plan_sha
             and body.get("code_sha256") == code_sha and body.get("forecast_tasks") == MACAU_MARKETS
             and body.get("target_artifact_accessed") is False)
 
@@ -87,16 +90,16 @@ def _run_job(job: dict) -> dict:
         started = time.perf_counter()
         try:
             tasks = [task for task in read_task_inputs(Path(job["input"]))
-                     if task.history_length_label == "all" and task.destination == "Macau"]
+                     if task.history_length_label == job["history"] and task.destination == "Macau"]
             if len(tasks) != MACAU_MARKETS:
                 raise ValueError(f"expected {MACAU_MARKETS} Macau tasks, got {len(tasks)}")
             histories = [light_models.MarketHistory(t.task_id, t.market, t.history_start, t.history)
                          for t in tasks]
             params = job["params"]
-            if job["family"] == "global_lightgbm":
+            if job["family"] in ("global_lightgbm", "local_lightgbm"):
                 calendar = None if job["ablation"] == "GL-noCal" else light_models.Calendar(CALENDAR)
-                result = light_models.global_lightgbm(histories, params, calendar,
-                                                      pooled=job["ablation"] != "GL-local",
+                pooled = job["family"] == "global_lightgbm" and job["ablation"] != "GL-local"
+                result = light_models.global_lightgbm(histories, params, calendar, pooled=pooled,
                                                       threads=job["threads"], seed=job["seed"])
             else:
                 result = light_models.global_linear(histories, params, seed=job["seed"],
@@ -129,7 +132,8 @@ def _run_job(job: dict) -> dict:
             manifest = {
                 "model": job["model"], "family": job["family"], "candidate_id": job["candidate"],
                 "ablation": job["ablation"], "seed": job["seed"], "params": job["params"],
-                "split_name": job["split"], "fold_id": job["fold"], "origin_date": job["origin"],
+                "split_name": job["split"], "history_length": job["history"],
+                "fold_id": job["fold"], "origin_date": job["origin"],
                 "forecast_tasks": len(tasks), "prediction_rows": len(frame), "threads": job["threads"],
                 "fit_seconds": result.fit_seconds, "inference_seconds": result.inference_seconds,
                 "wall_seconds": wall, "detail": result.detail,
@@ -154,7 +158,7 @@ def _jobs(args, plan: dict) -> list[dict]:
     shards = sorted((s for s in index["shards"] if s["split_name"] == args.split), key=lambda s: s["fold_id"])
     if args.folds:
         shards = [s for s in shards if s["fold_id"] in args.folds]
-    plan_sha, code_sha, calendar_sha = _sha(PLAN), _sha(CODE), _sha(CALENDAR)
+    plan_sha, code_sha, calendar_sha = _sha(args.plan), _sha(CODE), _sha(CALENDAR)
     if calendar_sha != plan["calendar"]["sha256"]:
         raise SystemExit("holiday calendar differs from the registered SHA256")
     entries = []
@@ -162,7 +166,7 @@ def _jobs(args, plan: dict) -> list[dict]:
         frozen = json.loads(FREEZE.read_text(encoding="utf-8"))
         gl = frozen["families"]["global_lightgbm"]
         entries.append(("global_lightgbm", ABLATIONS[args.ablation], gl["candidate_id"], gl["params"], [42]))
-    elif args.split == "recovery_tuning":
+    elif args.split == "recovery_tuning" or plan.get("candidate_source") == "plan":
         for family in args.families:
             spec = plan["families"][family]
             seeds = spec["fixed"].get("seeds", [spec["fixed"].get("seed", 42)])
@@ -185,10 +189,13 @@ def _jobs(args, plan: dict) -> list[dict]:
             if args.seeds and seed not in args.seeds:
                 continue
             for shard in shards:
-                output = (args.output_root / args.split / model / candidate / f"seed{seed}"
-                          / f"{shard['fold_id']}_{shard['origin_date']}")
+                base = args.output_root / args.split
+                if args.history != "all":
+                    base = base / args.history
+                output = base / model / candidate / f"seed{seed}" / f"{shard['fold_id']}_{shard['origin_date']}"
                 jobs.append({"family": family, "model": model, "candidate": candidate, "params": params,
                              "seed": seed, "fold": shard["fold_id"], "origin": shard["origin_date"],
+                             "history": args.history,
                              "split": args.split, "input": str(args.shards / shard["relative_path"]),
                              "output": str(output), "threads": threads, "ablation": args.ablation,
                              "plan_sha": plan_sha, "code_sha": code_sha, "calendar_sha": calendar_sha,
@@ -201,6 +208,7 @@ def _jobs(args, plan: dict) -> list[dict]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--split", required=True, choices=["recovery_tuning", "outer_backtest", "pandemic_stress"])
+    parser.add_argument("--history", default="all", choices=["all", "180", "365"])
     parser.add_argument("--families", default="global_lightgbm,global_linear")
     parser.add_argument("--candidates", default="")
     parser.add_argument("--seeds", default="")
@@ -210,19 +218,20 @@ def main() -> None:
     parser.add_argument("--max-attempts", type=int, default=2)
     parser.add_argument("--shards", type=Path, default=Path("/root/DYQ/origin_shards"))
     parser.add_argument("--output-root", type=Path, default=REPO / "track1/results/light_models")
+    parser.add_argument("--plan", type=Path, default=PLAN)
     parser.add_argument("--journal", type=Path, default=Path("/root/DYQ/run-logs/light_models_nodes.jsonl"))
     args = parser.parse_args()
     args.families = [x for x in args.families.split(",") if x]
     args.candidates = {x for x in args.candidates.split(",") if x}
     args.seeds = {int(x) for x in args.seeds.split(",") if x}
     args.folds = {x for x in args.folds.split(",") if x}
-    plan = json.loads(PLAN.read_text(encoding="utf-8"))
-    if plan.get("status") != "registered_before_tuning":
+    plan = json.loads(args.plan.read_text(encoding="utf-8"))
+    if plan.get("status") not in ("registered_before_tuning", "registered_after_outer_results"):
         raise SystemExit("light model plan is not registered")
     jobs = _jobs(args, plan)
     _journal(args.journal, {"stage": "light_models", "event": "runner_start", "split": args.split,
-                            "jobs": len(jobs), "parallel": args.jobs, "ablation": args.ablation,
-                            "families": args.families})
+                            "history": args.history, "jobs": len(jobs), "parallel": args.jobs,
+                            "ablation": args.ablation, "families": args.families})
     failures = 0
     context = multiprocessing.get_context("spawn")
     with ProcessPoolExecutor(max_workers=args.jobs, mp_context=context) as pool:

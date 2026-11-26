@@ -33,16 +33,21 @@ class TimesFM3Adapter(FoundationAdapter):
             return_quantiles=True,
             use_symmetric_averaging=bool(self.settings.extra.get("symmetric_averaging", False)),
         ))
+        deciles = np.round(np.arange(0.1, 1.0, 0.1), 1)
+        extra = [level for level in self.quantile_levels() if not np.isclose(deciles, level).any()]
         results = []
         for context, value in zip(contexts, generated):
             quantiles = np.asarray(value.quantiles, dtype=float)
-            q = {f"q{level:.1f}": quantiles[:, index]
-                 for index, level in enumerate(np.arange(0.1, 1.0, 0.1))}
+            q = {f"q{level:.1f}": quantiles[:, index] for index, level in enumerate(deciles)}
+            # The checkpoint only has decile heads; other levels are linear between neighbouring deciles.
+            for level in extra:
+                q[f"q{level:g}"] = np.array([np.interp(level, deciles, row) for row in quantiles])
             results.append(AdapterOutput(
                 raw_prediction=np.asarray(value.forecast),
                 effective_context_days=len(context),
                 point_source="model_median",
                 quantiles=q,
-                detail={"zero_shot": True, "covariates": False},
+                detail={"zero_shot": True, "covariates": False,
+                        "interpolated_quantiles": [float(level) for level in extra]},
             ).validate(horizon))
         return results

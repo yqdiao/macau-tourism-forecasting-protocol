@@ -31,10 +31,11 @@ class Chronos2Adapter(FoundationAdapter):
             frames.append(pd.DataFrame({"item_id": item.task_id, "timestamp": dates,
                                         "target": history.astype(np.float32)}))
             lengths.append(len(history))
+        levels = self.quantile_levels()
         forecast = self.model.predict_df(
             pd.concat(frames, ignore_index=True),
             prediction_length=horizon,
-            quantile_levels=[0.1, 0.5, 0.9],
+            quantile_levels=levels,
             id_column="item_id",
             timestamp_column="timestamp",
             target="target",
@@ -50,7 +51,7 @@ class Chronos2Adapter(FoundationAdapter):
                 raw_prediction=rows["0.5"].to_numpy(float),
                 effective_context_days=length,
                 point_source="q0.5",
-                quantiles={f"q{q}": rows[q].to_numpy(float) for q in ("0.1", "0.5", "0.9")},
+                quantiles={f"q{q:g}": rows[f"{q:g}"].to_numpy(float) for q in levels},
                 detail={"zero_shot": True, "cross_learning": False, "covariates": False},
             ).validate(horizon))
         return results

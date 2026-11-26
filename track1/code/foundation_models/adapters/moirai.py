@@ -44,8 +44,8 @@ class MoiraiAdapter(FoundationAdapter):
             dataset = ListDataset([{"item_id": item.task_id, "start": start,
                                     "target": history}], freq="D")
             forecast = next(iter(predictor.predict(dataset)))
-            quantiles = {f"q{q}": np.asarray(forecast.quantile(q), dtype=float)
-                         for q in (0.1, 0.5, 0.9)}
+            quantiles = {f"q{q:g}": np.asarray(forecast.quantile(q), dtype=float)
+                         for q in self.quantile_levels()}
             results.append(AdapterOutput(
                 raw_prediction=quantiles["q0.5"],
                 effective_context_days=context_length,

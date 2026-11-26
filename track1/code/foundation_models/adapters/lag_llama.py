@@ -65,6 +65,10 @@ class LagLlamaAdapter(FoundationAdapter):
         self.model_kwargs = checkpoint["hyper_parameters"]["model_kwargs"]
         self.estimator_class = LagLlamaEstimator
         self.torch = torch
+        # Forecasts are Monte Carlo samples; without a seed every run draws different quantiles.
+        torch.manual_seed(self.settings.seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(self.settings.seed)
 
     def predict_batch(self, items, horizon: int) -> list[AdapterOutput]:
         from gluonts.dataset.common import ListDataset
@@ -101,8 +105,8 @@ class LagLlamaAdapter(FoundationAdapter):
                 raw_prediction=raw,
                 effective_context_days=context_length,
                 point_source="sample_median",
-                quantiles={f"q{q}": np.quantile(samples, q, axis=0)
-                           for q in (0.1, 0.5, 0.9)},
+                quantiles={f"q{q:g}": np.quantile(samples, q, axis=0)
+                           for q in self.quantile_levels()},
                 detail={"zero_shot": True, "num_samples": samples.shape[0],
                         "covariates": False},
             ).validate(horizon))

@@ -91,6 +91,11 @@ class FoundationAdapter(ABC):
     def predict_batch(self, items: Sequence[SeriesInput], horizon: int) -> list[AdapterOutput]:
         """Return one result per input series in the same order."""
 
+    def quantile_levels(self) -> list[float]:
+        """Registered levels; runtime.extra.quantile_levels may add more (default 0.1, 0.5, 0.9)."""
+        levels = self.settings.extra.get("quantile_levels", [0.1, 0.5, 0.9])
+        return sorted({float(level) for level in levels} | {0.5})
+
     def effective_history(self, item: SeriesInput) -> np.ndarray:
         if self.settings.context_length is None:
             return item.history

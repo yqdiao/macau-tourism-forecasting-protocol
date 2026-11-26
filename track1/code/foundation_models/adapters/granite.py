@@ -26,6 +26,7 @@ class GranitePatchTSTFMAdapter(FoundationAdapter):
         self.model = model
 
     def predict_batch(self, items, horizon: int) -> list[AdapterOutput]:
+        levels = self.quantile_levels()
         results = []
         for item in items:
             history = self.effective_history(item)
@@ -38,7 +39,7 @@ class GranitePatchTSTFMAdapter(FoundationAdapter):
                 id_columns=[], timestamp_column="date", target_columns=["target"],
                 max_context_length=self.model.config.context_length,
                 context_length=len(history), prediction_length=horizon,
-                impute_method=None, quantile_levels=[0.1, 0.5, 0.9],
+                impute_method=None, quantile_levels=levels,
                 explode_forecasts=True, freq="1d", device=self.settings.device,
                 batch_size=self.settings.batch_size,
             )
@@ -46,10 +47,10 @@ class GranitePatchTSTFMAdapter(FoundationAdapter):
             median_column = next((c for c in output.columns if str(c).endswith("_q0.5")), None)
             point_column = median_column or "target"
             quantiles = {}
-            for level in ("0.1", "0.5", "0.9"):
-                column = next((c for c in output.columns if str(c).endswith(f"_q{level}")), None)
+            for level in levels:
+                column = next((c for c in output.columns if str(c).endswith(f"_q{level:g}")), None)
                 if column:
-                    quantiles[f"q{level}"] = output[column].to_numpy(float)
+                    quantiles[f"q{level:g}"] = output[column].to_numpy(float)
             results.append(AdapterOutput(
                 raw_prediction=output[point_column].to_numpy(float),
                 effective_context_days=len(history),
