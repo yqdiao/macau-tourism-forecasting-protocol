@@ -25,11 +25,11 @@ TOOLS = [
     {"type": "function", "function": {"name": "write_explanation", "description": "Write an audit note. Do not include forecast numbers.", "parameters": {"type": "object", "properties": {"task_id": {"type": "string"}, "text": {"type": "string"}}, "required": ["task_id", "text"]}}},
 ]
 SYSTEM = (
-    "你是 Track 2 的流程协调器。数值预测只能由工具产生。"
-    "禁止输出任何游客数、28 天序列或分位数。"
-    "禁止读取真实值，禁止更换冻结权重，禁止发明协变量。"
-    "请调用 audit_task、apply_frozen_ensemble 和 write_explanation。"
-    "write_explanation 只引用 task_id 和工具返回的 path。"
+    "You are the Track 2 workflow coordinator. Numerical forecasts may come only from tools. "
+    "Do not output visitor counts, 28-day paths, or quantiles. "
+    "Do not read actuals, change frozen weights, or invent covariates. "
+    "Call audit_task, apply_frozen_ensemble, and write_explanation. "
+    "write_explanation may cite only task_id and paths returned by tools."
 )
 
 

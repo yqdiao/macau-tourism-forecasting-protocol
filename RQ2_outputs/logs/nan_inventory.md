@@ -41,7 +41,7 @@
 - `history_task_metrics.parquet` expanded (37,422 rows) — 06:05.
 - **S5** rewritten (14 models × 3 history settings) — 06:05; structural DM/context NaNs retained.
 - **Fig7** (`figure7_history_length_and_covid_contamination.{png,pdf}`) refreshed — 06:06.
-- Summary `4.2_RQ2_实验数据核对汇总稿.md` rewritten — 06:06.
+- Summary `makeup-RQ2/RQ2_verification_summary.md` rewritten — 06:06.
 - Machine scan also in `logs/nan_residual_report.md` (filters DM/p/sig/context from “actionable” nulls).
 
 ---

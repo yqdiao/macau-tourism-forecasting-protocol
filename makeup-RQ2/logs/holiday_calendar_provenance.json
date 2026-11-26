@@ -12,7 +12,7 @@
   "reopen_holiday_days": 1053,
   "stress_holiday_days": 405,
   "git_commit_calendar": "17583a4",
-  "git_message": "登记轻量模型方案并冻结法定假日日历…",
+  "git_message": "Register lightweight model plan and freeze statutory holiday calendar.",
   "roles_definition": "mainland OR macau statutory holidays (ex-ante official)",
   "code_paths": [
     "RQ2/m424_conditions.py::holiday_flags",

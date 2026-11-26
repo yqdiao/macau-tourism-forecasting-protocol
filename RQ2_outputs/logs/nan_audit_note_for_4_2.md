@@ -1,7 +1,3 @@
-# NaN 复核笔记（写入 4.2 汇总稿）
+# NaN audit pointer for Section 4.2
 
-- 日期：2026-11-17
-- 动作：对 `tables/table_S1`–`S13` 再扫 NaN；结论写入 `RQ2_outputs/4.2_RQ2_实验数据核对汇总稿.md` 专节「NaN / 空值说明（预期结构，非缺数）」。
-- 干净表：S2 / S3 / S6 / S7 / S9 / S10 / S13
-- 有结构/定义性 NaN：S1、S4、S5、S8、S11、S12（原因见汇总稿专节；非缺预测）
-- 另：在「与 RQ1 重新开放期 MASE 核对」处补了一句：最大绝对差 = 0 表示 RQ2 与 RQ1 点估计完全一致。
+See `NAN_FILL_FINAL_REPORT.md` and `nan_inventory.md`. Remaining NaNs are structural or definitional; do not invent values. Final holiday / WIS / S12 package: `makeup-RQ2/`.

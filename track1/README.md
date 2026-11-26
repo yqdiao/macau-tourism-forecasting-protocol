@@ -18,6 +18,8 @@ All commands assume the repository root. Shared inputs are in `shared/data/`; ge
 
 ## Documentation
 
+- [Training, tuning, and frozen candidates](docs/MODEL_TRAINING_AND_TUNING.md)
+- [Zero-shot aligned inputs (calendar / cross-market)](docs/ZEROSHOT_ALIGNED_INPUTS.md)
 - [Unified historical protocol](docs/UNIFIED_EXPERIMENT_PROTOCOL.md)
 - [Seven-model historical design](docs/SEVEN_MODEL_GPU_PROTOCOL.md)
 - [GPU execution guide](docs/FOUNDATION_MODELS_GPU.md)
@@ -25,4 +27,4 @@ All commands assume the repository root. Shared inputs are in `shared/data/`; ge
 - [Server architecture](docs/SERVER_MODEL_EXECUTION.md)
 - [Historical compliance audit](docs/BASELINE_COMPLIANCE_AUDIT.md)
 
-A document's archival status is explicit at its top. Do not infer present execution status from an old pending checkbox or infer final checkpoint versions from a smoke configuration.
+Manuscript tables are rebuilt under `../RQ1/`, `../RQ2/`, and `../RQ3/`. A document's archival status is explicit at its top. Do not infer present execution status from an old pending checkbox or infer final checkpoint versions from a smoke configuration.

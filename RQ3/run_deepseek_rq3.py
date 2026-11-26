@@ -652,7 +652,7 @@ def main():
     redraw_figures(s14, s15, s16, s17, s18)
 
     # summary append
-    lines = ["\n\n---\n\n# DeepSeek API 补全记录\n\n"]
+    lines = ["\n\n---\n\n# DeepSeek API completion record\n\n"]
     lines.append(f"- backend: `deepseek_api` model=`{env['DEEPSEEK_MODEL']}`\n")
     lines.append(f"- judgments file: `{JUDGE_PATH}`\n")
     lines.append(f"- select_weight cached: {len(sel_map)}; weight_only cached: {len(wonly_map)}\n\n")
@@ -672,15 +672,15 @@ def main():
         df.loc[df.item == "real_llm_select_weight", "note"] = (
             f"Used DeepSeek API ({env['DEEPSEEK_MODEL']}) instead of Qwen3-4B; judgments in llm_judgments_deepseek.jsonl"
         )
-        # if row missing add
         if not (df.item == "real_llm_select_weight").any():
             df = pd.concat([df, pd.DataFrame([{
                 "item": "real_llm_select_weight", "status": "filled_deepseek_api",
                 "note": f"DeepSeek API {env['DEEPSEEK_MODEL']}"
             }])], ignore_index=True)
         df.to_csv(man, index=False)
-    path = OUT / "4.3_RQ3_实验数据核对汇总稿.md"
-    path.write_text(path.read_text(encoding="utf-8") + "".join(lines), encoding="utf-8")
+    path = OUT / "RQ3_verification_summary.md"
+    existing = path.read_text(encoding="utf-8") if path.exists() else ""
+    path.write_text(existing + "".join(lines), encoding="utf-8")
     log("=== DeepSeek RQ3 DONE ===")
 
 

@@ -1,5 +1,13 @@
 # Change log
 
+## 2026.11.26 — RQ layer, English docs, training note
+
+- Reorganize the repository entry point around RQ1–RQ3 sealed builders and outputs.
+- Add English training/tuning documentation for Track 1 frozen candidates.
+- Replace Chinese verification and Track 1/2 working notes with English READMEs and summaries.
+- Remove redundant Chinese dumps that duplicated `paper/`, `docs/`, or archival English protocols.
+- Keep holiday-name filter tokens in `light_model_plan.yaml` (they match source calendar strings).
+
 ## 2026.10.21 — Manuscript evidence and English documentation
 
 - Reorganize the repository entry points around forecast-tool adoption, demand

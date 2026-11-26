@@ -38,7 +38,7 @@ print(s.sort_values(["model", "mean_MASE7"])[cols].to_string(index=False))
 PY
 
 git add track1/configs/frozen_foundation_configs.yaml
-git commit -q -m "按登记规则在 B 组冻结 PatchTST 与 Informer 参数，零样本模型登记为默认配置。" \
+git commit -q -m "Freeze PatchTST and Informer B-group parameters; register zero-shot models at default configs." \
   && git log -1 --format='[freeze commit] %H %s'
 
 if tmux has-session -t "$OUTER_SESSION" 2>/dev/null; then

@@ -1,7 +1,3 @@
-# RQ3 缺口补全后核对
+# RQ3 fill_gaps audit
 
-- S15 has DM_MASE_vs_ETS: True
-- S14 has DM_MASE_vs_G1: True
-- S16 stratum types: ['ALL', 'activation_ALL', 'activation_by_holiday_window', 'holiday_window', 'market_group', 'weekend_window']
-- S16 rows: 484
-- S18 llm_backend col: True
+Gap-fill pass finished. Use DeepSeek caches only. Details: `rq3_output_gap_audit_final.md`.

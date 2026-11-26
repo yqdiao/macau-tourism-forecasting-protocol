@@ -1,37 +1,35 @@
-# RQ3_outputs 使用说明
+# RQ3_outputs
 
-## 权威文件
-- 表：`tables/table_S14`–`table_S18`
-- 图：`figures/figure11_*`, `figures/figure12_*`
-- DeepSeek 判断：`cache/llm_judgments_deepseek.jsonl`
-- DeepSeek 决策：`cache/all_decisions_deepseek.parquet`
-- 核对汇总（含 **W1–W7 写作口径标记**）：`4.3_RQ3_实验数据核对汇总稿.md`
-- 缺口审计：`logs/rq3_output_gap_audit_final.md`
-- 质量检查：`logs/rq3_output_quality_checks.csv`
+## Authoritative files
 
-## 【W7】不要用于正文（旧 proxy 缓存）
-- `cache/llm_judgments.jsonl` / `*_fill.jsonl` / `all_decisions.parquet`：早期 llm_proxy  
-- 正文、表注、复现说明一律引用 `*_deepseek.*`
+- Tables: `tables/table_S14`–`table_S18`
+- Figures: `figures/figure11_*`, `figures/figure12_*`
+- DeepSeek judgments: `cache/llm_judgments_deepseek.jsonl`
+- DeepSeek decisions: `cache/all_decisions_deepseek.parquet`
+- Verification summary (writing notes W1–W7): `RQ3_verification_summary.md`
+- Gap audit: `logs/rq3_output_gap_audit_final.md`
+- Quality checks: `logs/rq3_output_quality_checks.csv`
 
-## 写作口径速查（非漏跑）
-详见汇总稿「【写作口径标记】」与 `logs/rq3_output_gap_audit_final.md` §B：
+## Do not cite in the manuscript (W7)
 
-| 标记 | 一句话 |
-|:-----|:-------|
-| **W1** | G3≈G1 是实证，不是漏跑 |
-| **W2** | Mode2 只改成本，精度=Mode1 |
-| **W3** | S18 用云 API wall time 作 CPU 等价，非本地 GPU |
-| **W4** | S14 组均值无 bootstrap CI |
-| **W5** | S15 DM 以 MASE/MAE 为主 |
-| **W6** | Fig12c 简；算力看 S17 `models_run` |
-| **W7** | 勿引用旧 proxy 缓存 |
+`cache/llm_judgments.jsonl`, `*_fill.jsonl`, and `all_decisions.parquet` are early llm_proxy caches. Text, footnotes, and reproduction notes must cite `*_deepseek.*` only.
 
-## 复现
+## Writing notes (not missing runs)
+
+| Tag | One-line rule |
+|---|---|
+| **W1** | G3 ≈ G1 is an empirical result, not a missing table |
+| **W2** | Mode2 changes cost accounting only; accuracy equals Mode1 |
+| **W3** | S18 LLM times are cloud API wall time (CPU-equivalent), not local GPU seconds |
+| **W4** | S14 group means have no bootstrap CI |
+| **W5** | S15 DM tests emphasize MASE/MAE |
+| **W6** | Figure 12c is simplified; compute detail is in S17 `models_run` |
+| **W7** | Do not cite the old proxy caches |
+
+## Reproduce
+
 ```bash
-# 统计+proxy 初跑
 python RQ3/run_all.py
-# 缺口补表
 python RQ3/fill_gaps.py
-# DeepSeek 真实 LLM（需 RQ3/.env）
-python RQ3/run_deepseek_rq3.py
+python RQ3/run_deepseek_rq3.py   # needs RQ3/.env
 ```

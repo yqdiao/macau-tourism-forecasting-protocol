@@ -590,36 +590,36 @@ def redraw_figures() -> None:
 
 
 def write_summary() -> None:
-    lines = ["# 4.2 RQ2 终版数据核对稿（makeup）\n\n"]
-    lines.append("本目录 `makeup-RQ2/` 在既有 `RQ2_outputs` 之上补齐假日掩码、S10 双区间 WIS、S12 MAE 与交叉审计。\n\n")
+    lines = ["# RQ2 final verification (makeup)\n\n"]
+    lines.append(
+        "`makeup-RQ2/` adds holiday masks, dual-interval S10 WIS, S12 MAE, "
+        "and crossing audits on top of sealed `RQ2_outputs/`.\n\n"
+    )
     for p in sorted(TABLES.glob("*")):
         lines.append(f"- tables/{p.name}\n")
-    lines.append("\n## 假日掩码\n")
-    lines.append("- 日历：`shared/data/holiday_calendar.parquet`，roles=`mainland|macau`\n")
-    lines.append("- 重新开放期假日日记录 **1053**；压力期 **405**（与原 S9/S10 一致）\n")
+    lines.append("\n## Holiday mask\n")
+    lines.append("- Calendar: `shared/data/holiday_calendar.parquet`, roles=`mainland|macau`\n")
+    lines.append("- Reopening holiday days **1053**; stress **405** (matches original S9/S10)\n")
     if (LOGS / "holiday_numeric_replay_check.csv").exists():
         chk = pd.read_csv(LOGS / "holiday_numeric_replay_check.csv")
-        lines.append(f"- 复现核对 max abs diff = {chk.abs_diff.max()}\n")
-    lines.append("\n## S10 WIS 完整 50 行\n")
+        lines.append(f"- Replay check max abs diff = {chk.abs_diff.max()}\n")
+    lines.append("\n## S10 WIS (50 rows)\n")
     s10 = pd.read_csv(TABLES / "table_S10_wis_complete_50rows.csv")
-    lines.append(f"- 行数={len(s10)}；pinball 交叉验证见运行日志\n")
+    lines.append(f"- rows={len(s10)}; pinball cross-check in run logs\n")
     lines.append("\n## S12 complete\n")
     lines.append(pd.read_csv(TABLES / "table_S12_complete.csv").to_string(index=False))
-    lines.append("\n\n## 缺失项登记\n")
+    lines.append("\n\n## Missing items\n")
     lines.append(pd.read_csv(LOGS / "missing_items_manifest.csv").to_string(index=False))
-    lines.append("\n\n## 分位数交叉\n")
+    lines.append("\n\n## Quantile crossings\n")
     if (LOGS / "quantile_crossing_counts.csv").exists():
         lines.append(pd.read_csv(LOGS / "quantile_crossing_counts.csv").to_string(index=False))
         lines.append("\n")
-    lines.append("\n## 图件\n")
+    lines.append("\n## Figures\n")
     for pfig in sorted(FIGURES.glob("figure*.png")):
         lines.append(f"- figures/{pfig.name}\n")
     lines.append("\n")
     text = "".join(lines)
-    (OUT / "4.2_RQ2_终版数据核对稿.md").write_text(text, encoding="utf-8")
-    export = REPO / "RQ2_remaining_evidence_export"
-    export.mkdir(parents=True, exist_ok=True)
-    (export / "4.2_RQ2_终版数据核对稿.md").write_text(text, encoding="utf-8")
+    (OUT / "RQ2_verification_summary.md").write_text(text, encoding="utf-8")
     log("summary written")
 
 

@@ -81,7 +81,7 @@ def _tool_result(name: str, context: dict) -> dict:
 
 def _call(event: dict, context: dict, env: dict, meta: dict) -> dict:
     messages = [
-        {"role": "system", "content": SYSTEM + " 如果工具报告成员失败，仍然只能调用冻结回退，不能自己写预测。"},
+        {"role": "system", "content": SYSTEM + " If a tool reports a member failure, you may only invoke the frozen fallback; never write forecasts yourself."},
         {"role": "user", "content": json.dumps({
             "task_id": event["task_id"],
             "destination": meta["destination"],

@@ -1,142 +1,85 @@
-# Macau tourism forecasting: accuracy, resource use, and adoption
+# Macau tourism forecasting protocol
 
-Research companion repository for **Are large models more cost-effective for tourism demand forecasting? Evidence from different demand periods in Macau**.
+Companion repository for **Are large models more cost-effective for tourism demand forecasting? Evidence from different demand periods in Macau**.
 
-The manuscript evaluates forecasting tools and additional system components through three questions:
+The paper answers three research questions. Engineering directories `track1/`, `track2/`, and `shared/` hold the shared calendar, isolated inputs, and single-model backtests. Directories `RQ1/`–`RQ3/` and `makeup-RQ2/` rebuild the sealed manuscript tables and figures from those upstream predictions.
 
-1. Which forecasting configurations offer useful combinations of predictive accuracy and recorded computational resources?
-2. How do these comparisons change with demand periods, source markets, forecast horizons, and available history?
-3. Do forecast combination, language-model judgment, and fallback mechanisms deliver improvements that justify their additional resources?
+## Research questions
 
-The principal reference studies are [Wu et al. (2025), *How well can ChatGPT forecast tourism demand?*](https://doi.org/10.1016/j.tourman.2024.105119) and [Wu et al. (2027), *Multi-agent collaboration strategies for tourism demand forecasting*](https://doi.org/10.1016/j.tourman.2026.105479). Their forecasting and collaboration designs motivate the comparison; this repository does not claim to reproduce every design in either paper.
+| RQ | Question | Computation layer | Main sealed outputs |
+|---|---|---|---|
+| **RQ1** | Which forecasting configurations offer useful accuracy–resource trade-offs? | `RQ1/`, `RQ1_outputs/` | Tables 3–5, Pareto / cost figures, five-quantile raw runs |
+| **RQ2** | How do comparisons change across demand regimes, markets, horizons, and history length? | `RQ2/`, `RQ2_outputs/`, `makeup-RQ2/` | Tables S1–S13, Figures 5–10 |
+| **RQ3** | Do combination, LLM judgment, and fallback justify their extra cost? | `RQ3/`, `RQ3_outputs/` | Tables S14–S18, Figures 11–12, DeepSeek decision caches |
 
-## Start here
+Reference designs: [Wu et al. (2025)](https://doi.org/10.1016/j.tourman.2024.105119) and [Wu et al. (2027)](https://doi.org/10.1016/j.tourman.2026.105479). This repository does not claim to reproduce every design in either paper.
 
-- [Paper companion materials and evidence](paper/README.md)
-- [Six-section manuscript structure](docs/manuscript_structure.md)
-- [Release scope and reproducibility status](docs/reproducibility_status.md)
-- [Track 1 implementation](track1/README.md)
-- [Shared data and task boundaries](shared/README.md)
-- [Track 2 protocol and relationship to later evidence](track2/README.md)
+Narrative map: [docs/manuscript_structure.md](docs/manuscript_structure.md). Release boundaries: [docs/reproducibility_status.md](docs/reproducibility_status.md). Audited companion inventory: [paper/README.md](paper/README.md). Redundancy notes: [docs/repo_hygiene.md](docs/repo_hygiene.md).
 
-## Research-question computation layer
+## Start here by RQ
 
-`RQ1/`, `RQ2/`, `RQ3/`, and `makeup-RQ2/` rebuild the manuscript tables and figures from sealed upstream predictions. `track1/`, `track2/`, and `shared/` stay the protocol: time splits, isolated inputs, and single-model backtests. The RQ scripts only read those upstream results.
-
-| Path | Role |
-|---|---|
-| `RQ1/` | Section 4.1 accuracy, cost, and asymmetric loss. Build scripts write tables here. Figures live in `RQ1/figures/`. |
-| `RQ1_outputs/` | Sealed RQ1 tables and raw metrics. RQ3 reads this copy. The CSVs match `RQ1/` today. |
-| `RQ2/`, `RQ2_outputs/` | Section 4.2 mechanisms and boundaries. RQ3 reads `RQ2_outputs/`. |
-| `makeup-RQ2/` | Final RQ2 holiday dual aggregation, S10 WIS, S12, and figures 5–10. Do not overwrite `RQ2_outputs/` with these tables. |
-| `RQ3/`, `RQ3_outputs/` | Section 4.3 combination, selection, and cost. Cite `RQ3_outputs/cache/*_deepseek.*`. The earlier proxy files `llm_judgments.jsonl` and `all_decisions.parquet` are not for the manuscript text. |
-
-Rebuilding the tables needs local prediction stores that Git does not carry: `track1/results/foundation_outer_default/`, `outer_server_all/`, `light_models/`, `sensitivity/pandemic_stress/`, `zeroshot_matched_inputs/`, `compute_benchmark/benchmark.jsonl`, plus `track1/evaluation/outer_main_table/` and `volume_breakeven/`. The Qwen3-4B delivery log used by RQ1 is `RQ1/raw/qwen3_4b_D-S1_deliveries.jsonl`.
+1. **RQ1 accuracy and cost** — builders in `RQ1/`; cite sealed CSVs in `RQ1_outputs/tables/`. Figures live in `RQ1/figures/` (not copied into `RQ1_outputs/`).
+2. **RQ2 mechanisms and boundaries** — builders in `RQ2/`; panels in `RQ2_outputs/`. Holiday dual aggregation, complete S10 WIS, S12, and final Figures 5–10 are in `makeup-RQ2/`. Do not overwrite `RQ2_outputs/` with makeup tables; RQ3 still reads `RQ2_outputs/`.
+3. **RQ3 combination and LLM judgment** — builders in `RQ3/`. Cite `RQ3_outputs/cache/*_deepseek.*` only. Earlier proxy files `llm_judgments.jsonl` / `all_decisions.parquet` are not for the manuscript text. Writing notes: [RQ3_outputs/README.md](RQ3_outputs/README.md).
 
 ```bash
+python -m pip install -r shared/requirements.txt
 python RQ1/build_rq1.py
 python RQ2/run_all.sh
 python makeup-RQ2/run_makeup_rq2.py
 python RQ3/run_all.py
 python RQ3/fill_gaps.py
-# DeepSeek calls need RQ3/.env, which is not committed
+# DeepSeek requires RQ3/.env (not committed)
 python RQ3/run_deepseek_rq3.py
 ```
 
-## Current release and historical implementation
+Rebuilding RQ tables needs local prediction stores that Git ignores: `track1/results/foundation_outer_default/`, `outer_server_all/`, `light_models/`, `sensitivity/pandemic_stress/`, `zeroshot_matched_inputs/`, `compute_benchmark/benchmark.jsonl`, plus `track1/evaluation/outer_main_table/` and `volume_breakeven/`. The Qwen3-4B delivery log used by RQ1 is `RQ1/raw/qwen3_4b_D-S1_deliveries.jsonl`.
 
-This release updates the research narrative and documentation in English, and adds the audited paper companion materials. The existing `track1/` implementation and frozen baseline audit are retained. The `track1/` and `track2/` directory names are engineering identifiers; the paper is organized by research questions rather than by the order in which experiments were run.
+## Model families and training
 
-**Code availability and evidence availability are separate.** The historical repository contains the Track 1 data pipeline, 13 baseline implementations, seven time-series adapters, container definitions, and baseline selection audit. The presence of a later result in `paper/` does not imply that its complete server execution code, checkpoints, raw predictions, or resource logs are included. Consult the companion inventory before attempting a full rerun.
+Training, B-group selection, and frozen candidates are documented in [track1/docs/MODEL_TRAINING_AND_TUNING.md](track1/docs/MODEL_TRAINING_AND_TUNING.md). Short map:
 
-The September protocol documents are retained as **archival design records**. Their pending checklists, proposed 20-model scope, and proposed operational extensions are not a completion statement for the current paper. They are not retrospective evidence that every later experiment was specified before its outcomes were inspected.
+| Family | Models | What is trained / tuned | Freeze / selection |
+|---|---|---|---|
+| Zero-shot foundation | Granite, Chronos-2, TimesFM 3.0, Moirai, Lag-Llama | No target-task training; registered revisions only | Default / smoke-accepted configs; five-quantile levels via `runtime.extra.quantile_levels` |
+| Supervised foundation | PatchTST (PT06), Informer (INF07) | Per-task training from scratch; B-group grid | `track1/configs/frozen_foundation_configs.yaml` |
+| Statistical / tabular baselines | Seasonal naive, ETS, SARIMA, Ridge, OLS, Lasso, Elastic Net, SVR, LightGBM, GBDT, RF, RF-800, small Transformer | Per-task fit or train; B01–B12 search | `track1/configs/frozen_baseline_configs.yaml` (2026-09-26) |
+| Lightweight global | Global LightGBM (GL03), NLinear (NL01) | One model per origin across 27 markets (or shared linear map) | `track1/configs/frozen_light_configs.yaml`; plan in `light_model_plan.yaml` |
+| Lightweight exploratory | Per-market LightGBM + calendar (LL01) | Registered after outer results; does not replace NL01 | `light_model_round2.yaml` (`registered_after_outer_results`) |
 
-## Evaluation unit and information boundaries
+Selection rule (all trainable families): task MASE(7) → average seeds → average folds within market → equal-weight over 27 Macau markets. Outer, stress, history-180/365, and Hong Kong scores must never rewrite a frozen candidate.
 
-A task is one destination/source-market series at one forecast origin with a 28-day forecast path. The main Macau evaluation comprises **27 markets, 33 origins, and 891 tasks**. The pandemic stress set contains 351 Macau tasks; the selection set contains 324 Macau tasks. The two Hong Kong series form a separate extension and are not pooled into the Macau primary score.
+Adapters live under `track1/code/foundation_models/adapters/`. Baseline and tabular code: `track1/code/models.py`. Lightweight models: `track1/code/light_models.py`. Runners: `track1/scripts/run_light_models.py`, `track1/code/run_foundation_backtest.py`, `track1/code/run_backtest.py`.
 
-The 33 main windows score 2024-01-01 through 2026-07-12. The source observations extend through 2026-07-31, but the final 19 days are outside those main windows. The stress set consists of selected windows, not every day of the pandemic.
+Track 2 selected members (Granite, Chronos-2, TimesFM 3.0) are frozen in `track2/configs/selected_track2_models.yaml`. Protocol: [track2/docs/ENSEMBLE_RESIDUAL_AGENT_PROTOCOL.md](track2/docs/ENSEMBLE_RESIDUAL_AGENT_PROTOCOL.md).
 
-Predictors may read only history available by each origin:
+## Evaluation unit
 
-- `shared/data/task_inputs.parquet`: historical inputs without future targets;
-- `shared/data/splits/*/task_inputs.parquet`: inputs separated by evaluation phase;
-- `shared/data/origin_shards/`: generated, physically isolated origin-level inputs for GPU containers.
+One task = one destination × source market × forecast origin × 28-day path. Primary Macau outer set: **27 markets × 33 origins = 891 tasks**. Pandemic stress: 351 Macau tasks. B-group selection: 324 Macau tasks. Hong Kong is a separate extension and is not pooled into the Macau primary score.
 
-The independent evaluator reads `shared/data/targets.parquet` after forecasts are sealed. Model containers must not mount the whole shared data directory. The common task calendar is in `shared/configs/protocol.yaml`.
-
-Frozen target-task weights do not establish the absence of overlap with upstream pretraining data. Model revisions and retrospective evaluation boundaries remain part of the interpretation.
-
-## Models and system roles
-
-| Component | Role in the paper | Interpretation |
-|---|---|---|
-| Pretrained time-series models | Produce numerical forecast paths from historical observations | Frozen-weight inference is evaluated within each recorded information setting |
-| Statistical, machine-learning, and lightweight configurations | Fit or train on available target history | Original frozen selections and later exploratory revisions are distinguished |
-| Local Qwen3-4B-thinking | Generate numerical forecasts directly | Output quality, extreme predictions, and shared-sample sensitivity are retained |
-| Local Qwen3-8B | Assign weights to existing candidate forecasts | Programmatic aggregation produces the final numerical forecasts |
-| Deterministic and LLM coordination | Validate, route, and invoke frozen fallback rules | Reliability evidence is conditional on the documented fault construction |
-
-Time-series models can be forecasting tools inside an agent workflow. Tool inclusion alone does not make each model a language-based agent. Independent role branches also do not imply concurrent GPU execution.
-
-## Accuracy and resource interpretation
-
-The current manuscript reports task-level **MASE(7), MAE, and mean task RMSE**, with task coverage and paired uncertainty where available. When the historical MASE scale is zero, its MASE is undefined; the task remains in applicable unscaled metrics. Native scales and common-history scales must be identified explicitly.
-
-Monetary costs are represented by a resource-price vector and a cost function, `C_j(p)`. Prices vary across providers, regions, devices, billing arrangements, and dates. Recorded call time, device occupancy, and complete service cost are different quantities. Missing labor, maintenance, or deployment costs are not zero, and predictive error reductions are not measured operating profits.
+Predictors may read only history available by the origin (`shared/data/task_inputs.parquet` and origin shards). The evaluator alone reads `shared/data/targets.parquet` after forecasts are sealed. Common calendar: `shared/configs/protocol.yaml`.
 
 ## Repository layout
 
 ```text
 .
-├── docs/                   # Current English narrative and release boundaries
-├── paper/                  # Audited companion materials; see its own inventory
-├── shared/
-│   ├── configs/            # Common A/B/O task calendar
-│   ├── data/               # Existing versioned input/target artifacts
-│   └── requirements.txt
-├── track1/
-│   ├── audit/              # Historical baseline selection evidence
-│   ├── code/               # Pipeline, baselines, adapters, and evaluators
-│   ├── configs/            # Search spaces, frozen choices, upstream registry
-│   ├── compose/            # CPU and GPU service definitions
-│   ├── docker/             # Separate model environments
-│   ├── docs/               # English archival protocols and execution guides
-│   ├── notebooks/          # English data and backtesting notebooks
-│   ├── scripts/
-│   └── tests/
-├── track2/
-│   └── docs/               # Archival ensemble and coordination protocol
-├── RQ1/ , RQ1_outputs/     # Section 4.1 builders and sealed tables
-├── RQ2/ , RQ2_outputs/     # Section 4.2 builders and sealed panels
-├── makeup-RQ2/             # Final holiday, interval, and figure 5–10 package
-└── RQ3/ , RQ3_outputs/     # Section 4.3 builders, tables, and DeepSeek judgments
+├── docs/                 # Manuscript map and release boundaries (English)
+├── paper/                # Audited companion tables, figures, inventory
+├── shared/               # Protocol YAML, holiday calendar, inputs, targets
+├── track1/               # Single-model code, configs, adapters, GPU guides
+├── track2/               # Ensemble / agent protocol and stage code
+├── RQ1/ , RQ1_outputs/   # Section 4.1 builders and sealed tables
+├── RQ2/ , RQ2_outputs/   # Section 4.2 builders and sealed panels
+├── makeup-RQ2/           # Final RQ2 holiday, WIS, S12, Figures 5–10
+└── RQ3/ , RQ3_outputs/   # Section 4.3 builders, tables, DeepSeek caches
 ```
 
-Generated results, model weights, caches, and credentials are excluded from Git. The repository does not introduce a new license grant for existing data or third-party models.
+`extensions/lightweight_legacy/` archives an earlier packaging of lightweight code; prefer `track1/code/light_models.py` and the RQ builders for new work.
 
-## Historical baseline selection audit
-
-On 2026-09-26, baseline B01–B12 validation completed **12,636 of 12,636 candidate forecast paths**, with zero terminal failures, across 33 candidate configurations. The final state was `frozen_after_B_group_tuning`.
-
-- [Frozen configurations](track1/configs/frozen_baseline_configs.yaml)
-- [Audit records](track1/audit/b_validation/README.md)
-
-These are historical selection records, not the number of tasks in the current manuscript. Outer-test results must not be used to replace the original frozen choice. Later lightweight revisions are reported under their exploratory identity.
-
-## Quick start: existing CPU implementation
-
-Run commands from the repository root:
+## CPU smoke (does not rerun the paper)
 
 ```bash
-python -m pip install -r shared/requirements.txt
 python track1/code/audit_protocol_artifacts.py
-python track1/code/baseline_config.py --task-manifest shared/data/task_manifest.json
-```
-
-Example baseline smoke run:
-
-```bash
 python track1/code/run_backtest.py \
   --inputs shared/data/task_inputs.parquet \
   --destinations Macau \
@@ -146,49 +89,14 @@ python track1/code/run_backtest.py \
   --splits outer_backtest \
   --models seasonal_naive,ets,sarima \
   --output track1/results/smoke_isolated
-```
-
-Evaluate in the separate scoring environment:
-
-```bash
 python track1/code/evaluate_predictions.py \
   --predictions track1/results/smoke_isolated/predictions.parquet \
   --targets shared/data/targets.parquet \
   --output track1/evaluation/smoke_isolated
 ```
 
-Docker entry points:
+GPU guides: [track1/docs/FOUNDATION_MODELS_GPU.md](track1/docs/FOUNDATION_MODELS_GPU.md), [track1/docs/GPU_SEQUENTIAL_RUN_CHECKLIST.md](track1/docs/GPU_SEQUENTIAL_RUN_CHECKLIST.md).
 
-```bash
-docker compose -f track1/compose/baseline.yaml run --rm predictor
-docker compose -f track1/compose/baseline.yaml run --rm evaluator
-```
+## Data, credentials, and licenses
 
-For the historical Windows B-group driver:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File track1/scripts/run_b_local.ps1 -Workers 4
-```
-
-These examples exercise the existing implementation. They do not rerun every later server experiment in the paper.
-
-## GPU implementation and version control
-
-Consult the [GPU guide](track1/docs/FOUNDATION_MODELS_GPU.md) and [sequential execution checklist](track1/docs/GPU_SEQUENTIAL_RUN_CHECKLIST.md). Each model uses its own container environment. Inspect the registered revisions and configuration before running; old smoke defaults are not automatically the final paper configuration.
-
-For a new run, version resolution is an explicit setup step:
-
-```bash
-python track1/scripts/pin_upstream_revisions.py
-git diff -- track1/configs/upstream_revisions.yaml
-docker compose --env-file track1/.env.pinned \
-  -f track1/compose/foundation-gpu.yaml build chronos_2
-```
-
-Do not run the pinning script during a frozen replication if it would replace the revisions under study. Restore the recorded run-specific versions instead.
-
-## Data, credentials, and third-party rights
-
-Existing tracked artifacts are preserved by this documentation update. Their presence is not a new assertion of unrestricted redistribution rights. Respect the original Macau and Hong Kong data terms and each model's code and weight license. Store credentials outside the repository. Do not commit API keys, access tokens, model weights, container layers, or private local paths.
-
-For academic use, cite the manuscript when publication details are available and record the exact repository commit used. Repository updates do not assign a publication DOI or establish journal acceptance.
+Do not commit API keys, weights, container layers, or bulk `track1/results/`. `RQ3/.env` and `track2/.env` are gitignored. Respect Macau/Hong Kong data terms and each model’s code and weight license. Cite the manuscript and the exact repository commit when using this material.

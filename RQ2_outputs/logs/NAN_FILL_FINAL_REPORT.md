@@ -25,7 +25,7 @@ so pandemic_stress jobs were **never scheduled** for moirai/lag_llama (not a joi
 - S10: both splits × all 5 foundation models × 5 subsets (no missing rows)
 - S5: 14 configs × Clean-180 / Clean-365 / Full-with-COVID
 - S13 boundary matrix refreshed
-- Figures 5–10 + `4.2_RQ2_实验数据核对汇总稿.md` regenerated
+- Figures 5–10 + `makeup-RQ2/RQ2_verification_summary.md` regenerated
 - Residual scan: `RQ2_outputs/logs/nan_residual_report.md`
 
 ## 5. Residual NaNs (no new fake numbers; need new source work only if desired)

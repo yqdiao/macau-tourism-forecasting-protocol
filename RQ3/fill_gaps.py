@@ -355,19 +355,18 @@ def enrich_s18(s18: pd.DataFrame, decisions: pd.DataFrame) -> pd.DataFrame:
 
 
 def update_summary(manifest_rows):
-    path = OUT / "4.3_RQ3_实验数据核对汇总稿.md"
+    path = OUT / "RQ3_verification_summary.md"
     old = path.read_text(encoding="utf-8") if path.exists() else ""
-    block = ["\n\n---\n\n# 缺口补全记录（fill_gaps）\n\n"]
-    block.append("补全脚本：`RQ3/fill_gaps.py`。\n\n")
+    block = ["\n\n---\n\n# Gap-fill record (`fill_gaps`)\n\n"]
+    block.append("Script: `RQ3/fill_gaps.py`.\n\n")
     block.append("| item | status | note |\n|------|--------|------|\n")
     for r in manifest_rows:
         block.append(f"| {r['item']} | {r['status']} | {r['note']} |\n")
-    block.append("\n更新表：S14（+vs G1）、S15（+vs ETS）、S16（假日/周末分层）、S18（llm_backend）。\n")
-    # append key S16 holiday peek
+    block.append("\nUpdated tables: S14 (+vs G1), S15 (+vs ETS), S16 (holiday/weekend strata), S18 (`llm_backend`).\n")
     s16 = pd.read_csv(TABLES / "table_S16_subset_switching_and_market_heterogeneity.csv")
     peek = s16[(s16.stratum_type == "holiday_window") & (s16.scheme_id.isin(["G1_Stat_Stat", "G2_LLM_Stat_eta0.3", "G4_LLM_LLM_eta0.3"])) & (s16.split_name == "outer_backtest")]
     if len(peek):
-        block.append("\n## S16 假日窗口选模比例（重开期）\n\n")
+        block.append("\n## S16 holiday-window selection shares (reopening)\n\n")
         try:
             block.append(peek[["scheme_id", "stratum_value", "n_origins", "share_2FM1LW", "share_1FM2LW"]].to_markdown(index=False))
         except Exception:
@@ -376,7 +375,7 @@ def update_summary(manifest_rows):
     s15 = pd.read_csv(TABLES / "table_S15_dynamic_selection_and_weighting_ablation.csv")
     cols = [c for c in ["scheme_id", "MASE", "R_MASE_vs_ETS", "DM_MASE_vs_ETS", "p_MASE_vs_ETS", "R_MASE_vs_G1", "DM_MASE_vs_G1"] if c in s15.columns]
     peek15 = s15[(s15.split_name == "outer_backtest") & (s15.scheme_id.str.startswith("G"))][cols]
-    block.append("\n## S15 相对 ETS / G1（重开期动态方案）\n\n")
+    block.append("\n## S15 vs ETS / G1 (reopening dynamic schemes)\n\n")
     try:
         block.append(peek15.to_markdown(index=False))
     except Exception:
@@ -430,7 +429,7 @@ def main():
 
     # rewrite audit
     audit = []
-    audit.append("# RQ3 缺口补全后核对\n\n")
+    audit.append("# RQ3 post–fill_gaps audit\n\n")
     audit.append(f"- S15 has DM_MASE_vs_ETS: {'DM_MASE_vs_ETS' in s15n.columns}\n")
     audit.append(f"- S14 has DM_MASE_vs_G1: {'DM_MASE_vs_G1' in s14n.columns}\n")
     audit.append(f"- S16 stratum types: {sorted(s16n.stratum_type.dropna().unique())}\n")
