@@ -25,12 +25,12 @@ What stays, what is archival, and what was removed in the 2026-11-26 English / R
 
 Chinese working dumps that duplicated English protocols or sealed RQ summaries:
 
-- `track1/docs/Track1_*.md`, `track输出.md`, manuscript-index Chinese notes
-- `track2/docs/TRACK2_计算实验执行手册.md`, `track2/docs/track输出.md`
+- Historical Track 1 working dumps and manuscript-index notes
+- Historical Track 2 execution manuals and working-output notes
 - Chinese RQ2/RQ3/makeup verification filenames (replaced by English `*_verification_summary.md`)
 
 Local-only archive outside Git (may be deleted after you confirm): `/root/DYQ/_macau_unused_archive/2026-11-26` (old track copies, weights, B-search dumps).
 
 ## Intentionally non-English tokens
 
-Holiday calendar filters keep Chinese source labels (`调休`, `补假`, `休息日`, `延长`) because they match mainland calendar row names in the data.
+Holiday calendar filters keep Chinese source labels (compensatory workdays, replacement holidays, rest days, and extended holidays) because they match mainland calendar row names in the data.

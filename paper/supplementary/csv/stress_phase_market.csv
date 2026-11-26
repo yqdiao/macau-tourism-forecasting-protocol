@@ -1,0 +1,127 @@
+Model,Phase,Market size,Tasks,ΔMASE,ΔMAE
+Granite,early,Large,8,-0.0936583,-1695.97
+Granite,early,Medium,32,0.125811,35.8206
+Granite,early,Small,68,-0.00108643,-0.508553
+Granite,mid,Large,8,-0.0236497,-288.036
+Granite,mid,Medium,32,0.00167383,-1.15259
+Granite,mid,Small,68,0.00508539,0.190817
+Granite,late,Large,10,-0.0213106,-173.594
+Granite,late,Medium,40,0.0083592,0.964463
+Granite,late,Small,85,0.00704268,0.141938
+TimesFM 3.0,early,Large,8,-0.1629,-2197.67
+TimesFM 3.0,early,Medium,32,0.0699983,21.6091
+TimesFM 3.0,early,Small,68,-0.0257706,-1.40875
+TimesFM 3.0,mid,Large,8,-0.185346,-1371.98
+TimesFM 3.0,mid,Medium,32,-0.00363148,-1.57748
+TimesFM 3.0,mid,Small,68,-0.000849062,0.000338072
+TimesFM 3.0,late,Large,10,-0.0072984,-97.6358
+TimesFM 3.0,late,Medium,40,0.00269178,0.207103
+TimesFM 3.0,late,Small,85,0.00131947,0.020672
+Chronos-2,early,Large,8,-0.0191893,-690.38
+Chronos-2,early,Medium,32,0.0807126,24.3505
+Chronos-2,early,Small,68,0.0184413,-0.254641
+Chronos-2,mid,Large,8,-0.200545,-1435.48
+Chronos-2,mid,Medium,32,0.0471658,7.45824
+Chronos-2,mid,Small,68,0.0442653,1.14066
+Chronos-2,late,Large,10,-0.00879145,-109.785
+Chronos-2,late,Medium,40,0.0290784,4.13464
+Chronos-2,late,Small,85,0.0215886,0.586134
+Moirai 2.0,early,Large,8,-0.0284848,-1077.61
+Moirai 2.0,early,Medium,32,0.0471078,16.6482
+Moirai 2.0,early,Small,68,-0.013228,-1.01613
+Moirai 2.0,mid,Large,8,0.0450542,282.633
+Moirai 2.0,mid,Medium,32,-0.00390657,-1.40865
+Moirai 2.0,mid,Small,68,0.0236072,0.246813
+Moirai 2.0,late,Large,10,-0.00939203,-76.3707
+Moirai 2.0,late,Medium,40,0.00409406,0.672025
+Moirai 2.0,late,Small,85,0.000479453,0.00942201
+Lag-Llama,early,Large,8,0.66818,3041.5
+Lag-Llama,early,Medium,32,0.963892,227.953
+Lag-Llama,early,Small,68,0.958837,28.3493
+Lag-Llama,mid,Large,8,-0.043073,-444.949
+Lag-Llama,mid,Medium,32,0.0721044,13.2852
+Lag-Llama,mid,Small,68,0.0857991,2.17938
+Lag-Llama,late,Large,10,0.112054,690.63
+Lag-Llama,late,Medium,40,0.0171387,2.45237
+Lag-Llama,late,Small,85,0.0133311,0.281631
+ETS,early,Large,8,0,0
+ETS,early,Medium,32,0,0
+ETS,early,Small,68,0,0
+ETS,mid,Large,8,0,0
+ETS,mid,Medium,32,0,0
+ETS,mid,Small,68,0,0
+ETS,late,Large,10,0,0
+ETS,late,Medium,40,0,0
+ETS,late,Small,85,0,0
+SARIMA,early,Large,8,0.0563922,539.533
+SARIMA,early,Medium,32,-0.0104972,-3.33872
+SARIMA,early,Small,68,-0.00879652,-0.283525
+SARIMA,mid,Large,8,0.0064592,32.4392
+SARIMA,mid,Medium,32,0.00473172,1.79815
+SARIMA,mid,Small,68,-0.00106266,-0.0131789
+SARIMA,late,Large,10,0.0220135,150.641
+SARIMA,late,Medium,40,-9.25829e-05,0.177969
+SARIMA,late,Small,85,-0.000936979,-0.0156758
+Seasonal Naive,early,Large,8,-0.127245,-1457.31
+Seasonal Naive,early,Medium,32,0.0485427,17.4263
+Seasonal Naive,early,Small,68,0.00706949,0.316489
+Seasonal Naive,mid,Large,8,0.0801747,591.756
+Seasonal Naive,mid,Medium,32,0.00436729,1.64722
+Seasonal Naive,mid,Small,68,-0.00089134,-0.00533425
+Seasonal Naive,late,Large,10,0.0371379,225.084
+Seasonal Naive,late,Medium,40,0.011659,3.36194
+Seasonal Naive,late,Small,85,0.00962501,0.119685
+SVR,early,Large,8,0.14757,-1287.65
+SVR,early,Medium,32,0.459275,109.685
+SVR,early,Small,68,0.223567,10.0603
+SVR,mid,Large,8,0.0608264,442.636
+SVR,mid,Medium,32,-0.00677169,-2.40998
+SVR,mid,Small,68,-0.00229775,-0.0385469
+SVR,late,Large,10,0.0284924,150.561
+SVR,late,Medium,40,0.00406282,0.443402
+SVR,late,Small,85,0.00484283,0.105912
+LightGBM (Local),early,Large,8,-0.228482,-3975.93
+LightGBM (Local),early,Medium,32,0.248835,62.4305
+LightGBM (Local),early,Small,68,0.0951392,4.85135
+LightGBM (Local),mid,Large,8,0.0916693,661.531
+LightGBM (Local),mid,Medium,32,-0.00231259,-0.85757
+LightGBM (Local),mid,Small,68,-0.00104584,-0.0159685
+LightGBM (Local),late,Large,10,0.0615575,381.822
+LightGBM (Local),late,Medium,40,0.0086939,1.75564
+LightGBM (Local),late,Small,85,0.0033384,0.0833707
+LightGBM (Global),early,Large,8,-0.177288,-2663.03
+LightGBM (Global),early,Medium,32,0.217945,56.3327
+LightGBM (Global),early,Small,68,0.103916,3.5632
+LightGBM (Global),mid,Large,8,0.085335,628.362
+LightGBM (Global),mid,Medium,32,-0.00793303,-2.8982
+LightGBM (Global),mid,Small,68,0.000196132,-0.00929084
+LightGBM (Global),late,Large,10,0.0185544,93.7441
+LightGBM (Global),late,Medium,40,0.00403948,0.561374
+LightGBM (Global),late,Small,85,0.00353072,0.0490205
+LightGBM+Cal,early,Large,8,-0.161864,-2885.8
+LightGBM+Cal,early,Medium,32,0.224005,53.0922
+LightGBM+Cal,early,Small,68,0.0729943,2.46662
+LightGBM+Cal,mid,Large,8,0.143109,895.741
+LightGBM+Cal,mid,Medium,32,-0.0055808,-2.11297
+LightGBM+Cal,mid,Small,68,0.000131937,-0.00140896
+LightGBM+Cal,late,Large,10,0.126078,882.966
+LightGBM+Cal,late,Medium,40,0.00595088,1.36091
+LightGBM+Cal,late,Small,85,0.00155114,0.0236888
+Small Transformer,early,Large,8,-0.18774,-3827.78
+Small Transformer,early,Medium,32,0.253537,64.9275
+Small Transformer,early,Small,68,0.141663,5.78267
+Small Transformer,mid,Large,8,0.00176459,-45.0113
+Small Transformer,mid,Medium,32,-0.00568398,-2.0323
+Small Transformer,mid,Small,68,-0.00274384,-0.0436302
+Small Transformer,late,Large,10,0.0138684,9.04789
+Small Transformer,late,Medium,40,0.0132868,2.28034
+Small Transformer,late,Small,85,0.00841678,0.182259
+Global NLinear,early,Large,8,-0.251511,-3159.78
+Global NLinear,early,Medium,32,0.108717,26.817
+Global NLinear,early,Small,68,0.0374237,1.83258
+Global NLinear,mid,Large,8,0.0635878,433.686
+Global NLinear,mid,Medium,32,-0.00302366,-1.07328
+Global NLinear,mid,Small,68,-0.00151649,-0.0212028
+Global NLinear,late,Large,10,-0.00445291,-42.5935
+Global NLinear,late,Medium,40,0.00207393,0.374478
+Global NLinear,late,Small,85,0.00024256,0.00124132

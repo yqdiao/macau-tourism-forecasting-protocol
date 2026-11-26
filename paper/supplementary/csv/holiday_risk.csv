@@ -1,0 +1,113 @@
+Period,Model,Days,Aggregation,Underpred.,Severe / underpred.
+Reopening,GL03,holiday,Pooled days,0.469136,0.240266
+Reopening,GL03,holiday,Task then market-equal,–,–
+Reopening,LL01,holiday,Pooled days,0.474834,0.233618
+Reopening,LL01,holiday,Task then market-equal,–,–
+Reopening,NL01,holiday,Pooled days,0.536562,0.385565
+Reopening,NL01,holiday,Task then market-equal,–,–
+Reopening,chronos_2,holiday,Pooled days,0.540361,0.327635
+Reopening,chronos_2,holiday,Task then market-equal,–,–
+Reopening,ets,holiday,Pooled days,0.562203,0.388414
+Reopening,ets,holiday,Task then market-equal,–,–
+Reopening,Granite,holiday,Pooled days,0.565052,0.331434
+Reopening,Granite,holiday,Task then market-equal,–,–
+Reopening,lag_llama,holiday,Pooled days,0.508072,0.348528
+Reopening,lag_llama,holiday,Task then market-equal,–,–
+Reopening,lightgbm,holiday,Pooled days,0.596391,0.408357
+Reopening,lightgbm,holiday,Task then market-equal,–,–
+Reopening,moirai,holiday,Pooled days,0.568851,0.377968
+Reopening,moirai,holiday,Task then market-equal,–,–
+Reopening,sarima,holiday,Pooled days,0.550807,0.395062
+Reopening,sarima,holiday,Task then market-equal,–,–
+Reopening,seasonal_naive,holiday,Pooled days,0.528015,0.37132
+Reopening,seasonal_naive,holiday,Task then market-equal,–,–
+Reopening,svr,holiday,Pooled days,0.522317,0.358025
+Reopening,svr,holiday,Task then market-equal,–,–
+Reopening,timesfm_3,holiday,Pooled days,0.528015,0.316239
+Reopening,timesfm_3,holiday,Task then market-equal,–,–
+Reopening,transformer,holiday,Pooled days,0.523267,0.339981
+Reopening,transformer,holiday,Task then market-equal,–,–
+Reopening,GL03,non_holiday,Pooled days,0.514501,0.25181
+Reopening,GL03,non_holiday,Task then market-equal,–,–
+Reopening,LL01,non_holiday,Pooled days,0.524419,0.253777
+Reopening,LL01,non_holiday,Task then market-equal,–,–
+Reopening,NL01,non_holiday,Pooled days,0.474995,0.261854
+Reopening,NL01,non_holiday,Task then market-equal,–,–
+Reopening,chronos_2,non_holiday,Pooled days,0.510274,0.219251
+Reopening,chronos_2,non_holiday,Task then market-equal,–,–
+Reopening,ets,non_holiday,Pooled days,0.484369,0.260431
+Reopening,ets,non_holiday,Task then market-equal,–,–
+Reopening,Granite,non_holiday,Pooled days,0.530195,0.220297
+Reopening,Granite,non_holiday,Task then market-equal,–,–
+Reopening,lag_llama,non_holiday,Pooled days,0.507763,0.302741
+Reopening,lag_llama,non_holiday,Task then market-equal,–,–
+Reopening,lightgbm,non_holiday,Pooled days,0.540029,0.304875
+Reopening,lightgbm,non_holiday,Task then market-equal,–,–
+Reopening,moirai,non_holiday,Pooled days,0.526554,0.266499
+Reopening,moirai,non_holiday,Task then market-equal,–,–
+Reopening,sarima,non_holiday,Pooled days,0.468843,0.255158
+Reopening,sarima,non_holiday,Task then market-equal,–,–
+Reopening,seasonal_naive,non_holiday,Pooled days,0.478426,0.278092
+Reopening,seasonal_naive,non_holiday,Task then market-equal,–,–
+Reopening,svr,non_holiday,Pooled days,0.488763,0.247918
+Reopening,svr,non_holiday,Task then market-equal,–,–
+Reopening,timesfm_3,non_holiday,Pooled days,0.502825,0.208621
+Reopening,timesfm_3,non_holiday,Task then market-equal,–,–
+Reopening,transformer,non_holiday,Pooled days,0.473865,0.265411
+Reopening,transformer,non_holiday,Task then market-equal,–,–
+Stress,GL03,holiday,Pooled days,0.160494,0.14321
+Stress,GL03,holiday,Task then market-equal,–,–
+Stress,LL01,holiday,Pooled days,0.165432,0.138272
+Stress,LL01,holiday,Task then market-equal,–,–
+Stress,NL01,holiday,Pooled days,0.192593,0.150617
+Stress,NL01,holiday,Task then market-equal,–,–
+Stress,chronos_2,holiday,Pooled days,0.155556,0.103704
+Stress,chronos_2,holiday,Task then market-equal,–,–
+Stress,ets,holiday,Pooled days,0.214815,0.165432
+Stress,ets,holiday,Task then market-equal,–,–
+Stress,Granite,holiday,Pooled days,0.197531,0.148148
+Stress,Granite,holiday,Task then market-equal,–,–
+Stress,lag_llama,holiday,Pooled days,0.187654,0.153086
+Stress,lag_llama,holiday,Task then market-equal,–,–
+Stress,lightgbm,holiday,Pooled days,0.197531,0.165432
+Stress,lightgbm,holiday,Task then market-equal,–,–
+Stress,moirai,holiday,Pooled days,0.202469,0.165432
+Stress,moirai,holiday,Task then market-equal,–,–
+Stress,sarima,holiday,Pooled days,0.214815,0.155556
+Stress,sarima,holiday,Task then market-equal,–,–
+Stress,seasonal_naive,holiday,Pooled days,0.190123,0.160494
+Stress,seasonal_naive,holiday,Task then market-equal,–,–
+Stress,svr,holiday,Pooled days,0.187654,0.165432
+Stress,svr,holiday,Task then market-equal,–,–
+Stress,timesfm_3,holiday,Pooled days,0.187654,0.133333
+Stress,timesfm_3,holiday,Task then market-equal,–,–
+Stress,transformer,holiday,Pooled days,0.190123,0.160494
+Stress,transformer,holiday,Task then market-equal,–,–
+Stress,GL03,non_holiday,Pooled days,0.173618,0.139977
+Stress,GL03,non_holiday,Task then market-equal,–,–
+Stress,LL01,non_holiday,Pooled days,0.177332,0.148573
+Stress,LL01,non_holiday,Task then market-equal,–,–
+Stress,NL01,non_holiday,Pooled days,0.183487,0.144115
+Stress,NL01,non_holiday,Task then market-equal,–,–
+Stress,chronos_2,non_holiday,Pooled days,0.0966783,0.0661148
+Stress,chronos_2,non_holiday,Task then market-equal,–,–
+Stress,ets,non_holiday,Pooled days,0.182638,0.145601
+Stress,ets,non_holiday,Task then market-equal,–,–
+Stress,Granite,non_holiday,Pooled days,0.189855,0.156001
+Stress,Granite,non_holiday,Task then market-equal,–,–
+Stress,lag_llama,non_holiday,Pooled days,0.177544,0.159185
+Stress,lag_llama,non_holiday,Task then market-equal,–,–
+Stress,lightgbm,non_holiday,Pooled days,0.179985,0.154303
+Stress,lightgbm,non_holiday,Task then market-equal,–,–
+Stress,moirai,non_holiday,Pooled days,0.187308,0.152605
+Stress,moirai,non_holiday,Task then market-equal,–,–
+Stress,sarima,non_holiday,Pooled days,0.176483,0.141993
+Stress,sarima,non_holiday,Task then market-equal,–,–
+Stress,seasonal_naive,non_holiday,Pooled days,0.158442,0.127136
+Stress,seasonal_naive,non_holiday,Task then market-equal,–,–
+Stress,svr,non_holiday,Pooled days,0.183381,0.152075
+Stress,svr,non_holiday,Task then market-equal,–,–
+Stress,timesfm_3,non_holiday,Pooled days,0.172132,0.132336
+Stress,timesfm_3,non_holiday,Task then market-equal,–,–
+Stress,transformer,non_holiday,Pooled days,0.199406,0.179455
+Stress,transformer,non_holiday,Task then market-equal,–,–

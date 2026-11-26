@@ -1,3 +1,9 @@
+## 2026-11-26 — Current manuscript spreadsheet supplement
+
+- Added nine Excel worksheets (924 rows), English navigation and CSV previews.
+- Distinguished current worksheet references from historical S-numbered outputs.
+- Converted remaining non-English presentation text to English.
+
 # Change log
 
 ## 2026.11.26 — RQ layer, English docs, training note

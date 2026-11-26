@@ -1,0 +1,41 @@
+Market,Metric,Best / estimate,Second / best,Bootstrap / winner,Win rate
+Mainland China,MASE,Granite,Chronos-2,Granite,0.60425
+Mainland China,MAPE,Granite,Chronos-2,Granite,0.84675
+Mainland China,MAE,Granite,TimesFM 3.0,Granite,0.6025
+Mainland China,RMSE,TimesFM 3.0,Granite,TimesFM 3.0,0.429
+Hong Kong,MASE,TimesFM 3.0,Chronos-2,TimesFM 3.0,0.59875
+Hong Kong,MAPE,LightGBM (Global),Chronos-2,LightGBM (Global),0.65025
+Hong Kong,MAE,TimesFM 3.0,Chronos-2,TimesFM 3.0,0.60825
+Hong Kong,RMSE,TimesFM 3.0,LightGBM+Cal,TimesFM 3.0,0.6265
+Taiwan region,MASE,Granite,TimesFM 3.0,Granite,0.94425
+Taiwan region,MAPE,Granite,TimesFM 3.0,Granite,0.9795
+Taiwan region,MAE,Granite,TimesFM 3.0,Granite,0.942
+Taiwan region,RMSE,Granite,Chronos-2,Granite,0.951
+Republic of Korea,MASE,Granite,TimesFM 3.0,Granite,0.9525
+Republic of Korea,MAPE,Granite,Chronos-2,Granite,0.98075
+Republic of Korea,MAE,Granite,TimesFM 3.0,Granite,0.95375
+Republic of Korea,RMSE,Granite,TimesFM 3.0,Granite,0.964
+Philippines,MASE,TimesFM 3.0,Granite,TimesFM 3.0,0.52925
+Philippines,MAPE,Granite,TimesFM 3.0,Granite,0.80075
+Philippines,MAE,TimesFM 3.0,Granite,TimesFM 3.0,0.504
+Philippines,RMSE,LightGBM+Cal,TimesFM 3.0,LightGBM+Cal,0.629
+Indonesia,MASE,Granite,TimesFM 3.0,Granite,0.77925
+Indonesia,MAPE,Granite,Chronos-2,Chronos-2,0.58825
+Indonesia,MAE,Granite,TimesFM 3.0,Granite,0.76575
+Indonesia,RMSE,Granite,TimesFM 3.0,Granite,0.84125
+Malaysia,MASE,Granite,TimesFM 3.0,Granite,0.87425
+Malaysia,MAPE,Granite,TimesFM 3.0,Granite,0.8835
+Malaysia,MAE,Granite,TimesFM 3.0,Granite,0.878
+Malaysia,RMSE,Granite,TimesFM 3.0,Granite,0.7785
+Thailand,MASE,TimesFM 3.0,Granite,TimesFM 3.0,0.473
+Thailand,MAPE,Granite,TimesFM 3.0,Granite,0.4885
+Thailand,MAE,TimesFM 3.0,Granite,TimesFM 3.0,0.4615
+Thailand,RMSE,TimesFM 3.0,Granite,TimesFM 3.0,0.50075
+United States,MASE,Granite,TimesFM 3.0,Granite,0.71625
+United States,MAPE,Granite,LightGBM (Global),Granite,0.62925
+United States,MAE,Granite,TimesFM 3.0,Granite,0.7075
+United States,RMSE,Granite,TimesFM 3.0,Granite,0.623
+Japan,MASE,TimesFM 3.0,Granite,TimesFM 3.0,0.985
+Japan,MAPE,TimesFM 3.0,Granite,TimesFM 3.0,0.771
+Japan,MAE,TimesFM 3.0,Granite,TimesFM 3.0,0.98325
+Japan,RMSE,TimesFM 3.0,Chronos-2,TimesFM 3.0,0.96175

@@ -4,6 +4,13 @@ Companion repository for **Are large models more cost-effective for tourism dema
 
 The paper answers three research questions. Engineering directories `track1/`, `track2/`, and `shared/` hold the shared calendar, isolated inputs, and single-model backtests. Directories `RQ1/`–`RQ3/` and `makeup-RQ2/` rebuild the sealed manuscript tables and figures from those upstream predictions.
 
+## Current manuscript supplement
+
+- [Supplementary table index and browser-readable CSVs](paper/supplementary/README.md)
+- [Download the Excel workbook: 9 sheets, 924 rows](paper/supplementary/supplementary-long-tables.xlsx)
+
+The manuscript now uses continuous table numbering. Historical S-numbered filenames below identify earlier experiment outputs; use the supplementary index for current worksheet references.
+
 ## Research questions
 
 | RQ | Question | Computation layer | Main sealed outputs |

@@ -1,0 +1,237 @@
+Condition,Model,Metric,Ratio,CI lower,CI upper
+1_reopening_overall,Granite,MASE,0.667594,0.616907,0.72694
+1_reopening_overall,Granite,MAPE,0.730852,0.616164,0.831562
+1_reopening_overall,Granite,MAE,0.573998,0.511764,0.663742
+1_reopening_overall,Granite,RMSE,0.665765,0.603538,0.751663
+1_reopening_overall,TimesFM 3.0,MASE,0.681533,0.630359,0.739132
+1_reopening_overall,TimesFM 3.0,MAPE,0.766083,0.645428,0.868193
+1_reopening_overall,TimesFM 3.0,MAE,0.586057,0.510569,0.694497
+1_reopening_overall,TimesFM 3.0,RMSE,0.658035,0.586557,0.751054
+1_reopening_overall,Chronos-2,MASE,0.702971,0.648203,0.761648
+1_reopening_overall,Chronos-2,MAPE,0.786638,0.668569,0.878056
+1_reopening_overall,Chronos-2,MAE,0.588755,0.518634,0.685622
+1_reopening_overall,Chronos-2,RMSE,0.686272,0.618768,0.777142
+1_reopening_overall,Moirai 2.0,MASE,0.838963,0.796579,0.891
+1_reopening_overall,Moirai 2.0,MAPE,0.85018,0.766464,0.920434
+1_reopening_overall,Moirai 2.0,MAE,0.695508,0.622545,0.808657
+1_reopening_overall,Moirai 2.0,RMSE,0.765617,0.700902,0.856901
+1_reopening_overall,LightGBM+Cal,MASE,0.768709,0.701435,0.830118
+1_reopening_overall,LightGBM+Cal,MAPE,0.818692,0.699276,0.914452
+1_reopening_overall,LightGBM+Cal,MAE,0.654255,0.559007,0.771515
+1_reopening_overall,LightGBM+Cal,RMSE,0.691866,0.612819,0.7844
+1_reopening_overall,SVR,MASE,0.882247,0.833814,0.936087
+1_reopening_overall,SVR,MAPE,0.931837,0.827481,1.01251
+1_reopening_overall,SVR,MAE,0.765255,0.709308,0.87073
+1_reopening_overall,SVR,RMSE,0.833771,0.791332,0.917332
+2_pandemic_stress,Granite,MASE,1.05989,1.02822,1.34399
+2_pandemic_stress,Granite,MAPE,1.20228,1.01624,1.421
+2_pandemic_stress,Granite,MAE,0.907993,0.868969,1.11746
+2_pandemic_stress,Granite,RMSE,0.922042,0.87716,1.10901
+2_pandemic_stress,TimesFM 3.0,MASE,0.966302,0.780912,1.03926
+2_pandemic_stress,TimesFM 3.0,MAPE,1.08633,0.963388,1.19287
+2_pandemic_stress,TimesFM 3.0,MAE,0.838112,0.625807,1.0444
+2_pandemic_stress,TimesFM 3.0,RMSE,0.862799,0.6724,1.04546
+2_pandemic_stress,Chronos-2,MASE,1.13778,1.00918,2.32405
+2_pandemic_stress,Chronos-2,MAPE,1.99025,1.36344,3.87131
+2_pandemic_stress,Chronos-2,MAE,0.906083,0.681929,1.27675
+2_pandemic_stress,Chronos-2,RMSE,0.919861,0.717269,1.21796
+2_pandemic_stress,Moirai 2.0,MASE,1.03378,1.00501,1.2994
+2_pandemic_stress,Moirai 2.0,MAPE,1.06126,1.02871,1.08486
+2_pandemic_stress,Moirai 2.0,MAE,0.962791,0.924783,1.10825
+2_pandemic_stress,Moirai 2.0,RMSE,0.971423,0.936028,1.09483
+2_pandemic_stress,LightGBM+Cal,MASE,1.19479,1.08217,1.30836
+2_pandemic_stress,LightGBM+Cal,MAPE,1.29229,1.0212,1.42823
+2_pandemic_stress,LightGBM+Cal,MAE,0.970752,0.845506,1.50296
+2_pandemic_stress,LightGBM+Cal,RMSE,0.972359,0.85798,1.38315
+2_pandemic_stress,SVR,MASE,1.46445,1.05149,4.41945
+2_pandemic_stress,SVR,MAPE,3.56872,1.10328,12.9807
+2_pandemic_stress,SVR,MAE,0.993779,0.751647,2.54651
+2_pandemic_stress,SVR,RMSE,1.00852,0.772182,2.25602
+3_market_large,Granite,MASE,0.5786,0.512261,0.663896
+3_market_large,Granite,MAPE,0.770142,0.509518,0.936151
+3_market_large,Granite,MAE,0.566517,0.498985,0.668224
+3_market_large,Granite,RMSE,0.661585,0.593051,0.759081
+3_market_large,TimesFM 3.0,MASE,0.579266,0.503271,0.673557
+3_market_large,TimesFM 3.0,MAPE,0.786392,0.523233,0.955581
+3_market_large,TimesFM 3.0,MAE,0.577706,0.494019,0.701592
+3_market_large,TimesFM 3.0,RMSE,0.651899,0.5734,0.757634
+3_market_large,Chronos-2,MASE,0.580672,0.510483,0.671135
+3_market_large,Chronos-2,MAPE,0.775622,0.513824,0.949895
+3_market_large,Chronos-2,MAE,0.578732,0.502842,0.68909
+3_market_large,Chronos-2,RMSE,0.681167,0.606385,0.784273
+3_market_large,Moirai 2.0,MASE,0.683494,0.607557,0.7844
+3_market_large,Moirai 2.0,MAPE,0.85575,0.636044,1.00118
+3_market_large,Moirai 2.0,MAE,0.682688,0.602494,0.809776
+3_market_large,Moirai 2.0,RMSE,0.75563,0.683904,0.858185
+3_market_large,LightGBM+Cal,MASE,0.643045,0.54736,0.756804
+3_market_large,LightGBM+Cal,MAPE,0.82755,0.571875,0.98588
+3_market_large,LightGBM+Cal,MAE,0.644245,0.540481,0.773256
+3_market_large,LightGBM+Cal,RMSE,0.683379,0.597273,0.787693
+3_market_large,SVR,MASE,0.724033,0.652014,0.823322
+3_market_large,SVR,MAPE,0.86182,0.636039,1.01332
+3_market_large,SVR,MAE,0.753834,0.693536,0.871242
+3_market_large,SVR,RMSE,0.826755,0.779301,0.920453
+4_market_medium,Granite,MASE,0.621695,0.551495,0.715017
+4_market_medium,Granite,MAPE,0.721917,0.523156,0.846805
+4_market_medium,Granite,MAE,0.642917,0.579335,0.730667
+4_market_medium,Granite,RMSE,0.70536,0.641494,0.775286
+4_market_medium,TimesFM 3.0,MASE,0.635172,0.562589,0.727105
+4_market_medium,TimesFM 3.0,MAPE,0.74806,0.54912,0.869526
+4_market_medium,TimesFM 3.0,MAE,0.660002,0.59085,0.748439
+4_market_medium,TimesFM 3.0,RMSE,0.712136,0.64681,0.781515
+4_market_medium,Chronos-2,MASE,0.658178,0.586041,0.74714
+4_market_medium,Chronos-2,MAPE,0.764856,0.562853,0.88985
+4_market_medium,Chronos-2,MAE,0.678932,0.613835,0.763559
+4_market_medium,Chronos-2,RMSE,0.732759,0.669306,0.801786
+4_market_medium,Moirai 2.0,MASE,0.812608,0.751252,0.888202
+4_market_medium,Moirai 2.0,MAPE,0.836285,0.69581,0.919532
+4_market_medium,Moirai 2.0,MAE,0.797225,0.736431,0.870109
+4_market_medium,Moirai 2.0,RMSE,0.846949,0.789088,0.906764
+4_market_medium,LightGBM+Cal,MASE,0.725608,0.62843,0.822627
+4_market_medium,LightGBM+Cal,MAPE,0.805837,0.581976,0.941614
+4_market_medium,LightGBM+Cal,MAE,0.742051,0.646938,0.837039
+4_market_medium,LightGBM+Cal,RMSE,0.762486,0.6717,0.844944
+4_market_medium,SVR,MASE,0.84069,0.752479,0.943124
+4_market_medium,SVR,MAPE,0.924901,0.730116,1.04293
+4_market_medium,SVR,MAE,0.857712,0.767208,0.961083
+4_market_medium,SVR,RMSE,0.891026,0.812514,0.978172
+5_market_small,Granite,MASE,0.706254,0.655978,0.759072
+5_market_small,Granite,MAPE,0.732279,0.652131,0.817169
+5_market_small,Granite,MAE,0.629708,0.564851,0.702933
+5_market_small,Granite,RMSE,0.693331,0.635283,0.754035
+5_market_small,TimesFM 3.0,MASE,0.722421,0.670951,0.775346
+5_market_small,TimesFM 3.0,MAPE,0.774417,0.684243,0.863642
+5_market_small,TimesFM 3.0,MAE,0.659934,0.599095,0.728667
+5_market_small,TimesFM 3.0,RMSE,0.714613,0.658819,0.773868
+5_market_small,Chronos-2,MASE,0.745969,0.6862,0.802401
+5_market_small,Chronos-2,MAPE,0.800002,0.712821,0.870064
+5_market_small,Chronos-2,MAE,0.671812,0.597619,0.74714
+5_market_small,Chronos-2,RMSE,0.727428,0.661293,0.7913
+5_market_small,Moirai 2.0,MASE,0.876676,0.832704,0.925803
+5_market_small,Moirai 2.0,MAPE,0.85754,0.795489,0.921284
+5_market_small,Moirai 2.0,MAE,0.854981,0.797143,0.926994
+5_market_small,Moirai 2.0,RMSE,0.884776,0.835424,0.942964
+5_market_small,LightGBM+Cal,MASE,0.81127,0.748785,0.863216
+5_market_small,LightGBM+Cal,MAPE,0.825158,0.747362,0.896682
+5_market_small,LightGBM+Cal,MAE,0.746097,0.67045,0.807776
+5_market_small,LightGBM+Cal,RMSE,0.787114,0.725227,0.835248
+5_market_small,SVR,MASE,0.928791,0.891081,0.968985
+5_market_small,SVR,MAPE,0.942247,0.867805,1.0118
+5_market_small,SVR,MAE,0.900122,0.840381,0.966459
+5_market_small,SVR,RMSE,0.917023,0.865961,0.972464
+6_clean180,Granite,MASE,0.916919,0.882227,0.949704
+6_clean180,Granite,MAPE,0.919879,0.869286,0.958883
+6_clean180,Granite,MAE,0.816254,0.762381,0.923713
+6_clean180,Granite,RMSE,0.872356,0.830055,0.950801
+6_clean180,TimesFM 3.0,MASE,0.903722,0.872788,0.937251
+6_clean180,TimesFM 3.0,MAPE,0.911824,0.860601,0.952366
+6_clean180,TimesFM 3.0,MAE,0.760743,0.707032,0.853139
+6_clean180,TimesFM 3.0,RMSE,0.8217,0.780663,0.891201
+6_clean180,Chronos-2,MASE,0.918453,0.888745,0.952253
+6_clean180,Chronos-2,MAPE,0.925045,0.877966,0.963936
+6_clean180,Chronos-2,MAE,0.805187,0.750847,0.903082
+6_clean180,Chronos-2,RMSE,0.854742,0.811037,0.932206
+6_clean180,Moirai 2.0,MASE,0.900773,0.860459,0.948426
+6_clean180,Moirai 2.0,MAPE,0.876011,0.819198,0.922745
+6_clean180,Moirai 2.0,MAE,0.785529,0.736754,0.881078
+6_clean180,Moirai 2.0,RMSE,0.845228,0.805201,0.918288
+6_clean180,LightGBM+Cal,MASE,1.25416,1.16873,1.34303
+6_clean180,LightGBM+Cal,MAPE,1.24056,1.16819,1.32868
+6_clean180,LightGBM+Cal,MAE,1.11278,0.986658,1.33896
+6_clean180,LightGBM+Cal,RMSE,1.08318,0.994339,1.24277
+6_clean180,SVR,MASE,1.02924,0.961174,1.08633
+6_clean180,SVR,MAPE,1.04879,0.97095,1.10943
+6_clean180,SVR,MAE,0.971483,0.86518,1.15164
+6_clean180,SVR,RMSE,0.992684,0.906103,1.13735
+7_full_with_covid,Granite,MASE,0.667594,0.616907,0.72694
+7_full_with_covid,Granite,MAPE,0.730852,0.616164,0.831562
+7_full_with_covid,Granite,MAE,0.573998,0.511764,0.663742
+7_full_with_covid,Granite,RMSE,0.665765,0.603538,0.751663
+7_full_with_covid,TimesFM 3.0,MASE,0.681533,0.630359,0.739132
+7_full_with_covid,TimesFM 3.0,MAPE,0.766083,0.645428,0.868193
+7_full_with_covid,TimesFM 3.0,MAE,0.586057,0.510569,0.694497
+7_full_with_covid,TimesFM 3.0,RMSE,0.658035,0.586557,0.751054
+7_full_with_covid,Chronos-2,MASE,0.702971,0.648203,0.761648
+7_full_with_covid,Chronos-2,MAPE,0.786638,0.668569,0.878056
+7_full_with_covid,Chronos-2,MAE,0.588755,0.518634,0.685622
+7_full_with_covid,Chronos-2,RMSE,0.686272,0.618768,0.777142
+7_full_with_covid,Moirai 2.0,MASE,0.838963,0.796579,0.891
+7_full_with_covid,Moirai 2.0,MAPE,0.85018,0.766464,0.920434
+7_full_with_covid,Moirai 2.0,MAE,0.695508,0.622545,0.808657
+7_full_with_covid,Moirai 2.0,RMSE,0.765617,0.700902,0.856901
+7_full_with_covid,LightGBM+Cal,MASE,0.768709,0.701435,0.830118
+7_full_with_covid,LightGBM+Cal,MAPE,0.818692,0.699276,0.914452
+7_full_with_covid,LightGBM+Cal,MAE,0.654255,0.559007,0.771515
+7_full_with_covid,LightGBM+Cal,RMSE,0.691866,0.612819,0.7844
+7_full_with_covid,SVR,MASE,0.882247,0.833814,0.936087
+7_full_with_covid,SVR,MAPE,0.931837,0.827481,1.01251
+7_full_with_covid,SVR,MAE,0.765255,0.709308,0.87073
+7_full_with_covid,SVR,RMSE,0.833771,0.791332,0.917332
+8_week4_horizon,Granite,MASE,0.597649,0.553298,0.657826
+8_week4_horizon,Granite,MAPE,0.587543,0.526085,0.666296
+8_week4_horizon,Granite,MAE,0.503239,0.393762,0.661772
+8_week4_horizon,Granite,RMSE,0.549976,0.441784,0.698325
+8_week4_horizon,TimesFM 3.0,MASE,0.6135,0.5636,0.678045
+8_week4_horizon,TimesFM 3.0,MAPE,0.625544,0.555549,0.710031
+8_week4_horizon,TimesFM 3.0,MAE,0.500977,0.397681,0.668177
+8_week4_horizon,TimesFM 3.0,RMSE,0.545917,0.446203,0.699497
+8_week4_horizon,Chronos-2,MASE,0.643044,0.58875,0.704781
+8_week4_horizon,Chronos-2,MAPE,0.652903,0.580923,0.723487
+8_week4_horizon,Chronos-2,MAE,0.559871,0.451175,0.701375
+8_week4_horizon,Chronos-2,RMSE,0.609096,0.511074,0.733768
+8_week4_horizon,Moirai 2.0,MASE,0.809872,0.762698,0.87467
+8_week4_horizon,Moirai 2.0,MAPE,0.750927,0.693866,0.824253
+8_week4_horizon,Moirai 2.0,MAE,0.655944,0.534149,0.823827
+8_week4_horizon,Moirai 2.0,RMSE,0.69439,0.581511,0.84609
+8_week4_horizon,LightGBM+Cal,MASE,0.714314,0.640939,0.782695
+8_week4_horizon,LightGBM+Cal,MAPE,0.705129,0.622238,0.790083
+8_week4_horizon,LightGBM+Cal,MAE,0.557479,0.464826,0.682918
+8_week4_horizon,LightGBM+Cal,RMSE,0.610341,0.521176,0.734775
+8_week4_horizon,SVR,MASE,0.851747,0.793913,0.91682
+8_week4_horizon,SVR,MAPE,0.848508,0.75606,0.956485
+8_week4_horizon,SVR,MAE,0.73969,0.649723,0.884703
+8_week4_horizon,SVR,RMSE,0.787293,0.696796,0.920107
+9_exante_official_holiday,Granite,MASE,0.78227,0.73639,0.817184
+9_exante_official_holiday,Granite,MAPE,0.724409,0.679321,0.755806
+9_exante_official_holiday,Granite,MAE,0.891869,0.742453,1.00891
+9_exante_official_holiday,Granite,RMSE,0.896996,0.749666,1.00801
+9_exante_official_holiday,TimesFM 3.0,MASE,0.782308,0.73791,0.825079
+9_exante_official_holiday,TimesFM 3.0,MAPE,0.745153,0.690174,0.79035
+9_exante_official_holiday,TimesFM 3.0,MAE,0.854382,0.723854,0.964522
+9_exante_official_holiday,TimesFM 3.0,RMSE,0.859097,0.733107,0.96346
+9_exante_official_holiday,Chronos-2,MASE,0.81007,0.765161,0.847972
+9_exante_official_holiday,Chronos-2,MAPE,0.777381,0.725646,0.815939
+9_exante_official_holiday,Chronos-2,MAE,0.95244,0.865253,1.05072
+9_exante_official_holiday,Chronos-2,RMSE,0.959397,0.871806,1.0516
+9_exante_official_holiday,Moirai 2.0,MASE,0.913227,0.88697,0.955489
+9_exante_official_holiday,Moirai 2.0,MAPE,0.87447,0.836007,0.916899
+9_exante_official_holiday,Moirai 2.0,MAE,0.994494,0.94514,1.07645
+9_exante_official_holiday,Moirai 2.0,RMSE,0.997073,0.943037,1.07741
+9_exante_official_holiday,LightGBM+Cal,MASE,0.706653,0.656382,0.746608
+9_exante_official_holiday,LightGBM+Cal,MAPE,0.775659,0.708058,0.829964
+9_exante_official_holiday,LightGBM+Cal,MAE,0.55386,0.447932,0.669073
+9_exante_official_holiday,LightGBM+Cal,RMSE,0.573309,0.468376,0.684035
+9_exante_official_holiday,SVR,MASE,0.952577,0.923686,0.997382
+9_exante_official_holiday,SVR,MAPE,0.947,0.888674,1.02186
+9_exante_official_holiday,SVR,MAE,1.02388,0.956193,1.12945
+9_exante_official_holiday,SVR,RMSE,1.02903,0.962425,1.13014
+10_hongkong_external,Granite,MASE,0.708563,0.589035,0.842664
+10_hongkong_external,Granite,MAPE,0.808935,0.618885,0.920115
+10_hongkong_external,Granite,MAE,0.69757,0.55767,0.856109
+10_hongkong_external,Granite,RMSE,0.765174,0.628464,0.903738
+10_hongkong_external,TimesFM 3.0,MASE,0.653793,0.563565,0.74838
+10_hongkong_external,TimesFM 3.0,MAPE,0.796075,0.611805,0.90927
+10_hongkong_external,TimesFM 3.0,MAE,0.667509,0.547194,0.808155
+10_hongkong_external,TimesFM 3.0,RMSE,0.71483,0.599128,0.841132
+10_hongkong_external,Chronos-2,MASE,0.702064,0.55839,0.803763
+10_hongkong_external,Chronos-2,MAPE,0.810373,0.594548,0.921603
+10_hongkong_external,Chronos-2,MAE,0.6617,0.534598,0.790015
+10_hongkong_external,Chronos-2,RMSE,0.725782,0.605623,0.83647
+10_hongkong_external,Moirai 2.0,MASE,0.728425,0.651077,0.826752
+10_hongkong_external,Moirai 2.0,MAPE,0.836478,0.647409,0.952729
+10_hongkong_external,Moirai 2.0,MAE,0.713558,0.616979,0.840468
+10_hongkong_external,Moirai 2.0,RMSE,0.782426,0.684248,0.893646
+10_hongkong_external,SVR,MASE,0.926812,0.793695,1.20886
+10_hongkong_external,SVR,MAPE,0.954544,0.733948,1.10763
+10_hongkong_external,SVR,MAE,0.949798,0.791395,1.16573
+10_hongkong_external,SVR,RMSE,0.984191,0.85779,1.1574

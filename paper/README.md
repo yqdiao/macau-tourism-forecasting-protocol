@@ -2,6 +2,10 @@
 
 This directory accompanies **Are large models more cost-effective for tourism demand forecasting? Evidence from different demand periods in Macao**. It provides audited derived scores, comparison metadata, selected English figures, and a local aggregation check. The manuscript is organized around forecasting-tool choice, demand conditions, and the incremental value of additional components.
 
+## Current long-table supplement
+
+See [supplementary/README.md](supplementary/README.md) for the current Excel workbook, nine CSV previews, worksheet descriptions and provenance. This supplement is distinct from the earlier evidence release below.
+
 ## What can be reproduced here?
 
 The release supports independent reconstruction of the **reported summary calculations from the supplied derived scores**. It does not yet provide a complete end-to-end rerun of every server experiment. The task-level predictions, all execution environments, model checkpoints, and complete prompts/responses for the later Qwen and lightweight revisions are not bundled. The original NL01/GL03/LL01 implementation snapshot is available under [`extensions/lightweight_legacy/`](../extensions/lightweight_legacy/), with its dependency and missing-calendar boundaries documented. The existing `track1/`, `track2/`, and `shared/` directories retain the implementation/protocol scope documented in their own READMEs.

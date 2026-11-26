@@ -1,0 +1,51 @@
+Period,Model,Days,Coverage,IS_80,WIS_2
+Reopening,Granite,overall,0.805756,2996.6,416.364
+Reopening,Granite,official_holiday,0.692308,10212.2,1386.27
+Reopening,Granite,non_holiday,0.810755,2678.62,373.622
+Reopening,Granite,Week1,0.790123,2907.5,388.326
+Reopening,Granite,Week4,0.815135,2959.55,426.055
+Reopening,TimesFM 3.0,overall,0.813292,3020.86,423.08
+Reopening,TimesFM 3.0,official_holiday,0.693257,10483.1,1396.67
+Reopening,TimesFM 3.0,non_holiday,0.818581,2692.02,380.177
+Reopening,TimesFM 3.0,Week1,0.817701,2977.45,401.153
+Reopening,TimesFM 3.0,Week4,0.813532,2939.08,424.714
+Reopening,Chronos-2,overall,0.794172,3040.68,427.707
+Reopening,Chronos-2,official_holiday,0.674264,12482.8,1648.19
+Reopening,Chronos-2,non_holiday,0.799456,2624.59,373.923
+Reopening,Chronos-2,Week1,0.792368,2921.39,389.183
+Reopening,Chronos-2,Week4,0.801507,3290.51,477.078
+Reopening,Moirai 2.0,overall,0.797058,3638.46,505.539
+Reopening,Moirai 2.0,official_holiday,0.668566,14206,1787.56
+Reopening,Moirai 2.0,non_holiday,0.80272,3172.77,449.044
+Reopening,Moirai 2.0,Week1,0.806638,3223.22,449.096
+Reopening,Moirai 2.0,Week4,0.789963,4053.55,566.894
+Reopening,Lag-Llama,overall,0.871773,5053.56,684.844
+Reopening,Lag-Llama,official_holiday,0.807217,11496.3,1638.63
+Reopening,Lag-Llama,non_holiday,0.874618,4769.64,642.813
+Reopening,Lag-Llama,Week1,0.869489,4464.26,621.792
+Reopening,Lag-Llama,Week4,0.877666,5420.89,721.329
+Stress,Granite,overall,0.785002,3036.43,377.636
+Stress,Granite,official_holiday,0.758025,5495.41,693.276
+Stress,Granite,non_holiday,0.786162,2930.74,364.069
+Stress,Granite,Week1,0.787139,1828.5,233.342
+Stress,Granite,Week4,0.778999,3356.99,415.849
+Stress,TimesFM 3.0,overall,0.859178,3104.98,365.766
+Stress,TimesFM 3.0,official_holiday,0.809877,6976.04,824.462
+Stress,TimesFM 3.0,non_holiday,0.861297,2938.61,346.052
+Stress,TimesFM 3.0,Week1,0.897843,2010.85,245.99
+Stress,TimesFM 3.0,Week4,0.846968,3263.18,376.095
+Stress,Chronos-2,overall,0.600326,3026.58,377.082
+Stress,Chronos-2,official_holiday,0.530864,5797.85,725.52
+Stress,Chronos-2,non_holiday,0.603311,2907.47,362.106
+Stress,Chronos-2,Week1,0.706146,1806.04,230.872
+Stress,Chronos-2,Week4,0.572243,3415.1,415.663
+Stress,Moirai 2.0,overall,0.83954,3272.28,404.678
+Stress,Moirai 2.0,official_holiday,0.787654,5985.24,718.543
+Stress,Moirai 2.0,non_holiday,0.84177,3155.68,391.188
+Stress,Moirai 2.0,Week1,0.866504,2001.34,253.299
+Stress,Moirai 2.0,Week4,0.832316,3659.55,455.046
+Stress,Lag-Llama,overall,0.838217,4470.2,541.812
+Stress,Lag-Llama,official_holiday,0.851852,4713.98,628.519
+Stress,Lag-Llama,non_holiday,0.837631,4459.72,538.086
+Stress,Lag-Llama,Week1,0.872609,3605.08,422.43
+Stress,Lag-Llama,Week4,0.809524,4875.43,597.492
