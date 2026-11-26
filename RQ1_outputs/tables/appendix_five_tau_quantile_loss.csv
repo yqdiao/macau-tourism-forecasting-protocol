@@ -1,0 +1,41 @@
+panel,model,display_name,tau,loss,scaled_loss,tasks,quantile_source,share_crossing_median
+reopening_891,granite_patchtst_fm,Granite,0.1,118.88512131149847,0.21110538614663382,891,model output,0.0
+reopening_891,granite_patchtst_fm,Granite,0.25,206.33039662633757,0.397365915463988,891,model output,0.0
+reopening_891,granite_patchtst_fm,Granite,0.5,276.89967948653214,0.5471997900645126,891,model output,0.0
+reopening_891,granite_patchtst_fm,Granite,0.75,258.01928360276406,0.5007597658420584,891,model output,0.0
+reopening_891,granite_patchtst_fm,Granite,0.9,180.7746458960933,0.32960953507351337,891,model output,0.0
+reopening_891,timesfm_3,TimesFM 3.0,0.1,121.14631986225838,0.21722117300233318,891,model output,0.0
+reopening_891,timesfm_3,TimesFM 3.0,0.25,212.94856755358538,0.4083674306608582,891,interpolated between model deciles,0.0
+reopening_891,timesfm_3,TimesFM 3.0,0.5,282.7170688970666,0.5586243755627651,891,model output,0.0
+reopening_891,timesfm_3,TimesFM 3.0,0.75,259.9492471217846,0.5076733562098406,891,interpolated between model deciles,0.0
+reopening_891,timesfm_3,TimesFM 3.0,0.9,180.93989660773536,0.3303411551259384,891,model output,0.0
+reopening_891,chronos_2,Chronos-2,0.1,118.9204649616381,0.22048205867809187,891,model output,0.0
+reopening_891,chronos_2,Chronos-2,0.25,212.7810019732993,0.41900058889527786,891,model output,0.0
+reopening_891,chronos_2,Chronos-2,0.5,284.01860743376886,0.5761968207403064,891,model output,0.0
+reopening_891,chronos_2,Chronos-2,0.75,268.39961935313863,0.5277661453869995,891,model output,0.0
+reopening_891,chronos_2,Chronos-2,0.9,185.14774827247476,0.3445000374021236,891,model output,0.0
+reopening_891,moirai,Moirai 2.0,0.1,135.72881973803916,0.2585643284278771,891,model output,0.0
+reopening_891,moirai,Moirai 2.0,0.25,246.3537354050301,0.4950560101511584,891,model output,0.0
+reopening_891,moirai,Moirai 2.0,0.5,335.51700387840873,0.6876640853477725,891,model output,0.0
+reopening_891,moirai,Moirai 2.0,0.75,318.13179725796556,0.6320449672674892,891,model output,0.0
+reopening_891,moirai,Moirai 2.0,0.9,228.11689668231733,0.4180970379862299,891,model output,0.0
+reopening_891,lag_llama,Lag-Llama,0.1,208.36802382935346,0.37275096112021483,891,model output,0.0
+reopening_891,lag_llama,Lag-Llama,0.25,306.1167643671663,0.5898778096061117,891,model output,0.0
+reopening_891,lag_llama,Lag-Llama,0.5,460.1114867778066,0.8214669616182315,891,model output,0.0
+reopening_891,lag_llama,Lag-Llama,0.75,440.5266753508285,0.7618074662738948,891,model output,0.0
+reopening_891,lag_llama,Lag-Llama,0.9,296.98755824269574,0.512849826357754,891,model output,0.0
+pandemic_351,granite_patchtst_fm,Granite,0.1,220.64920226788203,0.0947578063078638,351,model output,0.0
+pandemic_351,granite_patchtst_fm,Granite,0.25,251.5229491958009,0.1105932487058438,351,model output,0.0
+pandemic_351,granite_patchtst_fm,Granite,0.5,234.10248239408142,0.1076384950362128,351,model output,0.0
+pandemic_351,granite_patchtst_fm,Granite,0.75,154.82055236434957,0.07824705350794715,351,model output,0.0
+pandemic_351,granite_patchtst_fm,Granite,0.9,82.99362656812526,0.047040651420335595,351,model output,0.0
+pandemic_351,timesfm_3,TimesFM 3.0,0.1,227.42212527182514,0.08915652866971178,351,model output,0.0
+pandemic_351,timesfm_3,TimesFM 3.0,0.25,244.00394687316114,0.10149797497087809,351,interpolated between model deciles,0.0
+pandemic_351,timesfm_3,TimesFM 3.0,0.5,213.70942913127416,0.09499416422102663,351,model output,0.0
+pandemic_351,timesfm_3,TimesFM 3.0,0.75,146.20417133404877,0.06791015344704611,351,interpolated between model deciles,0.0
+pandemic_351,timesfm_3,TimesFM 3.0,0.9,83.07618373655232,0.039271561082591035,351,model output,0.0
+pandemic_351,chronos_2,Chronos-2,0.1,223.7324364975501,0.09341137067007221,351,model output,0.0011192511192511193
+pandemic_351,chronos_2,Chronos-2,0.25,257.3637923834088,0.11372124557520429,351,model output,0.0011192511192511193
+pandemic_351,chronos_2,Chronos-2,0.5,231.0507874349098,0.11189277787424733,351,model output,0.0011192511192511193
+pandemic_351,chronos_2,Chronos-2,0.75,151.6315913866655,0.07975703949927127,351,model output,0.0011192511192511193
+pandemic_351,chronos_2,Chronos-2,0.9,78.92585525110964,0.04546524804567059,351,model output,0.0011192511192511193

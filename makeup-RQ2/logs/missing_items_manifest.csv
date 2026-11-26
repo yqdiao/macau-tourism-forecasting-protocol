@@ -1,0 +1,4 @@
+item,status,note
+S11_hongkong_zero_days_positive_days,not_run,hongkong_task_metrics.parquet has no zero_days/positive_days columns; not stored in RQ2 panel
+macau_H-2021_truncation_control,not_run,No dedicated H-2021 truncation experiment directory found under track1/results
+foundation_calendar_only_ablation,not_run,zeroshot_matched_inputs only stores calendar+related/cross-learning combined modes; no calendar-only row

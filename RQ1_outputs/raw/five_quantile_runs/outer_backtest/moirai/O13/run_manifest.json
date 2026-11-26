@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "kind": "foundation_model_predictions",
+  "model": "moirai",
+  "training_mode": "pretrained_zero_shot",
+  "source_repository": "https://github.com/SalesforceAIResearch/uni2ts.git",
+  "source_revision": "cfd46d4510ed8896f263116f32928eede05b0a75",
+  "checkpoint": "Salesforce/moirai-2.0-R-small",
+  "checkpoint_revision": "30f43ff08c8494f4943ae1521e9d4e94a0fbb389",
+  "device": "cuda",
+  "seed": 42,
+  "batch_size": 1,
+  "history_lengths": [
+    "all"
+  ],
+  "requested_context_days": 1680,
+  "forecast_tasks": 29,
+  "prediction_rows": 812,
+  "load_seconds": 3.4953278116881847,
+  "peak_gpu_memory_mb": 78.146484375,
+  "peak_process_rss_mb": 1279.23046875,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "7cbbcee49808d66cd3d4825d6611ce90388f2d1fd1b1e0bc6e6083b5dc2b48f6"
+  },
+  "candidate_id": null,
+  "search_space_sha256": null,
+  "runtime": {
+    "context_length": 1680,
+    "extra": {
+      "quantile_levels": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ]
+    }
+  },
+  "registry_sha256": "de45d122bbdd6b90b7a527a55bbdbd4b7ddb98fbe5812379d3a1150f23e4aae2",
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "50dcaa7884aef459b42bba3b711ea985c9b6eb69dda75fe601ac9df7094eb61c",
+    "timings.jsonl": "f36d6ef1892431a7f2e96647d8b42f71c61dce0c491644b4432c333a241fe006"
+  }
+}

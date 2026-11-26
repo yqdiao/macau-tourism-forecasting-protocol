@@ -1,0 +1,36 @@
+[2026-11-17T13:37:28+00:00] RQ3 start
+=== RQ3 start ===
+loaded days=243432 tasks=8694 holidays=143
+baseline alignment OK; max abs diff=2.274e-13
+=== S14 ===
+=== S15/S16 dynamic ===
+replay outer_backtest G1_Stat_Stat
+replay outer_backtest G1_Stat_Stat_Mode2
+replay outer_backtest G2_LLM_Stat_eta0.3
+replay outer_backtest G2_LLM_Stat_Mode2
+replay outer_backtest G3_Stat_LLM_eta0.3
+replay outer_backtest G3_Stat_LLM_eta0.5
+replay outer_backtest G3_Stat_LLM_eta1.0
+replay outer_backtest G4_LLM_LLM_eta0.3
+replay outer_backtest G4_LLM_LLM_eta0.5
+replay outer_backtest G4_LLM_LLM_eta1.0
+replay outer_backtest G4_LLM_LLM_Mode2_eta0.3
+replay pandemic_stress G1_Stat_Stat
+replay pandemic_stress G1_Stat_Stat_Mode2
+replay pandemic_stress G2_LLM_Stat_eta0.3
+replay pandemic_stress G2_LLM_Stat_Mode2
+replay pandemic_stress G3_Stat_LLM_eta0.3
+replay pandemic_stress G3_Stat_LLM_eta0.5
+replay pandemic_stress G3_Stat_LLM_eta1.0
+replay pandemic_stress G4_LLM_LLM_eta0.3
+replay pandemic_stress G4_LLM_LLM_eta0.5
+replay pandemic_stress G4_LLM_LLM_eta1.0
+replay pandemic_stress G4_LLM_LLM_Mode2_eta0.3
+=== S17 sensitivity ===
+=== S18 costs ===
+=== LL01 sensitivity appendix ===
+=== figures ===
+figures written
+summary written
+=== RQ3 DONE ===
+[2026-11-17T13:37:28+00:00] RQ3 exit=0

@@ -1,0 +1,5 @@
+item,value
+zero_actual_days_excluded_from_mape_per_model,51
+positive_actual_days_in_mape_per_model,24897
+note,51 zero days are the same 24948-day panel; the first build summed them across 23 models
+tau_0.5_equals_mae_over_2,yes_for_every_reopening_foundation_model

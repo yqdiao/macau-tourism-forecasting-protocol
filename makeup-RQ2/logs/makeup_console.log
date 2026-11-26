@@ -1,0 +1,33 @@
+=== Task A ===
+membership outer_backtest: n=24948 holiday=1053 OK
+membership pandemic_stress: n=9828 holiday=405 OK
+S9/S10 replay max abs n/MAE diff = 4.547473508864641e-13
+wrote Task A; max |R_origin - old S13| = 1.110e-16
+=== Task B ===
+S10 WIS outer_backtest granite_patchtst_fm pinball_max_abs_err=1.455e-11
+S10 WIS outer_backtest timesfm_3 pinball_max_abs_err=1.455e-11
+S10 WIS outer_backtest chronos_2 pinball_max_abs_err=2.910e-11
+S10 WIS outer_backtest moirai pinball_max_abs_err=1.455e-11
+S10 WIS outer_backtest lag_llama pinball_max_abs_err=1.455e-11
+S10 WIS pandemic_stress granite_patchtst_fm pinball_max_abs_err=1.455e-11
+S10 WIS pandemic_stress timesfm_3 pinball_max_abs_err=1.455e-11
+S10 WIS pandemic_stress chronos_2 pinball_max_abs_err=1.455e-11
+S10 WIS pandemic_stress moirai pinball_max_abs_err=1.455e-11
+S10 WIS pandemic_stress lag_llama pinball_max_abs_err=1.455e-11
+Task B done; max n_days diff vs old S10 = 0; pinball max err=2.9103830456733704e-11
+=== Task C ===
+Task C done
+=== Task D/E ===
+S12 timesfm_3 MAE_extended=495.818772
+S12 chronos_2 MAE_extended=508.862794
+S12 moirai MAE_extended=833.430004
+Task D/E done
+=== Figures ===
+fig5
+fig6
+fig7
+fig8
+fig9
+fig10
+summary written
+ALL MAKEUP DONE

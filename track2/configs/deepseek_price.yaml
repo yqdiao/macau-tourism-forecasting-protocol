@@ -1,0 +1,15 @@
+{
+  "price_date": "2026-10-11",
+  "source": "https://api-docs.deepseek.com/quick_start/pricing",
+  "requested_model": "deepseek-chat",
+  "served_model": "deepseek-flash",
+  "served_version": "DeepSeek-V4.1-Flash",
+  "currency": "USD",
+  "period": "weekend off-peak",
+  "usd_per_1m_input_cache_miss": 0.15,
+  "usd_per_1m_output": 0.6,
+  "prompt_tokens": 3728782,
+  "completion_tokens": 498095,
+  "usd_upper_bound_all_input_cache_miss": 0.858174,
+  "note": "The API did not return a cache-hit split, so the input price uses the cache-miss rate. That is an upper bound. deepseek-chat was the requested name; every response reported model deepseek-flash."
+}

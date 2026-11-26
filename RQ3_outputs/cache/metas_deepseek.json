@@ -1,0 +1,316 @@
+{
+  "outer_backtest|G1_Stat_Stat": {
+    "fallback_counts": {},
+    "models_run_counter": {
+      "granite_patchtst_fm": 891.0,
+      "timesfm_3": 891.0,
+      "chronos_2": 891.0,
+      "NL01": 891.0,
+      "GL03": 891.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G1_Stat_Stat_Mode2": {
+    "fallback_counts": {},
+    "models_run_counter": {
+      "granite_patchtst_fm": 598.0,
+      "timesfm_3": 712.0,
+      "chronos_2": 692.0,
+      "NL01": 481.0,
+      "GL03": 676.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G2_LLM_Stat_eta0.3": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 0
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 891.0,
+      "timesfm_3": 891.0,
+      "chronos_2": 891.0,
+      "NL01": 891.0,
+      "GL03": 891.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G2_LLM_Stat_Mode2": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 0
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 648.0,
+      "timesfm_3": 695.0,
+      "chronos_2": 658.0,
+      "NL01": 390.0,
+      "GL03": 768.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G3_Stat_LLM_eta0.3": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 864
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 891.0,
+      "timesfm_3": 891.0,
+      "chronos_2": 891.0,
+      "NL01": 891.0,
+      "GL03": 891.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G3_Stat_LLM_eta0.5": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 864
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 891.0,
+      "timesfm_3": 891.0,
+      "chronos_2": 891.0,
+      "NL01": 891.0,
+      "GL03": 891.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G3_Stat_LLM_eta1.0": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 864
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 891.0,
+      "timesfm_3": 891.0,
+      "chronos_2": 891.0,
+      "NL01": 891.0,
+      "GL03": 891.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G4_LLM_LLM_eta0.3": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 864
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 891.0,
+      "timesfm_3": 891.0,
+      "chronos_2": 891.0,
+      "NL01": 891.0,
+      "GL03": 891.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G4_LLM_LLM_eta0.5": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 864
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 891.0,
+      "timesfm_3": 891.0,
+      "chronos_2": 891.0,
+      "NL01": 891.0,
+      "GL03": 891.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G4_LLM_LLM_eta1.0": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 864
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 891.0,
+      "timesfm_3": 891.0,
+      "chronos_2": 891.0,
+      "NL01": 891.0,
+      "GL03": 891.0
+    },
+    "n_decisions": 891
+  },
+  "outer_backtest|G4_LLM_LLM_Mode2_eta0.3": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 864
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 648.0,
+      "timesfm_3": 695.0,
+      "chronos_2": 658.0,
+      "NL01": 390.0,
+      "GL03": 768.0
+    },
+    "n_decisions": 891
+  },
+  "pandemic_stress|G1_Stat_Stat": {
+    "fallback_counts": {},
+    "models_run_counter": {
+      "granite_patchtst_fm": 351.0,
+      "timesfm_3": 351.0,
+      "chronos_2": 351.0,
+      "NL01": 351.0,
+      "GL03": 351.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G1_Stat_Stat_Mode2": {
+    "fallback_counts": {},
+    "models_run_counter": {
+      "granite_patchtst_fm": 200.0,
+      "timesfm_3": 305.0,
+      "chronos_2": 156.0,
+      "NL01": 330.0,
+      "GL03": 278.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G2_LLM_Stat_eta0.3": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 0
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 351.0,
+      "timesfm_3": 351.0,
+      "chronos_2": 351.0,
+      "NL01": 351.0,
+      "GL03": 351.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G2_LLM_Stat_Mode2": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 0
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 203.0,
+      "timesfm_3": 304.0,
+      "chronos_2": 154.0,
+      "NL01": 324.0,
+      "GL03": 284.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G3_Stat_LLM_eta0.3": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 324
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 351.0,
+      "timesfm_3": 351.0,
+      "chronos_2": 351.0,
+      "NL01": 351.0,
+      "GL03": 351.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G3_Stat_LLM_eta0.5": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 324
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 351.0,
+      "timesfm_3": 351.0,
+      "chronos_2": 351.0,
+      "NL01": 351.0,
+      "GL03": 351.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G3_Stat_LLM_eta1.0": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 324
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 351.0,
+      "timesfm_3": 351.0,
+      "chronos_2": 351.0,
+      "NL01": 351.0,
+      "GL03": 351.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G4_LLM_LLM_eta0.3": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 324
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 351.0,
+      "timesfm_3": 351.0,
+      "chronos_2": 351.0,
+      "NL01": 351.0,
+      "GL03": 351.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G4_LLM_LLM_eta0.5": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 324
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 351.0,
+      "timesfm_3": 351.0,
+      "chronos_2": 351.0,
+      "NL01": 351.0,
+      "GL03": 351.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G4_LLM_LLM_eta1.0": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 324
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 351.0,
+      "timesfm_3": 351.0,
+      "chronos_2": 351.0,
+      "NL01": 351.0,
+      "GL03": 351.0
+    },
+    "n_decisions": 351
+  },
+  "pandemic_stress|G4_LLM_LLM_Mode2_eta0.3": {
+    "fallback_counts": {
+      "select_miss": 0,
+      "weight_miss": 0,
+      "ok": 324
+    },
+    "models_run_counter": {
+      "granite_patchtst_fm": 203.0,
+      "timesfm_3": 304.0,
+      "chronos_2": 154.0,
+      "NL01": 324.0,
+      "GL03": 284.0
+    },
+    "n_decisions": 351
+  }
+}

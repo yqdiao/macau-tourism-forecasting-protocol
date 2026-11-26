@@ -1,0 +1,14 @@
+{"job": "1/13", "model": "moirai", "split": "pandemic_stress", "fold": "A01", "returncode": 0, "seconds": 7.4}
+{"job": "2/13", "model": "moirai", "split": "pandemic_stress", "fold": "A02", "returncode": 0, "seconds": 7.0}
+{"job": "3/13", "model": "moirai", "split": "pandemic_stress", "fold": "A03", "returncode": 0, "seconds": 6.9}
+{"job": "4/13", "model": "moirai", "split": "pandemic_stress", "fold": "A04", "returncode": 0, "seconds": 6.9}
+{"job": "5/13", "model": "moirai", "split": "pandemic_stress", "fold": "A05", "returncode": 0, "seconds": 7.0}
+{"job": "6/13", "model": "moirai", "split": "pandemic_stress", "fold": "A06", "returncode": 0, "seconds": 6.9}
+{"job": "7/13", "model": "moirai", "split": "pandemic_stress", "fold": "A07", "returncode": 0, "seconds": 7.0}
+{"job": "8/13", "model": "moirai", "split": "pandemic_stress", "fold": "A08", "returncode": 0, "seconds": 7.0}
+{"job": "9/13", "model": "moirai", "split": "pandemic_stress", "fold": "A09", "returncode": 0, "seconds": 7.1}
+{"job": "10/13", "model": "moirai", "split": "pandemic_stress", "fold": "A10", "returncode": 0, "seconds": 7.1}
+{"job": "11/13", "model": "moirai", "split": "pandemic_stress", "fold": "A11", "returncode": 0, "seconds": 7.1}
+{"job": "12/13", "model": "moirai", "split": "pandemic_stress", "fold": "A12", "returncode": 0, "seconds": 7.0}
+{"job": "13/13", "model": "moirai", "split": "pandemic_stress", "fold": "A13", "returncode": 0, "seconds": 7.1}
+EXIT:0

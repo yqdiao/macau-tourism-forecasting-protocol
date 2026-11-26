@@ -7,6 +7,9 @@ weights/
 checkpoints/
 model-cache/
 .env.pinned
+.env
+track2/.env
+track1/.env
 results/
 evaluation/
 track1/model-cache/

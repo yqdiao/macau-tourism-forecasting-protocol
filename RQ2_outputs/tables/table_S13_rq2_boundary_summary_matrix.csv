@@ -1,0 +1,237 @@
+dimension,config_id,model,metric,R_vs_ETS,ci95_low,ci95_high,status
+1_reopening_overall,granite_patchtst_fm,Granite,MASE,0.6675943007890873,0.6189516514993978,0.7251778726442623,significantly_better
+1_reopening_overall,granite_patchtst_fm,Granite,MAPE,0.7308517745124574,0.6191159537728939,0.8278107809277069,significantly_better
+1_reopening_overall,granite_patchtst_fm,Granite,MAE,0.5739977492123232,0.5129019021043815,0.6635640692564315,significantly_better
+1_reopening_overall,granite_patchtst_fm,Granite,RMSE,0.665765210799251,0.604082923999956,0.7533410625449957,significantly_better
+1_reopening_overall,timesfm_3,TimesFM 3.0,MASE,0.6815325155069913,0.6335956163917391,0.7374583233831085,significantly_better
+1_reopening_overall,timesfm_3,TimesFM 3.0,MAPE,0.7660827986085146,0.6541387419557296,0.8661794447511306,significantly_better
+1_reopening_overall,timesfm_3,TimesFM 3.0,MAE,0.5860568763089321,0.5101808891412455,0.6939827510157457,significantly_better
+1_reopening_overall,timesfm_3,TimesFM 3.0,RMSE,0.6580347530491061,0.5876907174202959,0.7459301899645137,significantly_better
+1_reopening_overall,chronos_2,Chronos-2,MASE,0.7029712376418665,0.6507339394846792,0.7605185710278496,significantly_better
+1_reopening_overall,chronos_2,Chronos-2,MAPE,0.7866382278614718,0.6732665568814201,0.876911406671382,significantly_better
+1_reopening_overall,chronos_2,Chronos-2,MAE,0.5887548938435337,0.5177720420486082,0.6868014197991646,significantly_better
+1_reopening_overall,chronos_2,Chronos-2,RMSE,0.686271715005984,0.6176585798208287,0.7756994480629845,significantly_better
+1_reopening_overall,moirai,Moirai 2.0,MASE,0.8389634509570806,0.7956811175315285,0.8913170976410821,significantly_better
+1_reopening_overall,moirai,Moirai 2.0,MAPE,0.8501804366844724,0.76629745417253,0.9187256457898009,significantly_better
+1_reopening_overall,moirai,Moirai 2.0,MAE,0.6955082266826383,0.6199551911414289,0.8050230352430223,significantly_better
+1_reopening_overall,moirai,Moirai 2.0,RMSE,0.7656171246912246,0.7015032255094907,0.8569482775004843,significantly_better
+1_reopening_overall,LL01,LightGBM+Calendar (Local),MASE,0.7687094149992771,0.7053690841411209,0.8298777398955157,significantly_better
+1_reopening_overall,LL01,LightGBM+Calendar (Local),MAPE,0.8186924634895358,0.7040875591100129,0.9150671179543554,significantly_better
+1_reopening_overall,LL01,LightGBM+Calendar (Local),MAE,0.6542553056595293,0.5592852245755634,0.7676253668131161,significantly_better
+1_reopening_overall,LL01,LightGBM+Calendar (Local),RMSE,0.6918664554103366,0.6108614156398835,0.7814013660118417,significantly_better
+1_reopening_overall,svr,SVR,MASE,0.8822473265553715,0.833660065238975,0.9384467894492147,significantly_better
+1_reopening_overall,svr,SVR,MAPE,0.9318367597741014,0.8288265830096103,1.0129488737438737,point_better_CI_crosses_1
+1_reopening_overall,svr,SVR,MAE,0.7652550263694555,0.7089227243138831,0.8694339289555468,significantly_better
+1_reopening_overall,svr,SVR,RMSE,0.8337713971923867,0.7905768186331379,0.9163650109414225,significantly_better
+2_pandemic_stress,granite_patchtst_fm,Granite,MASE,1.0598865691905852,1.0286357072296806,1.3511509822695196,worse_than_ETS
+2_pandemic_stress,granite_patchtst_fm,Granite,MAPE,1.4705304362877578,1.0475171996822412,2.609704507630775,worse_than_ETS
+2_pandemic_stress,granite_patchtst_fm,Granite,MAE,0.9079925239303863,0.8685867785718322,1.120995072619274,point_better_CI_crosses_1
+2_pandemic_stress,granite_patchtst_fm,Granite,RMSE,0.9220419727947418,0.8771484796930566,1.109204613527608,point_better_CI_crosses_1
+2_pandemic_stress,timesfm_3,TimesFM 3.0,MASE,0.9663023269749399,0.7693392838639995,1.037722601672594,point_better_CI_crosses_1
+2_pandemic_stress,timesfm_3,TimesFM 3.0,MAPE,1.1739699405394515,0.9158780054429805,1.7883758214377807,worse_than_ETS
+2_pandemic_stress,timesfm_3,TimesFM 3.0,MAE,0.838112157949307,0.6186935377020126,1.0387475584655237,point_better_CI_crosses_1
+2_pandemic_stress,timesfm_3,TimesFM 3.0,RMSE,0.8627990996924391,0.6837666954526697,1.0456731793527836,point_better_CI_crosses_1
+2_pandemic_stress,chronos_2,Chronos-2,MASE,1.1377820144626787,1.0077480148883382,2.357579669650231,worse_than_ETS
+2_pandemic_stress,chronos_2,Chronos-2,MAPE,3.3866695732651877,1.5894460848518874,8.886326781052048,worse_than_ETS
+2_pandemic_stress,chronos_2,Chronos-2,MAE,0.9060828336298208,0.6618694197743972,1.2807513704401268,point_better_CI_crosses_1
+2_pandemic_stress,chronos_2,Chronos-2,RMSE,0.9198614820804314,0.7108148905775303,1.2134744731930975,point_better_CI_crosses_1
+2_pandemic_stress,moirai,Moirai 2.0,MASE,1.0337823907314891,1.0048381142252423,1.2909571154296018,worse_than_ETS
+2_pandemic_stress,moirai,Moirai 2.0,MAPE,1.0743676479860806,1.0466227524780711,1.113990138043278,worse_than_ETS
+2_pandemic_stress,moirai,Moirai 2.0,MAE,0.9627910402587531,0.9246334172182891,1.1105064533253013,point_better_CI_crosses_1
+2_pandemic_stress,moirai,Moirai 2.0,RMSE,0.9714233969939534,0.9364597395988058,1.098254603657489,point_better_CI_crosses_1
+2_pandemic_stress,LL01,LightGBM+Calendar (Local),MASE,1.1947905246826294,1.0816752823260072,1.3124390230394176,worse_than_ETS
+2_pandemic_stress,LL01,LightGBM+Calendar (Local),MAPE,1.2036544990534506,1.0373269399417646,1.296343815609512,worse_than_ETS
+2_pandemic_stress,LL01,LightGBM+Calendar (Local),MAE,0.9707522774822098,0.8483307756650295,1.4988420957243123,point_better_CI_crosses_1
+2_pandemic_stress,LL01,LightGBM+Calendar (Local),RMSE,0.9723587858658793,0.8582348556880598,1.385172137467615,point_better_CI_crosses_1
+2_pandemic_stress,svr,SVR,MASE,1.4644548112846032,1.0497857422579353,4.721072048100152,worse_than_ETS
+2_pandemic_stress,svr,SVR,MAPE,12.435198847087149,1.0892928893328686,55.16698602350638,worse_than_ETS
+2_pandemic_stress,svr,SVR,MAE,0.9937793650394653,0.7536416699042993,2.5233140268659136,point_better_CI_crosses_1
+2_pandemic_stress,svr,SVR,RMSE,1.008521301299327,0.7726889406466243,2.2863895867019157,worse_than_ETS
+3_market_large,granite_patchtst_fm,Granite,MASE,0.5785995724580101,0.508170481681267,0.6644675716578637,significantly_better
+3_market_large,granite_patchtst_fm,Granite,MAPE,0.7701416776603888,0.5068769694822619,0.9350290112939976,significantly_better
+3_market_large,granite_patchtst_fm,Granite,MAE,0.5665168818948572,0.4986028517315257,0.6650736115239542,significantly_better
+3_market_large,granite_patchtst_fm,Granite,RMSE,0.6615846430661007,0.5947408132919075,0.7601122939261479,significantly_better
+3_market_large,timesfm_3,TimesFM 3.0,MASE,0.5792658039037192,0.49883411508957304,0.6720151233747911,significantly_better
+3_market_large,timesfm_3,TimesFM 3.0,MAPE,0.7863924870901015,0.5181247945017652,0.9549491936686175,significantly_better
+3_market_large,timesfm_3,TimesFM 3.0,MAE,0.5777055718596166,0.494143240069816,0.6955755889922627,significantly_better
+3_market_large,timesfm_3,TimesFM 3.0,RMSE,0.6518991319724895,0.5765706668237938,0.753309107479127,significantly_better
+3_market_large,chronos_2,Chronos-2,MASE,0.5806717800481908,0.5084049224369531,0.6706888027494754,significantly_better
+3_market_large,chronos_2,Chronos-2,MAPE,0.7756215496966635,0.5119850567222943,0.94757987504989,significantly_better
+3_market_large,chronos_2,Chronos-2,MAE,0.5787324022505868,0.5005909154013924,0.6835629749052415,significantly_better
+3_market_large,chronos_2,Chronos-2,RMSE,0.6811666080651314,0.6062984260483967,0.7835629180369007,significantly_better
+3_market_large,moirai,Moirai 2.0,MASE,0.6834937169011139,0.6066121981056886,0.7793795771344747,significantly_better
+3_market_large,moirai,Moirai 2.0,MAPE,0.8557499928329029,0.6372169615351357,0.9975658484495941,significantly_better
+3_market_large,moirai,Moirai 2.0,MAE,0.6826875097520939,0.6030785079371634,0.8038389335562777,significantly_better
+3_market_large,moirai,Moirai 2.0,RMSE,0.7556298027211262,0.6852574664478877,0.8600171175622704,significantly_better
+3_market_large,LL01,LightGBM+Calendar (Local),MASE,0.6430448754250369,0.5451286826041414,0.7596607864758388,significantly_better
+3_market_large,LL01,LightGBM+Calendar (Local),MAPE,0.8275499317883458,0.5636904023125388,0.9872798599768601,significantly_better
+3_market_large,LL01,LightGBM+Calendar (Local),MAE,0.6442445758030618,0.5397095213180593,0.7752640937786672,significantly_better
+3_market_large,LL01,LightGBM+Calendar (Local),RMSE,0.6833786039444296,0.597317811301711,0.7895543657951986,significantly_better
+3_market_large,svr,SVR,MASE,0.7240330819161965,0.6552822172049126,0.8256244721573217,significantly_better
+3_market_large,svr,SVR,MAPE,0.8618195001380773,0.6312441256390594,1.0134122587873415,point_better_CI_crosses_1
+3_market_large,svr,SVR,MAE,0.7538339086825386,0.6919162358287223,0.8670999309813072,significantly_better
+3_market_large,svr,SVR,RMSE,0.8267548787207134,0.7804429204309974,0.9210564330199801,significantly_better
+4_market_medium,granite_patchtst_fm,Granite,MASE,0.621695329201469,0.5519502085198402,0.7156452980596654,significantly_better
+4_market_medium,granite_patchtst_fm,Granite,MAPE,0.7219174565448917,0.5319177189975993,0.8461191747973613,significantly_better
+4_market_medium,granite_patchtst_fm,Granite,MAE,0.6429171293531507,0.5788649940943187,0.725599132217059,significantly_better
+4_market_medium,granite_patchtst_fm,Granite,RMSE,0.705359963342107,0.6444531779942001,0.7824199746631593,significantly_better
+4_market_medium,timesfm_3,TimesFM 3.0,MASE,0.6351719452546433,0.5649246769475658,0.7259869919136797,significantly_better
+4_market_medium,timesfm_3,TimesFM 3.0,MAPE,0.7480603896456873,0.5538351592980153,0.8693270806650185,significantly_better
+4_market_medium,timesfm_3,TimesFM 3.0,MAE,0.6600015060956759,0.5917591274724898,0.7422228236014817,significantly_better
+4_market_medium,timesfm_3,TimesFM 3.0,RMSE,0.7121359505429264,0.649170174576422,0.78439746773141,significantly_better
+4_market_medium,chronos_2,Chronos-2,MASE,0.6581782349516487,0.588112143111927,0.7450200613703511,significantly_better
+4_market_medium,chronos_2,Chronos-2,MAPE,0.7648561650068638,0.5698557390899882,0.8872645491230604,significantly_better
+4_market_medium,chronos_2,Chronos-2,MAE,0.678932466243413,0.6127820501986838,0.7570330134290927,significantly_better
+4_market_medium,chronos_2,Chronos-2,RMSE,0.7327586478160515,0.6699225140018864,0.8038549674189588,significantly_better
+4_market_medium,moirai,Moirai 2.0,MASE,0.8126081429232218,0.7540554460439808,0.8898130362909457,significantly_better
+4_market_medium,moirai,Moirai 2.0,MAPE,0.836284721993726,0.7007280403006299,0.9196182026490332,significantly_better
+4_market_medium,moirai,Moirai 2.0,MAE,0.7972247332723371,0.7375634552096064,0.8706418827946294,significantly_better
+4_market_medium,moirai,Moirai 2.0,RMSE,0.8469493741289155,0.7893566922915569,0.9111439418363998,significantly_better
+4_market_medium,LL01,LightGBM+Calendar (Local),MASE,0.7256080722564018,0.6319168216824893,0.8274777398281202,significantly_better
+4_market_medium,LL01,LightGBM+Calendar (Local),MAPE,0.805837449249767,0.5785390855274333,0.9421790352360379,significantly_better
+4_market_medium,LL01,LightGBM+Calendar (Local),MAE,0.7420513013645186,0.6468087494547918,0.8353608582269006,significantly_better
+4_market_medium,LL01,LightGBM+Calendar (Local),RMSE,0.7624855354901927,0.6778396295860075,0.8492681514998881,significantly_better
+4_market_medium,svr,SVR,MASE,0.8406904462128193,0.7519696982254356,0.9434383405774932,significantly_better
+4_market_medium,svr,SVR,MAPE,0.9249006448091258,0.7363021785059285,1.0433346242841095,point_better_CI_crosses_1
+4_market_medium,svr,SVR,MAE,0.8577115700715497,0.7738725140922016,0.9603129000548748,significantly_better
+4_market_medium,svr,SVR,RMSE,0.8910258496901339,0.8152645920721109,0.9820169317705327,significantly_better
+5_market_small,granite_patchtst_fm,Granite,MASE,0.7062544799173525,0.6585494846773836,0.7570825147926805,significantly_better
+5_market_small,granite_patchtst_fm,Granite,MAPE,0.7322790062221879,0.6542376026519157,0.814973952015629,significantly_better
+5_market_small,granite_patchtst_fm,Granite,MAE,0.6297082924248527,0.564263807500445,0.704842192799653,significantly_better
+5_market_small,granite_patchtst_fm,Granite,RMSE,0.6933306930111562,0.6365425039767038,0.7564455937672517,significantly_better
+5_market_small,timesfm_3,TimesFM 3.0,MASE,0.7224212744134675,0.6741286738428844,0.7742268633895352,significantly_better
+5_market_small,timesfm_3,TimesFM 3.0,MAPE,0.7744168448371406,0.6892899576337438,0.8615473753706238,significantly_better
+5_market_small,timesfm_3,TimesFM 3.0,MAE,0.6599340657597467,0.5986798565968952,0.730475429228305,significantly_better
+5_market_small,timesfm_3,TimesFM 3.0,RMSE,0.7146132679724906,0.6568596893834987,0.7748082271452972,significantly_better
+5_market_small,chronos_2,Chronos-2,MASE,0.745969219915521,0.688477409257479,0.8009028119162023,significantly_better
+5_market_small,chronos_2,Chronos-2,MAPE,0.8000019285559746,0.7129931109581039,0.8695010999903398,significantly_better
+5_market_small,chronos_2,Chronos-2,MAE,0.6718120364061773,0.6009709983210461,0.7477395049481704,significantly_better
+5_market_small,chronos_2,Chronos-2,RMSE,0.7274282329434275,0.6584038615586348,0.7919175897387564,significantly_better
+5_market_small,moirai,Moirai 2.0,MASE,0.8766761552539363,0.833889172914163,0.9261524768307661,significantly_better
+5_market_small,moirai,Moirai 2.0,MAPE,0.857539910948427,0.7972694684448448,0.9219638767383026,significantly_better
+5_market_small,moirai,Moirai 2.0,MAE,0.8549812606827697,0.7993617410696446,0.9292897632354701,significantly_better
+5_market_small,moirai,Moirai 2.0,RMSE,0.8847762038049669,0.8372686298167329,0.9440638252628704,significantly_better
+5_market_small,LL01,LightGBM+Calendar (Local),MASE,0.8112702927814621,0.753456314196133,0.8624356061234365,significantly_better
+5_market_small,LL01,LightGBM+Calendar (Local),MAPE,0.8251578882939503,0.7501249620978319,0.8988675635728262,significantly_better
+5_market_small,LL01,LightGBM+Calendar (Local),MAE,0.7460967415799701,0.6691363626096102,0.8082141747826543,significantly_better
+5_market_small,LL01,LightGBM+Calendar (Local),RMSE,0.7871135303079404,0.7251296114769814,0.8362243349653553,significantly_better
+5_market_small,svr,SVR,MASE,0.9287908178469633,0.8914327800273967,0.9674025780306997,significantly_better
+5_market_small,svr,SVR,MAPE,0.9422470938559802,0.8672578421564835,1.0145579790763801,point_better_CI_crosses_1
+5_market_small,svr,SVR,MAE,0.9001216505552326,0.8394696156716449,0.9696497556680074,significantly_better
+5_market_small,svr,SVR,RMSE,0.9170230306901587,0.8645508804799427,0.9729131099146757,significantly_better
+6_clean180,granite_patchtst_fm,Granite,MASE,0.9169194502635958,0.883553490949396,0.95059216195528,significantly_better
+6_clean180,granite_patchtst_fm,Granite,MAPE,0.9198792500510298,0.8706332992766304,0.9593296508804401,significantly_better
+6_clean180,granite_patchtst_fm,Granite,MAE,0.8162537129624751,0.7595400272083167,0.9184102537410966,significantly_better
+6_clean180,granite_patchtst_fm,Granite,RMSE,0.8723564745891043,0.8298025673789436,0.9517291353425309,significantly_better
+6_clean180,timesfm_3,TimesFM 3.0,MASE,0.9037220153669777,0.8739644482815345,0.9375346927932828,significantly_better
+6_clean180,timesfm_3,TimesFM 3.0,MAPE,0.9118244854683923,0.8619565769179734,0.9520130014485081,significantly_better
+6_clean180,timesfm_3,TimesFM 3.0,MAE,0.7607433527470868,0.7090932805314676,0.8529004394131796,significantly_better
+6_clean180,timesfm_3,TimesFM 3.0,RMSE,0.8216995979785958,0.7808346445948869,0.8934705670898818,significantly_better
+6_clean180,chronos_2,Chronos-2,MASE,0.9184530926277712,0.8900120177799079,0.9531827444262538,significantly_better
+6_clean180,chronos_2,Chronos-2,MAPE,0.9250453959818122,0.8786858616884835,0.9649567601999102,significantly_better
+6_clean180,chronos_2,Chronos-2,MAE,0.8051865928462987,0.7515247128375344,0.9034375187394357,significantly_better
+6_clean180,chronos_2,Chronos-2,RMSE,0.8547417164565461,0.8113624480191506,0.9330984801767591,significantly_better
+6_clean180,moirai,Moirai 2.0,MASE,0.9007732783874076,0.8602715552909018,0.9480355359927662,significantly_better
+6_clean180,moirai,Moirai 2.0,MAPE,0.8760107868274937,0.8222057010691248,0.9231160410847783,significantly_better
+6_clean180,moirai,Moirai 2.0,MAE,0.785528817164845,0.7372705323365426,0.8845726740043882,significantly_better
+6_clean180,moirai,Moirai 2.0,RMSE,0.8452282830416578,0.803645379974543,0.9199305307807324,significantly_better
+6_clean180,LL01,LightGBM+Calendar (Local),MASE,1.2541637203408595,1.1697623695803823,1.3426349011895908,worse_than_ETS
+6_clean180,LL01,LightGBM+Calendar (Local),MAPE,1.2405622181094482,1.1698607832727268,1.3304386731913147,worse_than_ETS
+6_clean180,LL01,LightGBM+Calendar (Local),MAE,1.1127827527551393,0.9872826512876656,1.3463491140296293,worse_than_ETS
+6_clean180,LL01,LightGBM+Calendar (Local),RMSE,1.0831753167989415,0.9917582079949921,1.2465800477605986,worse_than_ETS
+6_clean180,svr,SVR,MASE,1.029240194217116,0.9645526229986716,1.0858727409514566,worse_than_ETS
+6_clean180,svr,SVR,MAPE,1.0487897620626065,0.9743802425587295,1.1090949338793872,worse_than_ETS
+6_clean180,svr,SVR,MAE,0.9714825105821323,0.8679386474930824,1.1518419480632278,point_better_CI_crosses_1
+6_clean180,svr,SVR,RMSE,0.9926841007075586,0.9073089877397517,1.1377874211835415,point_better_CI_crosses_1
+7_full_with_covid,granite_patchtst_fm,Granite,MASE,0.6675943007890873,0.620168870184709,0.7268272389877395,significantly_better
+7_full_with_covid,granite_patchtst_fm,Granite,MAPE,0.7308517745124574,0.617937239953376,0.8302790600120633,significantly_better
+7_full_with_covid,granite_patchtst_fm,Granite,MAE,0.5739977492123232,0.5117300593208165,0.6610217843725215,significantly_better
+7_full_with_covid,granite_patchtst_fm,Granite,RMSE,0.665765210799251,0.6034136924986849,0.751695354371102,significantly_better
+7_full_with_covid,timesfm_3,TimesFM 3.0,MASE,0.6815325155069913,0.6323392973347579,0.7382148074431564,significantly_better
+7_full_with_covid,timesfm_3,TimesFM 3.0,MAPE,0.7660827986085146,0.6504729580440284,0.8678944677454081,significantly_better
+7_full_with_covid,timesfm_3,TimesFM 3.0,MAE,0.5860568763089321,0.5082500825879099,0.6914459140680106,significantly_better
+7_full_with_covid,timesfm_3,TimesFM 3.0,RMSE,0.6580347530491061,0.5879518332636271,0.7501229811036482,significantly_better
+7_full_with_covid,chronos_2,Chronos-2,MASE,0.7029712376418665,0.6510131320706632,0.7611987722532191,significantly_better
+7_full_with_covid,chronos_2,Chronos-2,MAPE,0.7866382278614718,0.6757574690447131,0.8762754152223108,significantly_better
+7_full_with_covid,chronos_2,Chronos-2,MAE,0.5887548938435337,0.5187738688674242,0.6850439757379122,significantly_better
+7_full_with_covid,chronos_2,Chronos-2,RMSE,0.686271715005984,0.618416839861228,0.7757134547497334,significantly_better
+7_full_with_covid,moirai,Moirai 2.0,MASE,0.8389634509570806,0.7970280851673074,0.8915788303306965,significantly_better
+7_full_with_covid,moirai,Moirai 2.0,MAPE,0.8501804366844724,0.7696597935540374,0.9198570031570967,significantly_better
+7_full_with_covid,moirai,Moirai 2.0,MAE,0.6955082266826383,0.6220261485589151,0.8092777211236915,significantly_better
+7_full_with_covid,moirai,Moirai 2.0,RMSE,0.7656171246912246,0.7025913040580526,0.8548169541816815,significantly_better
+7_full_with_covid,LL01,LightGBM+Calendar (Local),MASE,0.7687094149992771,0.7059699561902048,0.8291564816159791,significantly_better
+7_full_with_covid,LL01,LightGBM+Calendar (Local),MAPE,0.8186924634895358,0.7042412966473948,0.9132995840552788,significantly_better
+7_full_with_covid,LL01,LightGBM+Calendar (Local),MAE,0.6542553056595293,0.5577059772823489,0.7708097949307264,significantly_better
+7_full_with_covid,LL01,LightGBM+Calendar (Local),RMSE,0.6918664554103366,0.6131103547595609,0.7853225316358751,significantly_better
+7_full_with_covid,svr,SVR,MASE,0.8822473265553715,0.8331167764279451,0.9377290564132591,significantly_better
+7_full_with_covid,svr,SVR,MAPE,0.9318367597741014,0.8347772093778685,1.0144171665909372,point_better_CI_crosses_1
+7_full_with_covid,svr,SVR,MAE,0.7652550263694555,0.7086323044269249,0.8741486156361665,significantly_better
+7_full_with_covid,svr,SVR,RMSE,0.8337713971923867,0.7905624244095711,0.9151081012000291,significantly_better
+8_week4_horizon,granite_patchtst_fm,Granite,MASE,0.597648656719634,0.5550393325010667,0.6562032439074669,significantly_better
+8_week4_horizon,granite_patchtst_fm,Granite,MAPE,0.5875432124848312,0.5264789080622282,0.6695516757409573,significantly_better
+8_week4_horizon,granite_patchtst_fm,Granite,MAE,0.5032387896114455,0.3920648177271201,0.6500574348217409,significantly_better
+8_week4_horizon,granite_patchtst_fm,Granite,RMSE,0.549976238562786,0.4419994856698427,0.6990992646188219,significantly_better
+8_week4_horizon,timesfm_3,TimesFM 3.0,MASE,0.6135004314850697,0.5658250017214153,0.6721847203788088,significantly_better
+8_week4_horizon,timesfm_3,TimesFM 3.0,MAPE,0.6255440812323483,0.5537631935319989,0.7113122903882454,significantly_better
+8_week4_horizon,timesfm_3,TimesFM 3.0,MAE,0.5009773717672602,0.3953453753986745,0.6616538428735295,significantly_better
+8_week4_horizon,timesfm_3,TimesFM 3.0,RMSE,0.5459170533047443,0.44443695673289213,0.7036123926178167,significantly_better
+8_week4_horizon,chronos_2,Chronos-2,MASE,0.6430440765681639,0.5897329409116374,0.7040163324229247,significantly_better
+8_week4_horizon,chronos_2,Chronos-2,MAPE,0.6529034121468771,0.5813139451668439,0.7228795594708279,significantly_better
+8_week4_horizon,chronos_2,Chronos-2,MAE,0.5598714460662868,0.4483543140950181,0.6912450537380699,significantly_better
+8_week4_horizon,chronos_2,Chronos-2,RMSE,0.6090956193412277,0.5081535349578097,0.7386923769157071,significantly_better
+8_week4_horizon,moirai,Moirai 2.0,MASE,0.8098716411669059,0.7619995542949662,0.8754959110651392,significantly_better
+8_week4_horizon,moirai,Moirai 2.0,MAPE,0.75092705764256,0.6921258106511242,0.8230819845937868,significantly_better
+8_week4_horizon,moirai,Moirai 2.0,MAE,0.6559441312517507,0.535961820839647,0.8172095972601436,significantly_better
+8_week4_horizon,moirai,Moirai 2.0,RMSE,0.6943895301753714,0.5804172849940803,0.8414465423185636,significantly_better
+8_week4_horizon,LL01,LightGBM+Calendar (Local),MASE,0.7143139893156132,0.6447872313430828,0.7786220402008917,significantly_better
+8_week4_horizon,LL01,LightGBM+Calendar (Local),MAPE,0.705129326526793,0.6226090711427932,0.7900070556559984,significantly_better
+8_week4_horizon,LL01,LightGBM+Calendar (Local),MAE,0.5574791943919467,0.46309738472757583,0.6880896624322098,significantly_better
+8_week4_horizon,LL01,LightGBM+Calendar (Local),RMSE,0.6103414735414707,0.5206482481783034,0.7391989457628259,significantly_better
+8_week4_horizon,svr,SVR,MASE,0.8517468826635799,0.7918704096390488,0.9186976475183517,significantly_better
+8_week4_horizon,svr,SVR,MAPE,0.8485084684301468,0.7598243561609254,0.9569443704760808,significantly_better
+8_week4_horizon,svr,SVR,MAE,0.7396902606350201,0.648007644955469,0.8739712121821976,significantly_better
+8_week4_horizon,svr,SVR,RMSE,0.787293126915619,0.6947450033831645,0.9180721395870315,significantly_better
+9_exante_official_holiday,granite_patchtst_fm,Granite,MASE,0.7822696951449076,0.735899199888506,0.8154575227682415,significantly_better
+9_exante_official_holiday,granite_patchtst_fm,Granite,MAPE,0.724408529860789,0.6883685971503393,0.7532425349711159,significantly_better
+9_exante_official_holiday,granite_patchtst_fm,Granite,MAE,0.8918692246080738,0.7674085949535054,1.002118242896762,point_better_CI_crosses_1
+9_exante_official_holiday,granite_patchtst_fm,Granite,RMSE,0.896995920976742,0.7745131958895538,1.0080682943207424,point_better_CI_crosses_1
+9_exante_official_holiday,timesfm_3,TimesFM 3.0,MASE,0.7823083312378257,0.743442586473029,0.8211644539819285,significantly_better
+9_exante_official_holiday,timesfm_3,TimesFM 3.0,MAPE,0.7451531318539839,0.7010964367952223,0.787201674034145,significantly_better
+9_exante_official_holiday,timesfm_3,TimesFM 3.0,MAE,0.8543816793979685,0.7370184972653165,0.9581367303235636,significantly_better
+9_exante_official_holiday,timesfm_3,TimesFM 3.0,RMSE,0.8590969479229807,0.7446503278723199,0.9631812749702188,significantly_better
+9_exante_official_holiday,chronos_2,Chronos-2,MASE,0.8100700204350909,0.7679686781191049,0.847249736387914,significantly_better
+9_exante_official_holiday,chronos_2,Chronos-2,MAPE,0.7773810277731691,0.7322433716387757,0.812530902386544,significantly_better
+9_exante_official_holiday,chronos_2,Chronos-2,MAE,0.9524395874890397,0.8698728169739403,1.0422412455002152,point_better_CI_crosses_1
+9_exante_official_holiday,chronos_2,Chronos-2,RMSE,0.9593972592324267,0.8718160096218421,1.0544062267776966,point_better_CI_crosses_1
+9_exante_official_holiday,moirai,Moirai 2.0,MASE,0.913227087531641,0.8926847309894529,0.9533053592989418,significantly_better
+9_exante_official_holiday,moirai,Moirai 2.0,MAPE,0.874470085367651,0.8433141186876973,0.9147160411354204,significantly_better
+9_exante_official_holiday,moirai,Moirai 2.0,MAE,0.9944943096883404,0.9506329470791296,1.0669408062534185,point_better_CI_crosses_1
+9_exante_official_holiday,moirai,Moirai 2.0,RMSE,0.9970730721042518,0.9455975865211435,1.0731439622105992,point_better_CI_crosses_1
+9_exante_official_holiday,LL01,LightGBM+Calendar (Local),MASE,0.706653286597039,0.659084873091415,0.7420111477493254,significantly_better
+9_exante_official_holiday,LL01,LightGBM+Calendar (Local),MAPE,0.7756593045905125,0.7106346868072916,0.8305067015497015,significantly_better
+9_exante_official_holiday,LL01,LightGBM+Calendar (Local),MAE,0.5538599355268782,0.453509427703518,0.6607517509965377,significantly_better
+9_exante_official_holiday,LL01,LightGBM+Calendar (Local),RMSE,0.5733088526788577,0.4756785126361738,0.670082479073428,significantly_better
+9_exante_official_holiday,svr,SVR,MASE,0.9525773733329954,0.9270331366663878,0.995034588332773,significantly_better
+9_exante_official_holiday,svr,SVR,MAPE,0.9469998185627334,0.8889220278866761,1.0228348388959498,point_better_CI_crosses_1
+9_exante_official_holiday,svr,SVR,MAE,1.023882017652964,0.9431549152781997,1.1255771507590049,worse_than_ETS
+9_exante_official_holiday,svr,SVR,RMSE,1.029026673290473,0.9458220705030372,1.1305052086399026,worse_than_ETS
+10_hongkong_external,granite_patchtst_fm,Granite,MASE,0.7085631192138291,0.5908317507274987,0.8391079765775445,significantly_better
+10_hongkong_external,granite_patchtst_fm,Granite,MAPE,0.8089348680756877,0.6195359385720387,0.9207430475171704,significantly_better
+10_hongkong_external,granite_patchtst_fm,Granite,MAE,0.6975697468788137,0.5585393645474426,0.8555533677865987,significantly_better
+10_hongkong_external,granite_patchtst_fm,Granite,RMSE,0.7651740803160503,0.623007621406517,0.9049612888299706,significantly_better
+10_hongkong_external,timesfm_3,TimesFM 3.0,MASE,0.6537931680970863,0.5642911566871467,0.7504819243738071,significantly_better
+10_hongkong_external,timesfm_3,TimesFM 3.0,MAPE,0.7960750431589307,0.6050022344725223,0.9091381812114859,significantly_better
+10_hongkong_external,timesfm_3,TimesFM 3.0,MAE,0.6675094834048975,0.5438902076565457,0.8090771938535335,significantly_better
+10_hongkong_external,timesfm_3,TimesFM 3.0,RMSE,0.7148303092206627,0.6015406532933891,0.8420745747521869,significantly_better
+10_hongkong_external,chronos_2,Chronos-2,MASE,0.7020642390527432,0.555910019368777,0.7972838190928336,significantly_better
+10_hongkong_external,chronos_2,Chronos-2,MAPE,0.8103732647384774,0.5916387130852774,0.9209278607642607,significantly_better
+10_hongkong_external,chronos_2,Chronos-2,MAE,0.6617004421882313,0.5358120855943721,0.7922941981887728,significantly_better
+10_hongkong_external,chronos_2,Chronos-2,RMSE,0.7257817723022042,0.6079527912574444,0.8382263384153427,significantly_better
+10_hongkong_external,moirai,Moirai 2.0,MASE,0.7284250848093721,0.6468524897053205,0.825617765745542,significantly_better
+10_hongkong_external,moirai,Moirai 2.0,MAPE,0.8364778877288908,0.6447992524125894,0.9558485058269077,significantly_better
+10_hongkong_external,moirai,Moirai 2.0,MAE,0.7135578162582396,0.6170170578707306,0.8355035157695336,significantly_better
+10_hongkong_external,moirai,Moirai 2.0,RMSE,0.7824259744002802,0.6878013971125143,0.8906280522625665,significantly_better
+10_hongkong_external,svr,SVR,MASE,0.9268119502206824,0.7938843360454004,1.2093113220918121,point_better_CI_crosses_1
+10_hongkong_external,svr,SVR,MAPE,0.9545442687502964,0.7365762611936383,1.1082507483899218,point_better_CI_crosses_1
+10_hongkong_external,svr,SVR,MAE,0.9497979737247039,0.7922757169143251,1.1657953567416792,point_better_CI_crosses_1
+10_hongkong_external,svr,SVR,RMSE,0.9841913209601089,0.8588299377178594,1.1425350400751406,point_better_CI_crosses_1

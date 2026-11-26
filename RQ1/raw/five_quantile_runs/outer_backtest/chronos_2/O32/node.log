@@ -1,0 +1,48 @@
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 962.44it/s]
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]Loading weights:  76%|███████▋  | 130/170 [00:00<00:00, 1274.03it/s]Loading weights: 100%|██████████| 170/170 [00:00<00:00, 1316.09it/s]
+{
+  "schema_version": 1,
+  "kind": "foundation_model_predictions",
+  "model": "chronos_2",
+  "training_mode": "pretrained_zero_shot",
+  "source_repository": "https://github.com/amazon-science/chronos-forecasting.git",
+  "source_revision": "10afa9ebe016e514f9d7dc1aa873f66af57e116b",
+  "checkpoint": "amazon/chronos-2",
+  "checkpoint_revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "device": "cuda",
+  "seed": 42,
+  "batch_size": 8,
+  "history_lengths": [
+    "all"
+  ],
+  "requested_context_days": "all",
+  "forecast_tasks": 29,
+  "prediction_rows": 812,
+  "load_seconds": 3.929696500301361,
+  "peak_gpu_memory_mb": 554.466796875,
+  "peak_process_rss_mb": 1188.66015625,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "6352020f775bfec28b29c85a37d920d05df02bfdf7489b214e7415aeed6f8174"
+  },
+  "candidate_id": null,
+  "search_space_sha256": null,
+  "runtime": {
+    "context_length": null,
+    "extra": {
+      "quantile_levels": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ]
+    }
+  },
+  "registry_sha256": "de45d122bbdd6b90b7a527a55bbdbd4b7ddb98fbe5812379d3a1150f23e4aae2",
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "4a04f87f9c2bdbd310f7bee038badbd2eade94717c02ae959347d279c92e8cae",
+    "timings.jsonl": "c6a1616f380ff20b22d03919225b835f552c87744b1cb64f40028e89a87f1db2"
+  }
+}

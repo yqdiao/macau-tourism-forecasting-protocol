@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "kind": "foundation_model_predictions",
+  "model": "lag_llama",
+  "training_mode": "pretrained_zero_shot",
+  "source_repository": "https://github.com/time-series-foundation-models/lag-llama.git",
+  "source_revision": "df7531a83a19b3c6a0222d703ca9bf59ef7a6ab9",
+  "checkpoint": "time-series-foundation-models/Lag-Llama",
+  "checkpoint_revision": "72dcfc29da106acfe38250a60f4ae29d1e56a3d9",
+  "device": "cuda",
+  "seed": 42,
+  "batch_size": 1,
+  "history_lengths": [
+    "all"
+  ],
+  "requested_context_days": 512,
+  "forecast_tasks": 29,
+  "prediction_rows": 812,
+  "load_seconds": 3.9086863920092583,
+  "peak_gpu_memory_mb": 504.0380859375,
+  "peak_process_rss_mb": 1010.96875,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "bbeb0efa123f6eb80375b7775de4e96df85f13112cd4fd846b49409689b6d126"
+  },
+  "candidate_id": null,
+  "search_space_sha256": null,
+  "runtime": {
+    "context_length": 512,
+    "extra": {
+      "checkpoint_file": "lag-llama.ckpt",
+      "quantile_levels": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ]
+    }
+  },
+  "registry_sha256": "de45d122bbdd6b90b7a527a55bbdbd4b7ddb98fbe5812379d3a1150f23e4aae2",
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "ccefcb7ab9e9ae71f366ee6df73086958879e4416ac1a90ec645212fa948069c",
+    "timings.jsonl": "4e2a7c305fa60598b8a3529f2eaa02e1cca4e975d27d67b95b3c40f6c22e5051"
+  }
+}

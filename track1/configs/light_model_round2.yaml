@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "registered_after_outer_results",
+  "registered_at_utc": "2026-10-09T13:40:00+00:00",
+  "candidate_source": "plan",
+  "round": 2,
+  "why": "Round 1 tolerance stays 0.05. On 2026-10-09 the decision bar for a follow-up search was relaxed to 0.1 after the outer gaps were known: NL01 minus Chronos-2 is 0.475, GL03 minus Chronos-2 is 0.186, and the local-training ablation minus Chronos-2 is 0.108. None clear 0.1. This round only changes the part the ablation isolated: train one LightGBM per market and keep the statutory calendar. It does not replace round 1.",
+  "posthoc_tolerance": 0.1,
+  "calendar": {"sha256": "9060f62e542a884cf6f56d2feda8e527bb0b37eaebdedfbb5441a4357cf6cadc"},
+  "families": {
+    "local_lightgbm": {
+      "pooling": "one model per market per origin; calendar kept; same features and residual target as GL",
+      "fixed": {"threads": 4, "seed": 42},
+      "candidates": [
+        {"id": "LL01", "params": {"num_leaves": 63, "learning_rate": 0.03, "n_estimators": 1000, "anchor_window": "all"}},
+        {"id": "LL02", "params": {"num_leaves": 31, "learning_rate": 0.05, "n_estimators": 500, "anchor_window": "all"}},
+        {"id": "LL03", "params": {"num_leaves": 63, "learning_rate": 0.03, "n_estimators": 1000, "anchor_window": 730}}
+      ]
+    }
+  },
+  "selection": "B01-B12 only, same MASE7 rule as round 1. Outer O01-O33 is exploratory because this family was chosen after seeing it.",
+  "stopping_rule": "These three candidates only. No further candidate is added from the outer scores of this round."
+}

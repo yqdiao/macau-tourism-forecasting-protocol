@@ -1,0 +1,49 @@
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 1104.17it/s]
+Loading weights from local directory
+{
+  "schema_version": 1,
+  "kind": "foundation_model_predictions",
+  "model": "timesfm_3",
+  "training_mode": "pretrained_zero_shot",
+  "source_repository": "https://github.com/google-research/timesfm.git",
+  "source_revision": "e31dadd84cb26bd5153fde6687502b8312e918fb",
+  "checkpoint": "google/timesfm-3.0-pytorch",
+  "checkpoint_revision": "43046b85ec22d584a13f8098c2ed39c889e129c2",
+  "device": "cuda",
+  "seed": 42,
+  "batch_size": 8,
+  "history_lengths": [
+    "all"
+  ],
+  "requested_context_days": "all",
+  "forecast_tasks": 29,
+  "prediction_rows": 812,
+  "load_seconds": 4.1479638405144215,
+  "peak_gpu_memory_mb": 1335.6201171875,
+  "peak_process_rss_mb": 3003.171875,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "26dc54dc4e17f508331b3340d52d51157ca007ef70107f3973113a3c727dbf62"
+  },
+  "candidate_id": null,
+  "search_space_sha256": null,
+  "runtime": {
+    "context_length": null,
+    "extra": {
+      "symmetric_averaging": false,
+      "quantile_levels": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ]
+    }
+  },
+  "registry_sha256": "de45d122bbdd6b90b7a527a55bbdbd4b7ddb98fbe5812379d3a1150f23e4aae2",
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "11ace3f1c96f210b8d9d551ddd2afe90a337c4e828d62a49f043783a86ff3bbd",
+    "timings.jsonl": "95222b94aa40d1356f8619c45dfee84df5540f94ce4c1a5e4da700a01c55c949"
+  }
+}

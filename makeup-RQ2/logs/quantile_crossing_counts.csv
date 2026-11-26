@@ -1,0 +1,6 @@
+model,n_days,n_adjacent_crossings,share_crossing,mean_abs_shift_if_sorted
+chronos_2,9828,13,0.0013227513227513227,0.003100750162002756
+moirai,9828,307,0.03123728123728124,0.0022611153140318406
+granite_patchtst_fm,9828,0,0.0,0.0
+timesfm_3,9828,0,0.0,0.0
+lag_llama,9828,0,0.0,0.0

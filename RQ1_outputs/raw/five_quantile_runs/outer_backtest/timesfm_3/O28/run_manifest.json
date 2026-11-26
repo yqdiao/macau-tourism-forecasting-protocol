@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "kind": "foundation_model_predictions",
+  "model": "timesfm_3",
+  "training_mode": "pretrained_zero_shot",
+  "source_repository": "https://github.com/google-research/timesfm.git",
+  "source_revision": "e31dadd84cb26bd5153fde6687502b8312e918fb",
+  "checkpoint": "google/timesfm-3.0-pytorch",
+  "checkpoint_revision": "43046b85ec22d584a13f8098c2ed39c889e129c2",
+  "device": "cuda",
+  "seed": 42,
+  "batch_size": 8,
+  "history_lengths": [
+    "all"
+  ],
+  "requested_context_days": "all",
+  "forecast_tasks": 29,
+  "prediction_rows": 812,
+  "load_seconds": 4.119266275316477,
+  "peak_gpu_memory_mb": 1342.86083984375,
+  "peak_process_rss_mb": 3001.625,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "cc1bb861ebe4ebdb3dd569e6b3bfbf208dd76089a42e2189f9bd48891e504749"
+  },
+  "candidate_id": null,
+  "search_space_sha256": null,
+  "runtime": {
+    "context_length": null,
+    "extra": {
+      "symmetric_averaging": false,
+      "quantile_levels": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ]
+    }
+  },
+  "registry_sha256": "de45d122bbdd6b90b7a527a55bbdbd4b7ddb98fbe5812379d3a1150f23e4aae2",
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "f7f00c2d73c79876780a7dca2d9c3371f736191b0b72e1db2bc5fced2d91af6a",
+    "timings.jsonl": "d5c6026c4131c95a053ccaf06eac5f54e12a5503f9e80191d80111c66608e03c"
+  }
+}

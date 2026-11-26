@@ -1,0 +1,51 @@
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 3392.53it/s]
+/root/DYQ/cu121-py311/lib/python3.11/site-packages/lightning_fabric/__init__.py:40: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+/root/DYQ/cu121-py311/lib/python3.11/site-packages/gluonts/json.py:101: UserWarning: Using `json`-module for json-handling. Consider installing one of `orjson`, `ujson` to speed up serialization and deserialization.
+  warnings.warn(
+{
+  "schema_version": 1,
+  "kind": "foundation_model_predictions",
+  "model": "lag_llama",
+  "training_mode": "pretrained_zero_shot",
+  "source_repository": "https://github.com/time-series-foundation-models/lag-llama.git",
+  "source_revision": "df7531a83a19b3c6a0222d703ca9bf59ef7a6ab9",
+  "checkpoint": "time-series-foundation-models/Lag-Llama",
+  "checkpoint_revision": "72dcfc29da106acfe38250a60f4ae29d1e56a3d9",
+  "device": "cuda",
+  "seed": 42,
+  "batch_size": 1,
+  "history_lengths": [
+    "all"
+  ],
+  "requested_context_days": 512,
+  "forecast_tasks": 29,
+  "prediction_rows": 812,
+  "load_seconds": 8.192929208278656,
+  "peak_gpu_memory_mb": 504.0380859375,
+  "peak_process_rss_mb": 1008.3359375,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "972a150bfc95b7bd84415c24c5ce76dd0f9506f1f2d657a1d072a142ba599c3c"
+  },
+  "candidate_id": null,
+  "search_space_sha256": null,
+  "runtime": {
+    "context_length": 512,
+    "extra": {
+      "checkpoint_file": "lag-llama.ckpt",
+      "quantile_levels": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ]
+    }
+  },
+  "registry_sha256": "de45d122bbdd6b90b7a527a55bbdbd4b7ddb98fbe5812379d3a1150f23e4aae2",
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "4c289381a5ef7448b46cb60db19ed85aca1e7b8d1e9f62bd9667278633ac0079",
+    "timings.jsonl": "8333344f02d8e679ae460bcb5601e3c4df81a0902d84534b18ae477afd4624db"
+  }
+}

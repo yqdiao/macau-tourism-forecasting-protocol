@@ -1,0 +1,7 @@
+item,status,note
+warm_start_inner_selection_prior,not_run,RQ1/RQ2 sealed task_metrics only contain outer folds (O*); no per-market inner-selection completed-task MAE library for M5 pool was found under track1/results or RQ*_outputs. Main replay keeps cold-start = equal-weight C2.
+real_llm_select_weight,filled_deepseek_api,Used DeepSeek API (deepseek-chat) instead of Qwen3-4B; judgments in llm_judgments_deepseek.jsonl
+S16_holiday_weekday_strata,filled,Added holiday_window and weekend_window strata plus activation_by_holiday_window
+S15_DM_vs_ETS,filled,Added R/DM for MASE&MAE vs ETS/Granite/G1/B3FM
+S14_DM_vs_G1,filled,Added R/DM vs G1_Stat_Stat for fixed schemes
+S16_origin_weekday_strata,filled,Added origin_weekday stratum; weekend_heavy empty because each 28-day window weekend_share≈8/28<0.5

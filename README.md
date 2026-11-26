@@ -19,6 +19,30 @@ The principal reference studies are [Wu et al. (2025), *How well can ChatGPT for
 - [Shared data and task boundaries](shared/README.md)
 - [Track 2 protocol and relationship to later evidence](track2/README.md)
 
+## Research-question computation layer
+
+`RQ1/`, `RQ2/`, `RQ3/`, and `makeup-RQ2/` rebuild the manuscript tables and figures from sealed upstream predictions. `track1/`, `track2/`, and `shared/` stay the protocol: time splits, isolated inputs, and single-model backtests. The RQ scripts only read those upstream results.
+
+| Path | Role |
+|---|---|
+| `RQ1/` | Section 4.1 accuracy, cost, and asymmetric loss. Build scripts write tables here. Figures live in `RQ1/figures/`. |
+| `RQ1_outputs/` | Sealed RQ1 tables and raw metrics. RQ3 reads this copy. The CSVs match `RQ1/` today. |
+| `RQ2/`, `RQ2_outputs/` | Section 4.2 mechanisms and boundaries. RQ3 reads `RQ2_outputs/`. |
+| `makeup-RQ2/` | Final RQ2 holiday dual aggregation, S10 WIS, S12, and figures 5–10. Do not overwrite `RQ2_outputs/` with these tables. |
+| `RQ3/`, `RQ3_outputs/` | Section 4.3 combination, selection, and cost. Cite `RQ3_outputs/cache/*_deepseek.*`. The earlier proxy files `llm_judgments.jsonl` and `all_decisions.parquet` are not for the manuscript text. |
+
+Rebuilding the tables needs local prediction stores that Git does not carry: `track1/results/foundation_outer_default/`, `outer_server_all/`, `light_models/`, `sensitivity/pandemic_stress/`, `zeroshot_matched_inputs/`, `compute_benchmark/benchmark.jsonl`, plus `track1/evaluation/outer_main_table/` and `volume_breakeven/`. The Qwen3-4B delivery log used by RQ1 is `RQ1/raw/qwen3_4b_D-S1_deliveries.jsonl`.
+
+```bash
+python RQ1/build_rq1.py
+python RQ2/run_all.sh
+python makeup-RQ2/run_makeup_rq2.py
+python RQ3/run_all.py
+python RQ3/fill_gaps.py
+# DeepSeek calls need RQ3/.env, which is not committed
+python RQ3/run_deepseek_rq3.py
+```
+
 ## Current release and historical implementation
 
 This release updates the research narrative and documentation in English, and adds the audited paper companion materials. The existing `track1/` implementation and frozen baseline audit are retained. The `track1/` and `track2/` directory names are engineering identifiers; the paper is organized by research questions rather than by the order in which experiments were run.
@@ -81,8 +105,12 @@ Monetary costs are represented by a resource-price vector and a cost function, `
 │   ├── notebooks/          # English data and backtesting notebooks
 │   ├── scripts/
 │   └── tests/
-└── track2/
-    └── docs/               # Archival ensemble and coordination protocol
+├── track2/
+│   └── docs/               # Archival ensemble and coordination protocol
+├── RQ1/ , RQ1_outputs/     # Section 4.1 builders and sealed tables
+├── RQ2/ , RQ2_outputs/     # Section 4.2 builders and sealed panels
+├── makeup-RQ2/             # Final holiday, interval, and figure 5–10 package
+└── RQ3/ , RQ3_outputs/     # Section 4.3 builders, tables, and DeepSeek judgments
 ```
 
 Generated results, model weights, caches, and credentials are excluded from Git. The repository does not introduce a new license grant for existing data or third-party models.

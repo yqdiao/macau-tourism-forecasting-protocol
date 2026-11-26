@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "order": [
+    "frozen_ensemble",
+    "renormalize_remaining",
+    "equal_remaining",
+    "seasonal_naive"
+  ],
+  "r_low": 0.24240558070945367,
+  "r_high": 1.8029793669580838,
+  "recent28_skip_below": 5,
+  "timeout_seconds": {
+    "granite_patchtst_fm": 35.73197255507111,
+    "chronos_2": 17.956165847182277,
+    "timesfm_3": 21.22231516465545
+  },
+  "residual_failure_closes_residual_only": true
+}

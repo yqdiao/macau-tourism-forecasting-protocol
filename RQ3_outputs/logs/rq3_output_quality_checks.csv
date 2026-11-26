@@ -1,0 +1,13 @@
+ok,item,detail
+True,baseline_vs_table3,2.274e-13
+True,S14_coverage_outer_backtest,missing=[]
+True,S14_coverage_pandemic_stress,missing=[]
+True,S15_deepseek_backend,
+True,S15_zero_fallback_all,
+True,G2_beats_G1_reopen,1.141050<1.151930
+True,deepseek_api_all_ok,ok=2376 fail=0
+True,weights_sum1,2.220446049250313e-16
+True,fig_figure11_hybrid_structures_and_2x2_ablation_pdf,26232
+True,fig_figure11_hybrid_structures_and_2x2_ablation_png,233435
+True,fig_figure12_mode1_mode2_cost_accuracy_frontier_pdf,19902
+True,fig_figure12_mode1_mode2_cost_accuracy_frontier_png,98116

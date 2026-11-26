@@ -1,0 +1,291 @@
+[start] 2026-11-17T03:57:11+00:00
+scoring outer_backtest granite_patchtst_fm
+scoring outer_backtest timesfm_3
+scoring outer_backtest chronos_2
+scoring outer_backtest moirai
+scoring outer_backtest lag_llama
+scoring outer_backtest ets
+scoring outer_backtest sarima
+scoring outer_backtest seasonal_naive
+scoring outer_backtest svr
+scoring outer_backtest lightgbm
+scoring outer_backtest GL03
+scoring outer_backtest LL01
+scoring outer_backtest transformer
+scoring outer_backtest NL01
+scoring pandemic_stress granite_patchtst_fm
+scoring pandemic_stress timesfm_3
+scoring pandemic_stress chronos_2
+scoring pandemic_stress moirai
+scoring pandemic_stress lag_llama
+scoring pandemic_stress ets
+scoring pandemic_stress sarima
+scoring pandemic_stress seasonal_naive
+scoring pandemic_stress svr
+scoring pandemic_stress lightgbm
+scoring pandemic_stress GL03
+scoring pandemic_stress LL01
+scoring pandemic_stress transformer
+scoring pandemic_stress NL01
+Traceback (most recent call last):
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ2/build_panels.py", line 233, in <module>
+    build_main_panels()
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ2/build_panels.py", line 156, in build_main_panels
+    pd.DataFrame(notes).to_csv(LOGS / "panel_coverage_check.csv", index=False)
+                               ^^^^
+NameError: name 'LOGS' is not defined
+[resume] 2026-11-17T04:00:33+00:00
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ2/build_panels.py", line 12
+    )
+    ^
+SyntaxError: unmatched ')'
+[resume2] 2026-11-17T04:00:52+00:00
+coverage+check done max_diff=0
+          config_id  rq1_mase  rq2_mase  abs_diff
+granite_patchtst_fm  1.094400  1.094400       0.0
+          timesfm_3  1.117249  1.117249       0.0
+          chronos_2  1.152394  1.152394       0.0
+             moirai  1.375328  1.375328       0.0
+          lag_llama  1.644351  1.644351       0.0
+                ets  1.639318  1.639318       0.0
+             sarima  1.750627  1.750627       0.0
+     seasonal_naive  1.882641  1.882641       0.0
+                svr  1.446284  1.446284       0.0
+           lightgbm  1.514733  1.514733       0.0
+               GL03  1.337990  1.337990       0.0
+               LL01  1.260159  1.260159       0.0
+        transformer  1.591172  1.591172       0.0
+               NL01  1.627396  1.627396       0.0
+     split_name           config_id  tasks  expected_tasks   ok  zero_days_sum  positive_days_sum
+ outer_backtest granite_patchtst_fm    891             891 True             51              24897
+ outer_backtest           timesfm_3    891             891 True             51              24897
+ outer_backtest           chronos_2    891             891 True             51              24897
+ outer_backtest              moirai    891             891 True             51              24897
+ outer_backtest           lag_llama    891             891 True             51              24897
+ outer_backtest                 ets    891             891 True             51              24897
+ outer_backtest              sarima    891             891 True             51              24897
+ outer_backtest      seasonal_naive    891             891 True             51              24897
+ outer_backtest                 svr    891             891 True             51              24897
+ outer_backtest            lightgbm    891             891 True             51              24897
+ outer_backtest                GL03    891             891 True             51              24897
+ outer_backtest                LL01    891             891 True             51              24897
+ outer_backtest         transformer    891             891 True             51              24897
+ outer_backtest                NL01    891             891 True             51              24897
+pandemic_stress granite_patchtst_fm    351             351 True           6810               3018
+pandemic_stress           timesfm_3    351             351 True           6810               3018
+pandemic_stress           chronos_2    351             351 True           6810               3018
+pandemic_stress              moirai    351             351 True           6810               3018
+pandemic_stress           lag_llama    351             351 True           6810               3018
+pandemic_stress                 ets    351             351 True           6810               3018
+pandemic_stress              sarima    351             351 True           6810               3018
+pandemic_stress      seasonal_naive    351             351 True           6810               3018
+pandemic_stress                 svr    351             351 True           6810               3018
+pandemic_stress            lightgbm    351             351 True           6810               3018
+pandemic_stress                GL03    351             351 True           6810               3018
+pandemic_stress                LL01    351             351 True           6810               3018
+pandemic_stress         transformer    351             351 True           6810               3018
+pandemic_stress                NL01    351             351 True           6810               3018
+history score all granite_patchtst_fm files=33
+history score all timesfm_3 files=33
+history score all chronos_2 files=33
+history score all moirai files=33
+history score all ets files=957
+history score all seasonal_naive files=957
+history score all svr files=957
+history score all lightgbm files=957
+history score 365 granite_patchtst_fm files=33
+history score 365 timesfm_3 files=33
+history score 365 chronos_2 files=33
+history score 365 moirai files=33
+history score 365 ets files=957
+history score 365 seasonal_naive files=957
+history score 365 svr files=957
+history score 365 lightgbm files=957
+history score 180 granite_patchtst_fm files=33
+history score 180 timesfm_3 files=33
+history score 180 chronos_2 files=33
+history score 180 moirai files=33
+history score 180 ets files=957
+history score 180 seasonal_naive files=957
+history score 180 svr files=957
+history score 180 lightgbm files=957
+wrote history panel 21384 rows
+S1 row granite_patchtst_fm
+S1 row timesfm_3
+S1 row chronos_2
+S1 row moirai
+S1 row lag_llama
+S1 row ets
+S1 row sarima
+S1 row seasonal_naive
+S1 row svr
+S1 row lightgbm
+S1 row GL03
+S1 row LL01
+S1 row transformer
+S1 row NL01
+wrote S1/S2
+decomp/spectrum pandemic_stress granite_patchtst_fm/ets
+decomp/spectrum pandemic_stress timesfm_3/ets
+decomp/spectrum outer_backtest granite_patchtst_fm/timesfm_3
+wrote S3/S4
+S5 chronos_2 180
+S5 chronos_2 365
+S5 chronos_2 all
+S5 ets 180
+S5 ets 365
+S5 ets all
+S5 granite_patchtst_fm 180
+S5 granite_patchtst_fm 365
+S5 granite_patchtst_fm all
+S5 lightgbm 180
+S5 lightgbm 365
+S5 lightgbm all
+S5 moirai 180
+S5 moirai 365
+S5 moirai all
+S5 seasonal_naive 180
+S5 seasonal_naive 365
+S5 seasonal_naive all
+S5 svr 180
+S5 svr 365
+S5 svr all
+S5 timesfm_3 180
+S5 timesfm_3 365
+S5 timesfm_3 all
+Seasonal Naive MAE range across histories = 0 (expect ~0)
+wrote S5
+S6/S7 done
+S8 done
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:163: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  d["is_official_holiday"] = d["is_official_holiday"].fillna(False)
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:187: RuntimeWarning: divide by zero encountered in divide
+  severe = np.where(y > 0, err / y < -0.20, False)
+S9 done
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest granite_patchtst_fm
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest timesfm_3
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest chronos_2
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest moirai
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest lag_llama
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress granite_patchtst_fm
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress timesfm_3
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress chronos_2
+S10 missing pandemic_stress moirai
+S10 missing pandemic_stress lag_llama
+wrote S6-S10
+HK scored granite_patchtst_fm tasks=66
+HK scored timesfm_3 tasks=66
+HK scored chronos_2 tasks=66
+HK scored moirai tasks=66
+HK scored lag_llama tasks=66
+HK scored ets tasks=66
+HK scored sarima tasks=66
+HK scored seasonal_naive tasks=66
+HK scored svr tasks=66
+HK scored lightgbm tasks=66
+HK scored transformer tasks=66
+HK vs Macau Spearman rho=0.873
+Traceback (most recent call last):
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m425_boundary.py", line 252, in <module>
+    run()
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m425_boundary.py", line 204, in run
+    add_dim("2_pandemic_stress", task[task.split_name == "pandemic_stress"])
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m425_boundary.py", line 182, in add_dim
+    block = BLOCK_REOPEN if subset_task.fold_id.astype(str).str.startswith("O").any() else BLOCK_STRESS
+                                                                                           ^^^^^^^^^^^^
+NameError: name 'BLOCK_STRESS' is not defined
+[finish] 2026-11-17T04:06:16+00:00
+HK scored granite_patchtst_fm tasks=66
+HK scored timesfm_3 tasks=66
+HK scored chronos_2 tasks=66
+HK scored moirai tasks=66
+HK scored lag_llama tasks=66
+HK scored ets tasks=66
+HK scored sarima tasks=66
+HK scored seasonal_naive tasks=66
+HK scored svr tasks=66
+HK scored lightgbm tasks=66
+HK scored transformer tasks=66
+HK vs Macau Spearman rho=0.873
+Traceback (most recent call last):
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m425_boundary.py", line 252, in <module>
+    run()
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m425_boundary.py", line 224, in run
+    add_dim(label, sub)
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m425_boundary.py", line 196, in add_dim
+    r = float(om.mean() / oe.mean())
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/DYQ/macau-tourism-world-model/.venv-server/lib/python3.11/site-packages/pandas/core/series.py", line 251, in wrapper
+    raise TypeError(f"cannot convert the series to {converter}")
+TypeError: cannot convert the series to <class 'float'>
+[finish3] 2026-11-17T04:09:49+00:00
+HK scored granite_patchtst_fm tasks=66
+HK scored timesfm_3 tasks=66
+HK scored chronos_2 tasks=66
+HK scored moirai tasks=66
+HK scored lag_llama tasks=66
+HK scored ets tasks=66
+HK scored sarima tasks=66
+HK scored seasonal_naive tasks=66
+HK scored svr tasks=66
+HK scored lightgbm tasks=66
+HK scored transformer tasks=66
+HK vs Macau Spearman rho=0.873
+wrote S11-S13
+fig5
+fig6
+fig7
+fig8
+fig9
+fig10
+wrote /root/DYQ/macau-tourism-forecasting-protocol/RQ2_outputs/4.2_RQ2_实验数据核对汇总稿.md
+[done] 2026-11-17T04:10:20+00:00
+total 116
+drwxr-xr-x 2 root root    15 Nov 17 04:10 .
+drwxr-xr-x 6 root root     7 Nov 17 04:10 ..
+-rw-r--r-- 1 root root  6674 Nov 17 04:03 table_S10_prediction_interval_80_coverage_and_wis.csv
+-rw-r--r-- 1 root root  5851 Nov 17 04:10 table_S11_hongkong_validation_and_macau_control.csv
+-rw-r--r-- 1 root root  1657 Nov 17 04:10 table_S12_exogenous_information_ablation_4metrics.csv
+-rw-r--r-- 1 root root 27632 Nov 17 04:10 table_S13_rq2_boundary_summary_matrix.csv
+-rw-r--r-- 1 root root 22302 Nov 17 04:03 table_S1_regime_comparison.csv
+-rw-r--r-- 1 root root 32856 Nov 17 04:03 table_S2_stress_stage_market_decomposition.csv
+-rw-r--r-- 1 root root  2923 Nov 17 04:03 table_S3_metric_concordance_matrix.csv
+-rw-r--r-- 1 root root 13185 Nov 17 04:03 table_S4_market_decomposition_and_spectrum.csv
+-rw-r--r-- 1 root root  5450 Nov 17 04:03 table_S5_history_length_and_denominator_control.csv
+-rw-r--r-- 1 root root  7649 Nov 17 04:03 table_S6_market_size_groups_4metrics.csv
+-rw-r--r-- 1 root root  7914 Nov 17 04:03 table_S7_top10_markets_bootstrap_winner_stability.csv
+-rw-r--r-- 1 root root 11437 Nov 17 04:03 table_S8_horizon_weekly_blocks_and_same_weekday.csv
+-rw-r--r-- 1 root root 11083 Nov 17 04:03 table_S9_high_demand_holiday_underprediction_risk.csv
+total 2094
+drwxr-xr-x 2 root root     14 Nov 17 04:10 .
+drwxr-xr-x 6 root root      7 Nov 17 04:10 ..
+-rw-r--r-- 1 root root  30414 Nov 17 04:10 figure10_rq2_advantage_boundary_heatmap.pdf
+-rw-r--r-- 1 root root 414467 Nov 17 04:10 figure10_rq2_advantage_boundary_heatmap.png
+-rw-r--r-- 1 root root  31684 Nov 17 04:10 figure5_regime_forest_4metrics.pdf
+-rw-r--r-- 1 root root 213231 Nov 17 04:10 figure5_regime_forest_4metrics.png
+-rw-r--r-- 1 root root  29012 Nov 17 04:10 figure6_metric_divergence_mechanism.pdf
+-rw-r--r-- 1 root root 313847 Nov 17 04:10 figure6_metric_divergence_mechanism.png
+-rw-r--r-- 1 root root  35596 Nov 17 04:10 figure7_history_length_and_covid_contamination.pdf
+-rw-r--r-- 1 root root 384489 Nov 17 04:10 figure7_history_length_and_covid_contamination.png
+-rw-r--r-- 1 root root  33608 Nov 17 04:10 figure8_market_heterogeneity_and_horizon.pdf
+-rw-r--r-- 1 root root 363684 Nov 17 04:10 figure8_market_heterogeneity_and_horizon.png
+-rw-r--r-- 1 root root  28629 Nov 17 04:10 figure9_holiday_risk_and_interval_calibration.pdf
+-rw-r--r-- 1 root root 335946 Nov 17 04:10 figure9_holiday_risk_and_interval_calibration.png

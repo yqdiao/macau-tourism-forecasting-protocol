@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "kind": "foundation_model_predictions",
+  "model": "granite_patchtst_fm",
+  "training_mode": "pretrained_zero_shot",
+  "source_repository": "https://github.com/ibm-granite/granite-tsfm.git",
+  "source_revision": "fe7a35697723e2a2f5246ae979474bfc554e26c0",
+  "checkpoint": "ibm-granite/granite-timeseries-patchtst-fm-r2",
+  "checkpoint_revision": "b125275f9204d37cbb81fe47b9cf5e08a521e829",
+  "device": "cuda",
+  "seed": 42,
+  "batch_size": 1,
+  "history_lengths": [
+    "all"
+  ],
+  "requested_context_days": 8192,
+  "forecast_tasks": 27,
+  "prediction_rows": 756,
+  "load_seconds": 5.863887872546911,
+  "peak_gpu_memory_mb": 2263.9130859375,
+  "peak_process_rss_mb": 2292.8671875,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "7f1f5f4f266a8ffa46fe65b7a0461985313f61c6d49ae4acd1f8438f7b98e6a0"
+  },
+  "candidate_id": null,
+  "search_space_sha256": null,
+  "runtime": {
+    "context_length": 8192,
+    "extra": {
+      "quantile_levels": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ]
+    }
+  },
+  "registry_sha256": "de45d122bbdd6b90b7a527a55bbdbd4b7ddb98fbe5812379d3a1150f23e4aae2",
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "fac19986029984c1d9b43983db1b53f91ea70083779645a862bc152741e37657",
+    "timings.jsonl": "bbbd97d8a2bdec95ba5a0bc0e5063ba2a68a4137ac2184adb134e3ec799ba4bd"
+  }
+}

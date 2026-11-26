@@ -1,0 +1,14 @@
+{"job": "1/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A01", "returncode": 0, "seconds": 143.5}
+{"job": "2/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A02", "returncode": 0, "seconds": 144.0}
+{"job": "3/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A03", "returncode": 0, "seconds": 143.6}
+{"job": "4/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A04", "returncode": 0, "seconds": 143.8}
+{"job": "5/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A05", "returncode": 0, "seconds": 143.4}
+{"job": "6/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A06", "returncode": 0, "seconds": 143.7}
+{"job": "7/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A07", "returncode": 0, "seconds": 143.7}
+{"job": "8/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A08", "returncode": 0, "seconds": 144.0}
+{"job": "9/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A09", "returncode": 0, "seconds": 143.5}
+{"job": "10/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A10", "returncode": 0, "seconds": 143.7}
+{"job": "11/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A11", "returncode": 0, "seconds": 143.6}
+{"job": "12/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A12", "returncode": 0, "seconds": 143.7}
+{"job": "13/13", "model": "lag_llama", "split": "pandemic_stress", "fold": "A13", "returncode": 0, "seconds": 143.4}
+EXIT:0

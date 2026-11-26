@@ -1,0 +1,25 @@
+scoring quantile comparisons
+scoring point-forecast decisions
+point decision granite_patchtst_fm
+point decision timesfm_3
+point decision chronos_2
+point decision moirai
+point decision lag_llama
+point decision ets
+point decision sarima
+point decision seasonal_naive
+point decision svr
+point decision lightgbm
+point decision GL03
+point decision LL01
+point decision transformer
+point decision NL01
+Traceback (most recent call last):
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ1/build_rq1_remaining.py", line 350, in <module>
+    main()
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ1/build_rq1_remaining.py", line 345, in main
+    draw_plots(forest, curve, front)
+  File "/root/DYQ/macau-tourism-forecasting-protocol/RQ1/build_rq1_remaining.py", line 273, in draw_plots
+    import matplotlib
+ModuleNotFoundError: No module named 'matplotlib'
+EXIT:1

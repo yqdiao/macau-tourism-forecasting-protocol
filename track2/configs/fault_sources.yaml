@@ -1,0 +1,5 @@
+{
+  "R1": "track1/results/foundation_b_search/informer/INF01/seed42",
+  "R2": "track1/results/foundation_smoke/recovery_tuning/B01_2023-01-07/lag_llama/predictions.parquet",
+  "note": "R1 and R2 replace M1 with the archived 28-day pattern of the same market. R3, R4, S1, S4 and S5 are hard member failures."
+}

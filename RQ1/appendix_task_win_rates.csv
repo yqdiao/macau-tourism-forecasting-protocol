@@ -1,0 +1,24 @@
+config_id,model,tasks_compared,task_wins_vs_ETS,task_wins_vs_ETS_text
+GL03,LightGBM (Global),891,637.0,637/891
+LL01,LightGBM+Calendar (Local),891,614.0,614/891
+NL01,Global NLinear,891,388.0,388/891
+chronos_2,Chronos-2,891,697.0,697/891
+elasticnet,Elastic Net,891,386.0,386/891
+ets,ETS,891,,
+gradient_boosting,GBDT,891,443.0,443/891
+granite_patchtst_fm,Granite,891,725.0,725/891
+informer,Informer,891,319.0,319/891
+lag_llama,Lag-Llama,891,371.0,371/891
+lasso,Lasso,891,394.0,394/891
+lightgbm,LightGBM (Local),891,429.0,429/891
+linear_regression,Linear Regression,891,401.0,401/891
+moirai,Moirai 2.0,891,587.0,587/891
+parrot_random_forest_800,Random Forest 800,891,421.0,421/891
+patchtst,PatchTST,891,397.0,397/891
+random_forest,Random Forest,891,430.0,430/891
+ridge,Ridge,891,399.0,399/891
+sarima,SARIMA,891,307.0,307/891
+seasonal_naive,Seasonal Naive,891,200.0,200/891
+svr,SVR,891,500.0,500/891
+timesfm_3,TimesFM 3.0,891,733.0,733/891
+transformer,Small Transformer,891,394.0,394/891

@@ -1,0 +1,48 @@
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 1009.52it/s]
+Loading weights from local directory
+{
+  "schema_version": 1,
+  "kind": "foundation_model_predictions",
+  "model": "moirai",
+  "training_mode": "pretrained_zero_shot",
+  "source_repository": "https://github.com/SalesforceAIResearch/uni2ts.git",
+  "source_revision": "cfd46d4510ed8896f263116f32928eede05b0a75",
+  "checkpoint": "Salesforce/moirai-2.0-R-small",
+  "checkpoint_revision": "30f43ff08c8494f4943ae1521e9d4e94a0fbb389",
+  "device": "cuda",
+  "seed": 42,
+  "batch_size": 1,
+  "history_lengths": [
+    "all"
+  ],
+  "requested_context_days": 1680,
+  "forecast_tasks": 27,
+  "prediction_rows": 756,
+  "load_seconds": 3.676666487008333,
+  "peak_gpu_memory_mb": 77.72509765625,
+  "peak_process_rss_mb": 1279.76171875,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "5d7a997f77c78d3b27b94ece0b9bb6a38aaef0e9734bc1ccd75e80eb545acc31"
+  },
+  "candidate_id": null,
+  "search_space_sha256": null,
+  "runtime": {
+    "context_length": 1680,
+    "extra": {
+      "quantile_levels": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ]
+    }
+  },
+  "registry_sha256": "de45d122bbdd6b90b7a527a55bbdbd4b7ddb98fbe5812379d3a1150f23e4aae2",
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "1a2a7c57f79f12edca57f134e6b65f9eecd127bbfb1e5d840039eab27d44de7a",
+    "timings.jsonl": "1cac657eca30a0966f590582742456ba11d08368817d88441978dc9dd2e93ae0"
+  }
+}

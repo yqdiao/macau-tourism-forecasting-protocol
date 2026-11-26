@@ -1,0 +1,41 @@
+market,metric,point_best,point_best_model,point_second,point_second_model,bootstrap_winner,bootstrap_winner_model,bootstrap_win_prob,status,winprob_granite_patchtst_fm,winprob_timesfm_3,winprob_chronos_2,winprob_moirai,winprob_lag_llama,winprob_ets,winprob_sarima,winprob_seasonal_naive,winprob_svr,winprob_lightgbm,winprob_GL03,winprob_LL01,winprob_transformer,winprob_NL01
+CN_Chinese_mainland,MASE,granite_patchtst_fm,Granite,chronos_2,Chronos-2,granite_patchtst_fm,Granite,0.60425,Statistical Tie,0.60425,0.2185,0.1065,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.07075,0.0,0.0
+CN_Chinese_mainland,MAPE,granite_patchtst_fm,Granite,chronos_2,Chronos-2,granite_patchtst_fm,Granite,0.84675,Clear Winner,0.84675,0.01025,0.11725,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0205,0.00525,0.0,0.0
+CN_Chinese_mainland,MAE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.6025,Statistical Tie,0.6025,0.21725,0.09975,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0805,0.0,0.0
+CN_Chinese_mainland,RMSE,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,0.429,Statistical Tie,0.2725,0.429,0.006,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2925,0.0,0.0
+HK_Hong_Kong_SAR,MASE,timesfm_3,TimesFM 3.0,chronos_2,Chronos-2,timesfm_3,TimesFM 3.0,0.59875,Statistical Tie,0.029,0.59875,0.254,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.11825,0.0,0.0
+HK_Hong_Kong_SAR,MAPE,GL03,LightGBM (Global),chronos_2,Chronos-2,GL03,LightGBM (Global),0.65025,Statistical Tie,0.01125,0.09125,0.23225,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.65025,0.015,0.0,0.0
+HK_Hong_Kong_SAR,MAE,timesfm_3,TimesFM 3.0,chronos_2,Chronos-2,timesfm_3,TimesFM 3.0,0.60825,Statistical Tie,0.0325,0.60825,0.2365,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.12275,0.0,0.0
+HK_Hong_Kong_SAR,RMSE,timesfm_3,TimesFM 3.0,LL01,LightGBM+Calendar (Local),timesfm_3,TimesFM 3.0,0.6265,Statistical Tie,0.0,0.6265,0.0055,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0015,0.3665,0.0,0.0
+TW_Taiwan_region,MASE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.94425,Clear Winner,0.94425,0.004,0.05175,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+TW_Taiwan_region,MAPE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.9795,Clear Winner,0.9795,0.0,0.0205,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+TW_Taiwan_region,MAE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.942,Clear Winner,0.942,0.0045,0.0535,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+TW_Taiwan_region,RMSE,granite_patchtst_fm,Granite,chronos_2,Chronos-2,granite_patchtst_fm,Granite,0.951,Clear Winner,0.951,0.00175,0.04475,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0025,0.0,0.0
+KR_Republic_of_Korea,MASE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.9525,Clear Winner,0.9525,0.01675,0.0005,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.003,0.02725,0.0,0.0
+KR_Republic_of_Korea,MAPE,granite_patchtst_fm,Granite,chronos_2,Chronos-2,granite_patchtst_fm,Granite,0.98075,Clear Winner,0.98075,0.0025,0.00125,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.00125,0.01425,0.0,0.0
+KR_Republic_of_Korea,MAE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.95375,Clear Winner,0.95375,0.017,0.0005,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0025,0.02625,0.0,0.0
+KR_Republic_of_Korea,RMSE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.964,Clear Winner,0.964,0.00425,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.00125,0.0305,0.0,0.0
+PH_Philippines,MASE,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,0.52925,Statistical Tie,0.16,0.52925,0.092,0.0,0.0,0.00075,0.0,0.0,0.0,0.0,0.00875,0.20925,0.0,0.0
+PH_Philippines,MAPE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.80075,Clear Winner,0.80075,0.0165,0.0175,0.0005,0.0,0.0005,0.0,0.0,0.00025,0.0,0.1385,0.01025,0.01525,0.0
+PH_Philippines,MAE,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,0.504,Statistical Tie,0.1835,0.504,0.10325,0.0,0.0,0.00075,0.0,0.0,0.0,0.0,0.00875,0.19975,0.0,0.0
+PH_Philippines,RMSE,LL01,LightGBM+Calendar (Local),timesfm_3,TimesFM 3.0,LL01,LightGBM+Calendar (Local),0.629,Statistical Tie,0.00025,0.283,0.01525,0.0,0.0,0.00025,0.0,0.0,0.0,0.0,0.07225,0.629,0.0,0.0
+ID_Indonesia,MASE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.77925,Statistical Tie,0.77925,0.08275,0.138,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ID_Indonesia,MAPE,granite_patchtst_fm,Granite,chronos_2,Chronos-2,chronos_2,Chronos-2,0.58825,Statistical Tie,0.4055,0.00625,0.58825,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ID_Indonesia,MAE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.76575,Statistical Tie,0.76575,0.08075,0.1535,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ID_Indonesia,RMSE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.84125,Clear Winner,0.84125,0.0705,0.04075,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.01725,0.03025,0.0,0.0
+MY_Malaysia,MASE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.87425,Clear Winner,0.87425,0.045,0.0005,0.0,0.0,0.0,0.0,0.0,0.00025,0.0,0.0005,0.0795,0.0,0.0
+MY_Malaysia,MAPE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.8835,Clear Winner,0.8835,0.00225,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.11425,0.0,0.0
+MY_Malaysia,MAE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.878,Clear Winner,0.878,0.04375,0.00025,0.0,0.0,0.0,0.0,0.0,0.00025,0.0,0.0005,0.07725,0.0,0.0
+MY_Malaysia,RMSE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.7785,Statistical Tie,0.7785,0.16,0.00125,0.0,0.0,0.0,0.0,0.0,0.0015,0.00025,0.0025,0.056,0.0,0.0
+TH_Thailand,MASE,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,0.473,Statistical Tie,0.43125,0.473,0.02475,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.06375,0.00725,0.0,0.0
+TH_Thailand,MAPE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.4885,Statistical Tie,0.4885,0.16575,0.0725,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2155,0.05775,0.0,0.0
+TH_Thailand,MAE,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,0.4615,Statistical Tie,0.43275,0.4615,0.02225,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0775,0.006,0.0,0.0
+TH_Thailand,RMSE,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,0.50075,Statistical Tie,0.3505,0.50075,0.06675,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.065,0.017,0.0,0.0
+US_United_States_of_America,MASE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.71625,Statistical Tie,0.71625,0.231,0.05275,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+US_United_States_of_America,MAPE,granite_patchtst_fm,Granite,GL03,LightGBM (Global),granite_patchtst_fm,Granite,0.62925,Statistical Tie,0.62925,0.0745,0.0155,0.0,0.0,0.0,0.0,0.13525,0.0,0.0005,0.145,0.0,0.0,0.0
+US_United_States_of_America,MAE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.7075,Statistical Tie,0.7075,0.24425,0.04825,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+US_United_States_of_America,RMSE,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,0.623,Statistical Tie,0.623,0.3015,0.0755,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+JP_Japan,MASE,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,0.985,Clear Winner,0.0,0.985,0.003,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.012,0.0,0.0
+JP_Japan,MAPE,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,0.771,Statistical Tie,0.03,0.771,0.004,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.195,0.0,0.0
+JP_Japan,MAE,timesfm_3,TimesFM 3.0,granite_patchtst_fm,Granite,timesfm_3,TimesFM 3.0,0.98325,Clear Winner,0.0,0.98325,0.00325,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0135,0.0,0.0
+JP_Japan,RMSE,timesfm_3,TimesFM 3.0,chronos_2,Chronos-2,timesfm_3,TimesFM 3.0,0.96175,Clear Winner,0.00025,0.96175,0.001,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.037,0.0,0.0

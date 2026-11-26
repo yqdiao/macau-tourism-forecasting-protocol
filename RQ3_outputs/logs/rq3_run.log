@@ -1,0 +1,126 @@
+=== RQ3 start ===
+loaded days=243432 tasks=8694 holidays=143
+baseline alignment OK; max abs diff=2.274e-13
+=== S14 ===
+=== S15/S16 dynamic ===
+replay outer_backtest G1_Stat_Stat
+replay outer_backtest G1_Stat_Stat_Mode2
+replay outer_backtest G2_LLM_Stat_eta0.3
+replay outer_backtest G2_LLM_Stat_Mode2
+replay outer_backtest G3_Stat_LLM_eta0.3
+replay outer_backtest G3_Stat_LLM_eta0.5
+replay outer_backtest G3_Stat_LLM_eta1.0
+replay outer_backtest G4_LLM_LLM_eta0.3
+replay outer_backtest G4_LLM_LLM_eta0.5
+replay outer_backtest G4_LLM_LLM_eta1.0
+replay outer_backtest G4_LLM_LLM_Mode2_eta0.3
+replay pandemic_stress G1_Stat_Stat
+replay pandemic_stress G1_Stat_Stat_Mode2
+replay pandemic_stress G2_LLM_Stat_eta0.3
+replay pandemic_stress G2_LLM_Stat_Mode2
+replay pandemic_stress G3_Stat_LLM_eta0.3
+replay pandemic_stress G3_Stat_LLM_eta0.5
+replay pandemic_stress G3_Stat_LLM_eta1.0
+replay pandemic_stress G4_LLM_LLM_eta0.3
+replay pandemic_stress G4_LLM_LLM_eta0.5
+replay pandemic_stress G4_LLM_LLM_eta1.0
+replay pandemic_stress G4_LLM_LLM_Mode2_eta0.3
+=== S17 sensitivity ===
+=== S18 costs ===
+=== LL01 sensitivity appendix ===
+=== figures ===
+figures written
+summary written
+=== RQ3 DONE ===
+=== fill_gaps start ===
+[fill] rebuild tasks outer_backtest
+[fill] rebuild tasks pandemic_stress
+=== enrich S15 ===
+=== enrich S14 ===
+=== rebuild S16 ===
+=== enrich S18 ===
+=== fill_gaps DONE ===
+=== DeepSeek RQ3 start ===
+model=deepseek-chat base=https://api.deepseek.com
+=== build feature jobs ===
+non-cold decision points=1188
+=== collect DeepSeek judgments ===
+DeepSeek jobs=1188 already_cached_keys=0
+pending API calls=2376 workers=6
+API progress 50/2376 ok=50 fail=0
+API progress 100/2376 ok=100 fail=0
+API progress 150/2376 ok=150 fail=0
+API progress 200/2376 ok=200 fail=0
+API progress 250/2376 ok=250 fail=0
+API progress 300/2376 ok=300 fail=0
+API progress 350/2376 ok=350 fail=0
+API progress 400/2376 ok=400 fail=0
+API progress 450/2376 ok=450 fail=0
+API progress 500/2376 ok=500 fail=0
+API progress 550/2376 ok=550 fail=0
+API progress 600/2376 ok=600 fail=0
+API progress 650/2376 ok=650 fail=0
+API progress 700/2376 ok=700 fail=0
+API progress 750/2376 ok=750 fail=0
+API progress 800/2376 ok=800 fail=0
+API progress 850/2376 ok=850 fail=0
+API progress 900/2376 ok=900 fail=0
+API progress 950/2376 ok=950 fail=0
+API progress 1000/2376 ok=1000 fail=0
+API progress 1050/2376 ok=1050 fail=0
+API progress 1100/2376 ok=1100 fail=0
+API progress 1150/2376 ok=1150 fail=0
+API progress 1200/2376 ok=1200 fail=0
+API progress 1250/2376 ok=1250 fail=0
+API progress 1300/2376 ok=1300 fail=0
+API progress 1350/2376 ok=1350 fail=0
+API progress 1400/2376 ok=1400 fail=0
+API progress 1450/2376 ok=1450 fail=0
+API progress 1500/2376 ok=1500 fail=0
+API progress 1550/2376 ok=1550 fail=0
+API progress 1600/2376 ok=1600 fail=0
+API progress 1650/2376 ok=1650 fail=0
+API progress 1700/2376 ok=1700 fail=0
+API progress 1750/2376 ok=1750 fail=0
+API progress 1800/2376 ok=1800 fail=0
+API progress 1850/2376 ok=1850 fail=0
+API progress 1900/2376 ok=1900 fail=0
+API progress 1950/2376 ok=1950 fail=0
+API progress 2000/2376 ok=2000 fail=0
+API progress 2050/2376 ok=2050 fail=0
+API progress 2100/2376 ok=2100 fail=0
+API progress 2150/2376 ok=2150 fail=0
+API progress 2200/2376 ok=2200 fail=0
+API progress 2250/2376 ok=2250 fail=0
+API progress 2300/2376 ok=2300 fail=0
+API progress 2350/2376 ok=2350 fail=0
+API progress 2376/2376 ok=2376 fail=0
+collect done ok=2376 fail=0
+cached select_weight=1188 weight_only=1188
+=== recompute S15 with DeepSeek ===
+recompute outer_backtest
+outer_backtest G1_Stat_Stat MASE=1.1519 fallback=0
+outer_backtest G1_Stat_Stat_Mode2 MASE=1.1519 fallback=0
+outer_backtest G2_LLM_Stat_eta0.3 MASE=1.1411 fallback=0
+outer_backtest G2_LLM_Stat_Mode2 MASE=1.1411 fallback=0
+outer_backtest G3_Stat_LLM_eta0.3 MASE=1.1519 fallback=0
+outer_backtest G3_Stat_LLM_eta0.5 MASE=1.1519 fallback=0
+outer_backtest G3_Stat_LLM_eta1.0 MASE=1.1519 fallback=0
+outer_backtest G4_LLM_LLM_eta0.3 MASE=1.1409 fallback=0
+outer_backtest G4_LLM_LLM_eta0.5 MASE=1.1409 fallback=0
+outer_backtest G4_LLM_LLM_eta1.0 MASE=1.1407 fallback=0
+outer_backtest G4_LLM_LLM_Mode2_eta0.3 MASE=1.1409 fallback=0
+recompute pandemic_stress
+pandemic_stress G1_Stat_Stat MASE=0.2091 fallback=0
+pandemic_stress G1_Stat_Stat_Mode2 MASE=0.2091 fallback=0
+pandemic_stress G2_LLM_Stat_eta0.3 MASE=0.2095 fallback=0
+pandemic_stress G2_LLM_Stat_Mode2 MASE=0.2095 fallback=0
+pandemic_stress G3_Stat_LLM_eta0.3 MASE=0.2091 fallback=0
+pandemic_stress G3_Stat_LLM_eta0.5 MASE=0.2091 fallback=0
+pandemic_stress G3_Stat_LLM_eta1.0 MASE=0.2091 fallback=0
+pandemic_stress G4_LLM_LLM_eta0.3 MASE=0.2095 fallback=0
+pandemic_stress G4_LLM_LLM_eta0.5 MASE=0.2095 fallback=0
+pandemic_stress G4_LLM_LLM_eta1.0 MASE=0.2096 fallback=0
+pandemic_stress G4_LLM_LLM_Mode2_eta0.3 MASE=0.2095 fallback=0
+figures redrawn with DeepSeek results
+=== DeepSeek RQ3 DONE ===

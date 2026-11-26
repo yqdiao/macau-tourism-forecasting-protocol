@@ -1,0 +1,27 @@
+building q_all
+loading predictions
+loaded granite_patchtst_fm: rows=24948
+loaded timesfm_3: rows=24948
+loaded chronos_2: rows=24948
+loaded moirai: rows=24948
+loaded lag_llama: rows=24948
+loaded ets: rows=24948
+loaded sarima: rows=24948
+loaded seasonal_naive: rows=24948
+loaded svr: rows=24948
+loaded lightgbm: rows=24948
+loaded GL03: rows=24948
+loaded LL01: rows=24948
+loaded transformer: rows=24948
+loaded NL01: rows=24948
+loaded gradient_boosting: rows=24948
+loaded random_forest: rows=24948
+loaded ridge: rows=24948
+loaded linear_regression: rows=24948
+loaded lasso: rows=24948
+loaded elasticnet: rows=24948
+loaded parrot_random_forest_800: rows=24948
+loaded patchtst: rows=24948
+loaded informer: rows=24948
+RQ1 tables written
+EXIT:0

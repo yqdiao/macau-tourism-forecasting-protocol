@@ -1,0 +1,4 @@
+model,input_mode,tasks,MASE,MAPE_pct,RMSE
+timesfm_3,calendar_known_future_plus_other_markets_past,891,1.0772527084488663,38.86168862047988,695.0075574408451
+chronos_2,calendar_known_future_and_27_market_cross_learning,891,1.128758676917222,39.40185887239789,729.3373179904172
+moirai,calendar_known_future_plus_other_markets_past,891,1.5622485294138118,45.24284495642952,1148.592380827937

@@ -1,0 +1,79 @@
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 1445.56it/s]
+INFO:p-3024600:t-124210664441280:modeling_patchtst_fm.py:__init__:Stacked blocks: (0):ConformerBlock-5 --> (1):ConformerBlock-5 --> (2):ConformerBlock-3 --> (3):ConformerBlock-3 --> (4):ConformerBlock-5 --> (5):ConformerBlock-5 --> (6):ConformerBlock-3 --> (7):ConformerBlock-3 --> (8):ConformerBlock-5 --> (9):ConformerBlock-5 --> (10):ConformerBlock-3 --> (11):ConformerBlock-3 --> (12):ConformerBlock-5 --> (13):ConformerBlock-5 --> (14):ConformerBlock-3 --> (15):ConformerBlock-3 --> (16):ConformerBlock-5 --> (17):ConformerBlock-5 --> (18):ConformerBlock-3 --> (19):ConformerBlock-3 --> (20):ConformerBlock-5 --> (21):ConformerBlock-5 --> (22):ConformerBlock-3 --> (23):ConformerBlock-3 --> (24):ConformerBlock-5 --> (25):ConformerBlock-5 --> (26):ConformerBlock-3 --> (27):ConformerBlock-3 --> (28):ConformerBlock-5 --> (29):ConformerBlock-5
+Loading weights:   0%|          | 0/646 [00:00<?, ?it/s]Loading weights: 100%|██████████| 646/646 [00:00<00:00, 9838.35it/s]
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+[transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 3256, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 1795, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+INFO:p-3024600:t-124210664441280:time_series_forecasting_pipeline.py:preprocess:Preprocessing with: {'prediction_length': 28, 'context_length': 1795, 'frequency_token': None, 'id_columns': [], 'timestamp_column': 'date', 'target_columns': ['target'], 'impute_method': None, 'max_context_length': 8192}
+{
+  "schema_version": 1,
+  "kind": "foundation_model_predictions",
+  "model": "granite_patchtst_fm",
+  "training_mode": "pretrained_zero_shot",
+  "source_repository": "https://github.com/ibm-granite/granite-tsfm.git",
+  "source_revision": "fe7a35697723e2a2f5246ae979474bfc554e26c0",
+  "checkpoint": "ibm-granite/granite-timeseries-patchtst-fm-r2",
+  "checkpoint_revision": "b125275f9204d37cbb81fe47b9cf5e08a521e829",
+  "device": "cuda",
+  "seed": 42,
+  "batch_size": 1,
+  "history_lengths": [
+    "all"
+  ],
+  "requested_context_days": 8192,
+  "forecast_tasks": 29,
+  "prediction_rows": 812,
+  "load_seconds": 6.215252708643675,
+  "peak_gpu_memory_mb": 2263.9130859375,
+  "peak_process_rss_mb": 2289.984375,
+  "input_artifact": {
+    "name": "task_inputs.parquet",
+    "sha256": "3104ddb18f6f296a49735683e955dd58edd17e02ebac9e9494cc078141f7be82"
+  },
+  "candidate_id": null,
+  "search_space_sha256": null,
+  "runtime": {
+    "context_length": 8192,
+    "extra": {
+      "quantile_levels": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ]
+    }
+  },
+  "registry_sha256": "de45d122bbdd6b90b7a527a55bbdbd4b7ddb98fbe5812379d3a1150f23e4aae2",
+  "target_artifact_accessed": false,
+  "outputs": {
+    "predictions.parquet": "1c0c370e3282dc71f866b4dcabe965aafce8853c2b7cd89802303a081712ec00",
+    "timings.jsonl": "190eb99dd78e396c6f3c6b9c71aa43e9b69addf2005d4e7545e295af5a41ad94"
+  }
+}

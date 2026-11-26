@@ -1,0 +1,8 @@
+{
+  "ensemble_config_sha256": "6f9e33984a54a10ff211e668950eaae597bb2547cbf105a10c75bfaa19aa8d1e",
+  "fallback_policy_sha256": "c19069eb2c14893dbdc25cebaee35809376257b5fdfe18cca56238bc075a63ca",
+  "selected_models_sha256": "e1902ed8ff2b2377f1b00c64a883e50df72f851fc5edc14b1805765cf2796882",
+  "outer_used_for_selection": false,
+  "selected_method": "T2-E4",
+  "per_horizon": false
+}

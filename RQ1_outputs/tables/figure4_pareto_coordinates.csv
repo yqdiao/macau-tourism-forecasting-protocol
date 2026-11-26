@@ -1,0 +1,70 @@
+scenario,model,MASE,cost_ratio_vs_ETS,on_pareto_front,display_name,in_table3
+cloud_on_demand,chronos_2,1.1523936414806129,1.5633897938110024,True,Chronos-2,True
+cloud_spot_or_community,chronos_2,1.1523936414806129,0.9734313810521336,True,Chronos-2,True
+owned_or_lambda,chronos_2,1.1523936414806129,3.215273349535835,True,Chronos-2,True
+cloud_on_demand,elasticnet,1.6158130542721751,1.5022046276288266,False,Elastic Net,False
+cloud_spot_or_community,elasticnet,1.6158130542721751,1.5022046276288266,False,Elastic Net,False
+owned_or_lambda,elasticnet,1.6158130542721751,1.5022046276288266,False,Elastic Net,False
+cloud_on_demand,ets,1.6393183387507346,1.0,False,ETS,True
+cloud_spot_or_community,ets,1.6393183387507346,1.0,False,ETS,True
+owned_or_lambda,ets,1.6393183387507346,1.0,False,ETS,True
+cloud_on_demand,gradient_boosting,1.5133836829685021,29.778275988807373,False,GBDT,False
+cloud_spot_or_community,gradient_boosting,1.5133836829685021,29.778275988807373,False,GBDT,False
+owned_or_lambda,gradient_boosting,1.5133836829685021,29.778275988807373,False,GBDT,False
+cloud_on_demand,granite_patchtst_fm,1.0943995801290252,3.0908272439293296,True,Granite,True
+cloud_spot_or_community,granite_patchtst_fm,1.0943995801290252,1.9244773405597713,True,Granite,True
+owned_or_lambda,granite_patchtst_fm,1.0943995801290252,6.3566069733640935,True,Granite,True
+cloud_on_demand,informer,1.8456009528352795,784.2653618762648,False,Informer,False
+cloud_spot_or_community,informer,1.8456009528352795,488.31616871541024,False,Informer,False
+owned_or_lambda,informer,1.8456009528352795,1612.9231027266578,False,Informer,False
+cloud_on_demand,lag_llama,1.6443511863501523,17.20505845677555,False,Lag-Llama,True
+cloud_spot_or_community,lag_llama,1.6443511863501523,10.712583567426286,False,Lag-Llama,True
+owned_or_lambda,lag_llama,1.6443511863501523,35.38398814695349,False,Lag-Llama,True
+cloud_on_demand,lasso,1.6144639521237167,1.2801658757655319,True,Lasso,False
+cloud_spot_or_community,lasso,1.6144639521237167,1.2801658757655319,False,Lasso,False
+owned_or_lambda,lasso,1.6144639521237167,1.2801658757655319,True,Lasso,False
+cloud_on_demand,lightgbm,1.5147331528108325,8.570722801139473,False,LightGBM (Local),True
+cloud_spot_or_community,lightgbm,1.5147331528108325,8.570722801139473,False,LightGBM (Local),True
+owned_or_lambda,lightgbm,1.5147331528108325,8.570722801139473,False,LightGBM (Local),True
+cloud_on_demand,linear_regression,1.6262265043297648,0.826486572472386,True,Linear Regression,False
+cloud_spot_or_community,linear_regression,1.6262265043297648,0.826486572472386,True,Linear Regression,False
+owned_or_lambda,linear_regression,1.6262265043297648,0.826486572472386,True,Linear Regression,False
+cloud_on_demand,moirai,1.375328170695545,1.5954523904240971,False,Moirai 2.0,True
+cloud_spot_or_community,moirai,1.375328170695545,0.993394884603683,False,Moirai 2.0,True
+owned_or_lambda,moirai,1.375328170695545,3.2812134067212564,False,Moirai 2.0,True
+cloud_on_demand,parrot_random_forest_800,1.51605861978349,845.6285648631489,False,Random Forest 800,False
+cloud_spot_or_community,parrot_random_forest_800,1.51605861978349,845.6285648631489,False,Random Forest 800,False
+owned_or_lambda,parrot_random_forest_800,1.51605861978349,845.6285648631489,False,Random Forest 800,False
+cloud_on_demand,patchtst,1.5677697679322553,182.68852139678972,False,PatchTST,False
+cloud_spot_or_community,patchtst,1.5677697679322553,113.74945671875587,False,PatchTST,False
+owned_or_lambda,patchtst,1.5677697679322553,375.7179024952845,False,PatchTST,False
+cloud_on_demand,random_forest,1.5153976827889748,203.58342948998018,False,Random Forest,False
+cloud_spot_or_community,random_forest,1.5153976827889748,203.58342948998018,False,Random Forest,False
+owned_or_lambda,random_forest,1.5153976827889748,203.58342948998018,False,Random Forest,False
+cloud_on_demand,ridge,1.6240548586624575,0.8465851005783602,True,Ridge,False
+cloud_spot_or_community,ridge,1.6240548586624575,0.8465851005783602,True,Ridge,False
+owned_or_lambda,ridge,1.6240548586624575,0.8465851005783602,True,Ridge,False
+cloud_on_demand,sarima,1.7506265901426066,1.7453361279308341,False,SARIMA,True
+cloud_spot_or_community,sarima,1.7506265901426066,1.7453361279308341,False,SARIMA,True
+owned_or_lambda,sarima,1.7506265901426066,1.7453361279308341,False,SARIMA,True
+cloud_on_demand,seasonal_naive,1.882640865424415,0.00021978024668849554,True,Seasonal Naive,True
+cloud_spot_or_community,seasonal_naive,1.882640865424415,0.00021978024668849554,True,Seasonal Naive,True
+owned_or_lambda,seasonal_naive,1.882640865424415,0.00021978024668849554,True,Seasonal Naive,True
+cloud_on_demand,svr,1.4462842217360288,9.52942337491368,False,SVR,True
+cloud_spot_or_community,svr,1.4462842217360288,9.52942337491368,False,SVR,True
+owned_or_lambda,svr,1.4462842217360288,9.52942337491368,False,SVR,True
+cloud_on_demand,timesfm_3,1.1172487511255302,1.7641453573756327,True,TimesFM 3.0,True
+cloud_spot_or_community,timesfm_3,1.1172487511255302,1.0984301281772806,True,TimesFM 3.0,True
+owned_or_lambda,timesfm_3,1.1172487511255302,3.628147999131018,True,TimesFM 3.0,True
+cloud_on_demand,transformer,1.5911717625550903,45.833216945588795,False,Small Transformer,True
+cloud_spot_or_community,transformer,1.5911717625550903,45.833216945588795,False,Small Transformer,True
+owned_or_lambda,transformer,1.5911717625550903,45.833216945588795,False,Small Transformer,True
+cloud_on_demand,GL03,1.3379897245507029,4.442167416078568,False,LightGBM (Global),True
+cloud_spot_or_community,GL03,1.3379897245507029,4.442167416078568,False,LightGBM (Global),True
+owned_or_lambda,GL03,1.3379897245507029,4.442167416078568,False,LightGBM (Global),True
+cloud_on_demand,LL01,1.2601594411786645,18.744604507011356,False,LightGBM+Calendar (Local),True
+cloud_spot_or_community,LL01,1.2601594411786645,18.744604507011356,False,LightGBM+Calendar (Local),True
+owned_or_lambda,LL01,1.2601594411786645,18.744604507011356,False,LightGBM+Calendar (Local),True
+cloud_on_demand,NL01,1.6273963184433766,0.407945606626567,True,Global NLinear,True
+cloud_spot_or_community,NL01,1.6273963184433766,0.407945606626567,True,Global NLinear,True
+owned_or_lambda,NL01,1.6273963184433766,0.407945606626567,True,Global NLinear,True

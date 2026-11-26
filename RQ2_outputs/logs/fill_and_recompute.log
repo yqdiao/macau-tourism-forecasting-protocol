@@ -1,0 +1,287 @@
+[fill start] 2026-11-17T05:30:15+00:00
+Waiting for lag_llama pandemic_stress five-quantile (need 13/13)...
+  lag_llama stress preds: 9/13  05:30:15
+  lag_llama stress preds: 9/13  05:30:45
+  lag_llama stress preds: 9/13  05:31:15
+  lag_llama stress preds: 10/13  05:31:45
+  lag_llama stress preds: 10/13  05:32:15
+  lag_llama stress preds: 10/13  05:32:45
+  lag_llama stress preds: 10/13  05:33:15
+  lag_llama stress preds: 10/13  05:33:45
+  lag_llama stress preds: 11/13  05:34:15
+  lag_llama stress preds: 11/13  05:34:45
+  lag_llama stress preds: 11/13  05:35:15
+  lag_llama stress preds: 11/13  05:35:45
+  lag_llama stress preds: 11/13  05:36:15
+  lag_llama stress preds: 12/13  05:36:45
+  lag_llama stress preds: 12/13  05:37:15
+  lag_llama stress preds: 12/13  05:37:45
+  lag_llama stress preds: 12/13  05:38:16
+  lag_llama stress preds: 13/13  05:38:46
+moirai stress: 13/13
+synced 26 prediction files to RQ1_outputs
+history score all granite_patchtst_fm files=33
+history score all timesfm_3 files=33
+history score all chronos_2 files=33
+history score all moirai files=33
+history score all lag_llama files=33
+history score all ets files=957
+history score all sarima files=957
+history score all seasonal_naive files=957
+history score all svr files=957
+history score all lightgbm files=957
+history score all transformer files=957
+history score all GL03 files=33
+history score all LL01 files=33
+history score all NL01 files=33
+history score 365 granite_patchtst_fm files=33
+[refill S10] 2026-11-17T05:39:16+00:00
+history score 365 timesfm_3 files=33
+S6/S7 done
+S8 done
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:163: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  d["is_official_holiday"] = d["is_official_holiday"].fillna(False)
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:187: RuntimeWarning: divide by zero encountered in divide
+  severe = np.where(y > 0, err / y < -0.20, False)
+S9 done
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest granite_patchtst_fm
+history score 365 chronos_2 files=33
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest timesfm_3
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest chronos_2
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest moirai
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest lag_llama
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress granite_patchtst_fm
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress timesfm_3
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress chronos_2
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress moirai
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress lag_llama
+wrote S6-S10
+history score 365 moirai files=33
+fig9 rewritten
+wrote /root/DYQ/macau-tourism-forecasting-protocol/RQ2_outputs/4.2_RQ2_实验数据核对汇总稿.md
+[done] 2026-11-17T05:39:36+00:00
+history score 365 lag_llama files=33
+history score 365 ets files=957
+history score 365 sarima files=957
+history score 365 seasonal_naive files=957
+history score 365 svr files=957
+history score 365 lightgbm files=957
+history score 365 transformer files=957
+history score 365 GL03 files=33
+history score 365 LL01 files=33
+history score 365 NL01 files=99
+history score 180 granite_patchtst_fm files=33
+history score 180 timesfm_3 files=33
+history score 180 chronos_2 files=33
+history score 180 moirai files=33
+history score 180 lag_llama files=33
+history score 180 ets files=957
+history score 180 sarima files=957
+history score 180 seasonal_naive files=957
+history score 180 svr files=957
+history score 180 lightgbm files=957
+history score 180 transformer files=957
+history score 180 GL03 files=33
+history score 180 LL01 files=33
+history score 180 NL01 files=99
+wrote history panel 37422 rows
+history panel expanded
+/root/DYQ/macau-tourism-world-model/.venv-server/bin/python: can't open file '/root/DYQ/macau-tourism-forecasting-protocol/m423_history.py': [Errno 2] No such file or directory
+==== relaunch ====
+[fill start] 2026-11-17T06:02:22+00:00
+Waiting for lag_llama pandemic_stress five-quantile (need 13/13)...
+  lag_llama stress preds: 13/13  06:02:22
+moirai stress: 13/13
+lag_llama stress: 13/13
+synced 26 prediction files to RQ1_outputs
+canonical RQ1/raw already has preds
+[history expand]
+history score all granite_patchtst_fm files=33
+history score all timesfm_3 files=33
+history score all chronos_2 files=33
+history score all moirai files=33
+history score all lag_llama files=33
+history score all ets files=957
+history score all sarima files=957
+history score all seasonal_naive files=957
+history score all svr files=957
+history score all lightgbm files=957
+history score all transformer files=957
+history score all GL03 files=33
+history score all LL01 files=33
+history score all NL01 files=33
+history score 365 granite_patchtst_fm files=33
+history score 365 timesfm_3 files=33
+history score 365 chronos_2 files=33
+history score 365 moirai files=33
+history score 365 lag_llama files=33
+history score 365 ets files=957
+history score 365 sarima files=957
+history score 365 seasonal_naive files=957
+history score 365 svr files=957
+history score 365 lightgbm files=957
+history score 365 transformer files=957
+history score 365 GL03 files=33
+history score 365 LL01 files=33
+history score 365 NL01 files=99
+history score 180 granite_patchtst_fm files=33
+history score 180 timesfm_3 files=33
+history score 180 chronos_2 files=33
+history score 180 moirai files=33
+history score 180 lag_llama files=33
+history score 180 ets files=957
+history score 180 sarima files=957
+history score 180 seasonal_naive files=957
+history score 180 svr files=957
+history score 180 lightgbm files=957
+history score 180 transformer files=957
+history score 180 GL03 files=33
+history score 180 LL01 files=33
+history score 180 NL01 files=99
+wrote history panel 37422 rows
+history panel expanded
+[m423]
+S5 GL03 180
+S5 GL03 365
+S5 GL03 all
+S5 LL01 180
+S5 LL01 365
+S5 LL01 all
+S5 NL01 180
+S5 NL01 365
+S5 NL01 all
+S5 chronos_2 180
+S5 chronos_2 365
+S5 chronos_2 all
+S5 ets 180
+S5 ets 365
+S5 ets all
+S5 granite_patchtst_fm 180
+S5 granite_patchtst_fm 365
+S5 granite_patchtst_fm all
+S5 lag_llama 180
+S5 lag_llama 365
+S5 lag_llama all
+S5 lightgbm 180
+S5 lightgbm 365
+S5 lightgbm all
+S5 moirai 180
+S5 moirai 365
+S5 moirai all
+S5 sarima 180
+S5 sarima 365
+S5 sarima all
+S5 seasonal_naive 180
+S5 seasonal_naive 365
+S5 seasonal_naive all
+S5 svr 180
+S5 svr 365
+S5 svr all
+S5 timesfm_3 180
+S5 timesfm_3 365
+S5 timesfm_3 all
+S5 transformer 180
+S5 transformer 365
+S5 transformer all
+Seasonal Naive MAE range across histories = 0 (expect ~0)
+wrote S5
+[m424 rebuild S6-S10]
+S6/S7 done
+S8 done
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:163: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  d["is_official_holiday"] = d["is_official_holiday"].fillna(False)
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:187: RuntimeWarning: divide by zero encountered in divide
+  severe = np.where(y > 0, err / y < -0.20, False)
+S9 done
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest granite_patchtst_fm
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest timesfm_3
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest chronos_2
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest moirai
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 outer_backtest lag_llama
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress granite_patchtst_fm
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress timesfm_3
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress chronos_2
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress moirai
+/root/DYQ/macau-tourism-forecasting-protocol/RQ2/m424_conditions.py:226: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  frame["is_official_holiday"] = frame["is_official_holiday"].fillna(False)
+S10 pandemic_stress lag_llama
+wrote S6-S10
+model            chronos_2  granite_patchtst_fm  lag_llama  moirai  timesfm_3
+split_name                                                                   
+outer_backtest           5                    5          5       5          5
+pandemic_stress          5                    5          5       5          5
+[m425]
+HK scored granite_patchtst_fm tasks=66
+HK scored timesfm_3 tasks=66
+HK scored chronos_2 tasks=66
+HK scored moirai tasks=66
+HK scored lag_llama tasks=66
+HK scored ets tasks=66
+HK scored sarima tasks=66
+HK scored seasonal_naive tasks=66
+HK scored svr tasks=66
+HK scored lightgbm tasks=66
+HK scored transformer tasks=66
+HK vs Macau Spearman rho=0.873
+wrote S11-S13
+[plots]
+fig5
+fig6
+fig7
+fig8
+fig9
+fig10
+[summary]
+wrote /root/DYQ/macau-tourism-forecasting-protocol/RQ2_outputs/4.2_RQ2_实验数据核对汇总稿.md
+table_S10_prediction_interval_80_coverage_and_wis.csv: OK
+table_S11_hongkong_validation_and_macau_control.csv: OK
+table_S12_exogenous_information_ablation_4metrics.csv: null_cells=4 {'seconds_per_vector': 1, 'MAE_extended': 3}
+table_S13_rq2_boundary_summary_matrix.csv: OK
+table_S1_regime_comparison.csv: OK
+table_S2_stress_stage_market_decomposition.csv: OK
+table_S3_metric_concordance_matrix.csv: OK
+table_S4_market_decomposition_and_spectrum.csv: structural multi-section binder
+table_S5_history_length_and_denominator_control.csv: OK
+table_S6_market_size_groups_4metrics.csv: OK
+table_S7_top10_markets_bootstrap_winner_stability.csv: OK
+table_S8_horizon_weekly_blocks_and_same_weekday.csv: metric_nulls=0; SameWeekday R_* nulls expected=56
+table_S9_high_demand_holiday_underprediction_risk.csv: OK
+[fill done] 2026-11-17T06:06:57+00:00

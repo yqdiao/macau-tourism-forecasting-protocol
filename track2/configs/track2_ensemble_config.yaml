@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "selected_method": "T2-E4",
+  "epsilon": 1e-06,
+  "per_horizon": false,
+  "weights": {
+    "granite_patchtst_fm": 1.0,
+    "chronos_2": 0.0,
+    "timesfm_3": 0.0
+  },
+  "horizon_weights": null,
+  "residual": {
+    "enabled": false,
+    "lambda": 0.0,
+    "corrector": null,
+    "context_days": null,
+    "max_frac": 0.25,
+    "reason": "no_stable_improvement"
+  },
+  "probability": {
+    "method": "weighted_quantiles_only",
+    "quantiles": [
+      0.1,
+      0.5,
+      0.9
+    ],
+    "conformal_abs_residual_q80": null
+  },
+  "point_source": "member_prediction_column",
+  "min_prior_folds": 3,
+  "selection_metric": "task_MASE7_market_fold_macro",
+  "outer_used_for_selection": false
+}

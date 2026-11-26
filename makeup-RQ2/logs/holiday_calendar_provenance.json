@@ -1,0 +1,22 @@
+{
+  "calendar_path": "/root/DYQ/macau-tourism-forecasting-protocol/shared/data/holiday_calendar.parquet",
+  "calendar_sha256": "9060f62e542a884cf6f56d2feda8e527bb0b37eaebdedfbb5441a4357cf6cadc",
+  "roles": [
+    "mainland",
+    "macau"
+  ],
+  "code_sources": [
+    "RQ2/m424_conditions.py:holiday_flags",
+    "RQ2/m425_boundary.py:9_exante_official_holiday"
+  ],
+  "reopen_holiday_days": 1053,
+  "stress_holiday_days": 405,
+  "git_commit_calendar": "17583a4",
+  "git_message": "登记轻量模型方案并冻结法定假日日历…",
+  "roles_definition": "mainland OR macau statutory holidays (ex-ante official)",
+  "code_paths": [
+    "RQ2/m424_conditions.py::holiday_flags",
+    "RQ2/m425_boundary.py::9_exante_official_holiday",
+    "makeup-RQ2/run_makeup_rq2.py::build_membership"
+  ]
+}
