@@ -1,3 +1,4 @@
+# Exclude credentials, local environments, cached models, and generated experiment artifacts from version control.
 __pycache__/
 *.py[cod]
 .venv/

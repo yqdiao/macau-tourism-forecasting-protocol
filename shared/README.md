@@ -14,3 +14,7 @@ Predictor environments must not mount `data/targets.parquet`. GPU predictors sho
 The current paper uses 891 Macau outer-evaluation tasks, while the historical implementation also supports two separate Hong Kong series and additional history settings. Dataset availability and scored-window coverage are different. See the [current release boundaries](../docs/reproducibility_status.md).
 
 This update retains existing data bytes. It does not change data licensing or authorize new redistribution.
+
+## Navigation
+
+Return to the [repository guide](../README.md) for the RQ1–RQ3 workflow. The [current supplementary workbook index](../paper/supplementary/README.md) provides the manuscript's released long tables; these derived results are distinct from the shared input and target artifacts described above.

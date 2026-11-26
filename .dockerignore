@@ -1,3 +1,4 @@
+# Keep local data, model weights, generated results, and development files out of container build contexts.
 __pycache__/
 *.py[cod]
 .git/
