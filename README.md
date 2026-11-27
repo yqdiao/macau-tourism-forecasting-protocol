@@ -83,6 +83,8 @@ Predictors may read only history available by the origin (`shared/data/task_inpu
 
 `extensions/lightweight_legacy/` archives an earlier packaging of lightweight code; prefer `track1/code/light_models.py` and the RQ builders for new work.
 
+Set B fixed-combination preselection audit (NL01/GL03 recovery, C1–C9 / B-3FM on Set B, mapped Set O scores): [`outputs/set_b_preselection_audit/`](outputs/set_b_preselection_audit/).
+
 ## CPU smoke (does not rerun the paper)
 
 ```bash

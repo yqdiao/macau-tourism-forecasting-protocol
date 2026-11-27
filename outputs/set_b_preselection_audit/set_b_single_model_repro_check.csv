@@ -1,0 +1,4 @@
+model,scoring,recomputed_MASE,archived_MASE,delta_MASE,recomputed_MAE,note
+NL01,seed42_only,1.071484951399385,1.071484951399385,0.0,655.3852736995633,Exact match to light_models_b task_metrics seed=42 market-then-equal MASE
+NL01,seed_average_task_metrics,1.0726598964449852,1.0726598964449852,0.0,650.3444516504488,"Exact match to candidate_summary (mean over 972 seed-task rows, then market-then-equal)"
+GL03,seed42,1.1154482482415304,1.1154482482415304,0.0,765.5827982036826,Exact match to archived Set B score

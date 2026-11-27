@@ -1,0 +1,20 @@
+{
+  "source": "recovered_from_server",
+  "nl01_path": "/root/DYQ/macau-tourism-forecasting-protocol/track1/results/light_models/recovery_tuning/global_linear/NL01",
+  "gl03_path": "/root/DYQ/macau-tourism-forecasting-protocol/track1/results/light_models/recovery_tuning/global_lightgbm/GL03",
+  "nl01_rows": 9072,
+  "gl03_rows": 9072,
+  "nl01_tasks": 324,
+  "gl03_tasks": 324,
+  "nl01_target_min": "2023-01-08",
+  "nl01_target_max": "2023-12-09",
+  "gl03_target_min": "2023-01-08",
+  "gl03_target_max": "2023-12-09",
+  "excluded": [
+    "LGB03/local LightGBM (not GL03)",
+    "R3 variants",
+    "Set O / Set A light_models splits",
+    "GL-noCal / GL-local ablations"
+  ],
+  "phase2_rerun": false
+}

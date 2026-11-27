@@ -1,0 +1,30 @@
+{
+  "best_C_by_MASE": {
+    "scheme_id": "C4",
+    "members": "granite_patchtst_fm,chronos_2,GL03",
+    "MASE": 0.950516237710012,
+    "MAE": 563.233481209494,
+    "RMSE": 742.3955040355942
+  },
+  "best_C_by_MAE": {
+    "scheme_id": "C4",
+    "members": "granite_patchtst_fm,chronos_2,GL03",
+    "MASE": 0.950516237710012,
+    "MAE": 563.233481209494,
+    "RMSE": 742.3955040355942
+  },
+  "best_all_fixed_by_MASE": {
+    "scheme_id": "B_3FM",
+    "members": "granite_patchtst_fm,timesfm_3,chronos_2",
+    "MASE": 0.9428929112785126,
+    "MAE": 554.7711918566383,
+    "RMSE": 733.6507608103856
+  },
+  "best_all_fixed_by_MAE": {
+    "scheme_id": "B_3FM",
+    "members": "granite_patchtst_fm,timesfm_3,chronos_2",
+    "MASE": 0.9428929112785126,
+    "MAE": 554.7711918566383,
+    "RMSE": 733.6507608103856
+  }
+}
